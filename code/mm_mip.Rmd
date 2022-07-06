@@ -1,0 +1,53 @@
+---
+title: "Museums in the Pandemic (Andrea Ballatore) 2021"
+output:
+  html_document:
+    self_contained: no
+  pdf_document: default
+---
+
+# Setup
+
+```{r setup}
+
+
+```
+
+
+# Museums in the pandemic
+
+## Museum URL Sample
+
+Accuracy of automated mapping
+
+https://stats.stackexchange.com/questions/510984/calculating-sample-size-for-binary-variable
+
+https://en.wikipedia.org/wiki/Margin_of_error#Concept
+
+In probability and statistics, 1.96 is the approximate value of the 97.5 percentile point of the standard normal distribution. 95% of the area under a normal curve lies within roughly 1.96 standard deviations of the mean, and due to the central limit theorem, this number is therefore used in the construction of approximate 95% confidence intervals.
+
+The formulae above for the margin of error assume that there is an infinitely large population and thus do not depend on the size of population N, but only on the sample size n. According to sampling theory, this assumption is reasonable when the sampling fraction is small. The margin of error for a particular sampling method is essentially the same regardless of whether the population of interest is the size of a school, city, state, or country, as long as the sampling fraction is small.
+
+In cases where the sampling fraction is larger (in practice, greater than 5%), analysts might adjust the margin of error using a finite population correction to account for the added precision gained by sampling a much larger percentage of the population.
+
+
+```{r}
+# sample size
+for (sample_n in c(10,20,30,40,50,60,70,80,90,100,120,150,160,200,300,500)){
+  # proportion of correct results
+  p = .9
+  z = 1.96 # 95%
+  
+  se = sqrt((p*(1-p))/sample_n)
+  margin_of_error = round(round(z * se,3) * 100,1)
+  print(paste0("sample size=",sample_n," p=",p," => margin_of_error %=",margin_of_error))
+}
+print("")
+# desired MOE
+for (margin_of_error in c(1,2,3,4,5,6,7,8,9,10)){
+  target_n_sample = z^2 * (((p*(1-p))/((margin_of_error/100)^2)))
+  print(paste0("margin_of_error %=",margin_of_error," => target_n_sample=",round(target_n_sample)))
+    
+}
+```
+

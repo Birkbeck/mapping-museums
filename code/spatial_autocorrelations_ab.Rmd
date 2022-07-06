@@ -1,0 +1,378 @@
+---
+title: "Spatial autocorrelation analysis"
+author: "Stefano De Sabbata"
+date: "26 March 2019"
+output: html_document
+---
+
+
+## Setup
+
+```{r setup, echo=FALSE, message=FALSE}
+source('setup.R')
+```
+
+## Load data
+
+```{r, echo=F, message=F}
+la_sdf_lsa = readRDS('../datasets/los_angeles/los_angeles_all_vgi_census_tracts_sdf.rds')
+
+la_sdf_lsa = rmapshaper::ms_simplify(la_sdf_lsa, keep=.01, keep_shapes=T )
+
+
+spa_sdf = spTransform( 
+  readRDS('../datasets/input_data/US/los_angeles_county-service_planning_areas_2012_sdf.rds'), LA_CRS )
+spa_sdf = rmapshaper::ms_simplify(spa_sdf, keep=.03, keep_shapes=T )
+study_area_sdf = rgeos::gUnaryUnion( la_sdf_lsa )
+spa_clipped_sdf = raster::intersect( spa_sdf, study_area_sdf )
+
+```
+
+# Spatial Autocorrelation analysis
+
+
+## Popolation
+
+
+```{r, echo=F, message=F}
+lsa_var_name <- "ppl_sqkm"
+lsa_sppoly_obj <- la_sdf_lsa[!is.na(la_sdf_lsa$ppl_sqkm), ]
+lsa_sppoly_obj <- add_localGiStar(lsa_sppoly_obj, lsa_var_name, "knn", 12)
+  
+# Map
+# P values
+lsa_map <- tm_shape(lsa_sppoly_obj) + 
+  tm_fill (paste0(lsa_var_name, "_locg_pval"), breaks = c(0, 0.001, 0.01, 0.05, 0.1, 1)) + 
+  tm_layout(aes.palette = list(seq = "-YlOrRd")) + 
+  tm_layout(paste0("Local Gi* p value, ", lsa_var_name)) +
+  tm_shape(spa_clipped_sdf) + tm_borders(col="gray20", lwd=.6)
+lsa_map
+#tmap_save(lsa_map, paste0("../papers/2019-TGIS-LA_vgi_demography/figures/la_locspautoc_p-",lsa_var_name,"-v1.pdf"), width = 5, height = 5)
+# Hot and cold spot categories
+lsa_map <- tm_shape(lsa_sppoly_obj) + 
+  tm_fill (paste0(lsa_var_name, "_locg_fill")) + 
+  tm_add_legend(
+    labels = c("Hotspot 99% conf intrv", "Hotspot 95% conf intrv", "Hotspot 90% conf intrv", "Not significant", "Coldspot 90% conf intrv", "Coldspot 95% conf intrv", "Coldspot 99% conf intrv"), 
+    col = c("#d73027", "#fc8d59", "#fee090", "#ffffbf", "#e0f3f8", "#91bfdb", "#4575b4")) + 
+  tm_layout(paste0("Local Gi* classification, ", lsa_var_name)) +
+  tm_shape(spa_clipped_sdf) + tm_borders(col="gray20", lwd=.6)
+lsa_map
+#tmap_save(lsa_map, paste0("../papers/2019-TGIS-LA_vgi_demography/figures/la_locspautoc_hotcoldspots-",lsa_var_name,"-v1.pdf"), width = 5, height = 5)
+# Save to json
+lsa_sppoly_obj <- lsa_sppoly_obj[,c("OBJECTID",paste0(lsa_var_name, "_locg_nclas"))]
+colnames(lsa_sppoly_obj@data) <- c("OBJECTID","locg_nclas")
+writeOGR(lsa_sppoly_obj, paste0("../papers/2019-TGIS-LA_vgi_demography/spatialautocorrelation/la_locspautoc_hotcoldspots-",lsa_var_name,"-v1.shp"), layer=paste0(lsa_var_name, "_locg"), driver="ESRI Shapefile")
+```
+
+
+## POI
+
+```{r, echo=F, message=F}
+lsa_var_name <- "poi_sqkm"
+lsa_sppoly_obj <- la_sdf_lsa[!is.na(la_sdf_lsa$poi_sqkm), ]
+lsa_sppoly_obj <- add_localGiStar(lsa_sppoly_obj, lsa_var_name, "knn", 12)
+  
+# Map
+# P values
+lsa_map <- tm_shape(lsa_sppoly_obj) + 
+  tm_fill (paste0(lsa_var_name, "_locg_pval"), breaks = c(0, 0.001, 0.01, 0.05, 0.1, 1)) + 
+  tm_layout(aes.palette = list(seq = "-YlOrRd")) + 
+  tm_layout(paste0("Local Gi* p value, ", lsa_var_name)) +
+  tm_shape(spa_clipped_sdf) + tm_borders(col="gray20", lwd=.6)
+lsa_map
+#tmap_save(lsa_map, paste0("../papers/2019-TGIS-LA_vgi_demography/figures/la_locspautoc_p-",lsa_var_name,"-v1.pdf"), width = 5, height = 5)
+# Hot and cold spot categories
+lsa_map <- tm_shape(lsa_sppoly_obj) + 
+  tm_fill (paste0(lsa_var_name, "_locg_fill")) + 
+  tm_add_legend(
+    labels = c("Hotspot 99% conf intrv", "Hotspot 95% conf intrv", "Hotspot 90% conf intrv", "Not significant", "Coldspot 90% conf intrv", "Coldspot 95% conf intrv", "Coldspot 99% conf intrv"), 
+    col = c("#d73027", "#fc8d59", "#fee090", "#ffffbf", "#e0f3f8", "#91bfdb", "#4575b4")) + 
+  tm_layout(paste0("Local Gi* classification, ", lsa_var_name)) +
+  tm_shape(spa_clipped_sdf) + tm_borders(col="gray20", lwd=.6)
+lsa_map
+#tmap_save(lsa_map, paste0("../papers/2019-TGIS-LA_vgi_demography/figures/la_locspautoc_hotcoldspots-",lsa_var_name,"-v1.pdf"), width = 5, height = 5)
+lsa_sppoly_obj <- lsa_sppoly_obj[,c("OBJECTID",paste0(lsa_var_name, "_locg_nclas"))]
+colnames(lsa_sppoly_obj@data) <- c("OBJECTID","locg_nclas")
+writeOGR(lsa_sppoly_obj, paste0("../papers/2019-TGIS-LA_vgi_demography/spatialautocorrelation/la_locspautoc_hotcoldspots-",lsa_var_name,"-v1.shp"), layer=paste0(lsa_var_name, "_locg"), driver="ESRI Shapefile")
+```
+
+
+```{r, echo=F, message=F}
+lsa_var_name <- "poi_1kppl"
+lsa_sppoly_obj <- la_sdf_lsa[!is.na(la_sdf_lsa$poi_1kppl), ]
+lsa_sppoly_obj <- add_localGiStar(lsa_sppoly_obj, lsa_var_name, "knn", 12)
+  
+# Map
+# P values
+lsa_map <- tm_shape(lsa_sppoly_obj) + 
+  tm_fill (paste0(lsa_var_name, "_locg_pval"), breaks = c(0, 0.001, 0.01, 0.05, 0.1, 1)) + 
+  tm_layout(aes.palette = list(seq = "-YlOrRd")) + 
+  tm_layout(paste0("Local Gi* p value, ", lsa_var_name)) +
+  tm_shape(spa_clipped_sdf) + tm_borders(col="gray20", lwd=.6)
+lsa_map
+#tmap_save(lsa_map, paste0("../papers/2019-TGIS-LA_vgi_demography/figures/la_locspautoc_p-",lsa_var_name,"-v1.pdf"), width = 5, height = 5)
+# Hot and cold spot categories
+lsa_map <- tm_shape(lsa_sppoly_obj) + 
+  tm_fill (paste0(lsa_var_name, "_locg_fill")) + 
+  tm_add_legend(
+    labels = c("Hotspot 99% conf intrv", "Hotspot 95% conf intrv", "Hotspot 90% conf intrv", "Not significant", "Coldspot 90% conf intrv", "Coldspot 95% conf intrv", "Coldspot 99% conf intrv"), 
+    col = c("#d73027", "#fc8d59", "#fee090", "#ffffbf", "#e0f3f8", "#91bfdb", "#4575b4")) + 
+  tm_layout(paste0("Local Gi* classification, ", lsa_var_name)) +
+  tm_shape(spa_clipped_sdf) + tm_borders(col="gray20", lwd=.6)
+lsa_map
+#tmap_save(lsa_map, paste0("../papers/2019-TGIS-LA_vgi_demography/figures/la_locspautoc_hotcoldspots-",lsa_var_name,"-v1.pdf"), width = 5, height = 5)
+lsa_sppoly_obj <- lsa_sppoly_obj[,c("OBJECTID",paste0(lsa_var_name, "_locg_nclas"))]
+colnames(lsa_sppoly_obj@data) <- c("OBJECTID","locg_nclas")
+writeOGR(lsa_sppoly_obj, paste0("../papers/2019-TGIS-LA_vgi_demography/spatialautocorrelation/la_locspautoc_hotcoldspots-",lsa_var_name,"-v1.shp"), layer=paste0(lsa_var_name, "_locg"), driver="ESRI Shapefile")
+```
+
+## Twitter
+
+
+```{r, echo=F, message=F}
+lsa_var_name <- "tw_sqkm"
+lsa_sppoly_obj <- la_sdf_lsa[!is.na(la_sdf_lsa$tw_sqkm), ]
+lsa_sppoly_obj <- add_localGiStar(lsa_sppoly_obj, lsa_var_name, "knn", 12)
+  
+# Map
+# P values
+lsa_map <- tm_shape(lsa_sppoly_obj) + 
+  tm_fill (paste0(lsa_var_name, "_locg_pval"), breaks = c(0, 0.001, 0.01, 0.05, 0.1, 1)) + 
+  tm_layout(aes.palette = list(seq = "-YlOrRd")) + 
+  tm_layout(paste0("Local Gi* p value, ", lsa_var_name)) +
+  tm_shape(spa_clipped_sdf) + tm_borders(col="gray20", lwd=.6)
+lsa_map
+#tmap_save(lsa_map, paste0("../papers/2019-TGIS-LA_vgi_demography/figures/la_locspautoc_p-",lsa_var_name,"-v1.pdf"), width = 5, height = 5)
+# Hot and cold spot categories
+lsa_map <- tm_shape(lsa_sppoly_obj) + 
+  tm_fill (paste0(lsa_var_name, "_locg_fill")) + 
+  tm_add_legend(
+    labels = c("Hotspot 99% conf intrv", "Hotspot 95% conf intrv", "Hotspot 90% conf intrv", "Not significant", "Coldspot 90% conf intrv", "Coldspot 95% conf intrv", "Coldspot 99% conf intrv"), 
+    col = c("#d73027", "#fc8d59", "#fee090", "#ffffbf", "#e0f3f8", "#91bfdb", "#4575b4")) + 
+  tm_layout(paste0("Local Gi* classification, ", lsa_var_name)) +
+  tm_shape(spa_clipped_sdf) + tm_borders(col="gray20", lwd=.6)
+lsa_map
+#tmap_save(lsa_map, paste0("../papers/2019-TGIS-LA_vgi_demography/figures/la_locspautoc_hotcoldspots-",lsa_var_name,"-v1.pdf"), width = 5, height = 5)
+lsa_sppoly_obj <- lsa_sppoly_obj[,c("OBJECTID",paste0(lsa_var_name, "_locg_nclas"))]
+colnames(lsa_sppoly_obj@data) <- c("OBJECTID","locg_nclas")
+writeOGR(lsa_sppoly_obj, paste0("../papers/2019-TGIS-LA_vgi_demography/spatialautocorrelation/la_locspautoc_hotcoldspots-",lsa_var_name,"-v1.shp"), layer=paste0(lsa_var_name, "_locg"), driver="ESRI Shapefile")
+```
+
+
+```{r, echo=F, message=F}
+lsa_var_name <- "tw_1kppl"
+lsa_sppoly_obj <- la_sdf_lsa[!is.na(la_sdf_lsa$tw_1kppl), ]
+lsa_sppoly_obj <- add_localGiStar(lsa_sppoly_obj, lsa_var_name, "knn", 12)
+  
+# Map
+# P values
+lsa_map <- tm_shape(lsa_sppoly_obj) + 
+  tm_fill (paste0(lsa_var_name, "_locg_pval"), breaks = c(0, 0.001, 0.01, 0.05, 0.1, 1)) + 
+  tm_layout(aes.palette = list(seq = "-YlOrRd")) + 
+  tm_layout(paste0("Local Gi* p value, ", lsa_var_name)) +
+  tm_shape(spa_clipped_sdf) + tm_borders(col="gray20", lwd=.6)
+lsa_map
+#tmap_save(lsa_map, paste0("../papers/2019-TGIS-LA_vgi_demography/figures/la_locspautoc_p-",lsa_var_name,"-v1.pdf"), width = 5, height = 5)
+# Hot and cold spot categories
+lsa_map <- tm_shape(lsa_sppoly_obj) + 
+  tm_fill (paste0(lsa_var_name, "_locg_fill")) + 
+  tm_add_legend(
+    labels = c("Hotspot 99% conf intrv", "Hotspot 95% conf intrv", "Hotspot 90% conf intrv", "Not significant", "Coldspot 90% conf intrv", "Coldspot 95% conf intrv", "Coldspot 99% conf intrv"), 
+    col = c("#d73027", "#fc8d59", "#fee090", "#ffffbf", "#e0f3f8", "#91bfdb", "#4575b4")) + 
+  tm_layout(paste0("Local Gi* classification, ", lsa_var_name)) +
+  tm_shape(spa_clipped_sdf) + tm_borders(col="gray20", lwd=.6)
+lsa_map
+#tmap_save(lsa_map, paste0("../papers/2019-TGIS-LA_vgi_demography/figures/la_locspautoc_hotcoldspots-",lsa_var_name,"-v1.pdf"), width = 5, height = 5)
+lsa_sppoly_obj <- lsa_sppoly_obj[,c("OBJECTID",paste0(lsa_var_name, "_locg_nclas"))]
+colnames(lsa_sppoly_obj@data) <- c("OBJECTID","locg_nclas")
+writeOGR(lsa_sppoly_obj, paste0("../papers/2019-TGIS-LA_vgi_demography/spatialautocorrelation/la_locspautoc_hotcoldspots-",lsa_var_name,"-v1.shp"), layer=paste0(lsa_var_name, "_locg"), driver="ESRI Shapefile")
+```
+
+
+## Wikipedia
+
+
+```{r, echo=F, message=F}
+lsa_var_name <- "wpages_sqkm"
+lsa_sppoly_obj <- la_sdf_lsa[!is.na(la_sdf_lsa$wpages_sqkm), ]
+lsa_sppoly_obj <- add_localGiStar(lsa_sppoly_obj, lsa_var_name, "knn", 12)
+  
+# Map
+# P values
+lsa_map <- tm_shape(lsa_sppoly_obj) + 
+  tm_fill (paste0(lsa_var_name, "_locg_pval"), breaks = c(0, 0.001, 0.01, 0.05, 0.1, 1)) + 
+  tm_layout(aes.palette = list(seq = "-YlOrRd")) + 
+  tm_layout(paste0("Local Gi* p value, ", lsa_var_name)) +
+  tm_shape(spa_clipped_sdf) + tm_borders(col="gray20", lwd=.6)
+lsa_map
+#tmap_save(lsa_map, paste0("../papers/2019-TGIS-LA_vgi_demography/figures/la_locspautoc_p-",lsa_var_name,"-v1.pdf"), width = 5, height = 5)
+# Hot and cold spot categories
+lsa_map <- tm_shape(lsa_sppoly_obj) + 
+  tm_fill (paste0(lsa_var_name, "_locg_fill")) + 
+  tm_add_legend(
+    labels = c("Hotspot 99% conf intrv", "Hotspot 95% conf intrv", "Hotspot 90% conf intrv", "Not significant", "Coldspot 90% conf intrv", "Coldspot 95% conf intrv", "Coldspot 99% conf intrv"), 
+    col = c("#d73027", "#fc8d59", "#fee090", "#ffffbf", "#e0f3f8", "#91bfdb", "#4575b4")) + 
+  tm_layout(paste0("Local Gi* classification, ", lsa_var_name)) +
+  tm_shape(spa_clipped_sdf) + tm_borders(col="gray20", lwd=.6)
+lsa_map
+#tmap_save(lsa_map, paste0("../papers/2019-TGIS-LA_vgi_demography/figures/la_locspautoc_hotcoldspots-",lsa_var_name,"-v1.pdf"), width = 5, height = 5)
+lsa_sppoly_obj <- lsa_sppoly_obj[,c("OBJECTID",paste0(lsa_var_name, "_locg_nclas"))]
+colnames(lsa_sppoly_obj@data) <- c("OBJECTID","locg_nclas")
+writeOGR(lsa_sppoly_obj, paste0("../papers/2019-TGIS-LA_vgi_demography/spatialautocorrelation/la_locspautoc_hotcoldspots-",lsa_var_name,"-v1.shp"), layer=paste0(lsa_var_name, "_locg"), driver="ESRI Shapefile")
+```
+
+
+```{r, echo=F, message=F}
+lsa_var_name <- "wpages_1kppl"
+lsa_sppoly_obj <- la_sdf_lsa[!is.na(la_sdf_lsa$wpages_1kppl), ]
+lsa_sppoly_obj <- add_localGiStar(lsa_sppoly_obj, lsa_var_name, "knn", 12)
+  
+# Map
+# P values
+lsa_map <- tm_shape(lsa_sppoly_obj) + 
+  tm_fill (paste0(lsa_var_name, "_locg_pval"), breaks = c(0, 0.001, 0.01, 0.05, 0.1, 1)) + 
+  tm_layout(aes.palette = list(seq = "-YlOrRd")) + 
+  tm_layout(paste0("Local Gi* p value, ", lsa_var_name)) +
+  tm_shape(spa_clipped_sdf) + tm_borders(col="gray20", lwd=.6)
+lsa_map
+#tmap_save(lsa_map, paste0("../papers/2019-TGIS-LA_vgi_demography/figures/la_locspautoc_p-",lsa_var_name,"-v1.pdf"), width = 5, height = 5)
+# Hot and cold spot categories
+lsa_map <- tm_shape(lsa_sppoly_obj) + 
+  tm_fill (paste0(lsa_var_name, "_locg_fill")) + 
+  tm_add_legend(
+    labels = c("Hotspot 99% conf intrv", "Hotspot 95% conf intrv", "Hotspot 90% conf intrv", "Not significant", "Coldspot 90% conf intrv", "Coldspot 95% conf intrv", "Coldspot 99% conf intrv"), 
+    col = c("#d73027", "#fc8d59", "#fee090", "#ffffbf", "#e0f3f8", "#91bfdb", "#4575b4")) + 
+  tm_layout(paste0("Local Gi* classification, ", lsa_var_name)) +
+  tm_shape(spa_clipped_sdf) + tm_borders(col="gray20", lwd=.6)
+lsa_map
+#tmap_save(lsa_map, paste0("../papers/2019-TGIS-LA_vgi_demography/figures/la_locspautoc_hotcoldspots-",lsa_var_name,"-v1.pdf"), width = 5, height = 5)
+lsa_sppoly_obj <- lsa_sppoly_obj[,c("OBJECTID",paste0(lsa_var_name, "_locg_nclas"))]
+colnames(lsa_sppoly_obj@data) <- c("OBJECTID","locg_nclas")
+writeOGR(lsa_sppoly_obj, paste0("../papers/2019-TGIS-LA_vgi_demography/spatialautocorrelation/la_locspautoc_hotcoldspots-",lsa_var_name,"-v1.shp"), layer=paste0(lsa_var_name, "_locg"), driver="ESRI Shapefile")
+```
+
+
+## OpenStreetMap
+
+
+```{r, echo=F, message=F}
+lsa_var_name <- "osm_all_sqkm"
+lsa_sppoly_obj <- la_sdf_lsa[!is.na(la_sdf_lsa$osm_all_sqkm), ]
+lsa_sppoly_obj <- add_localGiStar(lsa_sppoly_obj, lsa_var_name, "knn", 12)
+  
+# Map
+# P values
+lsa_map <- tm_shape(lsa_sppoly_obj) + 
+  tm_fill (paste0(lsa_var_name, "_locg_pval"), breaks = c(0, 0.001, 0.01, 0.05, 0.1, 1)) + 
+  tm_layout(aes.palette = list(seq = "-YlOrRd")) + 
+  tm_layout(paste0("Local Gi* p value, ", lsa_var_name)) +
+  tm_shape(spa_clipped_sdf) + tm_borders(col="gray20", lwd=.6)
+lsa_map
+#tmap_save(lsa_map, paste0("../papers/2019-TGIS-LA_vgi_demography/figures/la_locspautoc_p-",lsa_var_name,"-v1.pdf"), width = 5, height = 5)
+# Hot and cold spot categories
+lsa_map <- tm_shape(lsa_sppoly_obj) + 
+  tm_fill (paste0(lsa_var_name, "_locg_fill")) + 
+  tm_add_legend(
+    labels = c("Hotspot 99% conf intrv", "Hotspot 95% conf intrv", "Hotspot 90% conf intrv", "Not significant", "Coldspot 90% conf intrv", "Coldspot 95% conf intrv", "Coldspot 99% conf intrv"), 
+    col = c("#d73027", "#fc8d59", "#fee090", "#ffffbf", "#e0f3f8", "#91bfdb", "#4575b4")) + 
+  tm_layout(paste0("Local Gi* classification, ", lsa_var_name)) +
+  tm_shape(spa_clipped_sdf) + tm_borders(col="gray20", lwd=.6)
+lsa_map
+#tmap_save(lsa_map, paste0("../papers/2019-TGIS-LA_vgi_demography/figures/la_locspautoc_hotcoldspots-",lsa_var_name,"-v1.pdf"), width = 5, height = 5)
+lsa_sppoly_obj <- lsa_sppoly_obj[,c("OBJECTID",paste0(lsa_var_name, "_locg_nclas"))]
+colnames(lsa_sppoly_obj@data) <- c("OBJECTID","locg_nclas")
+writeOGR(lsa_sppoly_obj, paste0("../papers/2019-TGIS-LA_vgi_demography/spatialautocorrelation/la_locspautoc_hotcoldspots-",lsa_var_name,"-v1.shp"), layer=paste0(lsa_var_name, "_locg"), driver="ESRI Shapefile")
+```
+
+
+```{r, echo=F, message=F}
+lsa_var_name <- "osm_all_1kppl"
+lsa_sppoly_obj <- la_sdf_lsa[!is.na(la_sdf_lsa$osm_all_1kppl), ]
+lsa_sppoly_obj <- add_localGiStar(lsa_sppoly_obj, lsa_var_name, "knn", 12)
+  
+# Map
+# P values
+lsa_map <- tm_shape(lsa_sppoly_obj) + 
+  tm_fill (paste0(lsa_var_name, "_locg_pval"), breaks = c(0, 0.001, 0.01, 0.05, 0.1, 1)) + 
+  tm_layout(aes.palette = list(seq = "-YlOrRd")) + 
+  tm_layout(paste0("Local Gi* p value, ", lsa_var_name)) +
+  tm_shape(spa_clipped_sdf) + tm_borders(col="gray20", lwd=.6)
+lsa_map
+#tmap_save(lsa_map, paste0("../papers/2019-TGIS-LA_vgi_demography/figures/la_locspautoc_p-",lsa_var_name,"-v1.pdf"), width = 5, height = 5)
+# Hot and cold spot categories
+lsa_map <- tm_shape(lsa_sppoly_obj) + 
+  tm_fill (paste0(lsa_var_name, "_locg_fill")) + 
+  tm_add_legend(
+    labels = c("Hotspot 99% conf intrv", "Hotspot 95% conf intrv", "Hotspot 90% conf intrv", "Not significant", "Coldspot 90% conf intrv", "Coldspot 95% conf intrv", "Coldspot 99% conf intrv"), 
+    col = c("#d73027", "#fc8d59", "#fee090", "#ffffbf", "#e0f3f8", "#91bfdb", "#4575b4")) + 
+  tm_layout(paste0("Local Gi* classification, ", lsa_var_name)) +
+  tm_shape(spa_clipped_sdf) + tm_borders(col="gray20", lwd=.6)
+lsa_map
+#tmap_save(lsa_map, paste0("../papers/2019-TGIS-LA_vgi_demography/figures/la_locspautoc_hotcoldspots-",lsa_var_name,"-v1.pdf"), width = 5, height = 5)
+lsa_sppoly_obj <- lsa_sppoly_obj[,c("OBJECTID",paste0(lsa_var_name, "_locg_nclas"))]
+colnames(lsa_sppoly_obj@data) <- c("OBJECTID","locg_nclas")
+writeOGR(lsa_sppoly_obj, paste0("../papers/2019-TGIS-LA_vgi_demography/spatialautocorrelation/la_locspautoc_hotcoldspots-",lsa_var_name,"-v1.shp"), layer=paste0(lsa_var_name, "_locg"), driver="ESRI Shapefile")
+```
+
+
+## Foursquare
+
+
+```{r, echo=F, message=F}
+lsa_var_name <- "fsq_sqkm"
+lsa_sppoly_obj <- la_sdf_lsa[!is.na(la_sdf_lsa$fsq_sqkm), ]
+lsa_sppoly_obj <- add_localGiStar(lsa_sppoly_obj, lsa_var_name, "knn", 12)
+  
+# Map
+# P values
+lsa_map <- tm_shape(lsa_sppoly_obj) + 
+  tm_fill (paste0(lsa_var_name, "_locg_pval"), breaks = c(0, 0.001, 0.01, 0.05, 0.1, 1)) + 
+  tm_layout(aes.palette = list(seq = "-YlOrRd")) + 
+  tm_layout(paste0("Local Gi* p value, ", lsa_var_name)) +
+  tm_shape(spa_clipped_sdf) + tm_borders(col="gray20", lwd=.6)
+lsa_map
+#tmap_save(lsa_map, paste0("../papers/2019-TGIS-LA_vgi_demography/figures/la_locspautoc_p-",lsa_var_name,"-v1.pdf"), width = 5, height = 5)
+# Hot and cold spot categories
+lsa_map <- tm_shape(lsa_sppoly_obj) + 
+  tm_fill (paste0(lsa_var_name, "_locg_fill")) + 
+  tm_add_legend(
+    labels = c("Hotspot 99% conf intrv", "Hotspot 95% conf intrv", "Hotspot 90% conf intrv", "Not significant", "Coldspot 90% conf intrv", "Coldspot 95% conf intrv", "Coldspot 99% conf intrv"), 
+    col = c("#d73027", "#fc8d59", "#fee090", "#ffffbf", "#e0f3f8", "#91bfdb", "#4575b4")) + 
+  tm_layout(paste0("Local Gi* classification, ", lsa_var_name)) +
+  tm_shape(spa_clipped_sdf) + tm_borders(col="gray20", lwd=.6)
+lsa_map
+#tmap_save(lsa_map, paste0("../papers/2019-TGIS-LA_vgi_demography/figures/la_locspautoc_hotcoldspots-",lsa_var_name,"-v1.pdf"), width = 5, height = 5)
+lsa_sppoly_obj <- lsa_sppoly_obj[,c("OBJECTID",paste0(lsa_var_name, "_locg_nclas"))]
+colnames(lsa_sppoly_obj@data) <- c("OBJECTID","locg_nclas")
+writeOGR(lsa_sppoly_obj, paste0("../papers/2019-TGIS-LA_vgi_demography/spatialautocorrelation/la_locspautoc_hotcoldspots-",lsa_var_name,"-v1.shp"), layer=paste0(lsa_var_name, "_locg"), driver="ESRI Shapefile")
+```
+
+
+```{r, echo=F, message=F}
+lsa_var_name <- "fsq_1kppl"
+lsa_sppoly_obj <- la_sdf_lsa[!is.na(la_sdf_lsa$fsq_1kppl), ]
+lsa_sppoly_obj <- add_localGiStar(lsa_sppoly_obj, lsa_var_name, "knn", 12)
+  
+# Map
+# P values
+lsa_map <- tm_shape(lsa_sppoly_obj) + 
+  tm_fill (paste0(lsa_var_name, "_locg_pval"), breaks = c(0, 0.001, 0.01, 0.05, 0.1, 1)) + 
+  tm_layout(aes.palette = list(seq = "-YlOrRd")) + 
+  tm_layout(paste0("Local Gi* p value, ", lsa_var_name)) +
+  tm_shape(spa_clipped_sdf) + tm_borders(col="gray20", lwd=.6)
+lsa_map
+#tmap_save(lsa_map, paste0("../papers/2019-TGIS-LA_vgi_demography/figures/la_locspautoc_p-",lsa_var_name,"-v1.pdf"), width = 5, height = 5)
+# Hot and cold spot categories
+lsa_map <- tm_shape(lsa_sppoly_obj) + 
+  tm_fill (paste0(lsa_var_name, "_locg_fill")) + 
+  tm_add_legend(
+    labels = c("Hotspot 99% conf intrv", "Hotspot 95% conf intrv", "Hotspot 90% conf intrv", "Not significant", "Coldspot 90% conf intrv", "Coldspot 95% conf intrv", "Coldspot 99% conf intrv"), 
+    col = c("#d73027", "#fc8d59", "#fee090", "#ffffbf", "#e0f3f8", "#91bfdb", "#4575b4")) + 
+  tm_layout(paste0("Local Gi* classification, ", lsa_var_name)) +
+  tm_shape(spa_clipped_sdf) + tm_borders(col="gray20", lwd=.6)
+lsa_map
+#tmap_save(lsa_map, paste0("../papers/2019-TGIS-LA_vgi_demography/figures/la_locspautoc_hotcoldspots-",lsa_var_name,"-v1.pdf"), width = 5, height = 5)
+lsa_sppoly_obj <- lsa_sppoly_obj[,c("OBJECTID",paste0(lsa_var_name, "_locg_nclas"))]
+colnames(lsa_sppoly_obj@data) <- c("OBJECTID","locg_nclas")
+writeOGR(lsa_sppoly_obj, paste0("../papers/2019-TGIS-LA_vgi_demography/spatialautocorrelation/la_locspautoc_hotcoldspots-",lsa_var_name,"-v1.shp"), layer=paste0(lsa_var_name, "_locg"), driver="ESRI Shapefile")
+```
