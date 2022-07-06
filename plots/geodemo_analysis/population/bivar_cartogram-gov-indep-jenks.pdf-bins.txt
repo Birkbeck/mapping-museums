@@ -1,0 +1,10 @@
+[1] "VAR X"
+style: jenks
+  one of 78 possible partitions of this variable into 3 classes
+ [0,2]  (2,6] (6,16] 
+   270     96     16 
+[1] "VAR Y"
+style: jenks
+  one of 435 possible partitions of this variable into 3 classes
+  [0,7]  (7,26] (26,66] 
+    282      94       6 

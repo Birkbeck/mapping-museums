@@ -1,0 +1,392 @@
+GSS	NAME	region_country	supergroup_code	supergroup_name	group_code	group_name	subgroup_code	subgroup_name	supergroup_name_long	group_name_long	subgroup_name_long
+E06000001	Hartlepool	North East	6r	Services and Industrial Legacy	6ar	Services, Manufacturing and Mining Legacy	6a2r	Mining Legacy	6r-Services and Industrial Legacy	6ar-Services, Manufacturing and Mining Legacy	6a2r-Mining Legacy
+E06000002	Middlesbrough	North East	8r	Urban Settlements	8ar	Manufacturing Traits	8a1r	Industrial and Multi-ethnic	8r-Urban Settlements	8ar-Manufacturing Traits	8a1r-Industrial and Multi-ethnic
+E06000003	Redcar and Cleveland	North East	6r	Services and Industrial Legacy	6ar	Services, Manufacturing and Mining Legacy	6a2r	Mining Legacy	6r-Services and Industrial Legacy	6ar-Services, Manufacturing and Mining Legacy	6a2r-Mining Legacy
+E06000004	Stockton-on-Tees	North East	6r	Services and Industrial Legacy	6ar	Services, Manufacturing and Mining Legacy	6a1r	Manufacturing Legacy	6r-Services and Industrial Legacy	6ar-Services, Manufacturing and Mining Legacy	6a1r-Manufacturing Legacy
+E06000005	Darlington	North East	6r	Services and Industrial Legacy	6ar	Services, Manufacturing and Mining Legacy	6a3r	Service Economy	6r-Services and Industrial Legacy	6ar-Services, Manufacturing and Mining Legacy	6a3r-Service Economy
+E06000006	Halton	North West	6r	Services and Industrial Legacy	6ar	Services, Manufacturing and Mining Legacy	6a1r	Manufacturing Legacy	6r-Services and Industrial Legacy	6ar-Services, Manufacturing and Mining Legacy	6a1r-Manufacturing Legacy
+E06000007	Warrington	North West	7r	Town and Country Living	7cr	Town Living	7c2r	Prosperous Towns	7r-Town and Country Living	7cr-Town Living	7c2r-Prosperous Towns
+E06000008	Blackburn with Darwen	North West	8r	Urban Settlements	8ar	Manufacturing Traits	8a1r	Industrial and Multi-ethnic	8r-Urban Settlements	8ar-Manufacturing Traits	8a1r-Industrial and Multi-ethnic
+E06000009	Blackpool	North West	6r	Services and Industrial Legacy	6ar	Services, Manufacturing and Mining Legacy	6a3r	Service Economy	6r-Services and Industrial Legacy	6ar-Services, Manufacturing and Mining Legacy	6a3r-Service Economy
+E06000030	Swindon	South West	8r	Urban Settlements	8br	Suburban Traits	8b2r	Expanding Areas	8r-Urban Settlements	8br-Suburban Traits	8b2r-Expanding Areas
+E06000031	Peterborough	East	8r	Urban Settlements	8br	Suburban Traits	8b2r	Expanding Areas	8r-Urban Settlements	8br-Suburban Traits	8b2r-Expanding Areas
+E07000005	Chiltern	South East	1r	Affluent England	1br	Thriving Rural	1b1r	Affluent rural	1r-Affluent England	1br-Thriving Rural	1b1r-Affluent rural
+E07000006	South Bucks	South East	1r	Affluent England	1ar	Rural-Urban Fringe	1a1r	Rural-Urban Fringe	1r-Affluent England	1ar-Rural-Urban Fringe	1a1r-Rural-Urban Fringe
+E07000007	Wycombe	South East	1r	Affluent England	1ar	Rural-Urban Fringe	1a1r	Rural-Urban Fringe	1r-Affluent England	1ar-Rural-Urban Fringe	1a1r-Rural-Urban Fringe
+E09000001	City of London	London	5r	London Cosmopolitan	5ar	London Cosmopolitan	5a1r	London Cosmopolitan	5r-London Cosmopolitan	5ar-London Cosmopolitan	5a1r-London Cosmopolitan
+E09000002	Barking and Dagenham	London	4r	Ethnically Diverse Metropolitan Living	4ar	Ethnically Diverse Metropolitan  Living	4a1r	Ethnically Diverse Metropolitan  Living	4r-Ethnically Diverse Metropolitan Living	4ar-Ethnically Diverse Metropolitan  Living	4a1r-Ethnically Diverse Metropolitan  Living
+E09000003	Barnet	London	4r	Ethnically Diverse Metropolitan Living	4ar	Ethnically Diverse Metropolitan  Living	4a1r	Ethnically Diverse Metropolitan  Living	4r-Ethnically Diverse Metropolitan Living	4ar-Ethnically Diverse Metropolitan  Living	4a1r-Ethnically Diverse Metropolitan  Living
+E09000004	Bexley	London	8r	Urban Settlements	8br	Suburban Traits	8b1r	City Periphery	8r-Urban Settlements	8br-Suburban Traits	8b1r-City Periphery
+E06000010	Kingston upon Hull, City of	Yorkshire and The Humber	8r	Urban Settlements	8ar	Manufacturing Traits	8a1r	Industrial and Multi-ethnic	8r-Urban Settlements	8ar-Manufacturing Traits	8a1r-Industrial and Multi-ethnic
+E06000011	East Riding of Yorkshire	Yorkshire and The Humber	3r	Countryside Living	3ar	English and Welsh Countryside	3a2r	Sparse English and Welsh Countryside	3r-Countryside Living	3ar-English and Welsh Countryside	3a2r-Sparse English and Welsh Countryside
+E06000012	North East Lincolnshire	Yorkshire and The Humber	6r	Services and Industrial Legacy	6ar	Services, Manufacturing and Mining Legacy	6a1r	Manufacturing Legacy	6r-Services and Industrial Legacy	6ar-Services, Manufacturing and Mining Legacy	6a1r-Manufacturing Legacy
+E06000013	North Lincolnshire	Yorkshire and The Humber	7r	Town and Country Living	7ar	Country Living	7a1r	Country Living	7r-Town and Country Living	7ar-Country Living	7a1r-Country Living
+E06000014	York	Yorkshire and The Humber	2r	Business, Education and Heritage Centres	2ar	Larger Towns and Cities	2a1r	Larger Towns and Cities	2r-Business, Education and Heritage Centres	2ar-Larger Towns and Cities	2a1r-Larger Towns and Cities
+E06000015	Derby	East Midlands	8r	Urban Settlements	8ar	Manufacturing Traits	8a1r	Industrial and Multi-ethnic	8r-Urban Settlements	8ar-Manufacturing Traits	8a1r-Industrial and Multi-ethnic
+E06000016	Leicester	East Midlands	4r	Ethnically Diverse Metropolitan Living	4ar	Ethnically Diverse Metropolitan  Living	4a1r	Ethnically Diverse Metropolitan  Living	4r-Ethnically Diverse Metropolitan Living	4ar-Ethnically Diverse Metropolitan  Living	4a1r-Ethnically Diverse Metropolitan  Living
+E06000017	Rutland	East Midlands	3r	Countryside Living	3ar	English and Welsh Countryside	3a1r	Older Farming Communities	3r-Countryside Living	3ar-English and Welsh Countryside	3a1r-Older Farming Communities
+E06000018	Nottingham	East Midlands	2r	Business, Education and Heritage Centres	2br	University Towns and Cities	2b1r	University Towns and Cities	2r-Business, Education and Heritage Centres	2br-University Towns and Cities	2b1r-University Towns and Cities
+E06000019	Herefordshire, County of	West Midlands	3r	Countryside Living	3ar	English and Welsh Countryside	3a2r	Sparse English and Welsh Countryside	3r-Countryside Living	3ar-English and Welsh Countryside	3a2r-Sparse English and Welsh Countryside
+E06000020	Telford and Wrekin	West Midlands	8r	Urban Settlements	8ar	Manufacturing Traits	8a2r	Urban Living	8r-Urban Settlements	8ar-Manufacturing Traits	8a2r-Urban Living
+E06000021	Stoke-on-Trent	West Midlands	8r	Urban Settlements	8ar	Manufacturing Traits	8a1r	Industrial and Multi-ethnic	8r-Urban Settlements	8ar-Manufacturing Traits	8a1r-Industrial and Multi-ethnic
+E06000022	Bath and North East Somerset	South West	2r	Business, Education and Heritage Centres	2ar	Larger Towns and Cities	2a1r	Larger Towns and Cities	2r-Business, Education and Heritage Centres	2ar-Larger Towns and Cities	2a1r-Larger Towns and Cities
+E06000023	Bristol, City of	South West	2r	Business, Education and Heritage Centres	2ar	Larger Towns and Cities	2a1r	Larger Towns and Cities	2r-Business, Education and Heritage Centres	2ar-Larger Towns and Cities	2a1r-Larger Towns and Cities
+E06000024	North Somerset	South West	3r	Countryside Living	3ar	English and Welsh Countryside	3a2r	Sparse English and Welsh Countryside	3r-Countryside Living	3ar-English and Welsh Countryside	3a2r-Sparse English and Welsh Countryside
+E06000025	South Gloucestershire	South West	7r	Town and Country Living	7cr	Town Living	7c2r	Prosperous Towns	7r-Town and Country Living	7cr-Town Living	7c2r-Prosperous Towns
+E06000026	Plymouth	South West	2r	Business, Education and Heritage Centres	2ar	Larger Towns and Cities	2a1r	Larger Towns and Cities	2r-Business, Education and Heritage Centres	2ar-Larger Towns and Cities	2a1r-Larger Towns and Cities
+E06000027	Torbay	South West	3r	Countryside Living	3br	Remoter Coastal Living	3b2r	Seaside Living	3r-Countryside Living	3br-Remoter Coastal Living	3b2r-Seaside Living
+E06000028	Bournemouth	South West	2r	Business, Education and Heritage Centres	2ar	Larger Towns and Cities	2a1r	Larger Towns and Cities	2r-Business, Education and Heritage Centres	2ar-Larger Towns and Cities	2a1r-Larger Towns and Cities
+E06000029	Poole	South West	7r	Town and Country Living	7cr	Town Living	7c2r	Prosperous Towns	7r-Town and Country Living	7cr-Town Living	7c2r-Prosperous Towns
+E06000032	Luton	East	4r	Ethnically Diverse Metropolitan Living	4ar	Ethnically Diverse Metropolitan  Living	4a1r	Ethnically Diverse Metropolitan  Living	4r-Ethnically Diverse Metropolitan Living	4ar-Ethnically Diverse Metropolitan  Living	4a1r-Ethnically Diverse Metropolitan  Living
+E06000033	Southend-on-Sea	East	8r	Urban Settlements	8ar	Manufacturing Traits	8a2r	Urban Living	8r-Urban Settlements	8ar-Manufacturing Traits	8a2r-Urban Living
+E06000034	Thurrock	East	8r	Urban Settlements	8br	Suburban Traits	8b1r	City Periphery	8r-Urban Settlements	8br-Suburban Traits	8b1r-City Periphery
+E06000035	Medway	South East	8r	Urban Settlements	8br	Suburban Traits	8b1r	City Periphery	8r-Urban Settlements	8br-Suburban Traits	8b1r-City Periphery
+E06000036	Bracknell Forest	South East	1r	Affluent England	1ar	Rural-Urban Fringe	1a1r	Rural-Urban Fringe	1r-Affluent England	1ar-Rural-Urban Fringe	1a1r-Rural-Urban Fringe
+E06000037	West Berkshire	South East	1r	Affluent England	1br	Thriving Rural	1b2r	Rural Growth Areas	1r-Affluent England	1br-Thriving Rural	1b2r-Rural Growth Areas
+E06000040	Windsor and Maidenhead	South East	1r	Affluent England	1ar	Rural-Urban Fringe	1a1r	Rural-Urban Fringe	1r-Affluent England	1ar-Rural-Urban Fringe	1a1r-Rural-Urban Fringe
+E06000041	Wokingham	South East	1r	Affluent England	1br	Thriving Rural	1b1r	Affluent rural	1r-Affluent England	1br-Thriving Rural	1b1r-Affluent rural
+E06000042	Milton Keynes	South East	8r	Urban Settlements	8br	Suburban Traits	8b2r	Expanding Areas	8r-Urban Settlements	8br-Suburban Traits	8b2r-Expanding Areas
+E06000043	Brighton and Hove	South East	2r	Business, Education and Heritage Centres	2br	University Towns and Cities	2b1r	University Towns and Cities	2r-Business, Education and Heritage Centres	2br-University Towns and Cities	2b1r-University Towns and Cities
+E07000062	Hastings	South East	8r	Urban Settlements	8ar	Manufacturing Traits	8a2r	Urban Living	8r-Urban Settlements	8ar-Manufacturing Traits	8a2r-Urban Living
+E07000063	Lewes	South East	3r	Countryside Living	3br	Remoter Coastal Living	3b1r	Ageing Coastal Living	3r-Countryside Living	3br-Remoter Coastal Living	3b1r-Ageing Coastal Living
+E07000064	Rother	South East	3r	Countryside Living	3br	Remoter Coastal Living	3b1r	Ageing Coastal Living	3r-Countryside Living	3br-Remoter Coastal Living	3b1r-Ageing Coastal Living
+E07000065	Wealden	South East	3r	Countryside Living	3ar	English and Welsh Countryside	3a1r	Older Farming Communities	3r-Countryside Living	3ar-English and Welsh Countryside	3a1r-Older Farming Communities
+E07000066	Basildon	East	8r	Urban Settlements	8br	Suburban Traits	8b1r	City Periphery	8r-Urban Settlements	8br-Suburban Traits	8b1r-City Periphery
+E07000067	Braintree	East	7r	Town and Country Living	7ar	Country Living	7a1r	Country Living	7r-Town and Country Living	7ar-Country Living	7a1r-Country Living
+E07000068	Brentwood	East	1r	Affluent England	1br	Thriving Rural	1b2r	Rural Growth Areas	1r-Affluent England	1br-Thriving Rural	1b2r-Rural Growth Areas
+E09000011	Greenwich	London	4r	Ethnically Diverse Metropolitan Living	4ar	Ethnically Diverse Metropolitan  Living	4a1r	Ethnically Diverse Metropolitan  Living	4r-Ethnically Diverse Metropolitan Living	4ar-Ethnically Diverse Metropolitan  Living	4a1r-Ethnically Diverse Metropolitan  Living
+E06000038	Reading	South East	2r	Business, Education and Heritage Centres	2br	University Towns and Cities	2b1r	University Towns and Cities	2r-Business, Education and Heritage Centres	2br-University Towns and Cities	2b1r-University Towns and Cities
+E06000039	Slough	South East	4r	Ethnically Diverse Metropolitan Living	4ar	Ethnically Diverse Metropolitan  Living	4a1r	Ethnically Diverse Metropolitan  Living	4r-Ethnically Diverse Metropolitan Living	4ar-Ethnically Diverse Metropolitan  Living	4a1r-Ethnically Diverse Metropolitan  Living
+E06000044	Portsmouth	South East	2r	Business, Education and Heritage Centres	2ar	Larger Towns and Cities	2a1r	Larger Towns and Cities	2r-Business, Education and Heritage Centres	2ar-Larger Towns and Cities	2a1r-Larger Towns and Cities
+E06000045	Southampton	South East	2r	Business, Education and Heritage Centres	2ar	Larger Towns and Cities	2a1r	Larger Towns and Cities	2r-Business, Education and Heritage Centres	2ar-Larger Towns and Cities	2a1r-Larger Towns and Cities
+E06000046	Isle of Wight	South East	3r	Countryside Living	3br	Remoter Coastal Living	3b1r	Ageing Coastal Living	3r-Countryside Living	3br-Remoter Coastal Living	3b1r-Ageing Coastal Living
+E06000047	County Durham	North East	6r	Services and Industrial Legacy	6ar	Services, Manufacturing and Mining Legacy	6a2r	Mining Legacy	6r-Services and Industrial Legacy	6ar-Services, Manufacturing and Mining Legacy	6a2r-Mining Legacy
+E06000049	Cheshire East	North West	7r	Town and Country Living	7ar	Country Living	7a1r	Country Living	7r-Town and Country Living	7ar-Country Living	7a1r-Country Living
+E06000050	Cheshire West and Chester	North West	7r	Town and Country Living	7cr	Town Living	7c2r	Prosperous Towns	7r-Town and Country Living	7cr-Town Living	7c2r-Prosperous Towns
+E06000051	Shropshire	West Midlands	3r	Countryside Living	3ar	English and Welsh Countryside	3a2r	Sparse English and Welsh Countryside	3r-Countryside Living	3ar-English and Welsh Countryside	3a2r-Sparse English and Welsh Countryside
+E06000052	Cornwall	South West	3r	Countryside Living	3br	Remoter Coastal Living	3b1r	Ageing Coastal Living	3r-Countryside Living	3br-Remoter Coastal Living	3b1r-Ageing Coastal Living
+E06000053	Isles of Scilly	South West	3r	Countryside Living	3br	Remoter Coastal Living	3b1r	Ageing Coastal Living	3r-Countryside Living	3br-Remoter Coastal Living	3b1r-Ageing Coastal Living
+E06000054	Wiltshire	South West	7r	Town and Country Living	7ar	Country Living	7a1r	Country Living	7r-Town and Country Living	7ar-Country Living	7a1r-Country Living
+E06000055	Bedford	East	8r	Urban Settlements	8br	Suburban Traits	8b2r	Expanding Areas	8r-Urban Settlements	8br-Suburban Traits	8b2r-Expanding Areas
+E06000056	Central Bedfordshire	East	1r	Affluent England	1br	Thriving Rural	1b2r	Rural Growth Areas	1r-Affluent England	1br-Thriving Rural	1b2r-Rural Growth Areas
+E06000057	Northumberland	North East	3r	Countryside Living	3ar	English and Welsh Countryside	3a2r	Sparse English and Welsh Countryside	3r-Countryside Living	3ar-English and Welsh Countryside	3a2r-Sparse English and Welsh Countryside
+E07000004	Aylesbury Vale	South East	1r	Affluent England	1br	Thriving Rural	1b2r	Rural Growth Areas	1r-Affluent England	1br-Thriving Rural	1b2r-Rural Growth Areas
+E07000008	Cambridge	East	2r	Business, Education and Heritage Centres	2br	University Towns and Cities	2b1r	University Towns and Cities	2r-Business, Education and Heritage Centres	2br-University Towns and Cities	2b1r-University Towns and Cities
+E07000009	East Cambridgeshire	East	7r	Town and Country Living	7ar	Country Living	7a1r	Country Living	7r-Town and Country Living	7ar-Country Living	7a1r-Country Living
+E07000010	Fenland	East	7r	Town and Country Living	7ar	Country Living	7a1r	Country Living	7r-Town and Country Living	7ar-Country Living	7a1r-Country Living
+E07000011	Huntingdonshire	East	7r	Town and Country Living	7ar	Country Living	7a1r	Country Living	7r-Town and Country Living	7ar-Country Living	7a1r-Country Living
+E07000012	South Cambridgeshire	East	1r	Affluent England	1br	Thriving Rural	1b1r	Affluent rural	1r-Affluent England	1br-Thriving Rural	1b1r-Affluent rural
+E07000026	Allerdale	North West	3r	Countryside Living	3ar	English and Welsh Countryside	3a2r	Sparse English and Welsh Countryside	3r-Countryside Living	3ar-English and Welsh Countryside	3a2r-Sparse English and Welsh Countryside
+E07000027	Barrow-in-Furness	North West	6r	Services and Industrial Legacy	6ar	Services, Manufacturing and Mining Legacy	6a2r	Mining Legacy	6r-Services and Industrial Legacy	6ar-Services, Manufacturing and Mining Legacy	6a2r-Mining Legacy
+E07000028	Carlisle	North West	6r	Services and Industrial Legacy	6ar	Services, Manufacturing and Mining Legacy	6a1r	Manufacturing Legacy	6r-Services and Industrial Legacy	6ar-Services, Manufacturing and Mining Legacy	6a1r-Manufacturing Legacy
+E07000029	Copeland	North West	6r	Services and Industrial Legacy	6ar	Services, Manufacturing and Mining Legacy	6a2r	Mining Legacy	6r-Services and Industrial Legacy	6ar-Services, Manufacturing and Mining Legacy	6a2r-Mining Legacy
+E07000030	Eden	North West	3r	Countryside Living	3ar	English and Welsh Countryside	3a1r	Older Farming Communities	3r-Countryside Living	3ar-English and Welsh Countryside	3a1r-Older Farming Communities
+E07000031	South Lakeland	North West	3r	Countryside Living	3ar	English and Welsh Countryside	3a1r	Older Farming Communities	3r-Countryside Living	3ar-English and Welsh Countryside	3a1r-Older Farming Communities
+E07000032	Amber Valley	East Midlands	7r	Town and Country Living	7ar	Country Living	7a1r	Country Living	7r-Town and Country Living	7ar-Country Living	7a1r-Country Living
+E07000033	Bolsover	East Midlands	6r	Services and Industrial Legacy	6ar	Services, Manufacturing and Mining Legacy	6a1r	Manufacturing Legacy	6r-Services and Industrial Legacy	6ar-Services, Manufacturing and Mining Legacy	6a1r-Manufacturing Legacy
+E07000034	Chesterfield	East Midlands	6r	Services and Industrial Legacy	6ar	Services, Manufacturing and Mining Legacy	6a1r	Manufacturing Legacy	6r-Services and Industrial Legacy	6ar-Services, Manufacturing and Mining Legacy	6a1r-Manufacturing Legacy
+E07000035	Derbyshire Dales	East Midlands	3r	Countryside Living	3ar	English and Welsh Countryside	3a1r	Older Farming Communities	3r-Countryside Living	3ar-English and Welsh Countryside	3a1r-Older Farming Communities
+E07000036	Erewash	East Midlands	7r	Town and Country Living	7ar	Country Living	7a1r	Country Living	7r-Town and Country Living	7ar-Country Living	7a1r-Country Living
+E07000037	High Peak	East Midlands	7r	Town and Country Living	7cr	Town Living	7c2r	Prosperous Towns	7r-Town and Country Living	7cr-Town Living	7c2r-Prosperous Towns
+E07000038	North East Derbyshire	East Midlands	7r	Town and Country Living	7cr	Town Living	7c1r	Prosperous Semi-rural	7r-Town and Country Living	7cr-Town Living	7c1r-Prosperous Semi-rural
+E07000039	South Derbyshire	East Midlands	7r	Town and Country Living	7ar	Country Living	7a1r	Country Living	7r-Town and Country Living	7ar-Country Living	7a1r-Country Living
+E07000040	East Devon	South West	3r	Countryside Living	3br	Remoter Coastal Living	3b1r	Ageing Coastal Living	3r-Countryside Living	3br-Remoter Coastal Living	3b1r-Ageing Coastal Living
+E07000041	Exeter	South West	2r	Business, Education and Heritage Centres	2ar	Larger Towns and Cities	2a1r	Larger Towns and Cities	2r-Business, Education and Heritage Centres	2ar-Larger Towns and Cities	2a1r-Larger Towns and Cities
+E07000042	Mid Devon	South West	3r	Countryside Living	3ar	English and Welsh Countryside	3a2r	Sparse English and Welsh Countryside	3r-Countryside Living	3ar-English and Welsh Countryside	3a2r-Sparse English and Welsh Countryside
+E07000043	North Devon	South West	3r	Countryside Living	3br	Remoter Coastal Living	3b1r	Ageing Coastal Living	3r-Countryside Living	3br-Remoter Coastal Living	3b1r-Ageing Coastal Living
+E07000044	South Hams	South West	3r	Countryside Living	3ar	English and Welsh Countryside	3a1r	Older Farming Communities	3r-Countryside Living	3ar-English and Welsh Countryside	3a1r-Older Farming Communities
+E07000045	Teignbridge	South West	3r	Countryside Living	3br	Remoter Coastal Living	3b1r	Ageing Coastal Living	3r-Countryside Living	3br-Remoter Coastal Living	3b1r-Ageing Coastal Living
+E07000046	Torridge	South West	3r	Countryside Living	3ar	English and Welsh Countryside	3a1r	Older Farming Communities	3r-Countryside Living	3ar-English and Welsh Countryside	3a1r-Older Farming Communities
+E07000047	West Devon	South West	3r	Countryside Living	3ar	English and Welsh Countryside	3a1r	Older Farming Communities	3r-Countryside Living	3ar-English and Welsh Countryside	3a1r-Older Farming Communities
+E07000048	Christchurch	South West	3r	Countryside Living	3br	Remoter Coastal Living	3b1r	Ageing Coastal Living	3r-Countryside Living	3br-Remoter Coastal Living	3b1r-Ageing Coastal Living
+E07000049	East Dorset	South West	3r	Countryside Living	3ar	English and Welsh Countryside	3a1r	Older Farming Communities	3r-Countryside Living	3ar-English and Welsh Countryside	3a1r-Older Farming Communities
+E07000050	North Dorset	South West	3r	Countryside Living	3ar	English and Welsh Countryside	3a2r	Sparse English and Welsh Countryside	3r-Countryside Living	3ar-English and Welsh Countryside	3a2r-Sparse English and Welsh Countryside
+E07000051	Purbeck	South West	3r	Countryside Living	3ar	English and Welsh Countryside	3a1r	Older Farming Communities	3r-Countryside Living	3ar-English and Welsh Countryside	3a1r-Older Farming Communities
+E07000052	West Dorset	South West	3r	Countryside Living	3ar	English and Welsh Countryside	3a1r	Older Farming Communities	3r-Countryside Living	3ar-English and Welsh Countryside	3a1r-Older Farming Communities
+E07000053	Weymouth and Portland	South West	3r	Countryside Living	3br	Remoter Coastal Living	3b2r	Seaside Living	3r-Countryside Living	3br-Remoter Coastal Living	3b2r-Seaside Living
+E07000061	Eastbourne	South East	2r	Business, Education and Heritage Centres	2ar	Larger Towns and Cities	2a1r	Larger Towns and Cities	2r-Business, Education and Heritage Centres	2ar-Larger Towns and Cities	2a1r-Larger Towns and Cities
+E07000069	Castle Point	East	7r	Town and Country Living	7cr	Town Living	7c1r	Prosperous Semi-rural	7r-Town and Country Living	7cr-Town Living	7c1r-Prosperous Semi-rural
+E07000070	Chelmsford	East	1r	Affluent England	1br	Thriving Rural	1b2r	Rural Growth Areas	1r-Affluent England	1br-Thriving Rural	1b2r-Rural Growth Areas
+E07000071	Colchester	East	1r	Affluent England	1br	Thriving Rural	1b2r	Rural Growth Areas	1r-Affluent England	1br-Thriving Rural	1b2r-Rural Growth Areas
+E07000072	Epping Forest	East	1r	Affluent England	1br	Thriving Rural	1b2r	Rural Growth Areas	1r-Affluent England	1br-Thriving Rural	1b2r-Rural Growth Areas
+E07000130	Charnwood	East Midlands	7r	Town and Country Living	7cr	Town Living	7c2r	Prosperous Towns	7r-Town and Country Living	7cr-Town Living	7c2r-Prosperous Towns
+E07000131	Harborough	East Midlands	7r	Town and Country Living	7ar	Country Living	7a1r	Country Living	7r-Town and Country Living	7ar-Country Living	7a1r-Country Living
+E07000132	Hinckley and Bosworth	East Midlands	7r	Town and Country Living	7ar	Country Living	7a1r	Country Living	7r-Town and Country Living	7ar-Country Living	7a1r-Country Living
+E07000133	Melton	East Midlands	7r	Town and Country Living	7ar	Country Living	7a1r	Country Living	7r-Town and Country Living	7ar-Country Living	7a1r-Country Living
+E07000134	North West Leicestershire	East Midlands	7r	Town and Country Living	7ar	Country Living	7a1r	Country Living	7r-Town and Country Living	7ar-Country Living	7a1r-Country Living
+E07000073	Harlow	East	8r	Urban Settlements	8br	Suburban Traits	8b1r	City Periphery	8r-Urban Settlements	8br-Suburban Traits	8b1r-City Periphery
+E07000074	Maldon	East	7r	Town and Country Living	7ar	Country Living	7a1r	Country Living	7r-Town and Country Living	7ar-Country Living	7a1r-Country Living
+E07000075	Rochford	East	7r	Town and Country Living	7cr	Town Living	7c1r	Prosperous Semi-rural	7r-Town and Country Living	7cr-Town Living	7c1r-Prosperous Semi-rural
+E07000076	Tendring	East	3r	Countryside Living	3br	Remoter Coastal Living	3b1r	Ageing Coastal Living	3r-Countryside Living	3br-Remoter Coastal Living	3b1r-Ageing Coastal Living
+E07000077	Uttlesford	East	1r	Affluent England	1br	Thriving Rural	1b2r	Rural Growth Areas	1r-Affluent England	1br-Thriving Rural	1b2r-Rural Growth Areas
+E07000078	Cheltenham	South West	2r	Business, Education and Heritage Centres	2ar	Larger Towns and Cities	2a1r	Larger Towns and Cities	2r-Business, Education and Heritage Centres	2ar-Larger Towns and Cities	2a1r-Larger Towns and Cities
+E07000079	Cotswold	South West	3r	Countryside Living	3ar	English and Welsh Countryside	3a1r	Older Farming Communities	3r-Countryside Living	3ar-English and Welsh Countryside	3a1r-Older Farming Communities
+E07000080	Forest of Dean	South West	7r	Town and Country Living	7ar	Country Living	7a1r	Country Living	7r-Town and Country Living	7ar-Country Living	7a1r-Country Living
+E07000192	Cannock Chase	West Midlands	6r	Services and Industrial Legacy	6ar	Services, Manufacturing and Mining Legacy	6a1r	Manufacturing Legacy	6r-Services and Industrial Legacy	6ar-Services, Manufacturing and Mining Legacy	6a1r-Manufacturing Legacy
+E07000081	Gloucester	South West	8r	Urban Settlements	8ar	Manufacturing Traits	8a2r	Urban Living	8r-Urban Settlements	8ar-Manufacturing Traits	8a2r-Urban Living
+E07000082	Stroud	South West	7r	Town and Country Living	7ar	Country Living	7a1r	Country Living	7r-Town and Country Living	7ar-Country Living	7a1r-Country Living
+E07000083	Tewkesbury	South West	7r	Town and Country Living	7ar	Country Living	7a1r	Country Living	7r-Town and Country Living	7ar-Country Living	7a1r-Country Living
+E07000084	Basingstoke and Deane	South East	1r	Affluent England	1br	Thriving Rural	1b2r	Rural Growth Areas	1r-Affluent England	1br-Thriving Rural	1b2r-Rural Growth Areas
+E07000085	East Hampshire	South East	1r	Affluent England	1br	Thriving Rural	1b1r	Affluent rural	1r-Affluent England	1br-Thriving Rural	1b1r-Affluent rural
+E07000086	Eastleigh	South East	7r	Town and Country Living	7cr	Town Living	7c2r	Prosperous Towns	7r-Town and Country Living	7cr-Town Living	7c2r-Prosperous Towns
+E07000087	Fareham	South East	7r	Town and Country Living	7cr	Town Living	7c2r	Prosperous Towns	7r-Town and Country Living	7cr-Town Living	7c2r-Prosperous Towns
+E07000193	East Staffordshire	West Midlands	7r	Town and Country Living	7ar	Country Living	7a1r	Country Living	7r-Town and Country Living	7ar-Country Living	7a1r-Country Living
+E07000194	Lichfield	West Midlands	7r	Town and Country Living	7cr	Town Living	7c2r	Prosperous Towns	7r-Town and Country Living	7cr-Town Living	7c2r-Prosperous Towns
+E07000195	Newcastle-under-Lyme	West Midlands	7r	Town and Country Living	7cr	Town Living	7c2r	Prosperous Towns	7r-Town and Country Living	7cr-Town Living	7c2r-Prosperous Towns
+E07000196	South Staffordshire	West Midlands	7r	Town and Country Living	7cr	Town Living	7c1r	Prosperous Semi-rural	7r-Town and Country Living	7cr-Town Living	7c1r-Prosperous Semi-rural
+E07000197	Stafford	West Midlands	7r	Town and Country Living	7cr	Town Living	7c2r	Prosperous Towns	7r-Town and Country Living	7cr-Town Living	7c2r-Prosperous Towns
+E07000198	Staffordshire Moorlands	West Midlands	7r	Town and Country Living	7ar	Country Living	7a1r	Country Living	7r-Town and Country Living	7ar-Country Living	7a1r-Country Living
+E07000199	Tamworth	West Midlands	6r	Services and Industrial Legacy	6ar	Services, Manufacturing and Mining Legacy	6a1r	Manufacturing Legacy	6r-Services and Industrial Legacy	6ar-Services, Manufacturing and Mining Legacy	6a1r-Manufacturing Legacy
+E07000200	Babergh	East	7r	Town and Country Living	7ar	Country Living	7a1r	Country Living	7r-Town and Country Living	7ar-Country Living	7a1r-Country Living
+E07000201	Forest Heath	East	1r	Affluent England	1ar	Rural-Urban Fringe	1a1r	Rural-Urban Fringe	1r-Affluent England	1ar-Rural-Urban Fringe	1a1r-Rural-Urban Fringe
+E07000088	Gosport	South East	6r	Services and Industrial Legacy	6ar	Services, Manufacturing and Mining Legacy	6a3r	Service Economy	6r-Services and Industrial Legacy	6ar-Services, Manufacturing and Mining Legacy	6a3r-Service Economy
+E07000089	Hart	South East	1r	Affluent England	1br	Thriving Rural	1b1r	Affluent rural	1r-Affluent England	1br-Thriving Rural	1b1r-Affluent rural
+E07000090	Havant	South East	6r	Services and Industrial Legacy	6ar	Services, Manufacturing and Mining Legacy	6a1r	Manufacturing Legacy	6r-Services and Industrial Legacy	6ar-Services, Manufacturing and Mining Legacy	6a1r-Manufacturing Legacy
+E07000091	New Forest	South East	3r	Countryside Living	3br	Remoter Coastal Living	3b1r	Ageing Coastal Living	3r-Countryside Living	3br-Remoter Coastal Living	3b1r-Ageing Coastal Living
+E07000092	Rushmoor	South East	8r	Urban Settlements	8br	Suburban Traits	8b2r	Expanding Areas	8r-Urban Settlements	8br-Suburban Traits	8b2r-Expanding Areas
+E07000093	Test Valley	South East	1r	Affluent England	1br	Thriving Rural	1b2r	Rural Growth Areas	1r-Affluent England	1br-Thriving Rural	1b2r-Rural Growth Areas
+E07000094	Winchester	South East	1r	Affluent England	1br	Thriving Rural	1b1r	Affluent rural	1r-Affluent England	1br-Thriving Rural	1b1r-Affluent rural
+E07000095	Broxbourne	East	8r	Urban Settlements	8br	Suburban Traits	8b1r	City Periphery	8r-Urban Settlements	8br-Suburban Traits	8b1r-City Periphery
+E07000096	Dacorum	East	1r	Affluent England	1br	Thriving Rural	1b2r	Rural Growth Areas	1r-Affluent England	1br-Thriving Rural	1b2r-Rural Growth Areas
+E07000098	Hertsmere	East	1r	Affluent England	1ar	Rural-Urban Fringe	1a1r	Rural-Urban Fringe	1r-Affluent England	1ar-Rural-Urban Fringe	1a1r-Rural-Urban Fringe
+E07000099	North Hertfordshire	East	1r	Affluent England	1br	Thriving Rural	1b2r	Rural Growth Areas	1r-Affluent England	1br-Thriving Rural	1b2r-Rural Growth Areas
+E07000102	Three Rivers	East	1r	Affluent England	1ar	Rural-Urban Fringe	1a1r	Rural-Urban Fringe	1r-Affluent England	1ar-Rural-Urban Fringe	1a1r-Rural-Urban Fringe
+E07000242	East Hertfordshire	East	1r	Affluent England	1br	Thriving Rural	1b2r	Rural Growth Areas	1r-Affluent England	1br-Thriving Rural	1b2r-Rural Growth Areas
+W06000008	Ceredigion	Wales	3r	Countryside Living	3ar	English and Welsh Countryside	3a1r	Older Farming Communities	3r-Countryside Living	3ar-English and Welsh Countryside	3a1r-Older Farming Communities
+W06000009	Pembrokeshire	Wales	3r	Countryside Living	3ar	English and Welsh Countryside	3a2r	Sparse English and Welsh Countryside	3r-Countryside Living	3ar-English and Welsh Countryside	3a2r-Sparse English and Welsh Countryside
+W06000010	Carmarthenshire	Wales	3r	Countryside Living	3ar	English and Welsh Countryside	3a2r	Sparse English and Welsh Countryside	3r-Countryside Living	3ar-English and Welsh Countryside	3a2r-Sparse English and Welsh Countryside
+W06000011	Swansea	Wales	6r	Services and Industrial Legacy	6ar	Services, Manufacturing and Mining Legacy	6a3r	Service Economy	6r-Services and Industrial Legacy	6ar-Services, Manufacturing and Mining Legacy	6a3r-Service Economy
+W06000012	Neath Port Talbot	Wales	6r	Services and Industrial Legacy	6ar	Services, Manufacturing and Mining Legacy	6a2r	Mining Legacy	6r-Services and Industrial Legacy	6ar-Services, Manufacturing and Mining Legacy	6a2r-Mining Legacy
+W06000013	Bridgend	Wales	6r	Services and Industrial Legacy	6ar	Services, Manufacturing and Mining Legacy	6a2r	Mining Legacy	6r-Services and Industrial Legacy	6ar-Services, Manufacturing and Mining Legacy	6a2r-Mining Legacy
+W06000014	Vale of Glamorgan	Wales	7r	Town and Country Living	7cr	Town Living	7c2r	Prosperous Towns	7r-Town and Country Living	7cr-Town Living	7c2r-Prosperous Towns
+W06000015	Cardiff	Wales	2r	Business, Education and Heritage Centres	2ar	Larger Towns and Cities	2a1r	Larger Towns and Cities	2r-Business, Education and Heritage Centres	2ar-Larger Towns and Cities	2a1r-Larger Towns and Cities
+W06000016	Rhondda Cynon Taf	Wales	6r	Services and Industrial Legacy	6ar	Services, Manufacturing and Mining Legacy	6a2r	Mining Legacy	6r-Services and Industrial Legacy	6ar-Services, Manufacturing and Mining Legacy	6a2r-Mining Legacy
+W06000018	Caerphilly	Wales	6r	Services and Industrial Legacy	6ar	Services, Manufacturing and Mining Legacy	6a2r	Mining Legacy	6r-Services and Industrial Legacy	6ar-Services, Manufacturing and Mining Legacy	6a2r-Mining Legacy
+W06000019	Blaenau Gwent	Wales	6r	Services and Industrial Legacy	6ar	Services, Manufacturing and Mining Legacy	6a2r	Mining Legacy	6r-Services and Industrial Legacy	6ar-Services, Manufacturing and Mining Legacy	6a2r-Mining Legacy
+E07000103	Watford	East	8r	Urban Settlements	8br	Suburban Traits	8b2r	Expanding Areas	8r-Urban Settlements	8br-Suburban Traits	8b2r-Expanding Areas
+E07000105	Ashford	South East	7r	Town and Country Living	7ar	Country Living	7a1r	Country Living	7r-Town and Country Living	7ar-Country Living	7a1r-Country Living
+E07000106	Canterbury	South East	2r	Business, Education and Heritage Centres	2ar	Larger Towns and Cities	2a1r	Larger Towns and Cities	2r-Business, Education and Heritage Centres	2ar-Larger Towns and Cities	2a1r-Larger Towns and Cities
+E07000107	Dartford	South East	8r	Urban Settlements	8br	Suburban Traits	8b1r	City Periphery	8r-Urban Settlements	8br-Suburban Traits	8b1r-City Periphery
+E07000108	Dover	South East	3r	Countryside Living	3br	Remoter Coastal Living	3b2r	Seaside Living	3r-Countryside Living	3br-Remoter Coastal Living	3b2r-Seaside Living
+E07000109	Gravesham	South East	8r	Urban Settlements	8br	Suburban Traits	8b1r	City Periphery	8r-Urban Settlements	8br-Suburban Traits	8b1r-City Periphery
+E07000110	Maidstone	South East	1r	Affluent England	1br	Thriving Rural	1b2r	Rural Growth Areas	1r-Affluent England	1br-Thriving Rural	1b2r-Rural Growth Areas
+E07000111	Sevenoaks	South East	1r	Affluent England	1br	Thriving Rural	1b2r	Rural Growth Areas	1r-Affluent England	1br-Thriving Rural	1b2r-Rural Growth Areas
+E07000112	Shepway	South East	3r	Countryside Living	3br	Remoter Coastal Living	3b2r	Seaside Living	3r-Countryside Living	3br-Remoter Coastal Living	3b2r-Seaside Living
+E07000113	Swale	South East	7r	Town and Country Living	7ar	Country Living	7a1r	Country Living	7r-Town and Country Living	7ar-Country Living	7a1r-Country Living
+E07000114	Thanet	South East	3r	Countryside Living	3br	Remoter Coastal Living	3b2r	Seaside Living	3r-Countryside Living	3br-Remoter Coastal Living	3b2r-Seaside Living
+E07000115	Tonbridge and Malling	South East	1r	Affluent England	1br	Thriving Rural	1b2r	Rural Growth Areas	1r-Affluent England	1br-Thriving Rural	1b2r-Rural Growth Areas
+E07000116	Tunbridge Wells	South East	1r	Affluent England	1br	Thriving Rural	1b2r	Rural Growth Areas	1r-Affluent England	1br-Thriving Rural	1b2r-Rural Growth Areas
+E07000117	Burnley	North West	8r	Urban Settlements	8ar	Manufacturing Traits	8a2r	Urban Living	8r-Urban Settlements	8ar-Manufacturing Traits	8a2r-Urban Living
+E07000118	Chorley	North West	7r	Town and Country Living	7cr	Town Living	7c2r	Prosperous Towns	7r-Town and Country Living	7cr-Town Living	7c2r-Prosperous Towns
+E07000119	Fylde	North West	3r	Countryside Living	3ar	English and Welsh Countryside	3a1r	Older Farming Communities	3r-Countryside Living	3ar-English and Welsh Countryside	3a1r-Older Farming Communities
+E07000120	Hyndburn	North West	8r	Urban Settlements	8ar	Manufacturing Traits	8a2r	Urban Living	8r-Urban Settlements	8ar-Manufacturing Traits	8a2r-Urban Living
+E07000121	Lancaster	North West	2r	Business, Education and Heritage Centres	2ar	Larger Towns and Cities	2a1r	Larger Towns and Cities	2r-Business, Education and Heritage Centres	2ar-Larger Towns and Cities	2a1r-Larger Towns and Cities
+E07000122	Pendle	North West	8r	Urban Settlements	8ar	Manufacturing Traits	8a2r	Urban Living	8r-Urban Settlements	8ar-Manufacturing Traits	8a2r-Urban Living
+E07000123	Preston	North West	2r	Business, Education and Heritage Centres	2ar	Larger Towns and Cities	2a1r	Larger Towns and Cities	2r-Business, Education and Heritage Centres	2ar-Larger Towns and Cities	2a1r-Larger Towns and Cities
+E07000124	Ribble Valley	North West	3r	Countryside Living	3ar	English and Welsh Countryside	3a1r	Older Farming Communities	3r-Countryside Living	3ar-English and Welsh Countryside	3a1r-Older Farming Communities
+E07000125	Rossendale	North West	6r	Services and Industrial Legacy	6ar	Services, Manufacturing and Mining Legacy	6a1r	Manufacturing Legacy	6r-Services and Industrial Legacy	6ar-Services, Manufacturing and Mining Legacy	6a1r-Manufacturing Legacy
+E07000126	South Ribble	North West	7r	Town and Country Living	7cr	Town Living	7c2r	Prosperous Towns	7r-Town and Country Living	7cr-Town Living	7c2r-Prosperous Towns
+E07000127	West Lancashire	North West	7r	Town and Country Living	7cr	Town Living	7c2r	Prosperous Towns	7r-Town and Country Living	7cr-Town Living	7c2r-Prosperous Towns
+E07000128	Wyre	North West	3r	Countryside Living	3ar	English and Welsh Countryside	3a2r	Sparse English and Welsh Countryside	3r-Countryside Living	3ar-English and Welsh Countryside	3a2r-Sparse English and Welsh Countryside
+E07000129	Blaby	East Midlands	7r	Town and Country Living	7cr	Town Living	7c2r	Prosperous Towns	7r-Town and Country Living	7cr-Town Living	7c2r-Prosperous Towns
+E07000135	Oadby and Wigston	East Midlands	7r	Town and Country Living	7cr	Town Living	7c2r	Prosperous Towns	7r-Town and Country Living	7cr-Town Living	7c2r-Prosperous Towns
+E07000136	Boston	East Midlands	8r	Urban Settlements	8ar	Manufacturing Traits	8a2r	Urban Living	8r-Urban Settlements	8ar-Manufacturing Traits	8a2r-Urban Living
+E07000137	East Lindsey	East Midlands	3r	Countryside Living	3br	Remoter Coastal Living	3b1r	Ageing Coastal Living	3r-Countryside Living	3br-Remoter Coastal Living	3b1r-Ageing Coastal Living
+E08000026	Coventry	West Midlands	2r	Business, Education and Heritage Centres	2ar	Larger Towns and Cities	2a1r	Larger Towns and Cities	2r-Business, Education and Heritage Centres	2ar-Larger Towns and Cities	2a1r-Larger Towns and Cities
+E08000027	Dudley	West Midlands	6r	Services and Industrial Legacy	6ar	Services, Manufacturing and Mining Legacy	6a1r	Manufacturing Legacy	6r-Services and Industrial Legacy	6ar-Services, Manufacturing and Mining Legacy	6a1r-Manufacturing Legacy
+E08000028	Sandwell	West Midlands	8r	Urban Settlements	8ar	Manufacturing Traits	8a1r	Industrial and Multi-ethnic	8r-Urban Settlements	8ar-Manufacturing Traits	8a1r-Industrial and Multi-ethnic
+E08000029	Solihull	West Midlands	7r	Town and Country Living	7cr	Town Living	7c2r	Prosperous Towns	7r-Town and Country Living	7cr-Town Living	7c2r-Prosperous Towns
+E08000030	Walsall	West Midlands	8r	Urban Settlements	8ar	Manufacturing Traits	8a1r	Industrial and Multi-ethnic	8r-Urban Settlements	8ar-Manufacturing Traits	8a1r-Industrial and Multi-ethnic
+E07000138	Lincoln	East Midlands	2r	Business, Education and Heritage Centres	2ar	Larger Towns and Cities	2a1r	Larger Towns and Cities	2r-Business, Education and Heritage Centres	2ar-Larger Towns and Cities	2a1r-Larger Towns and Cities
+E07000139	North Kesteven	East Midlands	3r	Countryside Living	3ar	English and Welsh Countryside	3a2r	Sparse English and Welsh Countryside	3r-Countryside Living	3ar-English and Welsh Countryside	3a2r-Sparse English and Welsh Countryside
+E07000140	South Holland	East Midlands	7r	Town and Country Living	7ar	Country Living	7a1r	Country Living	7r-Town and Country Living	7ar-Country Living	7a1r-Country Living
+E07000141	South Kesteven	East Midlands	7r	Town and Country Living	7ar	Country Living	7a1r	Country Living	7r-Town and Country Living	7ar-Country Living	7a1r-Country Living
+E07000142	West Lindsey	East Midlands	3r	Countryside Living	3ar	English and Welsh Countryside	3a2r	Sparse English and Welsh Countryside	3r-Countryside Living	3ar-English and Welsh Countryside	3a2r-Sparse English and Welsh Countryside
+E07000143	Breckland	East	3r	Countryside Living	3ar	English and Welsh Countryside	3a2r	Sparse English and Welsh Countryside	3r-Countryside Living	3ar-English and Welsh Countryside	3a2r-Sparse English and Welsh Countryside
+E07000144	Broadland	East	7r	Town and Country Living	7ar	Country Living	7a1r	Country Living	7r-Town and Country Living	7ar-Country Living	7a1r-Country Living
+E07000145	Great Yarmouth	East	3r	Countryside Living	3br	Remoter Coastal Living	3b2r	Seaside Living	3r-Countryside Living	3br-Remoter Coastal Living	3b2r-Seaside Living
+E07000146	King's Lynn and West Norfolk	East	3r	Countryside Living	3ar	English and Welsh Countryside	3a2r	Sparse English and Welsh Countryside	3r-Countryside Living	3ar-English and Welsh Countryside	3a2r-Sparse English and Welsh Countryside
+E07000147	North Norfolk	East	3r	Countryside Living	3br	Remoter Coastal Living	3b1r	Ageing Coastal Living	3r-Countryside Living	3br-Remoter Coastal Living	3b1r-Ageing Coastal Living
+E07000148	Norwich	East	2r	Business, Education and Heritage Centres	2ar	Larger Towns and Cities	2a1r	Larger Towns and Cities	2r-Business, Education and Heritage Centres	2ar-Larger Towns and Cities	2a1r-Larger Towns and Cities
+E07000149	South Norfolk	East	7r	Town and Country Living	7ar	Country Living	7a1r	Country Living	7r-Town and Country Living	7ar-Country Living	7a1r-Country Living
+E07000150	Corby	East Midlands	8r	Urban Settlements	8br	Suburban Traits	8b2r	Expanding Areas	8r-Urban Settlements	8br-Suburban Traits	8b2r-Expanding Areas
+E07000151	Daventry	East Midlands	7r	Town and Country Living	7ar	Country Living	7a1r	Country Living	7r-Town and Country Living	7ar-Country Living	7a1r-Country Living
+E07000152	East Northamptonshire	East Midlands	7r	Town and Country Living	7ar	Country Living	7a1r	Country Living	7r-Town and Country Living	7ar-Country Living	7a1r-Country Living
+E07000153	Kettering	East Midlands	8r	Urban Settlements	8ar	Manufacturing Traits	8a2r	Urban Living	8r-Urban Settlements	8ar-Manufacturing Traits	8a2r-Urban Living
+E07000154	Northampton	East Midlands	8r	Urban Settlements	8br	Suburban Traits	8b2r	Expanding Areas	8r-Urban Settlements	8br-Suburban Traits	8b2r-Expanding Areas
+E07000155	South Northamptonshire	East Midlands	7r	Town and Country Living	7ar	Country Living	7a1r	Country Living	7r-Town and Country Living	7ar-Country Living	7a1r-Country Living
+E07000156	Wellingborough	East Midlands	8r	Urban Settlements	8br	Suburban Traits	8b2r	Expanding Areas	8r-Urban Settlements	8br-Suburban Traits	8b2r-Expanding Areas
+E07000163	Craven	Yorkshire and The Humber	3r	Countryside Living	3ar	English and Welsh Countryside	3a1r	Older Farming Communities	3r-Countryside Living	3ar-English and Welsh Countryside	3a1r-Older Farming Communities
+E07000164	Hambleton	Yorkshire and The Humber	3r	Countryside Living	3ar	English and Welsh Countryside	3a2r	Sparse English and Welsh Countryside	3r-Countryside Living	3ar-English and Welsh Countryside	3a2r-Sparse English and Welsh Countryside
+E07000165	Harrogate	Yorkshire and The Humber	3r	Countryside Living	3ar	English and Welsh Countryside	3a1r	Older Farming Communities	3r-Countryside Living	3ar-English and Welsh Countryside	3a1r-Older Farming Communities
+E07000166	Richmondshire	Yorkshire and The Humber	3r	Countryside Living	3ar	English and Welsh Countryside	3a2r	Sparse English and Welsh Countryside	3r-Countryside Living	3ar-English and Welsh Countryside	3a2r-Sparse English and Welsh Countryside
+E07000167	Ryedale	Yorkshire and The Humber	3r	Countryside Living	3ar	English and Welsh Countryside	3a1r	Older Farming Communities	3r-Countryside Living	3ar-English and Welsh Countryside	3a1r-Older Farming Communities
+E07000168	Scarborough	Yorkshire and The Humber	3r	Countryside Living	3br	Remoter Coastal Living	3b1r	Ageing Coastal Living	3r-Countryside Living	3br-Remoter Coastal Living	3b1r-Ageing Coastal Living
+E07000169	Selby	Yorkshire and The Humber	7r	Town and Country Living	7ar	Country Living	7a1r	Country Living	7r-Town and Country Living	7ar-Country Living	7a1r-Country Living
+E07000170	Ashfield	East Midlands	6r	Services and Industrial Legacy	6ar	Services, Manufacturing and Mining Legacy	6a1r	Manufacturing Legacy	6r-Services and Industrial Legacy	6ar-Services, Manufacturing and Mining Legacy	6a1r-Manufacturing Legacy
+E07000171	Bassetlaw	East Midlands	7r	Town and Country Living	7ar	Country Living	7a1r	Country Living	7r-Town and Country Living	7ar-Country Living	7a1r-Country Living
+E07000172	Broxtowe	East Midlands	7r	Town and Country Living	7cr	Town Living	7c2r	Prosperous Towns	7r-Town and Country Living	7cr-Town Living	7c2r-Prosperous Towns
+E07000173	Gedling	East Midlands	7r	Town and Country Living	7cr	Town Living	7c2r	Prosperous Towns	7r-Town and Country Living	7cr-Town Living	7c2r-Prosperous Towns
+E07000174	Mansfield	East Midlands	6r	Services and Industrial Legacy	6ar	Services, Manufacturing and Mining Legacy	6a1r	Manufacturing Legacy	6r-Services and Industrial Legacy	6ar-Services, Manufacturing and Mining Legacy	6a1r-Manufacturing Legacy
+E07000175	Newark and Sherwood	East Midlands	7r	Town and Country Living	7ar	Country Living	7a1r	Country Living	7r-Town and Country Living	7ar-Country Living	7a1r-Country Living
+E07000176	Rushcliffe	East Midlands	1r	Affluent England	1br	Thriving Rural	1b1r	Affluent rural	1r-Affluent England	1br-Thriving Rural	1b1r-Affluent rural
+E07000177	Cherwell	South East	1r	Affluent England	1br	Thriving Rural	1b2r	Rural Growth Areas	1r-Affluent England	1br-Thriving Rural	1b2r-Rural Growth Areas
+E08000031	Wolverhampton	West Midlands	8r	Urban Settlements	8ar	Manufacturing Traits	8a1r	Industrial and Multi-ethnic	8r-Urban Settlements	8ar-Manufacturing Traits	8a1r-Industrial and Multi-ethnic
+E08000032	Bradford	Yorkshire and The Humber	8r	Urban Settlements	8ar	Manufacturing Traits	8a1r	Industrial and Multi-ethnic	8r-Urban Settlements	8ar-Manufacturing Traits	8a1r-Industrial and Multi-ethnic
+E08000033	Calderdale	Yorkshire and The Humber	8r	Urban Settlements	8ar	Manufacturing Traits	8a2r	Urban Living	8r-Urban Settlements	8ar-Manufacturing Traits	8a2r-Urban Living
+E07000178	Oxford	South East	2r	Business, Education and Heritage Centres	2br	University Towns and Cities	2b1r	University Towns and Cities	2r-Business, Education and Heritage Centres	2br-University Towns and Cities	2b1r-University Towns and Cities
+E07000179	South Oxfordshire	South East	1r	Affluent England	1br	Thriving Rural	1b1r	Affluent rural	1r-Affluent England	1br-Thriving Rural	1b1r-Affluent rural
+E07000180	Vale of White Horse	South East	1r	Affluent England	1br	Thriving Rural	1b1r	Affluent rural	1r-Affluent England	1br-Thriving Rural	1b1r-Affluent rural
+E07000181	West Oxfordshire	South East	1r	Affluent England	1br	Thriving Rural	1b1r	Affluent rural	1r-Affluent England	1br-Thriving Rural	1b1r-Affluent rural
+E07000187	Mendip	South West	3r	Countryside Living	3ar	English and Welsh Countryside	3a1r	Older Farming Communities	3r-Countryside Living	3ar-English and Welsh Countryside	3a1r-Older Farming Communities
+E07000188	Sedgemoor	South West	3r	Countryside Living	3ar	English and Welsh Countryside	3a2r	Sparse English and Welsh Countryside	3r-Countryside Living	3ar-English and Welsh Countryside	3a2r-Sparse English and Welsh Countryside
+E07000189	South Somerset	South West	3r	Countryside Living	3ar	English and Welsh Countryside	3a2r	Sparse English and Welsh Countryside	3r-Countryside Living	3ar-English and Welsh Countryside	3a2r-Sparse English and Welsh Countryside
+E07000190	Taunton Deane	South West	3r	Countryside Living	3ar	English and Welsh Countryside	3a2r	Sparse English and Welsh Countryside	3r-Countryside Living	3ar-English and Welsh Countryside	3a2r-Sparse English and Welsh Countryside
+E07000191	West Somerset	South West	3r	Countryside Living	3br	Remoter Coastal Living	3b1r	Ageing Coastal Living	3r-Countryside Living	3br-Remoter Coastal Living	3b1r-Ageing Coastal Living
+E07000202	Ipswich	East	8r	Urban Settlements	8ar	Manufacturing Traits	8a1r	Industrial and Multi-ethnic	8r-Urban Settlements	8ar-Manufacturing Traits	8a1r-Industrial and Multi-ethnic
+E07000203	Mid Suffolk	East	7r	Town and Country Living	7ar	Country Living	7a1r	Country Living	7r-Town and Country Living	7ar-Country Living	7a1r-Country Living
+E07000204	St Edmundsbury	East	7r	Town and Country Living	7ar	Country Living	7a1r	Country Living	7r-Town and Country Living	7ar-Country Living	7a1r-Country Living
+E07000205	Suffolk Coastal	East	3r	Countryside Living	3ar	English and Welsh Countryside	3a2r	Sparse English and Welsh Countryside	3r-Countryside Living	3ar-English and Welsh Countryside	3a2r-Sparse English and Welsh Countryside
+E07000206	Waveney	East	3r	Countryside Living	3br	Remoter Coastal Living	3b1r	Ageing Coastal Living	3r-Countryside Living	3br-Remoter Coastal Living	3b1r-Ageing Coastal Living
+E07000207	Elmbridge	South East	1r	Affluent England	1ar	Rural-Urban Fringe	1a1r	Rural-Urban Fringe	1r-Affluent England	1ar-Rural-Urban Fringe	1a1r-Rural-Urban Fringe
+E08000034	Kirklees	Yorkshire and The Humber	8r	Urban Settlements	8ar	Manufacturing Traits	8a1r	Industrial and Multi-ethnic	8r-Urban Settlements	8ar-Manufacturing Traits	8a1r-Industrial and Multi-ethnic
+E08000035	Leeds	Yorkshire and The Humber	2r	Business, Education and Heritage Centres	2ar	Larger Towns and Cities	2a1r	Larger Towns and Cities	2r-Business, Education and Heritage Centres	2ar-Larger Towns and Cities	2a1r-Larger Towns and Cities
+E07000208	Epsom and Ewell	South East	1r	Affluent England	1ar	Rural-Urban Fringe	1a1r	Rural-Urban Fringe	1r-Affluent England	1ar-Rural-Urban Fringe	1a1r-Rural-Urban Fringe
+E07000209	Guildford	South East	1r	Affluent England	1ar	Rural-Urban Fringe	1a1r	Rural-Urban Fringe	1r-Affluent England	1ar-Rural-Urban Fringe	1a1r-Rural-Urban Fringe
+E07000210	Mole Valley	South East	1r	Affluent England	1br	Thriving Rural	1b1r	Affluent rural	1r-Affluent England	1br-Thriving Rural	1b1r-Affluent rural
+E07000211	Reigate and Banstead	South East	1r	Affluent England	1ar	Rural-Urban Fringe	1a1r	Rural-Urban Fringe	1r-Affluent England	1ar-Rural-Urban Fringe	1a1r-Rural-Urban Fringe
+E07000212	Runnymede	South East	1r	Affluent England	1ar	Rural-Urban Fringe	1a1r	Rural-Urban Fringe	1r-Affluent England	1ar-Rural-Urban Fringe	1a1r-Rural-Urban Fringe
+E07000213	Spelthorne	South East	1r	Affluent England	1ar	Rural-Urban Fringe	1a1r	Rural-Urban Fringe	1r-Affluent England	1ar-Rural-Urban Fringe	1a1r-Rural-Urban Fringe
+E07000214	Surrey Heath	South East	1r	Affluent England	1ar	Rural-Urban Fringe	1a1r	Rural-Urban Fringe	1r-Affluent England	1ar-Rural-Urban Fringe	1a1r-Rural-Urban Fringe
+E07000215	Tandridge	South East	1r	Affluent England	1br	Thriving Rural	1b2r	Rural Growth Areas	1r-Affluent England	1br-Thriving Rural	1b2r-Rural Growth Areas
+E07000216	Waverley	South East	1r	Affluent England	1br	Thriving Rural	1b1r	Affluent rural	1r-Affluent England	1br-Thriving Rural	1b1r-Affluent rural
+E07000217	Woking	South East	1r	Affluent England	1ar	Rural-Urban Fringe	1a1r	Rural-Urban Fringe	1r-Affluent England	1ar-Rural-Urban Fringe	1a1r-Rural-Urban Fringe
+E07000218	North Warwickshire	West Midlands	7r	Town and Country Living	7ar	Country Living	7a1r	Country Living	7r-Town and Country Living	7ar-Country Living	7a1r-Country Living
+E07000219	Nuneaton and Bedworth	West Midlands	8r	Urban Settlements	8ar	Manufacturing Traits	8a2r	Urban Living	8r-Urban Settlements	8ar-Manufacturing Traits	8a2r-Urban Living
+E07000220	Rugby	West Midlands	8r	Urban Settlements	8br	Suburban Traits	8b2r	Expanding Areas	8r-Urban Settlements	8br-Suburban Traits	8b2r-Expanding Areas
+E07000221	Stratford-on-Avon	West Midlands	3r	Countryside Living	3ar	English and Welsh Countryside	3a1r	Older Farming Communities	3r-Countryside Living	3ar-English and Welsh Countryside	3a1r-Older Farming Communities
+E07000222	Warwick	West Midlands	2r	Business, Education and Heritage Centres	2ar	Larger Towns and Cities	2a1r	Larger Towns and Cities	2r-Business, Education and Heritage Centres	2ar-Larger Towns and Cities	2a1r-Larger Towns and Cities
+E08000036	Wakefield	Yorkshire and The Humber	6r	Services and Industrial Legacy	6ar	Services, Manufacturing and Mining Legacy	6a1r	Manufacturing Legacy	6r-Services and Industrial Legacy	6ar-Services, Manufacturing and Mining Legacy	6a1r-Manufacturing Legacy
+E08000037	Gateshead	North East	6r	Services and Industrial Legacy	6ar	Services, Manufacturing and Mining Legacy	6a3r	Service Economy	6r-Services and Industrial Legacy	6ar-Services, Manufacturing and Mining Legacy	6a3r-Service Economy
+W06000020	Torfaen	Wales	6r	Services and Industrial Legacy	6ar	Services, Manufacturing and Mining Legacy	6a2r	Mining Legacy	6r-Services and Industrial Legacy	6ar-Services, Manufacturing and Mining Legacy	6a2r-Mining Legacy
+W06000021	Monmouthshire	Wales	3r	Countryside Living	3ar	English and Welsh Countryside	3a2r	Sparse English and Welsh Countryside	3r-Countryside Living	3ar-English and Welsh Countryside	3a2r-Sparse English and Welsh Countryside
+W06000022	Newport	Wales	8r	Urban Settlements	8ar	Manufacturing Traits	8a1r	Industrial and Multi-ethnic	8r-Urban Settlements	8ar-Manufacturing Traits	8a1r-Industrial and Multi-ethnic
+W06000023	Powys	Wales	3r	Countryside Living	3ar	English and Welsh Countryside	3a2r	Sparse English and Welsh Countryside	3r-Countryside Living	3ar-English and Welsh Countryside	3a2r-Sparse English and Welsh Countryside
+W06000024	Merthyr Tydfil	Wales	6r	Services and Industrial Legacy	6ar	Services, Manufacturing and Mining Legacy	6a2r	Mining Legacy	6r-Services and Industrial Legacy	6ar-Services, Manufacturing and Mining Legacy	6a2r-Mining Legacy
+E07000223	Adur	South East	7r	Town and Country Living	7cr	Town Living	7c2r	Prosperous Towns	7r-Town and Country Living	7cr-Town Living	7c2r-Prosperous Towns
+E07000224	Arun	South East	3r	Countryside Living	3br	Remoter Coastal Living	3b1r	Ageing Coastal Living	3r-Countryside Living	3br-Remoter Coastal Living	3b1r-Ageing Coastal Living
+E07000225	Chichester	South East	3r	Countryside Living	3ar	English and Welsh Countryside	3a1r	Older Farming Communities	3r-Countryside Living	3ar-English and Welsh Countryside	3a1r-Older Farming Communities
+E07000226	Crawley	South East	8r	Urban Settlements	8br	Suburban Traits	8b2r	Expanding Areas	8r-Urban Settlements	8br-Suburban Traits	8b2r-Expanding Areas
+E07000227	Horsham	South East	1r	Affluent England	1br	Thriving Rural	1b2r	Rural Growth Areas	1r-Affluent England	1br-Thriving Rural	1b2r-Rural Growth Areas
+E07000228	Mid Sussex	South East	1r	Affluent England	1br	Thriving Rural	1b2r	Rural Growth Areas	1r-Affluent England	1br-Thriving Rural	1b2r-Rural Growth Areas
+E07000229	Worthing	South East	8r	Urban Settlements	8ar	Manufacturing Traits	8a2r	Urban Living	8r-Urban Settlements	8ar-Manufacturing Traits	8a2r-Urban Living
+E07000234	Bromsgrove	West Midlands	7r	Town and Country Living	7cr	Town Living	7c1r	Prosperous Semi-rural	7r-Town and Country Living	7cr-Town Living	7c1r-Prosperous Semi-rural
+E07000235	Malvern Hills	West Midlands	3r	Countryside Living	3ar	English and Welsh Countryside	3a1r	Older Farming Communities	3r-Countryside Living	3ar-English and Welsh Countryside	3a1r-Older Farming Communities
+E07000236	Redditch	West Midlands	8r	Urban Settlements	8ar	Manufacturing Traits	8a2r	Urban Living	8r-Urban Settlements	8ar-Manufacturing Traits	8a2r-Urban Living
+E07000237	Worcester	West Midlands	8r	Urban Settlements	8ar	Manufacturing Traits	8a2r	Urban Living	8r-Urban Settlements	8ar-Manufacturing Traits	8a2r-Urban Living
+E07000238	Wychavon	West Midlands	7r	Town and Country Living	7ar	Country Living	7a1r	Country Living	7r-Town and Country Living	7ar-Country Living	7a1r-Country Living
+E07000239	Wyre Forest	West Midlands	7r	Town and Country Living	7ar	Country Living	7a1r	Country Living	7r-Town and Country Living	7ar-Country Living	7a1r-Country Living
+E07000240	St Albans	East	1r	Affluent England	1ar	Rural-Urban Fringe	1a1r	Rural-Urban Fringe	1r-Affluent England	1ar-Rural-Urban Fringe	1a1r-Rural-Urban Fringe
+E07000241	Welwyn Hatfield	East	2r	Business, Education and Heritage Centres	2ar	Larger Towns and Cities	2a1r	Larger Towns and Cities	2r-Business, Education and Heritage Centres	2ar-Larger Towns and Cities	2a1r-Larger Towns and Cities
+E07000243	Stevenage	East	8r	Urban Settlements	8br	Suburban Traits	8b1r	City Periphery	8r-Urban Settlements	8br-Suburban Traits	8b1r-City Periphery
+E08000001	Bolton	North West	8r	Urban Settlements	8ar	Manufacturing Traits	8a1r	Industrial and Multi-ethnic	8r-Urban Settlements	8ar-Manufacturing Traits	8a1r-Industrial and Multi-ethnic
+E08000002	Bury	North West	8r	Urban Settlements	8ar	Manufacturing Traits	8a2r	Urban Living	8r-Urban Settlements	8ar-Manufacturing Traits	8a2r-Urban Living
+E08000003	Manchester	North West	2r	Business, Education and Heritage Centres	2br	University Towns and Cities	2b1r	University Towns and Cities	2r-Business, Education and Heritage Centres	2br-University Towns and Cities	2b1r-University Towns and Cities
+E08000004	Oldham	North West	8r	Urban Settlements	8ar	Manufacturing Traits	8a1r	Industrial and Multi-ethnic	8r-Urban Settlements	8ar-Manufacturing Traits	8a1r-Industrial and Multi-ethnic
+E08000005	Rochdale	North West	8r	Urban Settlements	8ar	Manufacturing Traits	8a1r	Industrial and Multi-ethnic	8r-Urban Settlements	8ar-Manufacturing Traits	8a1r-Industrial and Multi-ethnic
+E08000006	Salford	North West	8r	Urban Settlements	8ar	Manufacturing Traits	8a1r	Industrial and Multi-ethnic	8r-Urban Settlements	8ar-Manufacturing Traits	8a1r-Industrial and Multi-ethnic
+E08000007	Stockport	North West	7r	Town and Country Living	7cr	Town Living	7c2r	Prosperous Towns	7r-Town and Country Living	7cr-Town Living	7c2r-Prosperous Towns
+E08000008	Tameside	North West	8r	Urban Settlements	8ar	Manufacturing Traits	8a2r	Urban Living	8r-Urban Settlements	8ar-Manufacturing Traits	8a2r-Urban Living
+E08000009	Trafford	North West	8r	Urban Settlements	8br	Suburban Traits	8b1r	City Periphery	8r-Urban Settlements	8br-Suburban Traits	8b1r-City Periphery
+E08000010	Wigan	North West	6r	Services and Industrial Legacy	6ar	Services, Manufacturing and Mining Legacy	6a1r	Manufacturing Legacy	6r-Services and Industrial Legacy	6ar-Services, Manufacturing and Mining Legacy	6a1r-Manufacturing Legacy
+E08000011	Knowsley	North West	6r	Services and Industrial Legacy	6ar	Services, Manufacturing and Mining Legacy	6a2r	Mining Legacy	6r-Services and Industrial Legacy	6ar-Services, Manufacturing and Mining Legacy	6a2r-Mining Legacy
+E08000012	Liverpool	North West	2r	Business, Education and Heritage Centres	2ar	Larger Towns and Cities	2a1r	Larger Towns and Cities	2r-Business, Education and Heritage Centres	2ar-Larger Towns and Cities	2a1r-Larger Towns and Cities
+E08000013	St. Helens	North West	6r	Services and Industrial Legacy	6ar	Services, Manufacturing and Mining Legacy	6a1r	Manufacturing Legacy	6r-Services and Industrial Legacy	6ar-Services, Manufacturing and Mining Legacy	6a1r-Manufacturing Legacy
+E08000014	Sefton	North West	6r	Services and Industrial Legacy	6ar	Services, Manufacturing and Mining Legacy	6a3r	Service Economy	6r-Services and Industrial Legacy	6ar-Services, Manufacturing and Mining Legacy	6a3r-Service Economy
+E08000015	Wirral	North West	6r	Services and Industrial Legacy	6ar	Services, Manufacturing and Mining Legacy	6a3r	Service Economy	6r-Services and Industrial Legacy	6ar-Services, Manufacturing and Mining Legacy	6a3r-Service Economy
+E08000016	Barnsley	Yorkshire and The Humber	6r	Services and Industrial Legacy	6ar	Services, Manufacturing and Mining Legacy	6a1r	Manufacturing Legacy	6r-Services and Industrial Legacy	6ar-Services, Manufacturing and Mining Legacy	6a1r-Manufacturing Legacy
+E08000017	Doncaster	Yorkshire and The Humber	6r	Services and Industrial Legacy	6ar	Services, Manufacturing and Mining Legacy	6a1r	Manufacturing Legacy	6r-Services and Industrial Legacy	6ar-Services, Manufacturing and Mining Legacy	6a1r-Manufacturing Legacy
+E08000018	Rotherham	Yorkshire and The Humber	6r	Services and Industrial Legacy	6ar	Services, Manufacturing and Mining Legacy	6a1r	Manufacturing Legacy	6r-Services and Industrial Legacy	6ar-Services, Manufacturing and Mining Legacy	6a1r-Manufacturing Legacy
+E08000019	Sheffield	Yorkshire and The Humber	2r	Business, Education and Heritage Centres	2ar	Larger Towns and Cities	2a1r	Larger Towns and Cities	2r-Business, Education and Heritage Centres	2ar-Larger Towns and Cities	2a1r-Larger Towns and Cities
+E08000021	Newcastle upon Tyne	North East	2r	Business, Education and Heritage Centres	2ar	Larger Towns and Cities	2a1r	Larger Towns and Cities	2r-Business, Education and Heritage Centres	2ar-Larger Towns and Cities	2a1r-Larger Towns and Cities
+E08000022	North Tyneside	North East	6r	Services and Industrial Legacy	6ar	Services, Manufacturing and Mining Legacy	6a3r	Service Economy	6r-Services and Industrial Legacy	6ar-Services, Manufacturing and Mining Legacy	6a3r-Service Economy
+E08000023	South Tyneside	North East	6r	Services and Industrial Legacy	6ar	Services, Manufacturing and Mining Legacy	6a3r	Service Economy	6r-Services and Industrial Legacy	6ar-Services, Manufacturing and Mining Legacy	6a3r-Service Economy
+E08000024	Sunderland	North East	6r	Services and Industrial Legacy	6ar	Services, Manufacturing and Mining Legacy	6a2r	Mining Legacy	6r-Services and Industrial Legacy	6ar-Services, Manufacturing and Mining Legacy	6a2r-Mining Legacy
+E08000025	Birmingham	West Midlands	4r	Ethnically Diverse Metropolitan Living	4ar	Ethnically Diverse Metropolitan  Living	4a1r	Ethnically Diverse Metropolitan  Living	4r-Ethnically Diverse Metropolitan Living	4ar-Ethnically Diverse Metropolitan  Living	4a1r-Ethnically Diverse Metropolitan  Living
+E09000005	Brent	London	4r	Ethnically Diverse Metropolitan Living	4ar	Ethnically Diverse Metropolitan  Living	4a1r	Ethnically Diverse Metropolitan  Living	4r-Ethnically Diverse Metropolitan Living	4ar-Ethnically Diverse Metropolitan  Living	4a1r-Ethnically Diverse Metropolitan  Living
+E09000006	Bromley	London	1r	Affluent England	1ar	Rural-Urban Fringe	1a1r	Rural-Urban Fringe	1r-Affluent England	1ar-Rural-Urban Fringe	1a1r-Rural-Urban Fringe
+E09000007	Camden	London	5r	London Cosmopolitan	5ar	London Cosmopolitan	5a1r	London Cosmopolitan	5r-London Cosmopolitan	5ar-London Cosmopolitan	5a1r-London Cosmopolitan
+E09000008	Croydon	London	4r	Ethnically Diverse Metropolitan Living	4ar	Ethnically Diverse Metropolitan  Living	4a1r	Ethnically Diverse Metropolitan  Living	4r-Ethnically Diverse Metropolitan Living	4ar-Ethnically Diverse Metropolitan  Living	4a1r-Ethnically Diverse Metropolitan  Living
+E09000009	Ealing	London	4r	Ethnically Diverse Metropolitan Living	4ar	Ethnically Diverse Metropolitan  Living	4a1r	Ethnically Diverse Metropolitan  Living	4r-Ethnically Diverse Metropolitan Living	4ar-Ethnically Diverse Metropolitan  Living	4a1r-Ethnically Diverse Metropolitan  Living
+E09000010	Enfield	London	4r	Ethnically Diverse Metropolitan Living	4ar	Ethnically Diverse Metropolitan  Living	4a1r	Ethnically Diverse Metropolitan  Living	4r-Ethnically Diverse Metropolitan Living	4ar-Ethnically Diverse Metropolitan  Living	4a1r-Ethnically Diverse Metropolitan  Living
+E09000012	Hackney	London	5r	London Cosmopolitan	5ar	London Cosmopolitan	5a1r	London Cosmopolitan	5r-London Cosmopolitan	5ar-London Cosmopolitan	5a1r-London Cosmopolitan
+E09000013	Hammersmith and Fulham	London	5r	London Cosmopolitan	5ar	London Cosmopolitan	5a1r	London Cosmopolitan	5r-London Cosmopolitan	5ar-London Cosmopolitan	5a1r-London Cosmopolitan
+E09000014	Haringey	London	5r	London Cosmopolitan	5ar	London Cosmopolitan	5a1r	London Cosmopolitan	5r-London Cosmopolitan	5ar-London Cosmopolitan	5a1r-London Cosmopolitan
+E09000015	Harrow	London	4r	Ethnically Diverse Metropolitan Living	4ar	Ethnically Diverse Metropolitan  Living	4a1r	Ethnically Diverse Metropolitan  Living	4r-Ethnically Diverse Metropolitan Living	4ar-Ethnically Diverse Metropolitan  Living	4a1r-Ethnically Diverse Metropolitan  Living
+E09000016	Havering	London	8r	Urban Settlements	8br	Suburban Traits	8b1r	City Periphery	8r-Urban Settlements	8br-Suburban Traits	8b1r-City Periphery
+E09000017	Hillingdon	London	4r	Ethnically Diverse Metropolitan Living	4ar	Ethnically Diverse Metropolitan  Living	4a1r	Ethnically Diverse Metropolitan  Living	4r-Ethnically Diverse Metropolitan Living	4ar-Ethnically Diverse Metropolitan  Living	4a1r-Ethnically Diverse Metropolitan  Living
+E09000018	Hounslow	London	4r	Ethnically Diverse Metropolitan Living	4ar	Ethnically Diverse Metropolitan  Living	4a1r	Ethnically Diverse Metropolitan  Living	4r-Ethnically Diverse Metropolitan Living	4ar-Ethnically Diverse Metropolitan  Living	4a1r-Ethnically Diverse Metropolitan  Living
+E09000019	Islington	London	5r	London Cosmopolitan	5ar	London Cosmopolitan	5a1r	London Cosmopolitan	5r-London Cosmopolitan	5ar-London Cosmopolitan	5a1r-London Cosmopolitan
+E09000020	Kensington and Chelsea	London	5r	London Cosmopolitan	5ar	London Cosmopolitan	5a1r	London Cosmopolitan	5r-London Cosmopolitan	5ar-London Cosmopolitan	5a1r-London Cosmopolitan
+E09000021	Kingston upon Thames	London	2r	Business, Education and Heritage Centres	2br	University Towns and Cities	2b1r	University Towns and Cities	2r-Business, Education and Heritage Centres	2br-University Towns and Cities	2b1r-University Towns and Cities
+E09000022	Lambeth	London	5r	London Cosmopolitan	5ar	London Cosmopolitan	5a1r	London Cosmopolitan	5r-London Cosmopolitan	5ar-London Cosmopolitan	5a1r-London Cosmopolitan
+E09000023	Lewisham	London	4r	Ethnically Diverse Metropolitan Living	4ar	Ethnically Diverse Metropolitan  Living	4a1r	Ethnically Diverse Metropolitan  Living	4r-Ethnically Diverse Metropolitan Living	4ar-Ethnically Diverse Metropolitan  Living	4a1r-Ethnically Diverse Metropolitan  Living
+E09000024	Merton	London	4r	Ethnically Diverse Metropolitan Living	4ar	Ethnically Diverse Metropolitan  Living	4a1r	Ethnically Diverse Metropolitan  Living	4r-Ethnically Diverse Metropolitan Living	4ar-Ethnically Diverse Metropolitan  Living	4a1r-Ethnically Diverse Metropolitan  Living
+E09000025	Newham	London	4r	Ethnically Diverse Metropolitan Living	4ar	Ethnically Diverse Metropolitan  Living	4a1r	Ethnically Diverse Metropolitan  Living	4r-Ethnically Diverse Metropolitan Living	4ar-Ethnically Diverse Metropolitan  Living	4a1r-Ethnically Diverse Metropolitan  Living
+E09000026	Redbridge	London	4r	Ethnically Diverse Metropolitan Living	4ar	Ethnically Diverse Metropolitan  Living	4a1r	Ethnically Diverse Metropolitan  Living	4r-Ethnically Diverse Metropolitan Living	4ar-Ethnically Diverse Metropolitan  Living	4a1r-Ethnically Diverse Metropolitan  Living
+E09000027	Richmond upon Thames	London	1r	Affluent England	1ar	Rural-Urban Fringe	1a1r	Rural-Urban Fringe	1r-Affluent England	1ar-Rural-Urban Fringe	1a1r-Rural-Urban Fringe
+E09000028	Southwark	London	5r	London Cosmopolitan	5ar	London Cosmopolitan	5a1r	London Cosmopolitan	5r-London Cosmopolitan	5ar-London Cosmopolitan	5a1r-London Cosmopolitan
+E09000029	Sutton	London	8r	Urban Settlements	8br	Suburban Traits	8b1r	City Periphery	8r-Urban Settlements	8br-Suburban Traits	8b1r-City Periphery
+E09000030	Tower Hamlets	London	5r	London Cosmopolitan	5ar	London Cosmopolitan	5a1r	London Cosmopolitan	5r-London Cosmopolitan	5ar-London Cosmopolitan	5a1r-London Cosmopolitan
+E09000031	Waltham Forest	London	4r	Ethnically Diverse Metropolitan Living	4ar	Ethnically Diverse Metropolitan  Living	4a1r	Ethnically Diverse Metropolitan  Living	4r-Ethnically Diverse Metropolitan Living	4ar-Ethnically Diverse Metropolitan  Living	4a1r-Ethnically Diverse Metropolitan  Living
+E09000032	Wandsworth	London	5r	London Cosmopolitan	5ar	London Cosmopolitan	5a1r	London Cosmopolitan	5r-London Cosmopolitan	5ar-London Cosmopolitan	5a1r-London Cosmopolitan
+E09000033	Westminster	London	5r	London Cosmopolitan	5ar	London Cosmopolitan	5a1r	London Cosmopolitan	5r-London Cosmopolitan	5ar-London Cosmopolitan	5a1r-London Cosmopolitan
+S12000005	Clackmannanshire	Scotland	6r	Services and Industrial Legacy	6br	Scottish Industrial Heritage	6b1r	Scottish Industrial Legacy	6r-Services and Industrial Legacy	6br-Scottish Industrial Heritage	6b1r-Scottish Industrial Legacy
+S12000006	Dumfries and Galloway	Scotland	3r	Countryside Living	3cr	Scottish Countryside	3c1r	Scottish Countryside	3r-Countryside Living	3cr-Scottish Countryside	3c1r-Scottish Countryside
+S12000008	East Ayrshire	Scotland	6r	Services and Industrial Legacy	6br	Scottish Industrial Heritage	6b1r	Scottish Industrial Legacy	6r-Services and Industrial Legacy	6br-Scottish Industrial Heritage	6b1r-Scottish Industrial Legacy
+S12000010	East Lothian	Scotland	6r	Services and Industrial Legacy	6br	Scottish Industrial Heritage	6b1r	Scottish Industrial Legacy	6r-Services and Industrial Legacy	6br-Scottish Industrial Heritage	6b1r-Scottish Industrial Legacy
+S12000011	East Renfrewshire	Scotland	7r	Town and Country Living	7cr	Town Living	7c1r	Prosperous Semi-rural	7r-Town and Country Living	7cr-Town Living	7c1r-Prosperous Semi-rural
+S12000013	Na h-Eileanan Siar	Scotland	3r	Countryside Living	3cr	Scottish Countryside	3c1r	Scottish Countryside	3r-Countryside Living	3cr-Scottish Countryside	3c1r-Scottish Countryside
+S12000014	Falkirk	Scotland	6r	Services and Industrial Legacy	6br	Scottish Industrial Heritage	6b1r	Scottish Industrial Legacy	6r-Services and Industrial Legacy	6br-Scottish Industrial Heritage	6b1r-Scottish Industrial Legacy
+S12000015	Fife	Scotland	6r	Services and Industrial Legacy	6br	Scottish Industrial Heritage	6b1r	Scottish Industrial Legacy	6r-Services and Industrial Legacy	6br-Scottish Industrial Heritage	6b1r-Scottish Industrial Legacy
+S12000017	Highland	Scotland	3r	Countryside Living	3cr	Scottish Countryside	3c1r	Scottish Countryside	3r-Countryside Living	3cr-Scottish Countryside	3c1r-Scottish Countryside
+S12000018	Inverclyde	Scotland	6r	Services and Industrial Legacy	6br	Scottish Industrial Heritage	6b1r	Scottish Industrial Legacy	6r-Services and Industrial Legacy	6br-Scottish Industrial Heritage	6b1r-Scottish Industrial Legacy
+S12000019	Midlothian	Scotland	6r	Services and Industrial Legacy	6br	Scottish Industrial Heritage	6b1r	Scottish Industrial Legacy	6r-Services and Industrial Legacy	6br-Scottish Industrial Heritage	6b1r-Scottish Industrial Legacy
+S12000020	Moray	Scotland	3r	Countryside Living	3cr	Scottish Countryside	3c1r	Scottish Countryside	3r-Countryside Living	3cr-Scottish Countryside	3c1r-Scottish Countryside
+S12000021	North Ayrshire	Scotland	6r	Services and Industrial Legacy	6br	Scottish Industrial Heritage	6b1r	Scottish Industrial Legacy	6r-Services and Industrial Legacy	6br-Scottish Industrial Heritage	6b1r-Scottish Industrial Legacy
+S12000023	Orkney Islands	Scotland	3r	Countryside Living	3cr	Scottish Countryside	3c1r	Scottish Countryside	3r-Countryside Living	3cr-Scottish Countryside	3c1r-Scottish Countryside
+S12000024	Perth and Kinross	Scotland	3r	Countryside Living	3cr	Scottish Countryside	3c1r	Scottish Countryside	3r-Countryside Living	3cr-Scottish Countryside	3c1r-Scottish Countryside
+S12000026	Scottish Borders	Scotland	3r	Countryside Living	3cr	Scottish Countryside	3c1r	Scottish Countryside	3r-Countryside Living	3cr-Scottish Countryside	3c1r-Scottish Countryside
+S12000027	Shetland Islands	Scotland	7r	Town and Country Living	7ar	Country Living	7a1r	Country Living	7r-Town and Country Living	7ar-Country Living	7a1r-Country Living
+S12000028	South Ayrshire	Scotland	3r	Countryside Living	3cr	Scottish Countryside	3c1r	Scottish Countryside	3r-Countryside Living	3cr-Scottish Countryside	3c1r-Scottish Countryside
+S12000029	South Lanarkshire	Scotland	6r	Services and Industrial Legacy	6br	Scottish Industrial Heritage	6b1r	Scottish Industrial Legacy	6r-Services and Industrial Legacy	6br-Scottish Industrial Heritage	6b1r-Scottish Industrial Legacy
+S12000030	Stirling	Scotland	3r	Countryside Living	3cr	Scottish Countryside	3c1r	Scottish Countryside	3r-Countryside Living	3cr-Scottish Countryside	3c1r-Scottish Countryside
+S12000033	Aberdeen City	Scotland	2r	Business, Education and Heritage Centres	2ar	Larger Towns and Cities	2a1r	Larger Towns and Cities	2r-Business, Education and Heritage Centres	2ar-Larger Towns and Cities	2a1r-Larger Towns and Cities
+S12000034	Aberdeenshire	Scotland	7r	Town and Country Living	7ar	Country Living	7a1r	Country Living	7r-Town and Country Living	7ar-Country Living	7a1r-Country Living
+S12000035	Argyll and Bute	Scotland	3r	Countryside Living	3cr	Scottish Countryside	3c1r	Scottish Countryside	3r-Countryside Living	3cr-Scottish Countryside	3c1r-Scottish Countryside
+S12000036	City of Edinburgh	Scotland	2r	Business, Education and Heritage Centres	2ar	Larger Towns and Cities	2a1r	Larger Towns and Cities	2r-Business, Education and Heritage Centres	2ar-Larger Towns and Cities	2a1r-Larger Towns and Cities
+S12000038	Renfrewshire	Scotland	6r	Services and Industrial Legacy	6br	Scottish Industrial Heritage	6b1r	Scottish Industrial Legacy	6r-Services and Industrial Legacy	6br-Scottish Industrial Heritage	6b1r-Scottish Industrial Legacy
+S12000039	West Dunbartonshire	Scotland	6r	Services and Industrial Legacy	6br	Scottish Industrial Heritage	6b1r	Scottish Industrial Legacy	6r-Services and Industrial Legacy	6br-Scottish Industrial Heritage	6b1r-Scottish Industrial Legacy
+S12000040	West Lothian	Scotland	6r	Services and Industrial Legacy	6br	Scottish Industrial Heritage	6b1r	Scottish Industrial Legacy	6r-Services and Industrial Legacy	6br-Scottish Industrial Heritage	6b1r-Scottish Industrial Legacy
+S12000041	Angus	Scotland	3r	Countryside Living	3cr	Scottish Countryside	3c1r	Scottish Countryside	3r-Countryside Living	3cr-Scottish Countryside	3c1r-Scottish Countryside
+S12000042	Dundee City	Scotland	2r	Business, Education and Heritage Centres	2ar	Larger Towns and Cities	2a1r	Larger Towns and Cities	2r-Business, Education and Heritage Centres	2ar-Larger Towns and Cities	2a1r-Larger Towns and Cities
+S12000044	North Lanarkshire	Scotland	6r	Services and Industrial Legacy	6br	Scottish Industrial Heritage	6b1r	Scottish Industrial Legacy	6r-Services and Industrial Legacy	6br-Scottish Industrial Heritage	6b1r-Scottish Industrial Legacy
+S12000045	East Dunbartonshire	Scotland	7r	Town and Country Living	7cr	Town Living	7c1r	Prosperous Semi-rural	7r-Town and Country Living	7cr-Town Living	7c1r-Prosperous Semi-rural
+S12000046	Glasgow City	Scotland	2r	Business, Education and Heritage Centres	2ar	Larger Towns and Cities	2a1r	Larger Towns and Cities	2r-Business, Education and Heritage Centres	2ar-Larger Towns and Cities	2a1r-Larger Towns and Cities
+W06000001	Isle of Anglesey	Wales	3r	Countryside Living	3ar	English and Welsh Countryside	3a2r	Sparse English and Welsh Countryside	3r-Countryside Living	3ar-English and Welsh Countryside	3a2r-Sparse English and Welsh Countryside
+W06000002	Gwynedd	Wales	3r	Countryside Living	3ar	English and Welsh Countryside	3a2r	Sparse English and Welsh Countryside	3r-Countryside Living	3ar-English and Welsh Countryside	3a2r-Sparse English and Welsh Countryside
+W06000003	Conwy	Wales	3r	Countryside Living	3br	Remoter Coastal Living	3b1r	Ageing Coastal Living	3r-Countryside Living	3br-Remoter Coastal Living	3b1r-Ageing Coastal Living
+W06000004	Denbighshire	Wales	3r	Countryside Living	3ar	English and Welsh Countryside	3a2r	Sparse English and Welsh Countryside	3r-Countryside Living	3ar-English and Welsh Countryside	3a2r-Sparse English and Welsh Countryside
+W06000005	Flintshire	Wales	7r	Town and Country Living	7ar	Country Living	7a1r	Country Living	7r-Town and Country Living	7ar-Country Living	7a1r-Country Living
+W06000006	Wrexham	Wales	6r	Services and Industrial Legacy	6ar	Services, Manufacturing and Mining Legacy	6a1r	Manufacturing Legacy	6r-Services and Industrial Legacy	6ar-Services, Manufacturing and Mining Legacy	6a1r-Manufacturing Legacy
+N09000001	Antrim and Newtownabbey	Northern Ireland	7r	Town and Country Living	7br	Northern Ireland Countryside	7b1r	Northern Ireland Countryside	7r-Town and Country Living	7br-Northern Ireland Countryside	7b1r-Northern Ireland Countryside
+N09000002	Armagh City Banbridge and Craigavon	Northern Ireland	7r	Town and Country Living	7br	Northern Ireland Countryside	7b1r	Northern Ireland Countryside	7r-Town and Country Living	7br-Northern Ireland Countryside	7b1r-Northern Ireland Countryside
+N09000003	Belfast	Northern Ireland	2r	Business, Education and Heritage Centres	2ar	Larger Towns and Cities	2a1r	Larger Towns and Cities	2r-Business, Education and Heritage Centres	2ar-Larger Towns and Cities	2a1r-Larger Towns and Cities
+N09000004	Causeway Coast and Glens	Northern Ireland	7r	Town and Country Living	7br	Northern Ireland Countryside	7b1r	Northern Ireland Countryside	7r-Town and Country Living	7br-Northern Ireland Countryside	7b1r-Northern Ireland Countryside
+N09000005	Derry City and Strabane	Northern Ireland	6r	Services and Industrial Legacy	6ar	Services, Manufacturing and Mining Legacy	6a2r	Mining Legacy	6r-Services and Industrial Legacy	6ar-Services, Manufacturing and Mining Legacy	6a2r-Mining Legacy
+N09000006	Fermanagh and Omagh	Northern Ireland	7r	Town and Country Living	7br	Northern Ireland Countryside	7b1r	Northern Ireland Countryside	7r-Town and Country Living	7br-Northern Ireland Countryside	7b1r-Northern Ireland Countryside
+N09000007	Lisburn and Castlereagh	Northern Ireland	7r	Town and Country Living	7br	Northern Ireland Countryside	7b1r	Northern Ireland Countryside	7r-Town and Country Living	7br-Northern Ireland Countryside	7b1r-Northern Ireland Countryside
+N09000008	Mid and East Antrim	Northern Ireland	7r	Town and Country Living	7br	Northern Ireland Countryside	7b1r	Northern Ireland Countryside	7r-Town and Country Living	7br-Northern Ireland Countryside	7b1r-Northern Ireland Countryside
+N09000009	Mid Ulster	Northern Ireland	7r	Town and Country Living	7br	Northern Ireland Countryside	7b1r	Northern Ireland Countryside	7r-Town and Country Living	7br-Northern Ireland Countryside	7b1r-Northern Ireland Countryside
+N09000010	Newry Mourne and Down	Northern Ireland	7r	Town and Country Living	7br	Northern Ireland Countryside	7b1r	Northern Ireland Countryside	7r-Town and Country Living	7br-Northern Ireland Countryside	7b1r-Northern Ireland Countryside
+N09000011	Ards and North Down	Northern Ireland	7r	Town and Country Living	7cr	Town Living	7c2r	Prosperous Towns	7r-Town and Country Living	7cr-Town Living	7c2r-Prosperous Towns

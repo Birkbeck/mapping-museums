@@ -1,0 +1,13 @@
+- What websites did you work on? What is your best web dev job? Can you show it to us?
+- How would you improve this web interface? (with example page from the project)
+- Can you explain how this page works in terms of web technologies? (with example page from the project)
+- What is your prior experience with humanities/social science data?
+- What is W3C and why is it important?
+- What do you like about HTML5?
+- Explain how you optimize and reduce web application load time.
+- What are the main challenges you have encountered in your work?
+- How do you do testing?
+- How would the developers/project managers you’ve worked with describe you?
+- Can you describe your workflow when you create a web page or web app?
+- What tools do you use to find a performance bug?
+- How do you organize your JavaScript code?

@@ -1,0 +1,106 @@
+[1] "runRandomForestMmSize all size_simpl"
+[1] "N cases =  2621"
+[1] "Summary of input sizes"
+       VAL.x VAL.Freq    PC  VAR
+4      small     1007 38.42 size
+3     medium      481 18.35 size
+7 very_small      439 16.75 size
+6 very_large      256  9.77 size
+2      large      248  9.46 size
+5       tiny      177  6.75 size
+1       huge       13  0.50 size
+8       <NA>        0  0.00 size
+   VAL.x VAL.Freq    PC        VAR
+3  small     1623 61.92 size_simpl
+1  large      517 19.73 size_simpl
+2 medium      481 18.35 size_simpl
+4   <NA>        0  0.00 size_simpl
+
+[1] "Formula"
+size_simpl ~ country_name + governance + subgroup_name + supergroup_name
+<environment: 0x13eb1a710>
+
+Call:
+ randomForest(formula = ff, data = obsdf, importance = T, ntree = ntree,      na.action = na.omit) 
+               Type of random forest: classification
+                     Number of trees: 2000
+No. of variables tried at each split: 2
+
+        OOB estimate of  error rate: 33.9%
+Confusion matrix:
+       large medium small class.error
+large    242     25   225  0.50813008
+medium   100     15   312  0.96487119
+small     91     41  1291  0.09276177
+[1] "Predicted values"
+ large medium  small   NA's 
+   418     89   1835    279 
+[1] "> NA/missing values: 279 (10.645%)"
+
+[1] "Caret confusion matrix"
+Confusion Matrix and Statistics
+
+          Reference
+Prediction large medium small
+    large    255     16   221
+    medium    86     50   291
+    small     77     23  1323
+
+Overall Statistics
+                                         
+               Accuracy : 0.6951         
+                 95% CI : (0.676, 0.7137)
+    No Information Rate : 0.7835         
+    P-Value [Acc > NIR] : 1              
+                                         
+                  Kappa : 0.3642         
+ Mcnemar's Test P-Value : <2e-16         
+
+Statistics by Class:
+
+                     Class: large Class: medium Class: small
+Sensitivity                0.6100       0.56180       0.7210
+Specificity                0.8768       0.83267       0.8028
+Pos Pred Value             0.5183       0.11710       0.9297
+Neg Pred Value             0.9119       0.97963       0.4429
+Prevalence                 0.1785       0.03800       0.7835
+Detection Rate             0.1089       0.02135       0.5649
+Detection Prevalence       0.2101       0.18232       0.6076
+Balanced Accuracy          0.7434       0.69723       0.7619
+
+[1] "Summary of predicted sizes"
+       VAL.x VAL.Freq    PC  VAR
+4      small     1007 38.42 size
+3     medium      481 18.35 size
+7 very_small      439 16.75 size
+6 very_large      256  9.77 size
+2      large      248  9.46 size
+5       tiny      177  6.75 size
+1       huge       13  0.50 size
+8       <NA>        0  0.00 size
+   VAL.x VAL.Freq    PC        VAR
+3  small     1623 61.92 size_simpl
+1  large      517 19.73 size_simpl
+2 medium      481 18.35 size_simpl
+4   <NA>        0  0.00 size_simpl
+   VAL.x VAL.Freq    PC       VAR
+3  small     1835 70.01 size_pred
+1  large      418 15.95 size_pred
+4   <NA>      279 10.64 size_pred
+2 medium       89  3.40 size_pred
+
+[1] "Model results"
+[1] "Accuracy on museum dataset: 0.621"
+[1] "Predicted values for unknown cases"
+[1] 1320
+ large medium  small   NA's 
+    86     31   1181     22 
+[1] "> NA/missing values: 22 (1.667%)"
+       project_id        size_simpl   size_simpl_wpred                   size_simpl_source
+ domus.NE043:   1   small     :1623   large : 603      domus                      :1465   
+ mm.ace.019 :   1   medium    : 481   medium: 512      mm_prediction_random_forest:1298   
+ mm.ace.022 :   1   large     : 517   small :2804      visitbritain               : 399   
+ mm.ace.023 :   1   unknown_sz:1320   NA's  :  22      aim_size_designation       : 330   
+ mm.ace.036 :   1                                      ma(fam)                    : 267   
+ mm.ace.039 :   1                                      (Other)                    : 160   
+ (Other)    :3935                                      NA's                       :  22   

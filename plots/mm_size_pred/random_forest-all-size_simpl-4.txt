@@ -1,0 +1,106 @@
+[1] "runRandomForestMmSize all size_simpl"
+[1] "N cases =  2621"
+[1] "Summary of input sizes"
+       VAL.x VAL.Freq    PC  VAR
+4      small     1007 38.42 size
+3     medium      481 18.35 size
+7 very_small      439 16.75 size
+6 very_large      256  9.77 size
+2      large      248  9.46 size
+5       tiny      177  6.75 size
+1       huge       13  0.50 size
+8       <NA>        0  0.00 size
+   VAL.x VAL.Freq    PC        VAR
+3  small     1623 61.92 size_simpl
+1  large      517 19.73 size_simpl
+2 medium      481 18.35 size_simpl
+4   <NA>        0  0.00 size_simpl
+
+[1] "Formula"
+size_simpl ~ country_name + governance
+<environment: 0x1472f4cf0>
+
+Call:
+ randomForest(formula = ff, data = obsdf, importance = T, ntree = ntree,      na.action = na.omit) 
+               Type of random forest: classification
+                     Number of trees: 2000
+No. of variables tried at each split: 1
+
+        OOB estimate of  error rate: 34.03%
+Confusion matrix:
+       large medium small class.error
+large    146      0   366  0.71484375
+medium    40      0   437  1.00000000
+small     42      0  1570  0.02605459
+[1] "Predicted values"
+ large medium  small   NA's 
+   230      0   2371     20 
+[1] "> NA/missing values: 20 (0.763%)"
+
+[1] "Caret confusion matrix"
+Confusion Matrix and Statistics
+
+          Reference
+Prediction large medium small
+    large    148      0   364
+    medium    40      0   437
+    small     42      0  1570
+
+Overall Statistics
+                                         
+               Accuracy : 0.6605         
+                 95% CI : (0.642, 0.6787)
+    No Information Rate : 0.9116         
+    P-Value [Acc > NIR] : 1              
+                                         
+                  Kappa : 0.1871         
+ Mcnemar's Test P-Value : <2e-16         
+
+Statistics by Class:
+
+                     Class: large Class: medium Class: small
+Sensitivity               0.64348            NA       0.6622
+Specificity               0.84648        0.8166       0.8174
+Pos Pred Value            0.28906            NA       0.9739
+Neg Pred Value            0.96075            NA       0.1901
+Prevalence                0.08843        0.0000       0.9116
+Detection Rate            0.05690        0.0000       0.6036
+Detection Prevalence      0.19685        0.1834       0.6198
+Balanced Accuracy         0.74498            NA       0.7398
+
+[1] "Summary of predicted sizes"
+       VAL.x VAL.Freq    PC  VAR
+4      small     1007 38.42 size
+3     medium      481 18.35 size
+7 very_small      439 16.75 size
+6 very_large      256  9.77 size
+2      large      248  9.46 size
+5       tiny      177  6.75 size
+1       huge       13  0.50 size
+8       <NA>        0  0.00 size
+   VAL.x VAL.Freq    PC        VAR
+3  small     1623 61.92 size_simpl
+1  large      517 19.73 size_simpl
+2 medium      481 18.35 size_simpl
+4   <NA>        0  0.00 size_simpl
+   VAL.x VAL.Freq    PC       VAR
+3  small     2371 90.46 size_pred
+1  large      230  8.78 size_pred
+4   <NA>       20  0.76 size_pred
+2 medium        0  0.00 size_pred
+
+[1] "Model results"
+[1] "Accuracy on museum dataset: 0.655"
+[1] "Predicted values for unknown cases"
+[1] 1320
+ large medium  small   NA's 
+    28      0   1270     22 
+[1] "> NA/missing values: 22 (1.667%)"
+       project_id        size_simpl   size_simpl_wpred                   size_simpl_source
+ domus.NE043:   1   small     :1623   large : 545      domus                      :1465   
+ mm.ace.019 :   1   medium    : 481   medium: 481      mm_prediction_random_forest:1298   
+ mm.ace.022 :   1   large     : 517   small :2893      visitbritain               : 399   
+ mm.ace.023 :   1   unknown_sz:1320   NA's  :  22      aim_size_designation       : 330   
+ mm.ace.036 :   1                                      ma(fam)                    : 267   
+ mm.ace.039 :   1                                      (Other)                    : 160   
+ (Other)    :3935                                      NA's                       :  22   

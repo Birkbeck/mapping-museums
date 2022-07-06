@@ -1,0 +1,138 @@
+project_id	name_of_museum	town_or_city	region_name	governance	subject_matter	accreditation	size	size_simpl	size_simpl_wpred	size_simpl_source	VALID (T/F)	Proposed label		
+mm.ace.1274	Museum Of Liverpool	Liverpool	North West	/Government/National	/Local Histories	Accredited	unknown	unknown_sz	large	mm_prediction_random_forest	T			
+mm.aim82M.003	Barneys Fossil And Country Life Exhibition	Charmouth	South West	/Independent/Private	/Natural world/Fossils	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	S		
+mm.aim82M.008	The British Telecom Museum	London	London	/Independent/Private	/Leisure and sport/Film Cinema and TV	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	S	NB 23,000 visitors in 1995	
+mm.aim82M.047	Totnes Motor Museum	Totnes	South West	/Independent/Private	/Transport/Cars and motorbikes	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	s		
+mm.aim82M.056	London Toy & Model Museum	London	London	/Independent/Private	/Leisure and sport/Toys and models	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	S		
+mm.aim82M.063	Banwell Museum	Banwell	South West	/Independent/Not for profit	/Archaeology/Mixed	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	s		
+mm.aim82NM.011	Avon Tyre Museum	Melksham	South West	/Independent/Private	/Industry and manufacture/Other	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	small		
+mm.aim82NM.034	Cheviot Museum And Field Centre	Wooler	North East	/Independent/Unknown	/Archaeology/Mixed	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	small		
+mm.aim82NM.055	Chipping Camden Car Collection	Chipping Camden	South West	/Independent/Private	/Transport/Cars and motorbikes	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	small		
+mm.aim82NM.071	Lytham Motive Power Museum	Lytham St Annes	North West	/Independent/Private	/Transport/Mixed	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	small		
+mm.aim82NM.076	Monks Hall Museum	Eccles	North West	/Government/Local Authority	/Mixed/Other	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	small		
+mm.aim82NM.122	Tom Varley Museum Of Steam	Clitheroe	North West	/Independent/Private	/Transport/Other	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	unknown		
+mm.aim82NM.127	West Somerset Railway	Minehead	South West	/Independent/Not for profit	/Transport/Trains and railways	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	small 2016 12674		
+mm.domus.SC310	Modern Two	Edinburgh	Scotland	/Government/National	/Arts/Fine and decorative arts	Accredited	unknown	unknown_sz	large	mm_prediction_random_forest	T			
+mm.domus.SW239	Markers Cottage	Exeter	South West	/Independent/National Trust	/Buildings/Houses/Medium houses	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	small		
+mm.domus.SW243	Lodge Park	Near Cheltenham	South West	/Independent/National Trust	/Buildings/Houses/Large houses	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	small 2003 9937; 2004 11,371; 2005 11,524		
+mm.domus.WM109	Churchill House Museum & Hatton Gallery	Hereford	West Midlands	/Government/Local Authority	/Mixed/Other	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	unknown		
+mm.domus.YH165	Mappin Art Gallery	Sheffield	Yorkshire and The Humber	/Government/Local Authority	/Arts/Fine and decorative arts	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	T			
+mm.fcm.027	Bournemouth Aviation Museum	Christchurch	South West	/Independent/Not for profit	/Transport/Aviation	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	unknown		
+mm.fcm.082	Dinosaurland Fossil Museum	Lyme Regis	South West	/Independent/Private	/Natural world/Dinosaurs	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	unknown		
+mm.fcm.102	Fossil Museum	Swanage	South West	/Independent/Private	/Natural world/Fossils	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	small		
+mm.fcm.114	Harveys Sherry Museum	Bristol	South West	/Independent/Private	/Food and drink	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	small		
+mm.fcm.148	London Film Museum	London	London	/Independent/Private	/Leisure and sport/Film Cinema and TV	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	T			
+mm.hha.005	Chenies Manor House	Chenies	South East	/Independent/Private	/Buildings/Houses/Large houses	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	small		
+mm.hha.008	Avington Park	Winchester	South East	/Independent/Private	/Buildings/Houses/Large houses	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	small		
+mm.hha.016	Ardington House	Wantage	South East	/Independent/Private	/Buildings/Houses/Large houses	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	small 2005 2470		
+mm.hha.019	Kingston Bagpuize House	Abingdon	South East	/Independent/Private	/Buildings/Houses/Large houses	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	small		
+mm.hud.005	Alfriston Clergy House	Alfriston	South East	/Independent/National Trust	/Buildings/Houses/Small houses	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	medium 23,000 2005		
+mm.mald.071	Llanchaeron	Aberaeron	Wales	/Independent/National Trust	/Buildings/Houses/Large houses	Accredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	medium 32,269 2011		visits to tourist attractions in Wales 2011
+mm.mald.110	Oriel Y Parc Gallery & Visitor Centre	Haverfordwest	Wales	/Government/Other	/Arts/Fine and decorative arts	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	T	large 123,490 2011		visits to tourist attractions in Wales 2011
+mm.mald.152	Tudor Merchants House (nt)	Tenby	Wales	/Independent/National Trust	/Buildings/Houses/Medium houses	Accredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	small 1,214 2005		visitor attraction trends 2005
+mm.MDN.008	Goddards	York	Yorkshire and The Humber	/Independent/National Trust	/Mixed/Other	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	medium 24,500 in 2015		https://en.wikipedia.org/wiki/Goddards_House_and_Garden
+mm.MDN.009	York Cold War Bunker	York	Yorkshire and The Humber	/Independent/English Heritage	/War and conflict/Bunker	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	small		
+mm.MDN.018	Hms Caroline	Belfast	Northern Ireland	/Government/Other	/War and conflict/Navy	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	unknown		
+mm.mgs.093	University Of Aberdeen, Kings Museum	Aberdeen	Scotland	/University	/Mixed/Other	Accredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	unknown		
+mm.mgs.376	Paisley Thread Mill Museum	Paisley	Scotland	/Independent/Not for profit	/Industry and manufacture/Textiles	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	small		
+mm.mgs.400	Museum Of Piping	Glasgow	Scotland	/Independent/Not for profit	/Arts/Music	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	medium		
+mm.misc.071	Rothesay Museum	Bournemouth	South West	/Government/Local Authority	/Arts/Fine and decorative arts	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	small		
+mm.misc.092	National Museum Of The Royal Navy, Hartlepool	Hartlepool	North East	/Government/Other	/War and conflict/Navy	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	huge 1,015,00 in 2016		
+mm.misc.098	Chapel Beck Gallery	Guisborough	North East	/Government/Local Authority	/Arts/Fine and decorative arts	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	small		
+mm.misc.099	The Treasure House	Beverley	Yorkshire and The Humber	/Government/Local Authority	/Mixed/Other	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	T			
+mm.misc.103	Lancashire County Cricket Club Museum	Manchester	North West	/Independent/Private	/Leisure and sport/Cricket	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	small		
+mm.misc.166	Newport Street Gallery	London	London	/Independent/Private	/Arts/Fine and decorative arts	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	T			
+mm.misc.168	Charney Manor	Wantage	South East	/Independent/Private	/Buildings/Houses/Large houses	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	small		
+mm.misc.169	Milton Manor House	Abingdon	South East	/Independent/Private	/Buildings/Houses/Large houses	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	small		
+mm.misc.172	Bradley Manor	Newton Abbot	South West	/Independent/National Trust	/Buildings/Houses/Large houses	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	very small 1821 in 2003		visitor attraction trends 2003
+mm.misc.173	Compton Castle	Compton	South West	/Independent/National Trust	/Buildings/Houses/Large houses	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	very small 1278 in 2003		visitor attraction trends 2003
+mm.misc.174	Dunsland	Nr. Holsworthy	South West	/Independent/National Trust	/Buildings/Houses/Large houses	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	unknown		
+mm.misc.193	Chelsea Stadium Tour And Museum	London	London	/Independent/Private	/Leisure and sport/Rugby and football	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	unknown		
+mm.misc.199	Museum Of Mankind	London	London	/Government/National	/Mixed/Encyclopaedic	Accredited	unknown	unknown_sz	large	mm_prediction_random_forest	T			
+mm.Mus70Cal.001	Bootle Museum And Art Gallery	Bootle	North West	/Government/Local Authority	/Mixed/Encyclopaedic	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	unknown		
+mm.Mus70Cal.006	James Guthrie Orchar Art Gallery	Broughty Ferry	Scotland	/Independent/Not for profit	/Arts/Fine and decorative arts	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	unknown		
+mm.Mus70Cal.007	Broomfield House Museum	London	London	/Government/Local Authority	/Local Histories	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	unknown		
+mm.Mus70Cal.008	Saltwell Park Museum	Gateshead	North East	/Government/Local Authority	/Mixed/Encyclopaedic	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	unknown		
+mm.Mus70Cal.015	British Theatre Museum	London	London	/Government/National	/Arts/Other	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	unknown		
+mm.Mus70Cal.022	Public Library & Museum	Margate	South East	/Government/Local Authority	/Mixed/Other	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	unknown		
+mm.musa.012	Arsenal Museum	London	London	/Independent/Private	/Leisure and sport/Rugby and football	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	unknown		
+mm.musa.260	Newcastle Castle	Newcastle-upon-Tyne	North East	/Government/Local Authority	/War and conflict/Castles and forts	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	small		
+mm.musa.276	Oriel Davies Gallery	Newtown	Wales	/Independent/Not for profit	/Arts/Fine and decorative arts	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	T	Large 2015 73,000		
+mm.musa.297	Saatchi Gallery	London	London	/Independent/Private	/Arts/Fine and decorative arts	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	T			
+mm.musa.300	Sammy Miller Museum	New Milton	South East	/Independent/Not for profit	/Transport/Cars and motorbikes	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	small		
+mm.musa.329	Stoneywell	Ulverscroft	East Midlands	/Independent/National Trust	/Buildings/Houses/Small houses	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	small		
+mm.musa.347	The Queens Gallery, Palace Of Holyroodhouse	Edinburgh	Scotland	/Independent/Not for profit	/Arts/Fine and decorative arts	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	T			
+mm.musa.391	Wortley Top Forge	Sheffield	Yorkshire and The Humber	/Independent/Not for profit	/Industry and manufacture/Metals	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	small		
+mm.wiki.063	Keswick Mining Museum	Keswick	North West	/Independent/Private	/Industry and manufacture/Mining and quarrying	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	small		
+mm.wiki.090	Bradworthy Transport Museum	Holsworthy	South West	/Independent/Private	/Transport/Mixed	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	small		
+mm.wiki.147	Wellington Aviation Museum	Moreton-in-Marsh	South West	/Independent/Private	/Transport/Aviation	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	small		
+mm.wiki.161	House Of Dreams	London	London	/Independent/Private	/Arts/Fine and decorative arts	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	small		
+mm.wiki.172	Soseki Museum	London	London	/Independent/Private	/Personality/Literary	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	small		
+mm.wiki.186	Woodlands Art Gallery	London	London	/Government/Local Authority	/Local Histories	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	unknown		
+mm.wiki.214	Isle Of Wight Bus And Coach Museum	Ryde	South East	/Independent/Not for profit	/Transport/Buses and trams	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	small		
+mm.wiki.275	Cavern Mecca	Liverpool	North West	/Independent/Private	/Arts/Music	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	unknown		
+mm.wiki.302	Blyth Battery	Blyth	North East	/Independent/Not for profit	/War and conflict/Other	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	small		
+mm.wiki.305	York Mansion House	York	Yorkshire and The Humber	/Government/Local Authority	/Buildings/Civic	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	small		
+mm.wiki.312	Mapledurham House	Reading	South East	/Independent/Private	/Buildings/Houses/Large houses	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	small		
+mm.wiki.313	Stonor Park		South East	/Independent/Private	/Buildings/Houses/Large houses	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	unknown		
+mm.wiki.328	Lambretta Scooter Museum	Weston-Super-Mare	South West	/Independent/Private	/Transport/Cars and motorbikes	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	small		
+mm.wiki.335	Yeovil Railway Centre	Yeovil	South West	/Independent/Not for profit	/Transport/Trains and railways	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	small		
+mm.wiki.388	Keighley Private Classic Car Museum	Keighley	Yorkshire and The Humber	/Independent/Private	/Transport/Cars and motorbikes	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	small		
+mm.wiki.449	Minerva Arts Centre/the Quilt Association	Llandiloes	Wales	/Independent/Not for profit	/Arts/Costume and textiles	Unaccredited	unknown	unknown_sz	large	mm_prediction_random_forest	F	small		
+mm.aim82M.031	Mcmullen & Sons Brewery Museum	Hertford	East of England	/Independent/Private	/Food and drink	Unaccredited	unknown	unknown_sz	medium	mm_prediction_random_forest	F	small		
+mm.aim82NM.041	Dodington Carriage Museum	Chipping Sodbury	South West	/Independent/Private	/Transport/Other	Unaccredited	unknown	unknown_sz	medium	mm_prediction_random_forest	F	small		
+mm.aim82NM.047	Edinburgh Wax Museum	Edinburgh	Scotland	/Independent/Private	/Other	Unaccredited	unknown	unknown_sz	medium	mm_prediction_random_forest	F	large		
+mm.domus.SC291	The Reid Concert Hall Museum Of Instruments	Edinburgh	Scotland	/University	/Arts/Music	Accredited	unknown	unknown_sz	medium	mm_prediction_random_forest	F	small		
+mm.domus.SE555	Oakhurst Cottage	nr Godalming	South East	/Independent/National Trust	/Buildings/Houses/Small houses	Unaccredited	unknown	unknown_sz	medium	mm_prediction_random_forest	T			
+mm.domus.SE568	Royal College Of Music Museum Of Instruments	London	London	/University	/Arts/Music	Accredited	unknown	unknown_sz	medium	mm_prediction_random_forest	F	small		
+mm.domus.YH001	13th/18th Royal Hussars Museum	Barnsley	Yorkshire and The Humber	/Independent/Not for profit	/War and conflict/Regiment	Unaccredited	unknown	unknown_sz	medium	mm_prediction_random_forest	T			
+mm.hha.144	Hoghton Tower	Preston	North West	/Independent/Private	/Buildings/Houses/Large houses	Unaccredited	unknown	unknown_sz	medium	mm_prediction_random_forest	F	small		
+mm.hud.014	Bembridge Mill	Isle of Wight	South East	/Independent/National Trust	/Rural Industry/Windmills	Unaccredited	unknown	unknown_sz	medium	mm_prediction_random_forest	T			
+mm.mald.068	Last Invasion Gallery	Fishguard	Wales	/Government/Local Authority	/War and conflict/Event or site	Unaccredited	unknown	unknown_sz	medium	mm_prediction_random_forest	F	small		
+mm.MDN.005	Ashworth Barracks Museum	Doncaster	Yorkshire and The Humber	/Independent/Not for profit	/War and conflict/Other	Unaccredited	unknown	unknown_sz	medium	mm_prediction_random_forest	T			
+mm.mgs.287	Commendators House Museum	Melrose	Scotland	/Independent/Historic Environment Scotland	/Archaeology/Medieval	Accredited	unknown	unknown_sz	medium	mm_prediction_random_forest	T			
+mm.mgs.316	University Of St Andrews, Gateway Galleries	St Andrews	Scotland	/University	/Mixed/Other	Accredited	unknown	unknown_sz	medium	mm_prediction_random_forest	T			
+mm.misc.136	The Wiltshire Regimental Museum	Devizes	South West	/Independent/Not for profit	/War and conflict/Regiment	Unaccredited	unknown	unknown_sz	medium	mm_prediction_random_forest	T			
+mm.misc.153	Lochgoin Covenanters Museum	Fenwick	Scotland	/Independent/Not for profit	/Belief and identity/Religion	Unaccredited	unknown	unknown_sz	medium	mm_prediction_random_forest	F	small		
+mm.misc.157	St Cecilias Hall Of Musical Instruments	Edinburgh	Scotland	/University	/Arts/Music	Accredited	unknown	unknown_sz	medium	mm_prediction_random_forest	T			
+mm.misc.170	Lower Huxley Hall	Chester	North West	/Independent/Private	/Buildings/Houses/Large houses	Unaccredited	unknown	unknown_sz	medium	mm_prediction_random_forest	F	small		
+mm.Mus70Cal.005	Public Library & Museum	Camborne	South West	/Government/Local Authority	/Mixed/Other	Unaccredited	unknown	unknown_sz	medium	mm_prediction_random_forest	T			
+mm.Mus70Cal.013	Lancaster City Art Gallery	Lancaster	North West	/Government/Local Authority	/Arts/Fine and decorative arts	Unaccredited	unknown	unknown_sz	medium	mm_prediction_random_forest	T			
+mm.Mus70Cal.021	Well Hall Art Gallery	Eltham	London	/Government/Local Authority	/Arts/Fine and decorative arts	Unaccredited	unknown	unknown_sz	medium	mm_prediction_random_forest	T			
+mm.musa.092	Cotehele Discovery Centre	Saltash	South West	/Independent/National Trust	/Local Histories	Unaccredited	unknown	unknown_sz	medium	mm_prediction_random_forest	T			
+mm.musa.228	Mickelgate Bar Museum - Henry Vii Experience	York	Yorkshire and The Humber	/Independent/Not for profit	/Personality/Other	Unaccredited	unknown	unknown_sz	medium	mm_prediction_random_forest	T			
+mm.musa.346	The Queens Gallery	London	London	/Independent/Not for profit	/Arts/Fine and decorative arts	Unaccredited	unknown	unknown_sz	medium	mm_prediction_random_forest	T			
+mm.wiki.043	North Cornwall Museum And Art Gallery	Camelford	South West	/Government/Local Authority	/Rural Industry/Rural life	Unaccredited	unknown	unknown_sz	medium	mm_prediction_random_forest	T			
+mm.wiki.089	Barnstaple Heritage Centre	Barnstaple	South West	/Government/Local Authority	/Local Histories	Unaccredited	unknown	unknown_sz	medium	mm_prediction_random_forest	T			
+mm.wiki.103	Visit The Bunker - Raf Holmpton	Holmpton	Yorkshire and The Humber	/Independent/Private	/War and conflict/Bunker	Unaccredited	unknown	unknown_sz	medium	mm_prediction_random_forest	T			
+mm.wiki.151	Borough Road Gallery	London	London	/University	/Arts/Fine and decorative arts	Unaccredited	unknown	unknown_sz	medium	mm_prediction_random_forest	T			
+mm.wiki.157	Fashion And Textile Museum	London	London	/Independent/Not for profit	/Arts/Costume and textiles	Unaccredited	unknown	unknown_sz	medium	mm_prediction_random_forest	F	large		
+mm.wiki.158	Fleming Collection Gallery	London	London	/Independent/Not for profit	/Arts/Fine and decorative arts	Unaccredited	unknown	unknown_sz	medium	mm_prediction_random_forest	F	small 6,290 2005		
+mm.wiki.162	House Of Illustration	London	London	/Independent/Not for profit	/Arts/Other	Unaccredited	unknown	unknown_sz	medium	mm_prediction_random_forest	T			
+mm.wiki.164	Kennel Club Dog Art Gallery	London	London	/Independent/Not for profit	/Arts/Fine and decorative arts	Unaccredited	unknown	unknown_sz	medium	mm_prediction_random_forest	F	small		
+mm.wiki.194	Hurst Castle		South East	/Independent/English Heritage	/War and conflict/Castles and forts	Unaccredited	unknown	unknown_sz	medium	mm_prediction_random_forest	T	40,000 2015		
+mm.wiki.254	50 And 61 Squadron Museum	Lincoln	East Midlands	/Independent/Not for profit	/War and conflict/Regiment	Unaccredited	unknown	unknown_sz	medium	mm_prediction_random_forest	F	small		
+mm.wiki.261	Lincoln Castle	Lincoln	East Midlands	/Government/Local Authority	/War and conflict/Castles and forts	Unaccredited	unknown	unknown_sz	medium	mm_prediction_random_forest	T			
+mm.wiki.300	Sywell Aviation Museum	Sywell	East Midlands	/Independent/Not for profit	/War and conflict/Airforce	Unaccredited	unknown	unknown_sz	medium	mm_prediction_random_forest	F	small		
+mm.aim82M.028	Murrays Motorcycle Museum	Santon	NA	/Independent/Private	/Transport/Cars and motorbikes	Unaccredited	unknown	unknown_sz	unknown_sz	NA		small		
+mm.aim82M.029	Jersey Motor Museum	St. Peter	NA	/Independent/Unknown	/Transport/Cars and motorbikes	Unaccredited	unknown	unknown_sz	unknown_sz	NA				
+mm.aim82NM.050	Fenton Photographic Museum	Port Erin	NA	/Independent/Private	/Arts/Photography	Unaccredited	unknown	unknown_sz	unknown_sz	NA				
+mm.aim82NM.091	St Peters Bunker War Museum	Jersey	NA	/Independent/Private	/War and conflict/Bunker	Unaccredited	unknown	unknown_sz	unknown_sz	NA				
+mm.domus.NW184	Nautical Museum	Castletown	NA	/Independent/Not for profit	/Sea and seafaring/Mixed	Unaccredited	unknown	unknown_sz	unknown_sz	NA		small		
+mm.domus.NW185	Grove Rural Life Museum	Ramsey	NA	/Independent/Not for profit	/Buildings/Houses/Medium houses	Unaccredited	unknown	unknown_sz	unknown_sz	NA		small		
+mm.domus.NW186	Cregneash Village Folk Museum	Cregneash	NA	/Independent/Not for profit	/Rural Industry/Rural life	Unaccredited	unknown	unknown_sz	unknown_sz	NA				
+mm.domus.NW194	House Of Manannan	Douglas	NA	/Independent/Not for profit	/Local Histories	Unaccredited	unknown	unknown_sz	unknown_sz	NA		medium		
+mm.domus.NW195	Rushen Abbey	Ballasalla	NA	/Government/Local Authority	/Belief and identity/Religious buildings	Unaccredited	unknown	unknown_sz	unknown_sz	NA				
+mm.domus.SE571	Jersey Maritime Museum	St Helier	NA	/Independent/Not for profit	/Sea and seafaring/Mixed	Unaccredited	unknown	unknown_sz	unknown_sz	NA				
+mm.fcm.145	Leece Museum	Peel	NA	/Independent/Not for profit	/Local Histories	Unaccredited	unknown	unknown_sz	unknown_sz	NA				
+mm.fcm.158	Manx Aviation And Military Museum	Malew	NA	/Independent/Not for profit	/Mixed/Other	Unaccredited	unknown	unknown_sz	unknown_sz	NA				
+mm.fcm.197	Pallot Steam And Motor Museum	Trinity	NA	/Independent/Not for profit	/Industry and manufacture/Steam and engines	Unaccredited	unknown	unknown_sz	unknown_sz	NA				
+mm.hha.194	Sausmarez Manor	St. Martin	NA	/Independent/Private	/Buildings/Houses/Large houses	Unaccredited	unknown	unknown_sz	unknown_sz	NA				
+mm.MDN.012	Boys Brigade Heritage Museum	Millisle	NA	/Independent/Unknown	/Belief and identity/Other	Unaccredited	unknown	unknown_sz	unknown_sz	NA		small		
+mm.misc.053	Guernsey Telephone Museum	Castel Guernsey	NA	/Government/Local Authority	/Communications/Other	Unaccredited	unknown	unknown_sz	unknown_sz	NA		very small 2,000 2015		
+mm.misc.054	La Valette Underground Military Museum	St. Peters Port	NA	/Independent/Unknown	/War and conflict/Military	Unaccredited	unknown	unknown_sz	unknown_sz	NA				
+mm.misc.059	Tomato Museum	Guernsey	NA	/Independent/Private	/Rural Industry/Farming	Unaccredited	unknown	unknown_sz	unknown_sz	NA	F	small		
+mm.misc.060	Brooklands Agricultural Farm Implements Museum	Guernsey	NA	/Independent/Unknown	/Rural Industry/Farming	Unaccredited	unknown	unknown_sz	unknown_sz	NA	F	small		
+mm.misc.070	The Nigel Mansell Museum	St. Hellier	NA	/Independent/Private	/Personality/Other	Unaccredited	unknown	unknown_sz	unknown_sz	NA		small		
+mm.musa.166	Hauteville House - Victor Hugos House Of Exile	Guernsey	NA	/Government/Local Authority	/Personality/Literary	Unaccredited	unknown	unknown_sz	unknown_sz	NA		small		
+mm.musa.182	Jersey War Tunnels	St Lawrence	NA	/Independent/Private	/War and conflict/Other	Unaccredited	unknown	unknown_sz	unknown_sz	NA				

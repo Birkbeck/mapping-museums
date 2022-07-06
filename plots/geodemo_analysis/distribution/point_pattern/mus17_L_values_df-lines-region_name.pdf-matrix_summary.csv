@@ -1,0 +1,170 @@
+mark1,mark2,avg_L,sdev_L,max_L,avg_LZ
+all,all,149028,74143.6,270139,0.5
+East Midlands,all,163385,90655.2,312293,0.6
+East of England,all,166463,91276.5,317514,0.7
+London,all,210363,71969.2,320673,1.1
+North East,all,103471,53974.1,202041,0.1
+North West,all,146093,71966.4,260539,0.5
+Northern Ireland,all,66558,25353.3,106242,-0.3
+Scotland,all,92788,41393.9,156540,-0
+South East,all,176554,93508.4,320565,0.7
+South West,all,133454,71965.5,259442,0.4
+Wales,all,112530,64349.9,228548,0.2
+West Midlands,all,167011,88547,315925,0.7
+Yorkshire and The Humber,all,141606,71699,252481,0.4
+all,East Midlands,164741,92395.1,320872,0.6
+East Midlands,East Midlands,368012,141812.3,499200,2.5
+East of England,East Midlands,176683,135417,445732,0.8
+London,East Midlands,95585,112104.7,325836,0
+North East,East Midlands,11030,25138.3,104820,-0.8
+North West,East Midlands,166274,126027.7,381458,0.7
+Northern Ireland,East Midlands,0,0,0,-0.9
+Scotland,East Midlands,0,0,0,-0.9
+South East,East Midlands,95029,74723.2,257088,-0
+South West,East Midlands,53241,57002.1,181552,-0.4
+Wales,East Midlands,46648,60201.7,199695,-0.4
+West Midlands,East Midlands,268609,164832.4,480792,1.6
+Yorkshire and The Humber,East Midlands,213167,147839.1,447832,1.1
+all,East of England,164387,88738.9,306822,0.6
+East Midlands,East of England,166969,122404.5,395093,0.7
+East of England,East of England,352884,161162.6,549013,2.4
+London,East of England,280072,148804.9,472022,1.7
+North East,East of England,0,0,0,-0.9
+North West,East of England,3247,7840,34874,-0.8
+Northern Ireland,East of England,0,0,0,-0.9
+Scotland,East of England,0,0,0,-0.9
+South East,East of England,190580,136577.3,438169,0.9
+South West,East of England,32055,41999.8,139070,-0.6
+Wales,East of England,1554,4227.5,21534,-0.9
+West Midlands,East of England,78521,85557.7,266233,-0.2
+Yorkshire and The Humber,East of England,24636,37199.4,128464,-0.6
+all,London,214330,75928.5,330205,1.1
+East Midlands,London,94238,109810.5,312233,-0
+East of England,London,291428,160272.8,515118,1.8
+London,London,475145,72402.2,498525,3.5
+North East,London,0,0,0,-0.9
+North West,London,0,0,0,-0.9
+Northern Ireland,London,0,0,0,-0.9
+Scotland,London,0,0,0,-0.9
+South East,London,326388,184379.6,526638,2.1
+South West,London,59314,87649.1,290456,-0.3
+Wales,London,371,1554.4,10504,-0.9
+West Midlands,London,54070,89067.8,293767,-0.4
+Yorkshire and The Humber,London,0,0,0,-0.9
+all,North East,103484,53995.9,202273,0.1
+East Midlands,North East,11078,25273.1,105621,-0.8
+East of England,North East,0,0,0,-0.9
+London,North East,0,0,0,-0.9
+North East,North East,394438,127550,498525,2.8
+North West,North East,130347,113265.3,361258,0.3
+Northern Ireland,North East,0,0,0,-0.9
+Scotland,North East,95845,79752.9,259466,0
+South East,North East,0,0,0,-0.9
+South West,North East,0,0,0,-0.9
+Wales,North East,0,0,0,-0.9
+West Midlands,North East,274,1615.1,13708,-0.9
+Yorkshire and The Humber,North East,196126,142688.9,435671,0.9
+all,North West,146116,72000.6,260951,0.5
+East Midlands,North West,166380,126198.1,383411,0.7
+East of England,North West,3338,8132.6,36858,-0.8
+London,North West,0,0,0,-0.9
+North East,North West,130347,113265.3,361258,0.3
+North West,North West,359220,124266.2,486495,2.4
+Northern Ireland,North West,5883,13873.2,57945,-0.8
+Scotland,North West,52817,40924.4,139649,-0.4
+South East,North West,2998,7027.8,31364,-0.8
+South West,North West,7189,14196.9,54743,-0.8
+Wales,North West,146917,100340.7,313942,0.5
+West Midlands,North West,184261,131174,407851,0.8
+Yorkshire and The Humber,North West,235116,153913.1,461542,1.3
+all,Northern Ireland,66379,25126.8,104174,-0.3
+East Midlands,Northern Ireland,0,0,0,-0.9
+East of England,Northern Ireland,0,0,0,-0.9
+London,Northern Ireland,0,0,0,-0.9
+North East,Northern Ireland,0,0,0,-0.9
+North West,Northern Ireland,5787,13564.4,55730,-0.8
+Northern Ireland,Northern Ireland,385898,138420.8,518123,2.7
+Scotland,Northern Ireland,41817,44662.1,152081,-0.5
+South East,Northern Ireland,0,0,0,-0.9
+South West,Northern Ireland,0,0,0,-0.9
+Wales,Northern Ireland,3731,8200.3,35690,-0.8
+West Midlands,Northern Ireland,0,0,0,-0.9
+Yorkshire and The Humber,Northern Ireland,0,0,0,-0.9
+all,Scotland,92809,41421,156769,-0
+East Midlands,Scotland,0,0,0,-0.9
+East of England,Scotland,0,0,0,-0.9
+London,Scotland,0,0,0,-0.9
+North East,Scotland,95845,79752.9,259466,0
+North West,Scotland,52817,40924.4,139649,-0.4
+Northern Ireland,Scotland,42748,46304.7,160773,-0.5
+Scotland,Scotland,229348,99399.9,368195,1.2
+South East,Scotland,0,0,0,-0.9
+South West,Scotland,0,0,0,-0.9
+Wales,Scotland,450,1456.1,8130,-0.9
+West Midlands,Scotland,0,0,0,-0.9
+Yorkshire and The Humber,Scotland,7172,11639,43672,-0.8
+all,South East,174943,91856.1,314781,0.7
+East Midlands,South East,94166,73217.5,246320,-0
+East of England,South East,188970,135443.6,433655,0.9
+London,South East,316655,175053.8,500096,2
+North East,South East,0,0,0,-0.9
+North West,South East,2998,7027.8,31364,-0.8
+Northern Ireland,South East,0,0,0,-0.9
+Scotland,South East,0,0,0,-0.9
+South East,South East,318087,141964.8,509796,2.1
+South West,South East,142237,103416,322588,0.4
+Wales,South East,31053,41599,140814,-0.6
+West Midlands,South East,108947,84303.4,270700,0.1
+Yorkshire and The Humber,South East,1732,5244,25432,-0.9
+all,South West,133258,71719.8,258710,0.4
+East Midlands,South West,53175,56874.7,180395,-0.4
+East of England,South West,32501,42929.6,144605,-0.6
+London,South West,60003,89154.5,298335,-0.3
+North East,South West,0,0,0,-0.9
+North West,South West,7189,14196.9,54743,-0.8
+Northern Ireland,South West,0,0,0,-0.9
+Scotland,South West,0,0,0,-0.9
+South East,South West,142958,104465.4,328583,0.4
+South West,South West,287544,128377.6,462041,1.8
+Wales,South West,143918,100665,316226,0.4
+West Midlands,South West,137823,94705.2,300193,0.4
+Yorkshire and The Humber,South West,933,3148.8,19824,-0.9
+all,Wales,113383,65527.3,233943,0.2
+East Midlands,Wales,46648,60202.3,199709,-0.4
+East of England,Wales,1574,4311.7,22412,-0.9
+London,Wales,390,1641.7,11256,-0.9
+North East,Wales,0,0,0,-0.9
+North West,Wales,146917,100340.7,313942,0.5
+Northern Ireland,Wales,3825,8447.7,37498,-0.8
+Scotland,Wales,450,1456.1,8130,-0.9
+South East,Wales,31842,43184.7,149010,-0.6
+South West,Wales,148244,106499.9,341455,0.5
+Wales,Wales,285016,119881.6,444069,1.7
+West Midlands,Wales,173132,131830,412440,0.7
+Yorkshire and The Humber,Wales,34379,49678.2,157024,-0.6
+all,West Midlands,167494,89260.6,321770,0.7
+East Midlands,West Midlands,268790,165058.2,483055,1.6
+East of England,West Midlands,80682,89373.8,287063,-0.1
+London,West Midlands,56259,93631.6,316044,-0.4
+North East,West Midlands,274,1615.1,13708,-0.9
+North West,West Midlands,184261,131174,407851,0.8
+Northern Ireland,West Midlands,0,0,0,-0.9
+Scotland,West Midlands,0,0,0,-0.9
+South East,West Midlands,109547,85319.7,279932,0.1
+South West,West Midlands,138536,95802.8,308701,0.4
+Wales,West Midlands,173132,131830.4,412452,0.7
+West Midlands,West Midlands,386342,138335.6,498525,2.7
+Yorkshire and The Humber,West Midlands,105510,103423.5,326819,0.1
+all,Yorkshire and The Humber,141729,71859,253295,0.4
+East Midlands,Yorkshire and The Humber,213402,148163.1,449355,1.1
+East of England,Yorkshire and The Humber,27554,41969.8,146036,-0.6
+London,Yorkshire and The Humber,0,0,0,-0.9
+North East,Yorkshire and The Humber,196048,142566.5,434312,0.9
+North West,Yorkshire and The Humber,235029,153791.6,460126,1.3
+Northern Ireland,Yorkshire and The Humber,0,0,0,-0.9
+Scotland,Yorkshire and The Humber,7172,11639,43672,-0.8
+South East,Yorkshire and The Humber,1732,5244,25429,-0.9
+South West,Yorkshire and The Humber,933,3148.8,19824,-0.9
+Wales,Yorkshire and The Humber,34379,49678.2,157023,-0.6
+West Midlands,Yorkshire and The Humber,105466,103337.6,325881,0.1
+Yorkshire and The Humber,Yorkshire and The Humber,370911,139740.2,498608,2.5

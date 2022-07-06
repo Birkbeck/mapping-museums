@@ -1,0 +1,26 @@
+mark1,mark2,avg_L,sdev_L,max_L,avg_LZ
+all,all,149028,74143.6,270139,0.5
+England,all,162563,80496.6,294024,0.7
+Northern Ireland,all,66558,25353.3,106242,-0.3
+Scotland,all,92788,41393.9,156540,-0
+Wales,all,112530,64349.9,228548,0.2
+all,England,162510,80427.4,293677,0.7
+England,England,183315,90271.5,328719,0.9
+Northern Ireland,England,1844,4347.6,18159,-1
+Scotland,England,25059,20257.6,67921,-0.7
+Wales,England,95662,70699.4,228769,-0
+all,Northern Ireland,66379,25126.8,104174,-0.3
+England,Northern Ireland,1814,4250.8,17465,-1
+Northern Ireland,Northern Ireland,385898,138420.8,518123,3
+Scotland,Northern Ireland,41817,44662.1,152081,-0.6
+Wales,Northern Ireland,3731,8200.3,35690,-1
+all,Scotland,92809,41421,156769,-0
+England,Scotland,25059,20257.6,67921,-0.7
+Northern Ireland,Scotland,42748,46304.7,160773,-0.6
+Scotland,Scotland,229348,99399.9,368195,1.4
+Wales,Scotland,450,1456.1,8130,-1
+all,Wales,113383,65527.3,233943,0.2
+England,Wales,96812,72326.8,235816,-0
+Northern Ireland,Wales,3825,8447.7,37498,-1
+Scotland,Wales,450,1456.1,8130,-1
+Wales,Wales,285016,119881.6,444069,1.9

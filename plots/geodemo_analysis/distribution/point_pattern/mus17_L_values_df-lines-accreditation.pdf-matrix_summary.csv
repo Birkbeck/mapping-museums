@@ -1,0 +1,10 @@
+mark1,mark2,avg_L,sdev_L,max_L,avg_LZ
+Accredited,Accredited,150582,73917.6,271560,1.7
+all,Accredited,150090,73829.6,271145,1.1
+Unaccredited,Accredited,148783,74392,270506,-0.5
+Accredited,all,149896,73597.2,270361,0.9
+all,all,149028,74143.6,270139,-0.2
+Unaccredited,all,148908,74067,270113,-0.3
+Accredited,Unaccredited,148384,73915.7,268895,-1
+all,Unaccredited,148704,73823.5,269290,-0.6
+Unaccredited,Unaccredited,148215,74434.6,269496,-1.2

@@ -1,0 +1,170 @@
+[1] "== Summary statistics =="
+[1] "rows= 3262 cols= 50"
+ domus_identifier       project_id   primary_provenance_of_data identifier_used_in_source_database
+ 999    :   2     domus.NE043:   1   domus   :1603                     :1376                      
+ 1      :   1     mm.ace.019 :   1   wiki    : 332              2063   :   2                      
+ 10     :   1     mm.ace.022 :   1   aim     : 314              1024   :   1                      
+ 100    :   1     mm.ace.023 :   1   musassoc: 224              1122   :   1                      
+ 1000   :   1     mm.ace.036 :   1   ace     : 214              1327   :   1                      
+ (Other):1597     mm.ace.039 :   1   hha     : 172              1385   :   1                      
+ NA's   :1659     (Other)    :3256   (Other) : 403              (Other):1880                      
+                                               name_of_museum
+ Canal Museum                                         :   2  
+ Plas Newydd                                          :   2  
+ The Merchants House                                  :   2  
+ Weavers Cottage                                      :   2  
+ 100th Bomb Group Memorial Museum                     :   1  
+ 1066 Battle Of Hastings, Battle Abbey And Battlefield:   1  
+ (Other)                                              :3252  
+                      alternative_museum_name
+                                  :3036      
+ Parham Airfield Museum           :   2      
+ Abernethy Museum                 :   1      
+ Abingdon County Hall Museum      :   1      
+ Abington Park Museum             :   1      
+ Acton Scott Historic Working Farm:   1      
+ (Other)                          : 220      
+                                  alternative_museum_name_source       address_line_1
+                                                 :3101                        : 331  
+ http://actonscott.com/historic-working-farm     :   1           High Street  :  41  
+ http://armitt.com/armitt_website/               :   1           Town Hall    :  18  
+ http://frogmoremill.com/visit/                  :   1           Church Street:  15  
+ http://rural-life.org.uk/                       :   1           Main Street  :  11  
+ http://www.abingdonmuseum.org.uk/museumdev01.htm:   1           Station Road :  11  
+ (Other)                                         : 156           (Other)      :2835  
+       address_line_2                     address_line_3     town_or_city      postcode   
+              :2149                              :2720   London    : 178   SO23 8TS:   5  
+ High Street  :  34   London, City of Westminster:   6   Edinburgh :  36   BN22 7AQ:   4  
+ Market Place :  12   High Street                :   5   York      :  30   BD21 5AX:   3  
+ Station Road :  11   London Borough of Camden   :   5   Glasgow   :  26   CB22 4QR:   3  
+ Market Street:   9   Greenwich                  :   4   Birmingham:  23   DE4 4LS :   3  
+ Church Street:   8   Ironbridge Gorge           :   4   Manchester:  23   EC3N 4AB:   3  
+ (Other)      :1039   (Other)                    : 518   (Other)   :2946   (Other) :3241  
+ year_museum_first_documented       year_museum_first_documented_source    year_opened  
+ 1961   :  64                                         :3173             1960;2017: 206  
+ 1959   :  12                 HHC&G, 1962             :  64             1986;1986:  69  
+ 1967   :   3                 M&G, 1959               :  12             1976;1976:  65  
+ 1948   :   1                 Beaulieu, 1967: appendix:   2             1984;1984:  62  
+ 1952   :   1                 aim82NM                 :   1             1985;1985:  59  
+ (Other):   7                 Beaulieu, 1967: Appendix:   1             1974;1974:  58  
+ NA's   :3174                 (Other)                 :   9             (Other)  :2743  
+     year_opened_source    year_closed       year_closed_source
+ dfoundation  : 923     9999;9999:3235                : 806    
+ [RANGE]      : 298     2017;2017:  20   MDN          : 104    
+              : 150     2018;2018:   3   mm175        :   3    
+ fc (18/12/17):  61     1978;9999:   2   tc (18/12/17):   3    
+ tc (8/12/17) :  60     2016;2018:   1   [RANGE]      :   2    
+ AIM82r       :  59     2017;2018:   1   AIM2017      :   2    
+ (Other)      :1711     (Other)  :   0   (Other)      :2342    
+                               founder    
+                                   :3132  
+ Company museum                    :   2  
+ Local Authority                   :   2  
+ Local History Society             :   2  
+ ?                                 :   1  
+ Alan Goldsmith - private collector:   1  
+ (Other)                           : 122  
+                                                                                            founder_source
+                                                                                                   :2993  
+ http://www.lep.co.uk/news/five-lancashire-museums-to-close-while-transfer-talks-continue-1-8084625:   2  
+ http://www.simt.co.uk/about                                                                       :   2  
+ Contact Judy Willcocks to check on date                                                           :   1  
+ doc10                                                                                             :   1  
+ DOMUS                                                                                             :   1  
+ (Other)                                                                                           : 262  
+                        subject_matter                  domus_subject_matter      accreditation 
+ /Local Histories              : 746                              :2053      Accredited  :1650  
+ /Buildings/Houses/Large houses: 385   social history             : 422      Unaccredited:1612  
+ /Arts/Fine and decorative arts: 156   fine art                   : 114                         
+ /Transport/Trains and railways: 105   decorative and applied arts:  93                         
+ /War and conflict/Regiment    : 100   military                   :  88                         
+ /Mixed/Encyclopaedic          :  98   archaeology                :  87                         
+ (Other)                       :1672   (Other)                    : 405                         
+ accreditation_source                       governance  
+           :1810      /Independent/Not for profit:1491  
+ mm.ace.073:   2      /Government/Local Authority: 712  
+ mm.ace.097:   2      /Independent/Private       : 445  
+ mm.ace.001:   1      /Independent/National Trust: 183  
+ mm.ace.002:   1      /Independent/Unknown       : 121  
+ mm.ace.003:   1      /University                :  91  
+ (Other)   :1445      (Other)                    : 219  
+                                                                           governance_source
+                                                                                    :2838   
+ MDN                                                                                : 128   
+ AMOT                                                                               :   8   
+ http://eastherts-old.storm50.com/article/11530/Museums-and-Heritage-Centres        :   4   
+ https://en.wikipedia.org/w/index.php?title=Birmingham_Museums_Trust&oldid=825629252:   4   
+ tc28                                                                               :   4   
+ (Other)                                                                            : 276   
+                 ace_size_designation
+ ace_unknown               :2138     
+ independent-type_two      : 296     
+ independent-type_one      : 246     
+ independent-type_three    : 164     
+ local_authority-type_two  : 137     
+ local_authority-type_three: 136     
+ (Other)                   : 145     
+                                                                                              ace_size_source
+                                                                                                      :2202  
+ mm.aim.0329                                                                                          :   2  
+ http://www.barrywarmuseum.org.uk/                                                                    :   1  
+ http://www.davidmellordesign.com/design-museum/                                                      :   1  
+ http://www.kingswoodmuseum.org.uk/                                                                   :   1  
+ http://www.thameschase.org.uk/about-thames-chase/places-of-interest/purfleet-heritage-military-centre:   1  
+ (Other)                                                                                              :1054  
+                               aim_size_designation                             aim_size_source
+ aim_unknown                             :2236                                          :2544  
+ large_museum_50000_to_100000_visitors_pa:  69      mm.aim.0878                         :   2  
+ largest_museums_over_100000_visitors_pa :  43      mm.aim.1115                         :   2  
+ medium_museum_20000_to_50000_visitors_pa: 136      mm.aim.1262                         :   2  
+ small_museum_up_to_20000_visitors_pa    : 778      Replicas                            :   2  
+                                                    ). MDN recommended separate entries.:   1  
+                                                    (Other)                             : 709  
+                                           notes_internal
+                                                  :2226  
+ Not listed in most recent MGS accreditation sheet:  15  
+ Name change                                      :  11  
+ name change                                      :   8  
+ Location change                                  :   6  
+ Address change                                   :   4  
+ (Other)                                          : 992  
+                                                                               notes     
+                                                                                  :2435  
+ Brand museum                                                                     :  28  
+ Premises provided by the MoD. Museum receives funding from the MoD (Amot Museums):  18  
+ Lost accreditation 2016                                                          :  16  
+ Premises provided by the Local Authority (Amot Museums)                          :  11  
+ Part of Tyne & Wear Archives & Museums. DCMS sponsored. Non-national             :   9  
+ (Other)                                                                          : 745  
+         size                            size_prov    media    year_opened_BEG year_opened_END
+ small     :1831   domus                      :1267   0:3262   Min.   :1621    Min.   :1621   
+ medium    : 867   mm_prediction_random_forest: 804            1st Qu.:1955    1st Qu.:1960   
+ large     : 497   visitbritain               : 397            Median :1977    Median :1982   
+ huge      :  13   aim_size_designation       : 289            Mean   :1967    Mean   :1972   
+ unknown_sz:  54   ma(fam)                    : 259            3rd Qu.:1993    3rd Qu.:1999   
+                   unknown                    :  54            Max.   :2017    Max.   :2017   
+                   (Other)                    : 192                                           
+ year_opened_MEAN year_closed_BEG year_closed_END year_closed_MEAN    governance_simpl
+ Min.   :1621     Min.   :1978    Min.   :2017    Min.   :2017     government : 784   
+ 1st Qu.:1957     1st Qu.:2017    1st Qu.:2017    1st Qu.:2017     independent:2333   
+ Median :1982     Median :2017    Median :2017    Median :2017     university :  91   
+ Mean   :1969     Mean   :2014    Mean   :2017    Mean   :2017     unknown_gov:  54   
+ 3rd Qu.:1993     3rd Qu.:2017    3rd Qu.:2017    3rd Qu.:2017                        
+ Max.   :2017     Max.   :2018    Max.   :2018    Max.   :2018                        
+                  NA's   :3235    NA's   :3237    NA's   :3237                        
+       subject_matter_simpl    subject_matter_simpl_aggr    country_gss             country_name 
+ local_histories : 746      local_histories :746         E92000001:2455   England         :2455  
+ buildings       : 553      buildings       :553         N92000002:  85   Northern Ireland:  85  
+ war_and_conflict: 320      war_and_conflict:320         S92000003: 485   Scotland        : 485  
+ arts            : 235      SMALL_SUBJECTS  :242         W92000004: 203   Wales           : 203  
+ transport       : 227      arts            :235         NA's     :  34   NA's            :  34  
+ personality     : 168      transport       :227                                                 
+ (Other)         :1013      (Other)         :939                                                 
+     region_gss            region_name       lad16_gss                lad16_name  
+ S92000003: 484   Scotland       : 484   E06000052:  77   Cornwall         :  77  
+ E12000008: 477   South East     : 477   S12000017:  59   Highland         :  59  
+ E12000009: 415   South West     : 415   E06000054:  42   Wiltshire        :  42  
+ E12000006: 329   East of England: 329   S12000036:  40   City of Edinburgh:  40  
+ E12000002: 241   North West     : 241   E09000033:  39   Westminster      :  39  
+ (Other)  :1279   (Other)        :1279   (Other)  :2971   (Other)          :2971  
+ NA's     :  37   NA's           :  37   NA's     :  34   NA's             :  34  

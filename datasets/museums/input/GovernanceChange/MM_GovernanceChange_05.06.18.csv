@@ -1,0 +1,64 @@
+Project_id$Name$from$to$status$source1$source2$notes
+$
+0$1$2$3$4$5$6$7$
+visible$visible$visible$visible$visible$visible$visible$visible$
+"mm.domus.SE413"$"Agricultural Museum, Brook"$1948$1997$"/University"$"http://www.agriculturalmuseumbrook.org.uk/"$$"Slightly confusing early history from 1931 (as a collection). Appears that Museum was established in 1948. Should Wye College be '/University'?"
+"mm.domus.SE413"$"Agricultural Museum, Brook"$1997$9999$"/Independent/Not for profit"$"http://www.agriculturalmuseumbrook.org.uk/"$$"Slightly confusing early history from 1931 (as a collection). Appears that Museum was established in 1948. Should Wye College be '/University'?"
+"mm.domus.NW070"$"Museum of Science and Industry"$1981$2012$"/Independent/Not for profit"$"DOMUS"$"https://en.wikipedia.org/wiki/Museum_of_Science_and_Industry_(Manchester)"$"Became part of Science Museum Group in 2012"
+"mm.domus.NW070"$"Museum of Science and Industry"$2012$9999$"/Government/National"$"https://en.wikipedia.org/wiki/Museum_of_Science_and_Industry_(Manchester)"$$"Became part of Science Museum Group in 2012"
+"mm.domus.WA035"$"National Waterfront Museum"$1975$2002$"/Government/Local Authority"$"DOMUS"$"http://news.bbc.co.uk/1/hi/wales/2360621.stm"$
+"mm.domus.WA035"$"National Waterfront Museum"$2005$9999$"/Government/National"$"https://museum.wales/swansea/"$$
+"mm.domus.NI018"$"Armagh County Museum"$1931$1997$"/Unknown"$$$
+"mm.domus.NI018"$"Armagh County Museum"$1997$2015$"/Government/National"$"DOMUS"$"https://en.wikipedia.org/wiki/Armagh_County_Museum"$
+"mm.domus.NI018"$"Armagh County Museum"$2015$9999$"/Government/Local Authority"$"mm.ace.023.nimc"$"https://en.wikipedia.org/wiki/Armagh_County_Museum"$
+"mm.domus.WA016"$"Big Pit: The National Mining Museum of Wales"$1983$2001$"/Independent/Not for profit"$"DOMUS"$$
+"mm.domus.WA016"$"Big Pit: The National Mining Museum of Wales"$2001$9999$"/Government/National"$"mm.mald.012"$"https://en.wikipedia.org/wiki/Big_Pit_National_Coal_Museum"$
+"mm.domus.SE329"$"18 Stafford Terrace"$1980$1989$"/Independent/Not for profit"$"https://www.rbkc.gov.uk/subsites/museums/18staffordterrace/aboutus.aspx"$$"Opened in 1980 by the Victorian Society but transferred to /Government/Local Authority in 1989"
+"mm.domus.SE329"$"18 Stafford Terrace"$1989$9999$"/Government/Local Authority"$"https://www.rbkc.gov.uk/subsites/museums/18staffordterrace/aboutus.aspx"$$"Opened in 1980 by the Victorian Society but transferred to /Government/Local Authority in 1989"
+"mm.domus.WM106"$"Izaak Walton's Cottage"$1924$1965$"/Independent/Not for profit"$"https://en.wikipedia.org/w/index.php?title=Izaak_Walton%27s_Cottage&oldid=767525926"$$
+"mm.domus.WM106"$"Izaak Walton's Cottage"$1965$9999$"/Government/Local Authority"$"https://en.wikipedia.org/w/index.php?title=Izaak_Walton%27s_Cottage&oldid=767525926"$$
+"mm.domus.WA090"$"National Wool Museum"$1976$2004$"/Independent/Not for profit"$"MDN"$$
+"mm.domus.WA090"$"National Wool Museum"$2004$9999$"/Government/National"$"MDN"$"https://en.wikipedia.org/wiki/National_Wool_Museum"$
+"mm.domus.SC239"$"Tomintoul Museum"$1976$2013$"/Government/Local Authority"$$$
+"mm.domus.SC239"$"Tomintoul Museum"$2014$9999$"/Independent/Not for profit"$"mm.domus.SC239"$$
+"mm.domus.EM088"$"Belton House"$1967$1984$"/Independent/Private"$"Beaulieu, 1967: appendix"$$
+"mm.domus.EM088"$"Belton House"$1984$9999$"/Independent/National Trust"$"https://en.wikipedia.org/w/index.php?title=Belton_House&oldid=795224616"$$
+"mm.domus.SW210"$"Dunster Castle"$"1960;1976"$1976$"/Independent/Private"$$$
+"mm.domus.SW210"$"Dunster Castle"$1976$9999$"/Independent/National Trust"$"https://en.wikipedia.org/w/index.php?title=Dunster_Castle&oldid=806912031"$$
+"mm.wiki.457"$"Braemar Castle"$"1960;1965"$2004$"/Independent/Private"$"http://www.braemarcastle.co.uk/index.php?option=com_content&view=article&id=47&Itemid=62"$$
+"mm.wiki.457"$"Braemar Castle"$2007$9999$"/Independent/Not for profit"$"http://www.braemarcastle.co.uk/index.php?option=com_content&view=article&id=73&Itemid=66"$$
+"mm.domus.EM028"$"Museum of Lincolnshire Life"$1969$1974$"/Independent/Not for profit"$"https://www.lincolnshire.gov.uk/heritage-and-tourism/museum-of-lincolnshire-life/about-the-museum-of-lincolnshire-life/100770.article"$$
+"mm.domus.EM028"$"Museum of Lincolnshire Life"$1974$9999$"/Government/Local Authority"$"https://www.lincolnshire.gov.uk/heritage-and-tourism/museum-of-lincolnshire-life/about-the-museum-of-lincolnshire-life/100770.article"$$
+"mm.domus.NW088"$"Kendal Museum & Art Gallery"$1878$1994$"/Independent/Not for profit"$"https://en.wikipedia.org/w/index.php?title=Keswick_Museum_and_Art_Gallery&oldid=809042969"$$
+"mm.domus.NW088"$"Kendal Museum & Art Gallery"$1994$2007$"/Government/Local Authority"$"https://en.wikipedia.org/w/index.php?title=Keswick_Museum_and_Art_Gallery&oldid=809042969"$$
+"mm.domus.SE577"$"Champs Chapel Museum"$1985$"1993;1997"$"/Independent/Private"$"tc (06/12/17)"$$
+"mm.domus.SE577"$"Champs Chapel Museum"$1997$9999$"/Independent/Not for profit"$"tc (06/12/17)"$$
+"mm.domus.SC120"$"Highland Folk Museum"$1944$"1970;1979"$"/Independent/Private"$"https://www.highlifehighland.com/highlandfolkmuseum/history-of-the-museum/"$$
+"mm.domus.SC120"$"Highland Folk Museum"$1980$2011$"/Government/Local Authority"$"https://www.highlifehighland.com/highlandfolkmuseum/history-of-the-museum/"$$
+"mm.aim.0560"$"London Motor Museum"$2001$2012$"/Independent/Private"$"http://www.londonmotormuseum.co.uk/our_story"$$
+"mm.aim.0560"$"London Motor Museum"$2013$9999$"/Independent/Not for profit"$"http://www.londonmotormuseum.co.uk/our_story"$$
+"mm.mgs.411"$"Hopetoun House"$1961$1973$"/Independent/Private"$"https://en.wikipedia.org/wiki/Hopetoun_House"$$
+"mm.mgs.411"$"Hopetoun House"$1974$9999$"/Independent/Not for profit"$"https://en.wikipedia.org/wiki/Hopetoun_House"$$
+"mm.mgs.412"$"Iona Abbey Museum"$1964$2000$"/Independent/Not for profit"$"tc (14/12/17)"$$
+"mm.mgs.412"$"Iona Abbey Museum"$2000$9999$"/Independent/Historic Environment Scotland"$"tc (14/12/17)"$$
+"mm.mgs.286"$"Robert Burns Birthplace Museum"$"1900;1920"$1990$"/Independent/Not for profit"$"tc (15/12/17)"$$
+"mm.mgs.286"$"Robert Burns Birthplace Museum"$1990$9999$"/Independent/National Trust for Scotland"$"tc (15/12/17)"$$
+"mm.wiki.306"$"Richard III Experience"$1993$2014$"/Independent/Private"$"tc(18/12/17)"$$
+"mm.wiki.306"$"Richard III Experience"$2014$9999$"/Independent/Not for profit"$"tc(18/12/17)"$$
+"mm.mgs.380"$"Archaeolink Prehistory Park "$1997$2005$"/Independent/Trust or Foundation"$"http://www.scotsman.com/news/aberdeenshire-council-to-pull-plug-on-archaeolink-1-2948032"$$
+"mm.mgs.380"$"Archaeolink Prehistory Park "$2005$2011$"/Government/Local Authority"$"http://www.scotsman.com/news/aberdeenshire-council-to-pull-plug-on-archaeolink-1-2948032"$$
+"mm.aim.0042"$"Atwell-Wilson Motor Museum"$1989$1997$"/Independent/Private"$"http://www.atwellwilson.org.uk/our-history.html"$$
+"mm.aim.0042"$"Atwell-Wilson Motor Museum"$1997$9999$"/Independent/Not for profit"$"http://www.atwellwilson.org.uk/our-history.html"$$
+"mm.wiki.065"$"Chatsworth"$1949$1981$"/Indepndent/Private"$"https://www.chatsworth.org/about-chatsworth/"$$
+"mm.wiki.065"$"Chatsworth"$1981$9999$"/Independent/Not for profit"$"https://www.chatsworth.org/about-chatsworth/"$$
+"mm.domus.SE131"$"Peterborough Museum and Art Gallery"$1881$1968$"/Independent/Not for profit"$"https://www.vivacity-peterborough.com/heritage/peterborough-museum/history-of-the-museum/"$$"Museum was gifted to the City by Peterborough Natural History Society in 1968"
+"mm.domus.SE131"$"Peterborough Museum and Art Gallery"$1968$2010$"/Government/Local Authority"$"https://www.vivacity-peterborough.com/heritage/peterborough-museum/history-of-the-museum/"$$
+"mm.domus.SE022"$"Geffrye Museum"$1914$1991$"/Government/Local Authority"$"https://www.geffrye-museum.org.uk/aboutus/history/"$$
+"mm.domus.SE022"$"Geffrye Museum"$1991$9999$"/Independent/Not for profit"$"https://www.geffrye-museum.org.uk/aboutus/history/"$$
+"mm.domus.SC288"$"Methil Heritage Centre"$1991$1997$"/Independent/Not for profit"$"http://www.methilheritage.org.uk/content/pages/centre-history.php"$$
+"mm.domus.SC288"$"Methil Heritage Centre"$1998$9999$"/Government/Local Authority"$"http://www.methilheritage.org.uk/content/pages/centre-history.php"$$
+"mm.ace.1187"$"Warner Textile Archive"$1993$2004$"/Independent/Private"$"https://en.wikipedia.org/w/index.php?title=Warner_Textile_Archive&oldid=773867583"$$
+"mm.ace.1187"$"Warner Textile Archive"$2005$9999$"/Independent/Not for profit"$"https://en.wikipedia.org/w/index.php?title=Warner_Textile_Archive&oldid=773867583"$$"Operated by Braintree District Museum Trust"
+"mm.domus.WM119"$"Norton Collection Museum"$1979$1992$"/Independent/Private"$"http://www.nortoncollectionmuseumtrust.org.uk/"$$
+"mm.domus.WM119"$"Norton Collection Museum"$1992$2008$"/Government/Local Authority"$"http://www.nortoncollectionmuseumtrust.org.uk/"$$
+"mm.domus.WM119"$"Norton Collection Museum"$2016$9999$"/Independent/Not for profit"$"http://www.nortoncollectionmuseumtrust.org.uk/"$$

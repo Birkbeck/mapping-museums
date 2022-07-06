@@ -1,0 +1,17 @@
+mark1,mark2,avg_L,sdev_L,max_L,avg_LZ
+all,all,148621,74359.5,270419,-0.6
+local_auth,all,150413,75130.9,272902,-0.5
+national,all,161087,64035.6,264760,0.3
+sm_indep,all,148203,73993,270048,-0.6
+all,local_auth,150615,75397.7,274415,-0.5
+local_auth,local_auth,158225,78231.1,285390,0.1
+national,local_auth,157890,68038.2,268140,0.1
+sm_indep,local_auth,146758,75609.5,270756,-0.7
+all,national,162751,65749.9,269065,0.4
+local_auth,national,159118,69143.7,269909,0.2
+national,national,202498,38443.1,253440,3.4
+sm_indep,national,160916,67162.5,269224,0.3
+all,sm_indep,148060,73827.1,269354,-0.6
+local_auth,sm_indep,146421,75188.5,268569,-0.8
+national,sm_indep,159026,65173,263888,0.2
+sm_indep,sm_indep,147170,74621.2,269637,-0.7

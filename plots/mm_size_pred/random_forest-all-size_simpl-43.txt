@@ -1,0 +1,106 @@
+[1] "runRandomForestMmSize all size_simpl"
+[1] "N cases =  2621"
+[1] "Summary of input sizes"
+       VAL.x VAL.Freq    PC  VAR
+4      small     1007 38.42 size
+3     medium      481 18.35 size
+7 very_small      439 16.75 size
+6 very_large      256  9.77 size
+2      large      248  9.46 size
+5       tiny      177  6.75 size
+1       huge       13  0.50 size
+8       <NA>        0  0.00 size
+   VAL.x VAL.Freq    PC        VAR
+3  small     1623 61.92 size_simpl
+1  large      517 19.73 size_simpl
+2 medium      481 18.35 size_simpl
+4   <NA>        0  0.00 size_simpl
+
+[1] "Formula"
+size_simpl ~ governance + group_name + subgroup_name + supergroup_name
+<environment: 0x131835118>
+
+Call:
+ randomForest(formula = ff, data = obsdf, importance = T, ntree = ntree,      na.action = na.omit) 
+               Type of random forest: classification
+                     Number of trees: 2000
+No. of variables tried at each split: 2
+
+        OOB estimate of  error rate: 33.82%
+Confusion matrix:
+       large medium small class.error
+large    239     16   237  0.51422764
+medium    92     18   317  0.95784543
+small     90     40  1293  0.09135629
+[1] "Predicted values"
+ large medium  small   NA's 
+   416     58   1868    279 
+[1] "> NA/missing values: 279 (10.645%)"
+
+[1] "Caret confusion matrix"
+Confusion Matrix and Statistics
+
+          Reference
+Prediction large medium small
+    large    251      8   233
+    medium    86     35   306
+    small     79     15  1329
+
+Overall Statistics
+                                          
+               Accuracy : 0.6896          
+                 95% CI : (0.6704, 0.7083)
+    No Information Rate : 0.7976          
+    P-Value [Acc > NIR] : 1               
+                                          
+                  Kappa : 0.3445          
+ Mcnemar's Test P-Value : <2e-16          
+
+Statistics by Class:
+
+                     Class: large Class: medium Class: small
+Sensitivity                0.6034       0.60345       0.7115
+Specificity                0.8749       0.82837       0.8017
+Pos Pred Value             0.5102       0.08197       0.9339
+Neg Pred Value             0.9108       0.98799       0.4135
+Prevalence                 0.1776       0.02477       0.7976
+Detection Rate             0.1072       0.01494       0.5675
+Detection Prevalence       0.2101       0.18232       0.6076
+Balanced Accuracy          0.7391       0.71591       0.7566
+
+[1] "Summary of predicted sizes"
+       VAL.x VAL.Freq    PC  VAR
+4      small     1007 38.42 size
+3     medium      481 18.35 size
+7 very_small      439 16.75 size
+6 very_large      256  9.77 size
+2      large      248  9.46 size
+5       tiny      177  6.75 size
+1       huge       13  0.50 size
+8       <NA>        0  0.00 size
+   VAL.x VAL.Freq    PC        VAR
+3  small     1623 61.92 size_simpl
+1  large      517 19.73 size_simpl
+2 medium      481 18.35 size_simpl
+4   <NA>        0  0.00 size_simpl
+   VAL.x VAL.Freq    PC       VAR
+3  small     1868 71.27 size_pred
+1  large      416 15.87 size_pred
+4   <NA>      279 10.64 size_pred
+2 medium       58  2.21 size_pred
+
+[1] "Model results"
+[1] "Accuracy on museum dataset: 0.616"
+[1] "Predicted values for unknown cases"
+[1] 1320
+ large medium  small   NA's 
+    62     17   1219     22 
+[1] "> NA/missing values: 22 (1.667%)"
+       project_id        size_simpl   size_simpl_wpred                   size_simpl_source
+ domus.NE043:   1   small     :1623   large : 579      domus                      :1465   
+ mm.ace.019 :   1   medium    : 481   medium: 498      mm_prediction_random_forest:1298   
+ mm.ace.022 :   1   large     : 517   small :2842      visitbritain               : 399   
+ mm.ace.023 :   1   unknown_sz:1320   NA's  :  22      aim_size_designation       : 330   
+ mm.ace.036 :   1                                      ma(fam)                    : 267   
+ mm.ace.039 :   1                                      (Other)                    : 160   
+ (Other)    :3935                                      NA's                       :  22   

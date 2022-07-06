@@ -1,0 +1,15 @@
+﻿region,n_museums,n_museums_PC,pop_2017,museums_per_100kpop
+Scotland,484,14.84,5424800.00,8.922
+Wales,202,6.19,3125165.00,6.464
+Northern Ireland,85,2.61,1870834.00,4.543
+England,2454,75.23,55619430.00,4.412
+South East,477,14.62,9080825.00,5.253
+South West,415,12.72,5559316.00,7.465
+East of England,329,10.09,6168432.00,5.334
+North West,241,7.39,7258627.00,3.32
+West Midlands,230,7.05,5860706.00,3.924
+Yorkshire and The Humber,224,6.87,5450130.00,4.11
+East Midlands,223,6.84,4771666.00,4.673
+London,223,6.84,8825001.00,2.527
+North East,92,2.82,2644727.00,3.479
+NOT_AVAIL,37,1.13,,

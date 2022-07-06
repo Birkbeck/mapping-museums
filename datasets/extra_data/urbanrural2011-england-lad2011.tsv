@@ -1,0 +1,327 @@
+GSS	NAME	RUC_CODE	RUC_CAT	RURAL_POP	HUB_TOWN_POP	RURAL_POP_TOT	POP	RURAL_PC
+E06000001	Hartlepool	4	Urban with City and Town	3173	0	3173	92028	3.4
+E06000002	Middlesbrough	4	Urban with City and Town	957	0	957	138412	0.7
+E06000003	Redcar and Cleveland	3	Urban with Significant Rural (rural including hub towns 26-49%)	43880	0	43880	135177	32.5
+E06000004	Stockton-on-Tees	4	Urban with City and Town	7536	0	7536	191610	3.9
+E06000005	Darlington	4	Urban with City and Town	13201	0	13201	105564	12.5
+E06000006	Halton	4	Urban with City and Town	3148	0	3148	125746	2.5
+E06000007	Warrington	4	Urban with City and Town	25164	0	25164	202228	12.4
+E06000008	Blackburn with Darwen	4	Urban with City and Town	6931	0	6931	147489	4.7
+E06000009	Blackpool	4	Urban with City and Town	555	0	555	142065	0.4
+E06000010	Kingston upon Hull, City of	4	Urban with City and Town	0	0	0	256406	0
+E06000011	East Riding of Yorkshire	2	Largely Rural (rural including hub towns 50-79%) 	146674	53794	200468	334179	60
+E06000012	North East Lincolnshire	4	Urban with City and Town	15814	9642	25456	159616	15.9
+E06000013	North Lincolnshire	3	Urban with Significant Rural (rural including hub towns 26-49%)	75295	1108	76403	167446	45.6
+E06000014	York	4	Urban with City and Town	32440	0	32440	198051	16.4
+E06000015	Derby	4	Urban with City and Town	0	0	0	248752	0
+E06000016	Leicester	4	Urban with City and Town	556	0	556	329839	0.2
+E06000017	Rutland	1	Mainly Rural (rural including hub towns >=80%) 	25847	11522	37369	37369	100
+E06000018	Nottingham	5	Urban with Minor Conurbation	0	0	0	305680	0
+E06000019	Herefordshire, County of	2	Largely Rural (rural including hub towns 50-79%) 	99142	21520	120662	183477	65.8
+E06000020	Telford and Wrekin	4	Urban with City and Town	11177	12741	23918	166641	14.4
+E06000021	Stoke-on-Trent	4	Urban with City and Town	671	0	671	249008	0.3
+E06000022	Bath and North East Somerset	3	Urban with Significant Rural (rural including hub towns 26-49%)	37103	27136	64239	176016	36.5
+E06000023	Bristol, City of	4	Urban with City and Town	0	0	0	428234	0
+E06000024	North Somerset	3	Urban with Significant Rural (rural including hub towns 26-49%)	37238	41545	78783	202566	38.9
+E06000025	South Gloucestershire	4	Urban with City and Town	34363	11687	46050	262767	17.5
+E06000026	Plymouth	4	Urban with City and Town	0	0	0	256384	0
+E06000027	Torbay	4	Urban with City and Town	762	16693	17455	130959	13.3
+E06000028	Bournemouth	4	Urban with City and Town	139	0	139	183491	0.1
+E06000029	Poole	4	Urban with City and Town	236	0	236	147645	0.2
+E06000030	Swindon	4	Urban with City and Town	23848	0	23848	209156	11.4
+E06000031	Peterborough	4	Urban with City and Town	21752	806	22558	183631	12.3
+E06000032	Luton	4	Urban with City and Town	0	0	0	203201	0
+E06000033	Southend-on-Sea	4	Urban with City and Town	0	0	0	173658	0
+E06000034	Thurrock	6	Urban with Major Conurbation	19765	0	19765	157705	12.5
+E06000035	Medway	4	Urban with City and Town	28457	0	28457	263925	10.8
+E06000036	Bracknell Forest	4	Urban with City and Town	2309	0	2309	113205	2
+E06000037	West Berkshire	3	Urban with Significant Rural (rural including hub towns 26-49%)	56949	403	57352	153822	37.3
+E06000038	Reading	4	Urban with City and Town	468	0	468	155698	0.3
+E06000039	Slough	4	Urban with City and Town	0	0	0	140205	0
+E06000040	Windsor and Maidenhead	4	Urban with City and Town	14961	182	15143	144560	10.5
+E06000041	Wokingham	4	Urban with City and Town	27045	0	27045	154380	17.5
+E06000042	Milton Keynes	4	Urban with City and Town	21653	0	21653	248821	8.7
+E06000043	Brighton and Hove	4	Urban with City and Town	4318	0	4318	273369	1.6
+E06000044	Portsmouth	4	Urban with City and Town	0	0	0	205056	0
+E06000045	Southampton	4	Urban with City and Town	0	0	0	236882	0
+E06000046	Isle of Wight	1	Mainly Rural (rural including hub towns >=80%) 	44699	93566	138265	138265	100
+E06000047	County Durham	2	Largely Rural (rural including hub towns 50-79%) 	231417	81151	312568	513242	60.9
+E06000048	Northumberland	2	Largely Rural (rural including hub towns 50-79%) 	145096	78801	223897	316028	70.8
+E06000049	Cheshire East	3	Urban with Significant Rural (rural including hub towns 26-49%)	70607	74571	145178	370127	39.2
+E06000050	Cheshire West and Chester	3	Urban with Significant Rural (rural including hub towns 26-49%)	86301	0	86301	329608	26.2
+E06000051	Shropshire	2	Largely Rural (rural including hub towns 50-79%) 	175469	53688	229157	306129	74.9
+E06000052	Cornwall	1	Mainly Rural (rural including hub towns >=80%) 	326682	115347	442029	532273	83
+E06000053	Isles of Scilly	1	Mainly Rural (rural including hub towns >=80%) 	2203	0	2203	2203	100
+E06000054	Wiltshire	2	Largely Rural (rural including hub towns 50-79%) 	223719	93566	317285	470981	67.4
+E06000055	Bedford	3	Urban with Significant Rural (rural including hub towns 26-49%)	49104	0	49104	157479	31.2
+E06000056	Central Bedfordshire	2	Largely Rural (rural including hub towns 50-79%) 	100272	48234	148506	254381	58.4
+E07000004	Aylesbury Vale	2	Largely Rural (rural including hub towns 50-79%) 	86499	12890	99389	174137	57.1
+E07000005	Chiltern	3	Urban with Significant Rural (rural including hub towns 26-49%)	26030	0	26030	92635	28.1
+E07000006	South Bucks	3	Urban with Significant Rural (rural including hub towns 26-49%)	21212	0	21212	66867	31.7
+E07000007	Wycombe	3	Urban with Significant Rural (rural including hub towns 26-49%)	31999	18079	50078	171644	29.2
+E07000008	Cambridge	4	Urban with City and Town	359	0	359	123867	0.3
+E07000009	East Cambridgeshire	1	Mainly Rural (rural including hub towns >=80%) 	62586	21232	83818	83818	100
+E07000010	Fenland	2	Largely Rural (rural including hub towns 50-79%) 	22365	44094	66459	95262	69.8
+E07000011	Huntingdonshire	1	Mainly Rural (rural including hub towns >=80%) 	93494	43456	136950	169508	80.8
+E07000012	South Cambridgeshire	2	Largely Rural (rural including hub towns 50-79%) 	113829	0	113829	148755	76.5
+E07000026	Allerdale	1	Mainly Rural (rural including hub towns >=80%) 	69302	27120	96422	96422	100
+E07000027	Barrow-in-Furness	3	Urban with Significant Rural (rural including hub towns 26-49%)	23222	0	23222	69087	33.6
+E07000028	Carlisle	3	Urban with Significant Rural (rural including hub towns 26-49%)	29054	0	29054	107524	27
+E07000029	Copeland	1	Mainly Rural (rural including hub towns >=80%) 	45703	24900	70603	70603	100
+E07000030	Eden	1	Mainly Rural (rural including hub towns >=80%) 	37383	15181	52564	52564	100
+E07000031	South Lakeland	1	Mainly Rural (rural including hub towns >=80%) 	63155	40503	103658	103658	100
+E07000032	Amber Valley	5	Urban with Minor Conurbation	23469	0	23469	122309	19.2
+E07000033	Bolsover	3	Urban with Significant Rural (rural including hub towns 26-49%)	35778	0	35778	75866	47.2
+E07000034	Chesterfield	4	Urban with City and Town	1909	0	1909	103788	1.8
+E07000035	Derbyshire Dales	1	Mainly Rural (rural including hub towns >=80%) 	56160	14956	71116	71116	100
+E07000036	Erewash	5	Urban with Minor Conurbation	1987	0	1987	112081	1.8
+E07000037	High Peak	2	Largely Rural (rural including hub towns 50-79%) 	27861	22115	49976	90892	55
+E07000038	North East Derbyshire	4	Urban with City and Town	19948	0	19948	99023	20.1
+E07000039	South Derbyshire	3	Urban with Significant Rural (rural including hub towns 26-49%)	41072	0	41072	94611	43.4
+E07000040	East Devon	2	Largely Rural (rural including hub towns 50-79%) 	73973	24052	98025	132457	74
+E07000041	Exeter	4	Urban with City and Town	536	0	536	117773	0.5
+E07000042	Mid Devon	1	Mainly Rural (rural including hub towns >=80%) 	58206	19544	77750	77750	100
+E07000043	North Devon	2	Largely Rural (rural including hub towns 50-79%) 	50867	11184	62051	93667	66.2
+E07000044	South Hams	1	Mainly Rural (rural including hub towns >=80%) 	65564	11851	77415	83140	93.1
+E07000045	Teignbridge	2	Largely Rural (rural including hub towns 50-79%) 	58445	28775	87220	124220	70.2
+E07000046	Torridge	1	Mainly Rural (rural including hub towns >=80%) 	35167	28672	63839	63839	100
+E07000047	West Devon	1	Mainly Rural (rural including hub towns >=80%) 	41273	12280	53553	53553	100
+E07000048	Christchurch	4	Urban with City and Town	669	0	669	47752	1.4
+E07000049	East Dorset	3	Urban with Significant Rural (rural including hub towns 26-49%)	21167	13360	34527	87166	39.6
+E07000050	North Dorset	1	Mainly Rural (rural including hub towns >=80%) 	45611	22972	68583	68583	100
+E07000051	Purbeck	1	Mainly Rural (rural including hub towns >=80%) 	27187	10454	37641	44973	83.7
+E07000052	West Dorset	1	Mainly Rural (rural including hub towns >=80%) 	60720	32797	93517	99264	94.2
+E07000053	Weymouth and Portland	4	Urban with City and Town	13223	0	13223	65167	20.3
+E07000061	Eastbourne	4	Urban with City and Town	0	0	0	99412	0
+E07000062	Hastings	4	Urban with City and Town	0	0	0	90254	0
+E07000063	Lewes	3	Urban with Significant Rural (rural including hub towns 26-49%)	22329	17297	39626	97502	40.6
+E07000064	Rother	2	Largely Rural (rural including hub towns 50-79%) 	47420	0	47420	90588	52.3
+E07000065	Wealden	1	Mainly Rural (rural including hub towns >=80%) 	66976	59036	126012	148915	84.6
+E07000066	Basildon	4	Urban with City and Town	865	0	865	174497	0.5
+E07000067	Braintree	2	Largely Rural (rural including hub towns 50-79%) 	56348	37259	93607	147084	63.6
+E07000068	Brentwood	3	Urban with Significant Rural (rural including hub towns 26-49%)	20703	0	20703	73601	28.1
+E07000069	Castle Point	4	Urban with City and Town	0	0	0	88011	0
+E07000070	Chelmsford	4	Urban with City and Town	33093	0	33093	168310	19.7
+E07000071	Colchester	3	Urban with Significant Rural (rural including hub towns 26-49%)	51215	0	51215	173074	29.6
+E07000072	Epping Forest	3	Urban with Significant Rural (rural including hub towns 26-49%)	33186	0	33186	124659	26.6
+E07000073	Harlow	4	Urban with City and Town	0	0	0	81944	0
+E07000074	Maldon	1	Mainly Rural (rural including hub towns >=80%) 	40167	21462	61629	61629	100
+E07000075	Rochford	4	Urban with City and Town	11476	0	11476	83287	13.8
+E07000076	Tendring	2	Largely Rural (rural including hub towns 50-79%) 	49319	38181	87500	138048	63.4
+E07000077	Uttlesford	1	Mainly Rural (rural including hub towns >=80%) 	64233	15210	79443	79443	100
+E07000078	Cheltenham	4	Urban with City and Town	327	0	327	115732	0.3
+E07000079	Cotswold	1	Mainly Rural (rural including hub towns >=80%) 	65728	17153	82881	82881	100
+E07000080	Forest of Dean	1	Mainly Rural (rural including hub towns >=80%) 	54803	23339	78142	81961	95.3
+E07000081	Gloucester	4	Urban with City and Town	0	0	0	121688	0
+E07000082	Stroud	3	Urban with Significant Rural (rural including hub towns 26-49%)	32401	14992	47393	112779	42
+E07000083	Tewkesbury	2	Largely Rural (rural including hub towns 50-79%) 	23758	19778	43536	81943	53.1
+E07000084	Basingstoke and Deane	3	Urban with Significant Rural (rural including hub towns 26-49%)	44724	15433	60157	167799	35.9
+E07000085	East Hampshire	1	Mainly Rural (rural including hub towns >=80%) 	41284	54213	95497	115608	82.6
+E07000086	Eastleigh	4	Urban with City and Town	11791	0	11791	125199	9.4
+E07000087	Fareham	4	Urban with City and Town	652	0	652	111581	0.6
+E07000088	Gosport	4	Urban with City and Town	233	0	233	82622	0.3
+E07000089	Hart	3	Urban with Significant Rural (rural including hub towns 26-49%)	27586	0	27586	91033	30.3
+E07000090	Havant	4	Urban with City and Town	1894	0	1894	120684	1.6
+E07000091	New Forest	3	Urban with Significant Rural (rural including hub towns 26-49%)	49399	30530	79929	176462	45.3
+E07000092	Rushmoor	4	Urban with City and Town	1392	0	1392	93807	1.5
+E07000093	Test Valley	3	Urban with Significant Rural (rural including hub towns 26-49%)	42505	0	42505	116398	36.5
+E07000094	Winchester	2	Largely Rural (rural including hub towns 50-79%) 	66992	0	66992	116595	57.5
+E07000095	Broxbourne	6	Urban with Major Conurbation	154	0	154	93609	0.2
+E07000096	Dacorum	3	Urban with Significant Rural (rural including hub towns 26-49%)	18875	33926	52801	144847	36.5
+E07000097	East Hertfordshire	3	Urban with Significant Rural (rural including hub towns 26-49%)	40588	0	40588	137687	29.5
+E07000098	Hertsmere	6	Urban with Major Conurbation	15024	0	15024	100031	15
+E07000099	North Hertfordshire	3	Urban with Significant Rural (rural including hub towns 26-49%)	22949	15781	38730	127114	30.5
+E07000100	St Albans	4	Urban with City and Town	13264	0	13264	140664	9.4
+E07000101	Stevenage	4	Urban with City and Town	0	0	0	83957	0
+E07000102	Three Rivers	6	Urban with Major Conurbation	4644	0	4644	87317	5.3
+E07000103	Watford	6	Urban with Major Conurbation	0	0	0	90301	0
+E07000104	Welwyn Hatfield	4	Urban with City and Town	13086	0	13086	110535	11.8
+E07000105	Ashford	3	Urban with Significant Rural (rural including hub towns 26-49%)	43223	0	43223	117956	36.6
+E07000106	Canterbury	4	Urban with City and Town	25420	0	25420	151145	16.8
+E07000107	Dartford	6	Urban with Major Conurbation	11240	0	11240	97365	11.5
+E07000108	Dover	3	Urban with Significant Rural (rural including hub towns 26-49%)	39410	0	39410	111674	35.3
+E07000109	Gravesham	6	Urban with Major Conurbation	19079	0	19079	101720	18.8
+E07000110	Maidstone	3	Urban with Significant Rural (rural including hub towns 26-49%)	43730	0	43730	155143	28.2
+E07000111	Sevenoaks	2	Largely Rural (rural including hub towns 50-79%) 	51911	29506	81417	114893	70.9
+E07000112	Shepway	3	Urban with Significant Rural (rural including hub towns 26-49%)	41540	0	41540	107969	38.5
+E07000113	Swale	2	Largely Rural (rural including hub towns 50-79%) 	32546	53934	86480	135835	63.7
+E07000114	Thanet	4	Urban with City and Town	8816	0	8816	134186	6.6
+E07000115	Tonbridge and Malling	3	Urban with Significant Rural (rural including hub towns 26-49%)	42046	0	42046	120805	34.8
+E07000116	Tunbridge Wells	3	Urban with Significant Rural (rural including hub towns 26-49%)	46139	0	46139	115049	40.1
+E07000117	Burnley	4	Urban with City and Town	4483	0	4483	87059	5.1
+E07000118	Chorley	3	Urban with Significant Rural (rural including hub towns 26-49%)	33066	0	33066	107155	30.9
+E07000119	Fylde	4	Urban with City and Town	16873	0	16873	75757	22.3
+E07000120	Hyndburn	4	Urban with City and Town	7752	0	7752	80734	9.6
+E07000121	Lancaster	3	Urban with Significant Rural (rural including hub towns 26-49%)	41225	0	41225	138375	29.8
+E07000122	Pendle	4	Urban with City and Town	12514	10435	22949	89452	25.7
+E07000123	Preston	4	Urban with City and Town	8125	0	8125	140202	5.8
+E07000124	Ribble Valley	1	Mainly Rural (rural including hub towns >=80%) 	38343	14765	53108	57132	93
+E07000125	Rossendale	4	Urban with City and Town	3559	0	3559	67982	5.2
+E07000126	South Ribble	4	Urban with City and Town	1891	0	1891	109057	1.7
+E07000127	West Lancashire	3	Urban with Significant Rural (rural including hub towns 26-49%)	42419	0	42419	110685	38.3
+E07000128	Wyre	2	Largely Rural (rural including hub towns 50-79%) 	31460	25359	56819	107749	52.7
+E07000129	Blaby	4	Urban with City and Town	18310	509	18819	93915	20
+E07000130	Charnwood	4	Urban with City and Town	23963	0	23963	166100	14.4
+E07000131	Harborough	1	Mainly Rural (rural including hub towns >=80%) 	57366	22911	80277	85382	94
+E07000132	Hinckley and Bosworth	2	Largely Rural (rural including hub towns 50-79%) 	33848	19733	53581	105078	51
+E07000133	Melton	1	Mainly Rural (rural including hub towns >=80%) 	23218	27158	50376	50376	100
+E07000134	North West Leicestershire	2	Largely Rural (rural including hub towns 50-79%) 	41871	12370	54241	93468	58
+E07000135	Oadby and Wigston	4	Urban with City and Town	0	0	0	56170	0
+E07000136	Boston	3	Urban with Significant Rural (rural including hub towns 26-49%)	23297	0	23297	64637	36
+E07000137	East Lindsey	1	Mainly Rural (rural including hub towns >=80%) 	82575	53826	136401	136401	100
+E07000138	Lincoln	4	Urban with City and Town	0	0	0	93541	0
+E07000139	North Kesteven	1	Mainly Rural (rural including hub towns >=80%) 	69566	17359	86925	107766	80.7
+E07000140	South Holland	2	Largely Rural (rural including hub towns 50-79%) 	56682	0	56682	88270	64.2
+E07000141	South Kesteven	2	Largely Rural (rural including hub towns 50-79%) 	43234	46721	89955	133788	67.2
+E07000142	West Lindsey	1	Mainly Rural (rural including hub towns >=80%) 	67911	20842	88753	89250	99.4
+E07000143	Breckland	1	Mainly Rural (rural including hub towns >=80%) 	74458	56033	130491	130491	100
+E07000144	Broadland	3	Urban with Significant Rural (rural including hub towns 26-49%)	60433	0	60433	124646	48.5
+E07000145	Great Yarmouth	3	Urban with Significant Rural (rural including hub towns 26-49%)	33843	0	33843	97277	34.8
+E07000146	King's Lynn and West Norfolk	2	Largely Rural (rural including hub towns 50-79%) 	86788	10884	97672	147451	66.2
+E07000147	North Norfolk	1	Mainly Rural (rural including hub towns >=80%) 	89036	12463	101499	101499	100
+E07000148	Norwich	4	Urban with City and Town	0	0	0	132512	0
+E07000149	South Norfolk	1	Mainly Rural (rural including hub towns >=80%) 	84155	23416	107571	124012	86.7
+E07000150	Corby	4	Urban with City and Town	4445	0	4445	61255	7.3
+E07000151	Daventry	1	Mainly Rural (rural including hub towns >=80%) 	49398	23879	73277	77843	94.1
+E07000152	East Northamptonshire	2	Largely Rural (rural including hub towns 50-79%) 	50057	0	50057	86765	57.7
+E07000153	Kettering	4	Urban with City and Town	19103	0	19103	93475	20.4
+E07000154	Northampton	4	Urban with City and Town	956	0	956	212069	0.5
+E07000155	South Northamptonshire	1	Mainly Rural (rural including hub towns >=80%) 	71887	13018	84905	85189	99.7
+E07000156	Wellingborough	3	Urban with Significant Rural (rural including hub towns 26-49%)	24779	0	24779	75356	32.9
+E07000163	Craven	1	Mainly Rural (rural including hub towns >=80%) 	33222	14623	47845	55409	86.3
+E07000164	Hambleton	1	Mainly Rural (rural including hub towns >=80%) 	72308	16832	89140	89140	100
+E07000165	Harrogate	3	Urban with Significant Rural (rural including hub towns 26-49%)	51899	16363	68262	157869	43.2
+E07000166	Richmondshire	1	Mainly Rural (rural including hub towns >=80%) 	40161	11804	51965	51965	100
+E07000167	Ryedale	1	Mainly Rural (rural including hub towns >=80%) 	39814	11937	51751	51751	100
+E07000168	Scarborough	3	Urban with Significant Rural (rural including hub towns 26-49%)	33831	13213	47044	108793	43.2
+E07000169	Selby	1	Mainly Rural (rural including hub towns >=80%) 	56582	24859	81441	83449	97.6
+E07000170	Ashfield	4	Urban with City and Town	905	0	905	119497	0.8
+E07000171	Bassetlaw	2	Largely Rural (rural including hub towns 50-79%) 	47588	22023	69611	112863	61.7
+E07000172	Broxtowe	5	Urban with Minor Conurbation	423	0	423	109487	0.4
+E07000173	Gedling	5	Urban with Minor Conurbation	20717	0	20717	113543	18.2
+E07000174	Mansfield	4	Urban with City and Town	13703	0	13703	104466	13.1
+E07000175	Newark and Sherwood	2	Largely Rural (rural including hub towns 50-79%) 	67107	0	67107	114817	58.4
+E07000176	Rushcliffe	2	Largely Rural (rural including hub towns 50-79%) 	62832	0	62832	111129	56.5
+E07000177	Cherwell	3	Urban with Significant Rural (rural including hub towns 26-49%)	43542	15829	59371	141868	41.8
+E07000178	Oxford	4	Urban with City and Town	1872	0	1872	151906	1.2
+E07000179	South Oxfordshire	1	Mainly Rural (rural including hub towns >=80%) 	67005	59469	126474	134257	94.2
+E07000180	Vale of White Horse	2	Largely Rural (rural including hub towns 50-79%) 	46866	21548	68414	120988	56.5
+E07000181	West Oxfordshire	1	Mainly Rural (rural including hub towns >=80%) 	59312	45467	104779	104779	100
+E07000187	Mendip	1	Mainly Rural (rural including hub towns >=80%) 	48453	60826	109279	109279	100
+E07000188	Sedgemoor	2	Largely Rural (rural including hub towns 50-79%) 	49987	23325	73312	114588	64
+E07000189	South Somerset	2	Largely Rural (rural including hub towns 50-79%) 	102385	13074	115459	161243	71.6
+E07000190	Taunton Deane	3	Urban with Significant Rural (rural including hub towns 26-49%)	31744	13822	45566	110187	41.4
+E07000191	West Somerset	1	Mainly Rural (rural including hub towns >=80%) 	22694	11981	34675	34675	100
+E07000192	Cannock Chase	3	Urban with Significant Rural (rural including hub towns 26-49%)	10767	24033	34800	97462	35.7
+E07000193	East Staffordshire	3	Urban with Significant Rural (rural including hub towns 26-49%)	26174	13089	39263	113583	34.6
+E07000194	Lichfield	3	Urban with Significant Rural (rural including hub towns 26-49%)	29714	0	29714	100654	29.5
+E07000195	Newcastle-under-Lyme	4	Urban with City and Town	25471	0	25471	123871	20.6
+E07000196	South Staffordshire	3	Urban with Significant Rural (rural including hub towns 26-49%)	42385	0	42385	108131	39.2
+E07000197	Stafford	3	Urban with Significant Rural (rural including hub towns 26-49%)	40119	16385	56504	130869	43.2
+E07000198	Staffordshire Moorlands	2	Largely Rural (rural including hub towns 50-79%) 	31226	31307	62533	97106	64.4
+E07000199	Tamworth	4	Urban with City and Town	0	0	0	76813	0
+E07000200	Babergh	1	Mainly Rural (rural including hub towns >=80%) 	60759	22213	82972	87740	94.6
+E07000201	Forest Heath	1	Mainly Rural (rural including hub towns >=80%) 	27124	32624	59748	59748	100
+E07000202	Ipswich	4	Urban with City and Town	0	0	0	133384	0
+E07000203	Mid Suffolk	1	Mainly Rural (rural including hub towns >=80%) 	72772	21933	94705	96731	97.9
+E07000204	St Edmundsbury	2	Largely Rural (rural including hub towns 50-79%) 	41155	27041	68196	111008	61.4
+E07000205	Suffolk Coastal	2	Largely Rural (rural including hub towns 50-79%) 	56470	29171	85641	124298	68.9
+E07000206	Waveney	3	Urban with Significant Rural (rural including hub towns 26-49%)	30441	13868	44309	115254	38.4
+E07000207	Elmbridge	6	Urban with Major Conurbation	2847	0	2847	130875	2.2
+E07000208	Epsom and Ewell	6	Urban with Major Conurbation	2824	0	2824	75102	3.8
+E07000209	Guildford	4	Urban with City and Town	33989	885	34874	137183	25.4
+E07000210	Mole Valley	3	Urban with Significant Rural (rural including hub towns 26-49%)	21965	17747	39712	85375	46.5
+E07000211	Reigate and Banstead	4	Urban with City and Town	7025	0	7025	137835	5.1
+E07000212	Runnymede	6	Urban with Major Conurbation	1649	0	1649	80510	2
+E07000213	Spelthorne	6	Urban with Major Conurbation	1360	0	1360	95598	1.4
+E07000214	Surrey Heath	4	Urban with City and Town	13819	0	13819	86144	16
+E07000215	Tandridge	3	Urban with Significant Rural (rural including hub towns 26-49%)	30691	0	30691	82998	37
+E07000216	Waverley	2	Largely Rural (rural including hub towns 50-79%) 	33990	44544	78534	121572	64.6
+E07000217	Woking	6	Urban with Major Conurbation	1982	0	1982	99198	2
+E07000218	North Warwickshire	1	Mainly Rural (rural including hub towns >=80%) 	46426	10573	56999	62014	91.9
+E07000219	Nuneaton and Bedworth	4	Urban with City and Town	0	0	0	125252	0
+E07000220	Rugby	4	Urban with City and Town	24260	0	24260	100075	24.2
+E07000221	Stratford-on-Avon	1	Mainly Rural (rural including hub towns >=80%) 	92321	27830	120151	120485	99.7
+E07000222	Warwick	4	Urban with City and Town	17090	0	17090	137648	12.4
+E07000223	Adur	4	Urban with City and Town	810	0	810	61182	1.3
+E07000224	Arun	4	Urban with City and Town	25447	0	25447	149518	17
+E07000225	Chichester	2	Largely Rural (rural including hub towns 50-79%) 	60312	12543	72855	113794	64
+E07000226	Crawley	4	Urban with City and Town	353	0	353	106597	0.3
+E07000227	Horsham	2	Largely Rural (rural including hub towns 50-79%) 	79507	0	79507	131301	60.6
+E07000228	Mid Sussex	4	Urban with City and Town	25145	0	25145	139860	18
+E07000229	Worthing	4	Urban with City and Town	0	0	0	104640	0
+E07000234	Bromsgrove	4	Urban with City and Town	19619	0	19619	93637	21
+E07000235	Malvern Hills	2	Largely Rural (rural including hub towns 50-79%) 	39106	0	39106	74631	52.4
+E07000236	Redditch	4	Urban with City and Town	2592	0	2592	84214	3.1
+E07000237	Worcester	4	Urban with City and Town	129	0	129	98768	0.1
+E07000238	Wychavon	1	Mainly Rural (rural including hub towns >=80%) 	66795	47704	114499	116944	97.9
+E07000239	Wyre Forest	3	Urban with Significant Rural (rural including hub towns 26-49%)	20907	20292	41199	97975	42.1
+E08000001	Bolton	6	Urban with Major Conurbation	2488	0	2488	276786	0.9
+E08000002	Bury	6	Urban with Major Conurbation	5126	0	5126	185060	2.8
+E08000003	Manchester	6	Urban with Major Conurbation	103	0	103	503127	0
+E08000004	Oldham	6	Urban with Major Conurbation	2657	0	2657	224897	1.2
+E08000005	Rochdale	6	Urban with Major Conurbation	2577	0	2577	211699	1.2
+E08000006	Salford	6	Urban with Major Conurbation	284	0	284	233933	0.1
+E08000007	Stockport	6	Urban with Major Conurbation	1249	0	1249	283275	0.4
+E08000008	Tameside	6	Urban with Major Conurbation	645	0	645	219324	0.3
+E08000009	Trafford	6	Urban with Major Conurbation	824	0	824	226578	0.4
+E08000010	Wigan	6	Urban with Major Conurbation	11556	0	11556	317849	3.6
+E08000011	Knowsley	6	Urban with Major Conurbation	993	0	993	145893	0.7
+E08000012	Liverpool	6	Urban with Major Conurbation	0	0	0	466415	0
+E08000013	St. Helens	6	Urban with Major Conurbation	9729	0	9729	175308	5.5
+E08000014	Sefton	6	Urban with Major Conurbation	3979	0	3979	273790	1.5
+E08000015	Wirral	6	Urban with Major Conurbation	3538	0	3538	319783	1.1
+E08000016	Barnsley	5	Urban with Minor Conurbation	24173	0	24173	231221	10.5
+E08000017	Doncaster	5	Urban with Minor Conurbation	42162	17295	59457	302402	19.7
+E08000018	Rotherham	5	Urban with Minor Conurbation	26103	0	26103	257280	10.1
+E08000019	Sheffield	5	Urban with Minor Conurbation	9690	13069	22759	552698	4.1
+E08000020	Gateshead	6	Urban with Major Conurbation	16063	0	16063	200214	8
+E08000021	Newcastle upon Tyne	6	Urban with Major Conurbation	5733	0	5733	280177	2
+E08000022	North Tyneside	6	Urban with Major Conurbation	8523	0	8523	200801	4.2
+E08000023	South Tyneside	6	Urban with Major Conurbation	601	0	601	148127	0.4
+E08000024	Sunderland	6	Urban with Major Conurbation	1493	0	1493	275506	0.5
+E08000025	Birmingham	6	Urban with Major Conurbation	553	0	553	1073045	0.1
+E08000026	Coventry	4	Urban with City and Town	565	0	565	316960	0.2
+E08000027	Dudley	6	Urban with Major Conurbation	276	0	276	312925	0.1
+E08000028	Sandwell	6	Urban with Major Conurbation	0	0	0	308063	0
+E08000029	Solihull	6	Urban with Major Conurbation	20398	0	20398	206674	9.9
+E08000030	Walsall	6	Urban with Major Conurbation	3005	0	3005	269323	1.1
+E08000031	Wolverhampton	6	Urban with Major Conurbation	0	0	0	249470	0
+E08000032	Bradford	6	Urban with Major Conurbation	35828	14809	50637	522452	9.7
+E08000033	Calderdale	6	Urban with Major Conurbation	39226	11690	50916	203826	25
+E08000034	Kirklees	6	Urban with Major Conurbation	48918	0	48918	422458	11.6
+E08000035	Leeds	6	Urban with Major Conurbation	43035	13572	56607	751485	7.5
+E08000036	Wakefield	4	Urban with City and Town	57828	18899	76727	325837	23.5
+E09000001	City of London	6	Urban with Major Conurbation	0	0	0	7375	0
+E09000002	Barking and Dagenham	6	Urban with Major Conurbation	0	0	0	185911	0
+E09000003	Barnet	6	Urban with Major Conurbation	0	0	0	356386	0
+E09000004	Bexley	6	Urban with Major Conurbation	152	0	152	231997	0.1
+E09000005	Brent	6	Urban with Major Conurbation	0	0	0	311215	0
+E09000006	Bromley	6	Urban with Major Conurbation	3455	0	3455	309392	1.1
+E09000007	Camden	6	Urban with Major Conurbation	0	0	0	220338	0
+E09000008	Croydon	6	Urban with Major Conurbation	0	0	0	363378	0
+E09000009	Ealing	6	Urban with Major Conurbation	0	0	0	338449	0
+E09000010	Enfield	6	Urban with Major Conurbation	1478	0	1478	312466	0.5
+E09000011	Greenwich	6	Urban with Major Conurbation	0	0	0	254557	0
+E09000012	Hackney	6	Urban with Major Conurbation	625	0	625	246270	0.3
+E09000013	Hammersmith and Fulham	6	Urban with Major Conurbation	0	0	0	182493	0
+E09000014	Haringey	6	Urban with Major Conurbation	0	0	0	254926	0
+E09000015	Harrow	6	Urban with Major Conurbation	601	0	601	239056	0.3
+E09000016	Havering	6	Urban with Major Conurbation	1860	0	1860	237232	0.8
+E09000017	Hillingdon	6	Urban with Major Conurbation	7399	0	7399	273936	2.7
+E09000018	Hounslow	6	Urban with Major Conurbation	0	0	0	253957	0
+E09000019	Islington	6	Urban with Major Conurbation	0	0	0	206125	0
+E09000020	Kensington and Chelsea	6	Urban with Major Conurbation	0	0	0	158649	0
+E09000021	Kingston upon Thames	6	Urban with Major Conurbation	424	0	424	160060	0.3
+E09000022	Lambeth	6	Urban with Major Conurbation	0	0	0	303086	0
+E09000023	Lewisham	6	Urban with Major Conurbation	0	0	0	275885	0
+E09000024	Merton	6	Urban with Major Conurbation	0	0	0	199693	0
+E09000025	Newham	6	Urban with Major Conurbation	0	0	0	307984	0
+E09000026	Redbridge	6	Urban with Major Conurbation	0	0	0	278970	0
+E09000027	Richmond upon Thames	6	Urban with Major Conurbation	0	0	0	186990	0
+E09000028	Southwark	6	Urban with Major Conurbation	0	0	0	288283	0
+E09000029	Sutton	6	Urban with Major Conurbation	0	0	0	190146	0
+E09000030	Tower Hamlets	6	Urban with Major Conurbation	0	0	0	254096	0
+E09000031	Waltham Forest	6	Urban with Major Conurbation	0	0	0	258249	0
+E09000032	Wandsworth	6	Urban with Major Conurbation	0	0	0	306995	0
+E09000033	Westminster	6	Urban with Major Conurbation	0	0	0	219396	0

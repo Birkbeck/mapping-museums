@@ -1,0 +1,13 @@
+region,archaeology,arts,belief_and_identity,buildings,communications,food_and_drink,industry_and_manufacture,leisure_and_sport,local_histories,medicine_and_health,mixed,natural_world,other,personality,rural_industry,science_and_technology,sea_and_seafaring,services,transport,utilities,war_and_conflict
+East Midlands,7,8,3,40,0,0,15,5,54,0,12,1,0,6,14,4,0,0,26,4,24
+East of England,10,16,5,45,1,2,8,6,95,1,8,6,1,13,12,3,14,6,26,5,46
+London,3,35,9,37,4,1,6,12,24,18,6,3,10,19,1,2,3,2,7,4,17
+North East,8,9,3,12,0,0,6,0,8,0,7,1,1,3,3,0,4,1,10,2,14
+North West,7,24,11,49,0,2,20,8,31,1,20,0,9,12,3,1,6,4,16,0,17
+South East,14,24,9,75,0,2,5,14,121,2,23,12,7,16,27,3,13,6,33,5,66
+South West,9,21,6,88,3,3,20,7,118,2,17,7,6,17,12,1,14,3,31,5,25
+West Midlands,5,26,4,44,1,2,22,7,35,1,16,2,3,13,5,2,0,2,18,5,17
+Yorkshire and The Humber,7,23,8,43,1,0,11,4,32,2,20,1,0,13,8,2,8,3,16,0,22
+z1_Northern Ireland,1,3,3,14,0,0,3,1,15,0,6,0,1,10,3,0,1,2,7,1,14
+z2_Scotland,16,30,20,72,2,2,8,10,156,6,18,12,4,32,19,3,20,4,18,1,31
+z3_Wales,3,15,5,31,1,1,18,6,51,1,2,2,2,12,3,0,11,2,17,1,18

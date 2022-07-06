@@ -1,0 +1,17 @@
+mark1,mark2,avg_L,sdev_L,max_L,avg_LZ
+all,all,149302,74166.4,270535,-0.6
+government,all,147973,71935.1,264989,-0.7
+independent,all,149896,74494.6,272238,-0.5
+university,all,158586,74164.3,277781,0.4
+all,government,148141,72155,266054,-0.7
+government,government,150084,71229.2,265588,-0.5
+independent,government,146460,72967.8,265716,-0.8
+university,government,158752,72461.2,274765,0.4
+all,independent,149785,74362.7,271695,-0.5
+government,independent,146194,72629.2,264152,-0.9
+independent,independent,150150,75358.5,273804,-0.5
+university,independent,156670,75844.5,278244,0.2
+all,university,159926,75599.1,282465,0.5
+government,university,159561,73300,277032,0.5
+independent,university,158247,77535,283924,0.4
+university,university,186278,65171.8,288250,3.2
