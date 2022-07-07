@@ -137,8 +137,8 @@ remove_uncertain_decades <- function(decades, probs){
 summary(full_df$year_opened)
 print_count_NAs(full_df$year_opened)
 print_count_NAs(full_df$year_closed)
-full_df$year_opened_BEG = as.numeric(unlist(strsplit(as.character(full_df$year_opened), ";"))[c(T, F)])
-full_df$year_opened_END = as.numeric(unlist(strsplit(as.character(full_df$year_opened), ";"))[c(F, T)])
+full_df$year_opened_BEG = as.numeric(unlist(strsplit(as.character(full_df$year_opened), ":"))[c(T, F)])
+full_df$year_opened_END = as.numeric(unlist(strsplit(as.character(full_df$year_opened), ":"))[c(F, T)])
 full_df$year_opened_MEAN = round((full_df$year_opened_BEG+full_df$year_opened_END)/2,0)
 summary(full_df$year_opened_MEAN)
 #full_df$year_opened_LEN = (full_df$year_opened_END - full_df$year_opened_BEG) + 1
@@ -149,8 +149,8 @@ summary(full_df$year_opened_MEAN)
 summary(full_df$year_closed)
 
 # extract data
-full_df$year_closed_BEG = as.numeric(unlist(strsplit(as.character(full_df$year_closed), ";"))[c(T, F)])
-full_df$year_closed_END = as.numeric(unlist(strsplit(as.character(full_df$year_closed), ";"))[c(F, T)])
+full_df$year_closed_BEG = as.numeric(unlist(strsplit(as.character(full_df$year_closed), ":"))[c(T, F)])
+full_df$year_closed_END = as.numeric(unlist(strsplit(as.character(full_df$year_closed), ":"))[c(F, T)])
 
 full_df$year_closed_BEG[ full_df$year_closed_BEG==9999 ] <- NA
 full_df$year_closed_END[ full_df$year_closed_END==9999 ] <- NA
@@ -1982,6 +1982,8 @@ check_mm_valid(museums_bg)
 On museums with spatial data (N = ALL_MUSEUMS_N)
 
 ```{r basic_plots, eval=T}
+
+museums_bg = readRDS('../datasets/museums/museums_bg_sdf.rds')
 
 check_mm_valid(museums_bg)
 
