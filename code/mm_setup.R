@@ -14,7 +14,7 @@ pacman::p_load(knitr,readr,readr,plyr,dplyr,sp,vegan,ineq,data.table,foreach,R.u
 R.utils::gcDLLs()
 #doParallel::registerDoParallel()
 
-ALL_MUSEUMS_N = 4012
+ALL_MUSEUMS_N = 4229
 
 # register parallel backend
 #nodes <- detectCores()

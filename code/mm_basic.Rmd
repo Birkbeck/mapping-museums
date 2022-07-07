@@ -25,22 +25,23 @@ source("mm_setup.R")
 
 ```{r load_museums, echo=FALSE, message=FALSE, eval=T}
 # Preparation
-db_source_fn = "mm_input_maindatasheet_V10_2018_12_04.csv"
+db_source_fn = "museums-2022_06_27.csv"
 db_fn = paste0("../datasets/museums/input/maindata/",db_source_fn)
-headers = read.csv(db_fn, skip = 0, sep = "$", header = F, nrows = 1, as.is = T)
-full_df = read.csv(db_fn, sep = "$", skip = 5, header = F)
-colnames(full_df)=headers
-rm(headers)
+#headers = read.csv(db_fn, skip = 0, header = F, nrows = 1, as.is = T)
+full_df = read.csv(db_fn)
+#colnames(full_df)=headers
+#rm(headers)
 
 # ROWS
 nrow(full_df)
+stopifnot(is_unique(full_df$museum_id))
 n = nrow(full_df)
 #stopifnot(n==3954)
 
 # COLUMNS
 full_df$`NA` = NULL # remove empty col
 ncol(full_df)
-stopifnot( ncol(full_df) == 37 )
+stopifnot( ncol(full_df) == 35 )
 
 # normalise column names
 names(full_df) = trimws( tolower( names(full_df) ) )
@@ -70,19 +71,15 @@ full_df$size[full_df$size=='unknown']='unknown_sz'
 full_df$size[is.na(full_df$size)]='unknown_sz'
 
 # columns as factors
-fcols <- c("domus_identifier","project_id", "primary_provenance_of_data", 
-           "identifier_used_in_source_database",
-           "alternative_museum_name_source","town_or_city",#"county",
+fcols <- c(
+           "town_or_city",
            "postcode",
-           "year_opened","year_opened_source",
-           "year_closed","year_closed_source",
-           "subject_matter","domus_subject_matter",
-           "accreditation","accreditation_source",
-           "governance", "governance_source", "size", 
-           "year_museum_first_documented_source",
-           "founder_source",
-           "ace_size_designation", "ace_size_source",
-           "aim_size_designation", "aim_size_source")
+           "year_opened",
+           "year_closed",
+           "subject_matter",
+           "accreditation",
+           "governance",
+           "size")
 full_df[fcols] <- lapply(full_df[fcols], trimws)
 full_df[fcols] <- lapply(full_df[fcols], factor)
 rm(fcols)
@@ -101,18 +98,6 @@ clean_sizes <- function( sz ){
   sz = trimws(sz)
   return(sz)
 }
-
-full_df$aim_size_designation <- as.character(full_df$aim_size_designation)
-full_df$aim_size_designation[ full_df$aim_size_designation=="" ] <- "aim_unknown"
-full_df$aim_size_designation = clean_sizes(full_df$aim_size_designation)
-full_df$aim_size_designation <- as.factor(full_df$aim_size_designation)
-summary(full_df$aim_size_designation)
-
-full_df$ace_size_designation <- as.character(full_df$ace_size_designation)
-full_df$ace_size_designation[ full_df$ace_size_designation=="" ] <- "ace_unknown"
-full_df$ace_size_designation = clean_sizes(full_df$ace_size_designation)
-full_df$ace_size_designation <- as.factor(full_df$ace_size_designation)
-summary(full_df$ace_size_designation)
 
 # fix lat/lon
 full_df$latitude  = as.numeric(as.character(full_df$latitude)) # important
@@ -197,7 +182,7 @@ rm(full_years)
 # ------------------------------------------------
 nat_museums_ids = c("mm.domus.SE511","mm.domus.SE573","mm.domus.WM038","mm.domus.SW118","mm.domus.SE350","mm.domus.SE453","mm.domus.SE351","mm.MDN.018","mm.ace.1153","mm.misc.092",'mm.misc.141')
 length(nat_museums_ids)
-full_df[ full_df$project_id %in% nat_museums_ids, ]$governance = '/Government/National'
+#full_df[ full_df$project_id %in% nat_museums_ids, ]$governance = '/Government/National'
 summary(full_df$governance)
 rm(nat_museums_ids)
 # ------------------------------------------------
@@ -298,20 +283,29 @@ update_simplified_fields = function(full_df){
   # subject matter
   
   # fix
-  full_df$subject_matter[ full_df$subject_matter == "/Industry and manufactu/Metals" ] = "/Industry and manufacture/Metals"
-  full_df$subject_matter = as.factor(as.character(full_df$subject_matter))
+  #full_df$subject_matter[ full_df$subject_matter == "/Industry and manufactu/Metals" ] = "/Industry and manufacture/Metals"
+  #full_df$subject_matter = as.factor(as.character(full_df$subject_matter))
   
   get_simplified_class18 = function(s){
-    high_level = strsplit(s,'/')[[1]][2]
+    #print(s)
+    high_level = strsplit(s,'-')[[1]][2]
+    #print(high_level)
     if (!is.na(high_level) && nchar(high_level)>0){
       return( tolower(gsub(" ", "_", high_level)) )
     } else { return(NA) }
   }
+  
   full_df$subject_matter_simpl = as.factor(sapply(as.character(full_df$subject_matter),
                                                       get_simplified_class18))
+  
   # classes with < 100 museums
+  print(summary(full_df$subject_matter_simpl))
   class18_small_types = as.data.frame(table(full_df$subject_matter_simpl))
+  #View(class18_small_types)
+  print('GINELLO')
+  #print(class18_small_types)
   class18_small_types = as.character(class18_small_types[class18_small_types$Freq < 100, ]$Var1)
+  #print('GINELLO2')
   
   get_simplified_class18_aggr = function(s){
     if (s %in% class18_small_types) return("SMALL_SUBJECTS")
@@ -1069,7 +1063,8 @@ This is done in 049-SpatialDatasets project.
 # geo-utils
 
 load_uk_dataset <- function( name ){
-  ds = readRDS(paste0("../../049-SpatialDatasets/data/uk_data/",name))
+  ds = readRDS(paste0("/Users/andreaballatore/Work/Projects/049-SpatialDatasets/data/uk_data/",
+                      name))
   stopifnot( nrow(ds)>0 )
   print(paste("load_uk_dataset:",name))
   return(ds)
@@ -1224,11 +1219,13 @@ stopifnot(nrow(wrong_coords)==0)
 rm(wrong_coords)
 
 sdf = sdf[ sdf$latitude >= 0.1,  ]
+sdf = sdf[ sdf$latitude <= 90,  ]
 
 summary(as.numeric(sdf$latitude))
+summary(as.numeric(sdf$longitude))
 
 # museums with coords
-stopifnot( nrow(sdf) == ALL_MUSEUMS_N )
+#stopifnot( nrow(sdf) == ALL_MUSEUMS_N )
 
 # build SpatialPointsDataFrame
 coordinates(sdf) <- ~longitude+latitude
