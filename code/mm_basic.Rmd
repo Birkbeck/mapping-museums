@@ -133,7 +133,7 @@ remove_uncertain_decades <- function(decades, probs){
   return(as.factor(dec))
 }
 
-# format of years: 1950;2017, extract data
+# format of years: 1950;2022, extract data
 summary(full_df$year_opened)
 print_count_NAs(full_df$year_opened)
 print_count_NAs(full_df$year_closed)
@@ -191,63 +191,6 @@ FUN_save_museum_dataset(full_df,'museums_full_df')
 
 write(db_source_fn, '../plots/museums_spreadsheet_source.txt')
 
-```
-
-## Governance change
-
-```{r}
-
-fn = '../datasets/museums/input/GovernanceChange/MM_GovernanceChange_05.06.18.csv'
-headers = read.csv(fn, skip = 0, sep = "$", header = F, nrows = 1, as.is = T)
-govChangeDf = read.csv(fn, sep = "$", skip = 5, header = F)
-colnames(govChangeDf)=headers
-
-names(govChangeDf) = trimws( tolower( names(govChangeDf) ) )
-
-govChangeDf$project_id = as.factor(trimws(govChangeDf$project_id))
-govChangeDf$status = as.factor(trimws(govChangeDf$status))
-rm(headers)
-rm(fn)
-
-names(govChangeDf)
-summary(govChangeDf)
-
-# remove NA rows
-#govChangeDf = govChangeDf[rowSums(is.na(govChangeDf))!=ncol(govChangeDf), ]
-#names(govChangeDf) = trimws(tolower(names(govChangeDf)))
-#names(govChangeDf) = gsub(' ','_', names(govChangeDf))
-
-# fix year format
-govChangeDf$from_range = ifelse(grepl(';',govChangeDf$from),T,F)
-govChangeDf$to_range = ifelse(grepl(';',govChangeDf$to),T,F)
-
-govChangeDf$from = as.character(govChangeDf$from)
-govChangeDf$to = as.character(govChangeDf$to)
-
-# keep only second number in ranges (simplification)
-get_gov_change_year = function( year_ranges ){
-  unlist(sapply( year_ranges, function(x) strsplit(x,';')[[1]][2] ))
-}
-
-govChangeDf$from_year = ifelse(govChangeDf$from_range,
-                          get_gov_change_year(govChangeDf$from),
-                          govChangeDf$from)
-govChangeDf$to_year = ifelse(govChangeDf$to_range,
-                          get_gov_change_year(govChangeDf$to),
-                          govChangeDf$to)
-
-govChangeDf$from_year = as.integer(govChangeDf$from_year)
-govChangeDf$to_year = as.integer(govChangeDf$to_year)
-govChangeDf$to_year[ govChangeDf$to_year == 9999 ] = NA
-
-govChangeDf$to_range = NULL
-govChangeDf$from_range = NULL
-govChangeDf$from = NULL
-govChangeDf$to = NULL
-
-View(govChangeDf[,c('from','from_year','to','to_year')])
-
-summary(govChangeDf)
 ```
 
 ## Calc simplified fields
@@ -324,734 +267,6 @@ update_simplified_fields = function(full_df){
 }
 
 ```
-
-## Calculate MM size [deprecated]
-
-DEPRECATED MM size (based on mean yearly visits)
-
-
-### Load visits
-
-```{r load_visits}
-DEPRECATED
-# load visits
-visits = read.csv("../datasets/museums/input/visitornumbers/mm_visitornumbers_17_June_2018.csv", sep = "$")
-visits = visits[-1,]
-stopifnot( nrow(visits)==12726 )
-visits = visits[,c("project_id","year","visitors","source")]
-names(visits)
-summary(visits)
-# clean up
-visits$visitors[ visits$visitors=="DK" ] <- NA # TODO: replace with better value
-#sample(visits$visitors)
-#visits$visitors[ visits$visitors=="50000-60000" ] <- 55000 # fix invalid value
-summary(visits)
-
-visits$visitors = as.numeric(trimws(visits$visitors))
-visits$year = as.numeric(visits$year)
-visits = subset(visits, !is.na(visits$visitors))
-visits = subset(visits, visits$year > 1000)
-visits$project_id = as.factor(trimws(visits$project_id))
-
-# clean up visit source
-visits$source = trimws(tolower(gsub(" ", "_", visits$source)))
-visits$source = tolower(gsub(",", "", visits$source))
-visits$source = strtrim( visits$source, 29 )
-visits$source[ visits$source == '' ] = NA
-visits$source[ grepl( 'mm\\.', visits$source) ] = "mm"
-visits$source = as.factor(visits$source)
-
-#View(table(visits$source))
-
-stopifnot(length(unique(visits$project_id))==2295)
-
-#visits = visits[visits$project_id != "", ]
-#stopifnot(length(unique(visits$project_id))==2270)
-
-print_count_NAs(visits$project_id)
-summary(visits)
-stopifnot( max(visits$visitors) > 1000000)
-stopifnot( nrow(visits)==12309 )
-#View(visits)
-
-get_visit_source = function( ss ){
-  names(sort(table(as.factor(ss)),decreasing=TRUE)[1])
-}
-
-resdf <- summarise( group_by(visits, project_id),
-      V_N = n(),
-      V_MIN = min(visitors),
-      V_MAX = max(visitors),
-      V_MEAN = round(mean(visitors),1),
-      V_SD = round(sd(visitors),1),
-      V_SUM = sum(visitors),
-      V_LAST_VAL = last(visitors),
-      V_FIRST_YEAR = min(year),
-      V_LAST_YEAR = max(year),
-      V_SOURCE_MAIN = get_visit_source(source),
-      V_SOURCE_N = length(unique(source))
-)
-stopifnot(nrow(resdf)==2295)
-
-resdf$V_SOURCE_MAIN = as.factor(resdf$V_SOURCE_MAIN)
-#View(resdf)
-
-#View(table(resdf$V_SOURCE_MAIN))
-
-summary(resdf)
-
-resdf$V_SUM[resdf$V_SUM==0] = NA # clean
-resdf = replace(resdf, is.na(resdf), NA) # clean
-
-summary(resdf)
-summary(resdf$V_MEAN)
-
-FUN_save_museum_dataset(resdf,'museum_visits_overview')
-
-visit_summary_df = resdf
-rm(resdf)
-```
-
-### _Analyse visits change per year [old]
-
-```{r an_visits_year}
-
-# missing values
-print_count_NAs(visit_summary_df$V_MEAN)
-
-# generate sequences of observations from year 0 to year N
-getyear_i <- function(x,i){
-  vals = x[!is.na(x)]
-  if (length(vals)<i) return(NA)
-  vals[i]
-}
-
-getyearvar_i <- function(x,i){
-  stopifnot(i>1)
-  x = x[!is.na(x)]
-  vals = x[x>0]
-  if (length(vals)<i) return(NA)
-  ch = (vals[i]-vals[i-1])/vals[i-1]
-  #if (ch >= -1 && ch <= 2) return(ch)
-  ch
-}
-
-#timedf = visit_summary_df[,c("project_id")] # ,"V_N"
-#for (i in seq(13)) timedf[,c(paste0("Y",i))] = unlist(apply(vmat, 1, function(x) getyear_i(x,i)))
-
-#timepc = timedf[,c("project_id")]
-#for (i in seq(2,13,1)) timepc[,c(paste0("VARY",i))] = unlist(apply(vmat, 1, function(x) getyearvar_i(x,i)))
-
-# analyse estimates over time
-#timedfm = melt(timedf)
-#timedfm$valuelog = log10(timedfm$value+1)
-#names(timedfm)
-#p <- ggplot(timedfm, aes(x = variable, y = valuelog)) + geom_boxplot(colour='saddlebrown') + theme_bw() +
-#  xlab("Years from opening") + ylab("Mean visits (log scale)") + ggtitle("Distribution of mean visits per year after opening")
-#plot(p)
-#ggsave('../plots/museum_visits/years_data_from_openings.png', p)
-#ggsave('../plots/museum_visits/years_data_from_openings.pdf', p)
-
-# time variation
-#summary(timepc)
-#timepcm = melt(timepc)
-#names(timepcm)
-#p <- ggplot(timepcm, aes(x = variable, y = value)) + geom_boxplot(colour='saddlebrown') + theme_bw() +
-#  xlab("Years from opening") + ylab("Mean visits change (%)") + ggtitle("Distribution of mean visits per year after opening (change %)")
-#plot(p)
-#ggsave('../plots/museum_visits/years_data_from_openings_change.png', p)
-#ggsave('../plots/museum_visits/years_data_from_openings_change.pdf', p)
-
-# count values by year
-#s = summary(vmat)
-#nas = sapply(vmat, function(x) sum(is.na(x)))
-#naspc = round(nas / (nrow(vmat))*100,2)#
-
-#ymean = sapply(vmat, function(x){
-#   vals = x[!is.na(x)]
-#   if (length(vals)==0) return(NA)
-#   round(mean(vals),1)
-# } )
-#
-# ysum = sapply(vmat, function(x){
-#   vals = x[!is.na(x)]
-#   if (length(vals)==0) return(NA)
-#   round(sum(vals),0)
-# } )
-#
-# ymedian = sapply(vmat, function(x){
-#   vals = x[!is.na(x)]
-#   if (length(vals)==0) return(NA)
-#   round(median(vals),0)
-# } )
-#
-# yeardf = data.frame( YEAR = as.numeric(names(naspc)), MISSING_PC = as.numeric(naspc) )
-# yeardf$PRESENT_PC = 100 - yeardf$MISSING_PC
-# yeardf$MISSING = as.numeric(nas)
-# yeardf$V_MEAN = ymean
-# yeardf$V_MEDIAN = ymedian
-# yeardf$V_SUM = ysum
-
-# years
-# p = ggplot(yeardf, aes(YEAR, PRESENT_PC)) + geom_line() +
-#   ggtitle("Museum visits: values recorded per year (%)") + xlab("Recorded values per year" ) + theme_bw() + ylim(0,100)
-# plot(p)
-# ggsave('../plots/museum_visits/years_data_present.png', p)
-# ggsave('../plots/museum_visits/years_data_present.pdf', p)
-#
-# # years median
-# p = ggplot(yeardf, aes(YEAR, V_MEDIAN)) + geom_line() +
-#   ggtitle("Museum visits: median visits per year") + xlab("Year" ) + theme_bw()
-# plot(p)
-# ggsave('../plots/museum_visits/years_data_median.png', p)
-# ggsave('../plots/museum_visits/years_data_median.pdf', p)
-#
-# # years recorded
-# p = qplot(resdf$V_N,
-#       geom="histogram",
-#       binwidth = 1,
-#       main = "Visits: years recorded",
-#       xlab = "Number of years recorded",
-#       fill=I("royalblue2"),
-#       col=I("royalblue4"),
-#       alpha=I(.5)
-# ) + theme_bw()
-#
-# plot(p)
-# ggsave('../plots/museum_visits/visits_years.png', p)
-# ggsave('../plots/museum_visits/visits_years.pdf', p)
-#
-# p = qplot(resdf$V_LAST_YEAR,
-#       geom="histogram",
-#       binwidth = 1,
-#       main = "Visits: last year",
-#       xlab = "Last year recorded",
-#       fill=I("royalblue2"),
-#       col=I("royalblue4"),
-#       alpha=I(.5)
-# ) + theme_bw()
-#
-# plot(p)
-# ggsave('../plots/museum_visits/visits_last_years.png', p)
-# ggsave('../plots/museum_visits/visits_last_years.pdf', p)
-```
-
-### _Analyse visit means [old]
-
-```{r an_visits_means}
-
-# exclude 0 values
-#n = nrow(resdf)
-#resdf = resdf[resdf$V_MEAN > 0,]
-#paste("Removed",n-nrow(resdf))
-
-# Analyse means
-p = ggplot(visit_summary_df, aes(V_MEAN)) + geom_density(alpha=0.55, colour = 'darkred', fill='red') +
-   ggtitle("Museum visits: Mean") + xlab("Mean visits per museum" ) + theme_bw()
-plot(p)
-ggsave('../plots/museum_visits/visits_mean.png', p)
-ggsave('../plots/museum_visits/visits_mean.pdf', p)
-#
-# # tiny values
-# sm = resdf[resdf$V_MEAN<2000, ]
-# summary(sm$V_MEAN)
-# p = ggplot(sm, aes(V_MEAN)) + geom_histogram(alpha=.3, colour = 'darkred', fill='red') + #geom_density(alpha=0.55, colour = 'darkred', fill='red') +
-#   ggtitle(paste("Tiny museum visits (< 1000): Mean, N =",nrow(sm))) + xlab("Mean visits per museum" ) +
-#   scale_x_continuous(minor_breaks = seq(0, max(sm$V_MEAN,na.rm=T), 50), breaks = seq(0, max(sm$V_MEAN,na.rm=T), 100)) +
-#   theme_bw()
-# plot(p)
-# ggsave('../plots/museum_visits/visits_mean_tiny.png', p)
-# ggsave('../plots/museum_visits/visits_mean_tiny.pdf', p)
-#
-# # small values
-# sm = resdf[resdf$V_MEAN<=10000, ]
-# summary(sm$V_MEAN)
-# p = ggplot(sm, aes(V_MEAN)) + geom_histogram(alpha=.3, colour = 'darkred', fill='red') + #geom_density(alpha=0.55, colour = 'darkred', fill='red') +
-#   ggtitle(paste("Small museum visits: Mean, N =",nrow(sm))) + xlab("Mean visits per museum" ) +
-#   scale_x_continuous(minor_breaks = seq(0, max(sm$V_MEAN,na.rm=T), 500), breaks = seq(0, max(sm$V_MEAN,na.rm=T), 1000)) +
-#   theme_bw()
-# plot(p)
-# ggsave('../plots/museum_visits/visits_mean_small.png', p)
-# ggsave('../plots/museum_visits/visits_mean_small.pdf', p)
-#
-#
-# # large values
-# sm = resdf[resdf$V_MEAN>=500000, ]
-# summary(sm$V_MEAN)
-# max_vis = 7 * 10^6
-# p = ggplot(sm, aes(V_MEAN)) + geom_histogram(alpha=0.55, colour = 'darkblue', fill='blue') +
-#   scale_x_continuous(minor_breaks = seq(0, max_vis, 250000), breaks = seq(0, max_vis, 500000)) +
-#   ggtitle(paste("Large museum visits (>500,000): Mean, N =",nrow(sm))) + xlab("Mean visits per museum" ) + theme_bw()
-#
-# plot(p)
-# ggsave('../plots/museum_visits/visits_mean_small.png', p)
-# ggsave('../plots/museum_visits/visits_mean_small.pdf', p)
-#
-# # means (log)
-# resdf$V_MEAN_LOG = log10(resdf$V_MEAN+1)
-# summary(resdf$V_MEAN)
-# summary(resdf$V_MEAN_LOG)
-# skewness(resdf$V_MEAN_LOG,na.rm = T)
-# kurtosis(resdf$V_MEAN_LOG,na.rm = T)
-# shapiro.test(resdf$V_MEAN_LOG)
-# qqnorm(resdf$V_MEAN_LOG)
-#
-# # BOXPLOTS
-# bbplotvals = melt(vmat)
-# bbplotvals$valuelog = log10(bbplotvals$value+1)
-# names(bbplotvals)
-# p <- ggplot(bbplotvals, aes(x = variable, y = valuelog)) + geom_boxplot(colour='skyblue4') + theme_bw() +
-#   xlab("Years") + ylab("Mean visits (log scale)") + ggtitle("Distribution of mean visits per year")
-# plot(p)
-# ggsave('../plots/museum_visits/visits_mean_boxplot_years.png', p)
-# ggsave('../plots/museum_visits/visits_mean_boxplot_years.pdf', p)
-#
-# # basic histogram of logged means
-# p = ggplot(resdf, aes(V_MEAN_LOG)) + geom_histogram(alpha=0.55, colour = 'darkblue', fill='blue', bins = 80) +
-#         theme_bw() + ggtitle("Museum visits: Distribution of museums (histogram)") +
-#         scale_x_continuous(breaks=brk, labels=labs, name = "Mean visits per museum (log scale)")  +
-#         #geom_vline(xintercept=log10(mean_v+1)) + # mean
-#         #geom_vline(xintercept=log10(qq+1),alpha=.5) + # quantiles
-#         #annotate("text",x=log10(qq+1),y=.68,label=c("min","Q1","med","Q3","max"),hjust=1) + # labels
-#         #annotate("text",x=log10(qq+1),y=.65,label=round(qq),hjust=1,alpha=.6,size=3) + # labels
-#         annotation_logticks(scaled = T) + theme(panel.grid.minor = element_blank())
-#         #stat_function(fun=dnorm, args=list(mean = mean(resdf$V_MEAN_LOG, na.rm = T), sd = sd(resdf$V_MEAN_LOG, na.rm = T)), colour = "blue", size=1)
-# plot(p)
-# ggsave('../plots/museum_visits/visits_mean_hist.png', p)
-# ggsave('../plots/museum_visits/visits_mean_hist.pdf', p)
-#
-# # prep plot
-# brk = seq(0, 8, 0.5)
-# labs = round(10^brk)
-# mean_v = mean(resdf$V_MEAN,na.rm = T)
-# qq = quantile(resdf$V_MEAN,na.rm = T)
-# qq
-#
-# # plot means (log)
-# p = ggplot(resdf, aes(V_MEAN_LOG)) + geom_density(alpha=0.55, colour = 'darkred', fill='red') +
-#         theme_bw() + ggtitle("Museum visits: Distribution of museums (quartiles)") +
-#         scale_x_continuous(breaks=brk, labels=labs, name = "Mean visits per museum (log scale)")  +
-#         #geom_vline(xintercept=log10(mean_v+1)) + # mean
-#         geom_vline(xintercept=log10(qq+1),alpha=.5) + # quantiles
-#         annotate("text",x=log10(qq+1),y=.68,label=c("min","Q1","med","Q3","max"),hjust=1) + # labels
-#         annotate("text",x=log10(qq+1),y=.65,label=round(qq),hjust=1,alpha=.6,size=3) + # labels
-#         annotation_logticks(scaled = T) + theme(panel.grid.minor = element_blank())
-#         #stat_function(fun=dnorm, args=list(mean = mean(resdf$V_MEAN_LOG, na.rm = T), sd = sd(resdf$V_MEAN_LOG, na.rm = T)), colour = "blue", size=1)
-#
-# plot(p)
-# ggsave('../plots/museum_visits/visits_mean_log_quart.png', p)
-# ggsave('../plots/museum_visits/visits_mean_log_quart.pdf', p)
-#
-# # plot tertiles (log)
-# brk = seq(0, 8, 0.5)
-# labs = round(10^brk)
-# probs = seq(0, 1, 1./3.)
-# probs
-# mean_v = mean(resdf$V_MEAN, na.rm=T)
-# qq = quantile(resdf$V_MEAN, na.rm=T, probs = probs)
-# qq
-#
-# p = ggplot(resdf, aes(V_MEAN_LOG)) + geom_density(alpha=0.55, colour = 'darkred', fill='red') +
-#         theme_bw() + ggtitle("Museum visits: Distribution of museums (tertiles)") +
-#         scale_x_continuous(breaks=brk, labels=labs, name = "Mean visits per museum (log scale)")  +
-#         #geom_vline(xintercept=log10(mean_v+1)) + # mean
-#         geom_vline(xintercept=log10(qq+1),alpha=.5) + # quantiles
-#         annotate("text",x=log10(qq+1),y=.68,label=c("T0","T1","T2","T3"),hjust=1) + # labels
-#         annotate("text",x=log10(qq+1),y=.65,label=round(qq),hjust=1,alpha=.6,size=3) + # labels
-#         annotation_logticks(scaled = T) + theme(panel.grid.minor = element_blank())
-#         #stat_function(fun=dnorm, args=list(mean = mean(resdf$V_MEAN_LOG, na.rm = T), sd = sd(resdf$V_MEAN_LOG, na.rm = T)), colour = "blue", size=1)
-#
-# plot(p)
-# ggsave('../plots/museum_visits/visits_mean_log_tert.png', p)
-# ggsave('../plots/museum_visits/visits_mean_log_tert.pdf', p)
-#
-# # plot quintiles (log)
-# brk = seq(0, 8, 0.5)
-# labs = round(10^brk)
-# probs = seq(0, 1, .2)
-# probs
-# mean_v = mean(resdf$V_MEAN, na.rm=T)
-# qq = quantile(resdf$V_MEAN, na.rm=T, probs = probs)
-# qq
-#
-# p = ggplot(resdf, aes(V_MEAN_LOG)) + geom_density(alpha=0.55, colour = 'darkred', fill='red') +
-#         theme_bw() + ggtitle("Museum visits: Distribution of museums (quintiles)") +
-#         scale_x_continuous(breaks=brk, labels=labs, name = "Mean visits per museum (log scale)")  +
-#         #geom_vline(xintercept=log10(mean_v+1)) + # mean
-#         geom_vline(xintercept=log10(qq+1),alpha=.5) + # quantiles
-#         annotate("text",x=log10(qq+1),y=.68,label=c("Q0","Q1","Q2","Q3","Q4","Q5"),hjust=1) + # labels
-#         annotate("text",x=log10(qq+1),y=.65,label=round(qq),hjust=1,alpha=.6,size=3) + # labels
-#         annotation_logticks(scaled = T) + theme(panel.grid.minor = element_blank())
-#         #stat_function(fun=dnorm, args=list(mean = mean(resdf$V_MEAN_LOG, na.rm = T), sd = sd(resdf$V_MEAN_LOG, na.rm = T)), colour = "blue", size=1)
-#
-# plot(p)
-# ggsave('../plots/museum_visits/visits_mean_log_tert.png', p)
-# ggsave('../plots/museum_visits/visits_mean_log_tert.pdf', p)
-#
-# # plot deciles
-# dec = quantile(resdf$V_MEAN, prob = seq(0, 1, length = 11), type = 5, na.rm = T)
-# round(dec)
-#
-# p = ggplot(resdf, aes(V_MEAN_LOG)) + geom_density(alpha=0.55, colour = 'darkred', fill='red') +
-#         theme_bw() + ggtitle("Museum visits: Distribution of museums (deciles)") +
-#         scale_x_continuous(breaks=brk, labels=labs, name = "Mean visits per museum (log scale)")  +
-#         geom_vline(xintercept=log10(dec+1),alpha=.5) + # quantiles
-#         annotate("text",x=log10(dec+1),y=.68,label=paste0("D",seq(0,10,1)),hjust=1,size=3) + # labels
-#         #annotate("text",x=log10(dec+1),y=.65,label=round(dec),hjust=1,alpha=.6,size=3) + # labels
-#         annotation_logticks(scaled = T) + theme(panel.grid.minor = element_blank())
-#         #stat_function(fun=dnorm, args=list(mean = mean(resdf$V_MEAN_LOG, na.rm = T), sd = sd(resdf$V_MEAN_LOG, na.rm = T)), colour = "blue", size=1)
-# plot(p)
-# ggsave('../plots/museum_visits/visits_mean_log_decile.png', p)
-# ggsave('../plots/museum_visits/visits_mean_log_decile.pdf', p)
-#
-# # large museums (top quartile, 25%)
-# largedf = resdf[resdf$V_MEAN > 50000, ]
-# n = nrow(largedf)
-# nrow(largedf)/nrow(resdf)
-# brk = seq(0, 8, 0.5)
-# labs = round(10^brk)
-# qq = quantile(largedf$V_MEAN, na.rm = T)
-# # plot means(log)
-# p = ggplot(largedf, aes(V_MEAN_LOG)) + geom_density(alpha=0.55, colour = 'darkgreen', fill='green') +
-#         theme_bw() + ggtitle("Museum visits: Distribution of large museums > 50,000, N=614 (quartiles)") +
-#         scale_x_continuous(breaks=brk, labels=labs, name = "Mean visits, large museums (log scale)")  +
-#         #geom_vline(xintercept=log10(mean_v+1)) + # mean
-#         geom_vline(xintercept=log10(qq+1),alpha=.5) + # quantiles
-#         annotate("text",x=log10(qq+1),y=1.6,label=c("min","Q1","med","Q3","max"),hjust=1,size=3) + # labels
-#         annotate("text",x=log10(qq+1),y=1.5,label=round(qq),hjust=1,alpha=.6,size=3) + # labels
-#         annotation_logticks(scaled = T) + theme(panel.grid.minor = element_blank())
-# plot(p)
-# ggsave('../plots/museum_visits/visits_mean_log_quart_large.png', p)
-# ggsave('../plots/museum_visits/visits_mean_log_quart_large.pdf', p)
-
-```
-
-
-### MM size from visits
-
-Size Measures: see Readme.txt file
-
-```{r size_cat}
-DEPRECATED
-# # [[example 1: ignore]]
-# sz = resdf$V_MEAN/1000
-# sz = sz[!is.na(sz)]
-# summary(sz)
-# brk_thou = c(-0.1,1,10,50,500,10000)
-#
-# sz_cats = table(cut(sz, breaks=brk_thou))
-# sz_cats
-# stopifnot(sum(sz_cats)==length(sz))
-#
-# # [[example 2: ignore]]
-# brk_thou = c(-0.1,20,200,10000)
-# sz_cats = table(cut(sz, breaks=brk_thou))
-# sz_cats
-# stopifnot(sum(sz_cats)==length(sz))
-
-stopifnot(nrow(visit_summary_df)==2295)
-
-# -----
-# valid categories by Fiona
-# -----
-
-#cat_brk = c(-Inf, 0, 1, 5, 20, 50, 100, 1000, Inf)
-#visit_summary_df$SIZE_CATEGORY <- as.character( cut(visit_summary_df$V_MEAN/1000,
-#                     breaks = cat_brk,
-#                     labels = size_categories))
-
-cat_brk = c(0, 10, 50, 1000, Inf)
-visit_summary_df$SIZE_CATEGORY <- as.character( cut(visit_summary_df$V_MEAN/1000,
-                     breaks = cat_brk,
-                     labels = size_categories[1:4]))
-
-# missing size sources
-visit_summary_df$SIZE_CATEGORY[ is.na(visit_summary_df$SIZE_CATEGORY) ] = 'unknown_sz'
-
-#resdf$SIZE_CATEGORY = as.factor( resdf$SIZE_CATEGORY )
-# define size as an ordered factor
-visit_summary_df$SIZE_CATEGORY = factor(visit_summary_df$SIZE_CATEGORY, 
-                                        levels=c(size_categories), ordered=TRUE)
-cat_brk
-summary(visit_summary_df$SIZE_CATEGORY)
-p_summary_list(visit_summary_df$SIZE_CATEGORY,'size_category',F)
-#View(resdf[,c("museum","V_MEAN","SIZE_CATEGORY")])
-nrow(visit_summary_df)
-
-# add all IDs to generate file
-all_museum_ids = data.frame( project_id = unique(full_df$project_id) )
-stopifnot( nrow(all_museum_ids) == 3983 )
-
-subresdf = visit_summary_df[,c("project_id","SIZE_CATEGORY","V_SOURCE_MAIN")] # "V_MEAN",
-# CHECK IDs
-length(subresdf$project_id)
-length(all_museum_ids$project_id)
-subresdf$project_id = as.character(subresdf$project_id)
-all_museum_ids$project_id = as.character(all_museum_ids$project_id)
-
-# all museums - visit ones
-length(setdiff(all_museum_ids$project_id, subresdf$project_id))
-# visit ones - all museums
-length(setdiff(subresdf$project_id, all_museum_ids$project_id))
-# Print missing values
-print(setdiff(subresdf$project_id, all_museum_ids$project_id))
-# Warning: There are 3 missing values that are present in the visit dataset 
-# and not in the museum spreadsheet:
-# "mm.domus.NE043" "mm.domus.SE089" "mm.mgs.248"
-# stopifnot(length(setdiff(subresdf$project_id, all_museum_ids$project_id))==0)
-
-#View(subresdf[subresdf$project_id=="mm.mgs.214",])
-#View(subresdf[subresdf$project_id=="mm.musa.251",])
-
-# merge visits with full df
-allsizes = unique(merge(subresdf, all_museum_ids, by="project_id", all.x=F, all.y=T))
-allsizes$SIZE_CATEGORY[ is.na(allsizes$SIZE_CATEGORY) ] = 'unknown_sz'
-stopifnot( nrow(allsizes) == 3983 )
-names(allsizes) = c("project_id","size",'size_source') # ,"visits_mean"
-#View(allsizes)
-stopifnot( nrow(full_df)==nrow(allsizes) ) # issue with missing IDs
-
-summary(allsizes)
-summary(allsizes$size)
-p_summary_list(allsizes$size,'official_size_category',F)
-
-nrow(allsizes)
-#write_tsv(allsizes,'../datasets/museums/museum_sizes.tsv')
-
-# plot official classification
-n = nrow(visit_summary_df)
-break_plots = c()
-#break_plots
-#labs = round(10^brk)
-#labs
-brk = seq(0, 8, 0.5)
-labs = round(10^brk)
-cat_thresholds = cat_brk[2:8]*1000
-cat_thresholds
-visit_summary_df$V_MEAN_LOG = log10(visit_summary_df$V_MEAN+1)
-# plot means(log)
-p = ggplot(visit_summary_df, aes(V_MEAN_LOG)) + geom_density(alpha=0.55, colour = 'darkgreen', fill='green') +
-        theme_bw() + ggtitle("Museum size: classification") +
-        scale_x_continuous(breaks=brk, labels=labs, name = "Mean visits museums (log scale)")  +
-        #geom_vline(xintercept=log10(mean_v+1)) + # mean
-        geom_vline(xintercept=log10(cat_thresholds+1),alpha=.5) + # quantiles
-        annotate("text", x=log10(cat_thresholds+1), y=1.6, label=size_categories[2:8], hjust=0, size=3) + # labels
-        annotate("text",x=log10(cat_thresholds+1),  y=1.5, label=round(cat_thresholds),hjust=0,alpha=.6,size=3) + # labels
-        annotation_logticks(scaled = T) + theme(panel.grid.minor = element_blank())
-plot(p)
-ggsave('../plots/museum_visits/visits_museum_size.png', p)
-ggsave('../plots/museum_visits/visits_museum_size.pdf', p)
-
-# round sizes
-# re-merge results with main file
-
-full_df$mm_size = NULL
-full_df$size = NULL
-full_df$size_source = NULL
-
-full_df_w_size = merge(full_df, allsizes, by="project_id")
-stopifnot(nrow(full_df_w_size)==nrow(full_df))
-#full_df_w_size$visits_mean = round(full_df_w_size$visits_mean/50)*50
-#full_df_w_size$mm_size = full_df_w_size$mm_size.y
-#full_df_w_size = subset(full_df_w_size, select=-c(mm_size.x,mm_size.y))
-summary(full_df_w_size)
-stopifnot(nrow(full_df_w_size)==nrow(full_df))
-#View(full_df_w_size)
-
-full_df_w_size$size_source = as.character(full_df_w_size$size_source)
-full_df_w_size$size_source[ is.na(full_df_w_size$size_source) ] = 'unknown'
-full_df_w_size$size_source = as.factor(full_df_w_size$size_source)
-
-#p_summary_list(full_df_w_size$mm_size,'official_size_category',F)
-p_summary_list(full_df_w_size$size,'size_category',F)
-p_summary_list(full_df_w_size$size_source,'size_source',T)
-full_df = full_df_w_size
-
-rm(full_df_w_size)
-rm(allsizes)
-```
-
-### Merge ACE/AIM sizes
-DEPRECATED
-
-AIM toolkit
-
-  Small = total visitor numbers of up to 10,000
-  Medium = visitor numbers of 10,001 to 50,000
-  Large = visitor numbers of 50,001+
-
-AIM membership ('aim_size_designation')
-
-  Small Museum (up to 20,000 visitors’ p.a.)
-  Medium Museum (20,000 to 50,000 visitors p.a.)
-  Large Museum (50,000 to 100,000 visitors p.a.)
-  Largest museums (over 100k visitors): 
- 
-ACE accreditation (independent and university museums) 'ace_size_designation'
-
-  One: 10,000
-  Two 10,000-50,000
-  Three 50,000+
-
-ACE accreditation (local authority museums)
-
-  One: 30,000
-  Two 30-100,000
-  Three 100,000+
-  
-Size stats based on: 
-  allmus_mm_size_vs_ace_size_designation-PC.xlsx
-  allmus_mm_size_vs_aim_size_designation-PC.xlsx
-
-- ACE has 71% missing values.
-- AIM has 72% missing values.
-
-Overall stats:
-
-                aceaim_size_present
-mm_size_present FALSE TRUE
-          FALSE  1374  380
-          TRUE    853 1347
-          
-                aceaim_size_present
-mm_size_present FALSE TRUE
-          FALSE  0.35 0.10
-          TRUE   0.22 0.34
-
-380 have Ace/Aim but not MM size (10%).
-1374 have no size at all (35%).
-
-```{r}
-DEPRECATED
-stopifnot(nrow(full_df)>3950)
-
-# ---------------------------------------
-
-est_df = full_df
-
-est_df = update_simplified_fields(est_df)
-
-# compare AIM and ACE sizes
-print("ACE vs AIM")
-sz_tbl = table(est_df[,c("ace_size_designation","aim_size_designation")])
-chisq.test(sz_tbl, correct=T)
-
-sz_tbl = table(est_df[,c("size","aim_size_designation")])
-print("size vs AIM")
-chisq.test(sz_tbl, correct=T)
-
-sz_tbl = table(est_df[,c("size","ace_size_designation")])
-print("size vs ACE")
-chisq.test(sz_tbl, correct=T)
-
-#sz_tbl = table(est_df[,c("size_simpl","aim_size_designation")])
-#print("size_simpl vs AIM")
-#chisq.test(sz_tbl, correct=T)
-
-#sz_tbl = table(est_df[,c("size_simpl","ace_size_designation")])
-#print("size_simpl vs ACE")
-#chisq.test(sz_tbl, correct=T)
-
-# basic stats
-est_df$mm_size_present = est_df$size!='unknown_sz'
-est_df$ace_size_present = est_df$ace_size_designation!='ace_unknown'
-est_df$aim_size_present = est_df$aim_size_designation!='aim_unknown'
-est_df$aceaim_size_present = est_df$aim_size_present | est_df$ace_size_present
-
-length(est_df$size[est_df$size=='unknown_sz'])/nrow(est_df)
-nrow(est_df[est_df$size=='unknown_sz' & 
-              est_df$ace_size_designation=='ace_unknown',])/nrow(est_df)
-nrow(est_df[est_df$size=='unknown_sz' &
-              est_df$aim_size_designation=='aim_unknown',])/nrow(est_df)
-
-print(table(est_df[,c("mm_size_present","aceaim_size_present")]))
-print(round( table(est_df[,c("mm_size_present","aceaim_size_present")])/nrow(est_df), 2) )
-
-rm(est_df,sz_tbl)
-
-# ------------------------------------------------
-# add cases 380 have Ace/Aim but not MM size (10%).
-# ------------------------------------------------
-
-sizes = full_df[,c("size","aim_size_designation","ace_size_designation","size_source")]
-stopifnot(length(size_categories)==5)
-
-remap_sizes <- function( sz ){
-  newsz = apply( sz, 1, function(x){
-    #print(x)
-    if (x['size']!='unknown_sz') return(x['size'])
-    # map AIM sizes
-    if (x['aim_size_designation']!='aim_unknown'){
-      return( mapvalues( x['aim_size_designation'], 
-            c("largest_museums_over_100000_visitors_pa", 
-              "large_museum_50000_to_100000_visitors_pa",
-              "medium_museum_20000_to_50000_visitors_pa",
-              "small_museum_up_to_20000_visitors_pa"),
-            c("large", "large", "medium", "small"), warn_missing = F) )
-    }
-    # map ACE sizes
-    if (x['ace_size_designation']!='ace_unknown'){
-      return( mapvalues( x['ace_size_designation'], 
-            c("independent-type_one","independent-type_two","independent-type_three",
-              "university-type_one","university-type_two","university-type_three",
-              "local_authority-type_one","local_authority-type_two","local_authority-type_three",
-              "national_museum","national_trust","nationally_styled"), 
-            c("small", "medium", "large", 
-              "small", "medium", "large",
-              "medium","large","large", 
-              "unknown_sz", "unknown_sz", "unknown_sz"), warn_missing = F) )
-    }
-    # still unknown
-    return('unknown_sz')
-  })
-  newsz = factor( as.vector(newsz), levels=c(size_categories), ordered=TRUE)
-  #print(newsz1)
-  return(newsz)
-}
-
-remap_sizes_source <- function( sz ){
-  newsz = apply( sz, 1, function(x){
-    #print(x)
-    if (x['size']!='unknown_sz') return(x['size_source'])
-    if (x['aim_size_designation']!='aim_unknown') return('aim_size_designation')
-    if (x['ace_size_designation']!='ace_unknown') return('ace_size_designation')
-    return('unknown')
-  })
-  #print(newsz1)
-  return(as.factor(newsz))
-}
-
-# merge size information for all museums
-sizes$size_ext = remap_sizes(sizes)
-sizes$size_source_ext = remap_sizes_source(sizes)
-# print summary
-p_summary_list(sizes$size,'size')
-p_summary_list(sizes$size_ext,'size_ext',F)
-p_summary_list(sizes$size_source_ext,'size_source_ext',T)
-
-# import results back into full_df
-full_df$size = sizes$size_ext
-full_df$size_source = sizes$size_source_ext
-
-full_df$size_ext = NULL
-full_df$size_source_ext = NULL
-
-full_df = update_simplified_fields(full_df)
-
-# test validity of sizes
-p_summary_list(full_df$size,'size')
-p_summary_list(full_df$size_source,'size_source',T)
-
-ukn = length(full_df$size[full_df$size=='unknown_sz'])
-ukns = length(full_df$size_source[full_df$size_source=='unknown'])
-stopifnot(ukn==ukns)
-
-rm(ukn,ukns)
-rm(sizes)
-
-```
-
-
 
 ## Simplify and prep spatial datasets
 
@@ -1288,678 +503,6 @@ FUN_gen_last_update_file('../datasets/museums/')
 rm(museums_ll)
 ```
 
-## Estimate unknown sizes [DEPRECATED]
-
-Note: this is here because it needs spatial info.
-
-In the dataset V8, there are 1320 museums without size (33%).
-I ran a random forest model that seems ok. With a given combination of input variables (accreditation + governance + region_country + subgroup_name + subject_matter_simpl), the model reaches a 86% accuracy, and it's better than all other models I tried. I took me a while but it's a nice result.
-
-I noticed that the geographic context (the OAC categories) help compensate for the lower signal for medium museums, while the other attributes would just predict small and large.
-Note that the prediction is done on "simplified size" (small/medium/large), as predicting all detailed categories was too hard.
-
-This is the stats without the predicted sizes (%):
-
-     small     medium      large unknown_sz 
-      41.2       12.2       13.1       33.5
-      
-This is how the model classifies the unknown cases (1320 cases):
-
- large medium  small   NA's 
-    80     35   1183     22   counts
-    6.1   2.7   89.6    1.7   %
-    
-Merging these new cases into the core spreadsheet, this is the overview:
-
-   large:597   medium:516   small:2806   NA's:22   counts
-        15.1          13.1        71.2      0.6    %
-
-You can see that most unknown-size museums are predicted as small, which is expected and has very good accuracy (>90%). As the classification of large and medium has very high errors (<50% correct cases), I suggest that we take the small as good, and we validate manually the medium/large (109 cases). This would give us very high confidence that the data is good and we can insert it in the core spreadsheet.
-
-Fiona, would u mind checking this file and add your opinion on whether the classification seems correct? When a museum is definitely missclassified (e.g. a large museum that is almost certainly small), please say F (false) and then suggest a more correct class:
-https://docs.google.com/spreadsheets/d/1QSCwn83vtsvJAs99OgFE6edbMap4majoiQzt7GaGvwY/edit?usp=sharing
-There are also 22 cases where the classifier failed, so those should be classified manually.
-
-Final dataset (July 2018)
-
-     small     medium      large unknown_sz 
-      2866        506        531         38
-      72.7       12.8       13.5        1.0
-
-I will then incroporate these corrections and the size will be ready.
-Let me know if you have any questions.
-
-Andrea
-
-#### prep size data
-
-```{r}
-DEPRECATED
-# ----------------------------------------------------------------
-# run model to guess size from 
-# other attributes for missing cases
-#
-# https://stats.stackexchange.com/questions/344447/logistic-regression-model-decision-trees-to-an-ordered-factor
-# ----------------------------------------------------------------
-
-full_df_m = museums_bg@data
-
-#museums_bg$size_simpl_old = museums_bg$size_simpl
-
-# import geodemo data. This depends on mm_geodemo data
-fn = '../datasets/extra_data/museumsall_gss_lad2011.tsv'
-museums_lads = read.table(fn, sep = '\t',quote = '',header = T)
-file.info(fn)$mtime
-stopifnot(nrow(museums_lads)==ALL_MUSEUMS_N)
-rm(fn)
-
-fn = '../datasets/extra_data/output_area_class-lad2011.tsv'
-oac_lad = read.table(fn,sep = '\t',quote = '',header = T)
-file.info(fn)$mtime
-stopifnot(nrow(oac_lad)==391)
-rm(fn)
-
-full_df_m = merge(full_df_m, museums_lads, by.x='project_id',by.y='project.id',all.x=T)
-full_df_m = merge(full_df_m, oac_lad, by.x='LAD2011_GSS',by.y='GSS',all.x=T)
-names(full_df_m)
-stopifnot(nrow(full_df_m)>0)
-# "supergroup_name" "group_name" "subgroup_name"
-rm(oac_lad,museums_lads)
-
-obs = subset(full_df_m, full_df_m$size != 'unknown_sz')
-
-stopifnot(nrow(obs)>0)
-# remove uknown from categorisation
-obs$size = as.factor(as.character(obs$size))
-```
-
-#### _mm_size regressions [old]
-
-```{r}
-
-# ----------------------------------------------------------------
-# Ordinal (Logistic) Regression (NOT WORKING WELL)
-# https://stats.idre.ucla.edu/r/dae/ordinal-logistic-regression/
-# https://rstudio-pubs-static.s3.amazonaws.com/220675_90da5cd7a01c4a57b9f22ff2b89bc915.html
-print("Ordinal (Logistic) Regression")
-
-
-if (F){
-  #m <- polr(mm_size ~ governance + accreditation + classification_2018, data = obs, Hess=TRUE)
-  ff = size_simpl ~ governance_simpl + subject_matter_simpl + country_name + group_name
-  #ff = mm_size_simpl ~ governance_simpl + accreditation
-  #m = glm(ff, data = obs, family = poisson, na.action = na.omit)
-  m <- MASS::polr(ff, data = obs, Hess=T, method = 'probit')
-  #print(m)
-  m
-  print(m$deviance) 
-  
-  # https://stackoverflow.com/questions/40155755/probit-ordinal-logistic-regression-with-masspolr-how-to-make-prediction-on
-  newdata = obs[,attr(m$terms,'term.labels')]
-  newdata$size_simpl_predicted = predict(m, newdata)
-  newdata$project_id = obs$project_id
-  newdata$size_simpl = obs$size_simpl
-  summary(newdata)
-  summary(m)
-  
-  #predict(m, obs, type = "class")
-  # probably wrong
-  #predvals = as.factor(colnames(m$fitted.values)[max.col(m$fitted.values, ties.method="first")])
-  #summary(predvals)
-  
-  # confusionMatrix(predvals,obs$mm_size_simpl)
-  # obs$mm_size_pred = predvals
-  # 
-  # ctable <- coef(summary(m))
-  # p <- pnorm(abs(ctable[, "t value"]), lower.tail = FALSE) * 2
-  # ctable <- cbind(ctable, "p-value" = round(p,4))
-  # View(ctable)
-  # ci <- confint(m)
-  # exp(coef(m))
-  # exp(cbind(OR = coef(m), ci))
-  
-  rm(m,ctable,predvals,newdata)
-}
-# ----------------------------------------------------------------
-# Decision trees
-# 
-# https://cran.r-project.org/web/packages/rpart/rpart.pdf
-
-# results:
-#              mm_size_simpl
-# mm_size_pred large medium small unknown_sz
-#       large    230     89    70         51
-#       medium     6     24     8          6
-#       small    264    373  1516       1317
-# 
-
-#           Reference
-# Prediction large medium small
-#     large    230      6   264
-#     medium    89     24   373
-#     small     70      8  1516
-# 
-# Overall Statistics
-#                                           
-#                Accuracy : 0.686  
-
-
-
-# Classification tree:
-# rpart(formula = ff, data = obs, method = "class")
-# 
-# Variables actually used in tree construction:
-# [1] governance           subgroup_name        subject_matter_simpl
-# 
-# Root node error: 998/2621 = 0.38077
-# 
-# n= 2621 
-# 
-#         CP nsplit rel error  xerror     xstd
-# 1 0.051102      0   1.00000 1.00000 0.024909
-# 2 0.031062      2   0.89780 0.90882 0.024403
-# 3 0.022044      3   0.86673 0.91483 0.024441
-# 4 0.010000      4   0.84469 0.87575 0.024185
-
-# Confusion Matrix and Statistics
-# 
-#           Reference
-# Prediction large medium small
-#     large    252      0   265
-#     medium   111      0   370
-#     small     97      0  1526
-# 
-# Overall Statistics
-#                                           
-#                Accuracy : 0.6784          
-#                  95% CI : (0.6601, 0.6962)
-#     No Information Rate : 0.8245          
-#     P-Value [Acc > NIR] : 1               
-#                                           
-#                   Kappa : 0.2928          
-#  Mcnemar's Test P-Value : <2e-16          
-# 
-# Statistics by Class:
-# 
-#                      Class: large Class: medium Class: small
-# Sensitivity               0.54783            NA       0.7062
-# Specificity               0.87737        0.8165       0.7891
-# Pos Pred Value            0.48743            NA       0.9402
-# Neg Pred Value            0.90114            NA       0.3637
-# Prevalence                0.17551        0.0000       0.8245
-# Detection Rate            0.09615        0.0000       0.5822
-# Detection Prevalence      0.19725        0.1835       0.6192
-# Balanced Accuracy         0.71260            NA       0.7476
-# ----------------------------------------------------------------
-print("Decision Trees")
-
-ff = size ~ governance + accreditation + subject_matter_simpl + 
-  country_name + region_name + supergroup_name + group_name + subgroup_name
-fit <- rpart(ff, data=obs, method = "class")
-
-printcp(fit)
-
-rpart.plot(fit)
-
-predf = obs
-predf$size_pred = predict(fit, predf, type = "class")
-
-print(summary(predf$size))
-print(summary(predf$size_pred))
-res = predf[,c("size_pred","size_simpl")]
-caret::confusionMatrix( as.factor( predf$size ), factor( predf$size_pred, levels = levels(predf$size)) )
-table(res)
-rm(predf,res,fit)
-```
-
-#### mm_size random forests
-
-This model works.
-
-https://www.r-bloggers.com/part-3-random-forests-and-model-selection-considerations/
-
-Question about this:
-https://datascience.stackexchange.com/questions/36134/evaluating-the-performance-of-a-random-forest-classifier
-
-```{r}
-DEPRECATED
-# ----------------------------------------------------------------
-# Random forests
-# http://trevorstephens.com/kaggle-titanic-tutorial/r-part-5-random-forests/
-
-# https://cran.r-project.org/web/packages/randomForest/randomForest.pdf
-
-# ----------------------------------------------------------------
-
-
-# ----
-print("random forest 1 - randomForest")
-
-stopifnot(nrow(full_df_m)>0)
-
-runRandomForestMmSize = function(alldf, obsdf, trial_label, predField, indep_vars, idx, ntree=2000){
-  set.seed(411)
-  stopifnot(nrow(alldf)==ALL_MUSEUMS_N) # all museums
-  stopifnot(nrow(obsdf)>0) # only known cases
-
-  cat('\n')
-  print(paste('runRandomForestMmSize',trial_label,predField,paste(indep_vars,collapse = '+')))
-  fout = paste0('../plots/mm_size_pred/random_forest-',trial_label,'-',predField,'-',idx,'.txt')
-  ff = formula(paste(predField, '~', indep_vars))
-  sink(fout)
-  print(paste('runRandomForestMmSize',trial_label,predField))
-  print(paste("N cases = ",nrow(obsdf)))
-  print("Summary of input sizes")  
-  print(p_summary_list(obsdf$size,'size'))
-  cat('\n')
-  print("Formula")
-  print(ff)
-  # RUN RANDOM FOREST
-  fit <- randomForest(ff, data = obsdf, importance=T, ntree=ntree, na.action = na.omit)
-  print(fit)
-  predf = obsdf
-  predf$size_pred <- predict(fit, obsdf)
-  
-  # missing values
-  print('Predicted values')
-  print(summary(predf$size_pred))
-  print( print_count_NAs(predf$size_pred) )
-  
-  cat('\n')
-  print('Caret confusion matrix')
-  cm = caret::confusionMatrix( as.factor( predf[,predField] ), 
-              factor( predf$size_pred, levels = levels(predf[,predField])) )
-  print(cm)
-  cat('\n')
-  print("Summary of predicted sizes")
-  print(p_summary_list(predf$size,'size'))
-  print(p_summary_list(predf$size_pred,'size_pred'))
-  
-  cat('\n')
-  print('Model results')
-  df = predf[predf$size != 'unknown_sz',]
-  acc = nrow(subset( df, as.character(df$size) == as.character(df$size_pred ))) / nrow(df)
-  print(paste('Accuracy on museum dataset:',round(acc,3)))
-  
-  alldf$size_pred_randfor <- predict(fit, alldf)
-  alldf$size_pred_randfor = as.factor(as.character(alldf$size_pred_randfor))
-  
-  alldf$size_wpred = ifelse( alldf$size == 'unknown_sz',
-                                as.character(alldf$size_pred_randfor),
-                                as.character(alldf$size))
-  alldf$size_wpred = as.factor(alldf$size_wpred)
-  df = subset( alldf, alldf$size == 'unknown_sz' )
-  
-  # SOURCE
-  alldf$size_source = ifelse( alldf$size == 'unknown_sz' & 
-                              alldf$size_wpred != 'unknown_sz',
-                                as.character('mm_prediction_random_forest'),
-                                as.character(alldf$size_source))
-
-  alldf$size_source = as.factor(alldf$size_source)
-
-  alldf$size_wpred[is.na(alldf$size_wpred)] = 'unknown_sz'
-  alldf$size_wpred = as.factor(alldf$size_wpred)
-
-  print('Predicted values for unknown cases')
-  print(nrow(df))
-  print( summary( df$size_wpred ) )
-  print( print_count_NAs(df$size_wpred) )
-  
-  pred = alldf[,c("project_id","size","size_wpred","size_source")]
-  print(summary(pred))
-  sink()
-  
-  return(list( model=fit, accuracy=round(acc,2), predicted_df=pred, predicted_vals=df$size_wpred ))
-}
-
-bRunForestCases = F
-if (bRunForestCases){
-  unlink("../plots/mm_size_pred/random_forest-*")
-  FUN_gen_last_update_file("../plots/mm_size_pred/")
-  
-  vars = c('governance','accreditation','subject_matter_simpl','country_name',
-           'region_country','supergroup_name','group_name','subgroup_name')
-  forests_df = data.frame()
-  ii = 0
-  for(n_vars in c(1,2,4,6,8)){
-    combin = combn(vars, m = n_vars)
-    for(j in seq(ncol(combin))){
-      ff = combin[,j]
-      if (!("governance" %in% ff)) next # skip cases without governance
-      ii = ii+1
-      ff = paste0(sort(ff),collapse = ' + ')
-      print(paste(ff))
-      
-      res = runRandomForestMmSize(full_df_m, obs_complete, 'all', 'size', ff, ii)
-      print(paste(ii,ff,res[['accuracy']]))
-      print(res[['pred.summary']])
-      pp = res[['predicted_vals']]
-      forests_df = rbind( forests_df,
-                          data.frame( forest_formula=ff, 
-                            n_vars = n_vars,
-                            n_file = ii,
-                            accuracy=res[['accuracy']],
-                            small_n = length(pp[pp=='small']),
-                            medium_n = length(pp[pp=='medium']),
-                            large_n = length(pp[pp=='large']),
-                            all_n = length(pp)))
-      rm(pp)
-      rm(ff,res)
-    }
-  }
-  rm(combin,i,j,ii,n_vars,vars)
-  View(forests_df)
-  write.xlsx(forests_df, file = "../plots/mm_size_pred/random_forest-summary.xlsx")
-  rm(forests_df)
-}
-
-# TOP MODEL for size
-# manual validation of predictions for Fiona
-
-sink()
-
-obs_complete = subset( obs, !is.na( obs$subgroup_name ) & obs$size != 'huge' )
-
-obs_complete$size = as.factor( as.character(obs_complete$size) )
-#ff = "accreditation + governance + region_name + subgroup_name + subject_matter_simpl + supergroup_name" # model 51
-#ff = "governance + region_name + subgroup_name + subject_matter_simpl" # model 30
-ff = "accreditation + governance + region_name + subgroup_name + subject_matter_simpl" # version of 51
-res = runRandomForestMmSize(full_df_m, obs_complete, 'all', 'size', ff, 99999)
-
-res$predicted_df$size_wpred = as.character(res$predicted_df$size_wpred)
-res$predicted_df$size_wpred[ is.na(res$predicted_df$size_wpred) ]='unknown_sz'
-
-res$predicted_df$size_wpred = factor(res$predicted_df$size_wpred,levels=c(size_categories), ordered=TRUE)
-rm(obs_complete)
-
-summary(res$predicted_df)
-#View(head(res$predicted_df,100))
-
-summary(subset(res$predicted_df, res$predicted_df$size=='unknown_sz')$size_wpred)
-
-stopifnot( nrow(res$predicted_df) == ALL_MUSEUMS_N )
-
-# output tables with new field
-FUN_save_museum_dataset(res$predicted_df, "museum_sizes_predicted_full")
-
-FUN_save_museum_dataset(res$predicted_df[,c("project_id","size_wpred","size_source")],
-                        'museum_sizes_predicted')
-rm(ff)
-
-# DATA FOR MANUAL VALIDATION
-full_df_m$size_simpl=NULL
-full_df_m$size_simpl_source = NULL
-mm = merge(full_df_m, res$predicted_df, by='project_id')
-stopifnot(nrow(mm)==nrow(full_df_m),nrow(full_df_m)==nrow(res$predicted_df))
-mm$size.x = NULL
-mm$size = mm$size.y
-mm$size_source.x = NULL
-mm$size_source = mm$size_source.y
-mm = mm[,c("project_id","name_of_museum","region_name","governance",
-           "subject_matter","accreditation","size","size_source","size_wpred")]
-mm = subset(mm, mm$size_wpred != 'small' & 
-              (mm$size_source=='mm_prediction_random_forest' | is.na(mm$size_source)))
-nrow(mm)
-FUN_save_museum_dataset(mm,"museum_sizes_predicted_validation")
-rm(mm)
-
-rm(res)
-```
-
-#### _mm_size neural nets [old]
-
-Fits multinomial log-linear models via neural networks
-
-https://cran.r-project.org/web/packages/nnet/nnet.pdf
-
-```{r}
-pacman::p_load(nnet)
-
-stopifnot( nrow(full_df_m)>0 )
-
-ff = "size_simpl ~ governance + accreditation + subject_matter_simpl + country_name + supergroup_name + group_name + subgroup_name"
-fit <- nnet::multinom(ff, data=subset(full_df_m,full_df_m$size_simpl != 'unknown_sz'))
-summary(fit)
-
-full_df_m$size_simpl_pred_nnet <- predict(fit, full_df_m)
-
-print(p_summary_list(full_df_m$size_simpl,'size_simpl'))
-print(p_summary_list(full_df_m$size_simpl_pred_randfor,'size_simpl_pred_randfor'))
-print(p_summary_list(full_df_m$size_simpl_pred_nnet,'size_simpl_pred_nnet'))
-
-table( full_df_m[,c("size_simpl","size_simpl_pred_nnet")] )
-
-df = full_df_m[full_df_m$size_simpl != 'unknown_sz',]
-nrow(subset( df, as.character(df$size_simpl) == as.character(df$size_simpl_pred_randfor ))) / nrow(df)
-
-nrow(subset( df, as.character(df$size_simpl) == as.character(df$size_simpl_pred_nnet ))) / nrow(df)
-
-table( full_df_m[, c("size_simpl_pred_nnet","size_simpl_pred_randfor")] )
-rm(df)
-rm(fit)
-rm(full_df_m)
-```
-
-#### mm_size rule learning
-
- high support: should apply to a large amount of cases
- high confidence: should be correct often
- high lift: indicates it is not just a coincidence
- 
- https://cran.r-project.org/web/packages/arules/arules.pdf
- 
- https://datascience.stackexchange.com/questions/31220/applying-association-rules-for-variable-prediction-in-r
-
-```{r}
-DEPRECATED
-unlink("../plots/assoc_rules/mm_size_rules/*xlsx")
-
-FUN_find_association_rules <- function( train, cols, outname, target_field, outfolder='../plots/assoc_rules/' ){
-  print(paste("find_association_rules",outname,target_field))
-  train = train[,cols]
-  if( !is.na(target_field) )
-    appearance_list = list(rhs=paste0(target_field,"=", unique(train[,target_field])))
-  else appearance_list = list()
-  print(appearance_list)
-  rules <- arules::apriori(train[,cols],
-                           parameter = list( support=0.1, confidence=0.2 ),
-                           appearance = appearance_list)
-  rules <- sort(rules, by="support")
-  rules <- sort(rules, by="confidence")
-  rules <- sort(rules, by="lift")
-  #inspect(rules)
-  summary(rules)
-  rule_fn = paste0('../tmp/',outname,'_tmp.tsv')
-  cols = c("rule_id","rules","support","confidence","lift","count")
-  
-  write(rules,rule_fn,sep='\t',quote=F)
-  
-  rules_df = read_tsv( rule_fn, trim_ws = T,skip = 1, col_names = cols)
-  unlink(rule_fn)
-  rules_df$support = round(rules_df$support,2)
-  rules_df$confidence = round(rules_df$confidence,2)
-  rules_df$lift = round(rules_df$lift,2)
-  rules_df$rules = trimws(gsub('\\}','',rules_df$rules))
-  rules_df$rules = trimws(gsub('\\{','',rules_df$rules))
-  rules_df$rules = trimws(gsub('\\;','_',rules_df$rules))
-  rules_df$rules = trimws(gsub('\\,',';',rules_df$rules))
-  rules_df = transform(rules_df, rules = reshape2::colsplit(rules, pattern = "\\=\\>", names = c('left', 'right')))
-  #rules_df$rules.right = as.character(trimws(paste(rules_df$rules.right, collapse=';')))
-  #rules_df$rules.left = as.character(trimws(paste(rules_df$rules.left, collapse=';')))
-  rules_df$rules.left = rules_df$rules$left
-  rules_df$rules.right = rules_df$rules$right
-  rules_df$rules = NULL
-  rules_df = rules_df[,c("rule_id","rules.left","rules.right","support","confidence","lift","count")]
-  #View(rules_df)
-  nrow(rules_df)
-  summary(rules_df)
-  rules_df = subset(rules_df, rules_df$lift > 1)
-  write.xlsx(rules_df, file = paste0(outfolder,'all_mus-',outname,'.xlsx'))
-  #write.table(rules_df, paste0('../tmp/',outname,'.tsv'), sep = '\t', row.names = F)
-  return(rules)
-}
-
-train_df = obs
-stopifnot(nrow(train_df)>0)
-  # remove uknown from categorisation
-train_df$size = as.factor(as.character(train_df$size))
-train_df$size_simpl = as.factor(as.character(train_df$size_simpl))
-
-# get MM size rules
-cols = c("size_simpl","governance","accreditation","subject_matter",
-           "country_name","region_name","year_opened","year_closed",
-            "supergroup_name","group_name","subgroup_name")
-FUN_find_association_rules( train_df, cols, 'rules_mm_size_simpl', "size_simpl", outfolder = '../plots/assoc_rules/mm_size_rules/' )
-
-cols = c("size","governance","accreditation","subject_matter",
-           "country_name","region_name","year_opened","year_closed",
-            "supergroup_name","group_name","subgroup_name")
-FUN_find_association_rules( train_df, cols, 'rules_mm_size', "size", outfolder = '../plots/assoc_rules/mm_size_rules/' )
-
-rm(train_df)
-rm(cols)
-
-# apply rules
-# sort rules by conf (you already did that but for the sake of completeness)
-#rules<-sort(rules, decreasing=TRUE, by="confidence")
-
-# find all rules whose lhs matches the training example
-#train_trans = as(train,"transactions")
-#rulesMatch <- is.subset(rules@lhs, train_trans)
-
-#rm(train,rules_df,rules,train_trans,prediction)
-#rm(obs)
-```
-
-### Import predicted sizes
-
-Merge predicted sizes into the core datasets.
-
-```{r}
-DEPRECATED
-# import machine predictions
-pred_sizes_df = readRDS("../datasets/museums/museum_sizes_predicted.rds")
-summary(pred_sizes_df$size_wpred)
-
-stopifnot(nrow(full_df_m)>1000)
-
-# import Fiona manual predictions from 
-# https://docs.google.com/spreadsheets/d/1QSCwn83vtsvJAs99OgFE6edbMap4majoiQzt7GaGvwY/edit#gid=780427305
-manual_df = read_tsv('../datasets/museums/input/MuseumSizes/museum_sizes_predicted_fiona_validation-2018.07.31.tsv')
-manual_df = subset(manual_df, manual_df$`VALID (T/F)`==F)
-summary(manual_df)
-
-remap_size_values = function(sz){
-  sz = gsub('very','',sz)
-  sz1 = strtrim(tolower(trimws(sz)),1)
-  if (sz1=='s') return("small")
-  if (sz1=='m') return("medium")
-  if (sz1=='l') return("large")
-  if (sz1=='h') return("huge")
-  if (sz1=='u') return("unknown_sz")
-  return(sz1)
-}
-
-manual_df$size_manual = as.factor(sapply(manual_df$`Proposed label`, remap_size_values))
-summary(manual_df$size_manual)
-manual_df = manual_df[,c("project_id","size_manual")]
-nrow(manual_df)
-
-orig_mm = full_df_m[,c("project_id","size","size_source")]
-
-# merge machine and manual classification
-mm = merge(pred_sizes_df, manual_df, by='project_id', all.x = T)
-mm = merge(orig_mm, mm, by='project_id')
-mm$size_source = mm$size_source.x
-mm$size_wpred_source = mm$size_source.y
-mm$size_source.x = NULL
-mm$size_source.y = NULL
-summary(mm)
-
-rm(orig_mm)
-
-# procedure to obtain museum size: 
-#  if size is unknown: 
-#     if size_manual: get size_manual
-#     else get size_wpred
-# else get size
-
-mm$size_final = ifelse( mm$size == 'unknown_sz',
-                              as.character(mm$size_manual),
-                              as.character(mm$size) ) 
-mm$size_final = ifelse( is.na(mm$size_final),
-                              as.character(mm$size_wpred),
-                              as.character(mm$size_final) ) 
-mm$size_final[is.na(mm$size_final)] = 'unknown_sz'
-mm$size_final = factor(mm$size_final, levels=c(size_categories), ordered=TRUE)
-
-summary(mm)
-
-# final size source
-mm$size_source_final = ifelse( is.na(mm$size_manual),
-                              as.character(mm$size_wpred_source),
-                              "mm_manual_estimate_2018" ) 
-mm$size_source_final = as.factor(mm$size_source_final)
-
-summary(mm)
-summary(mm$size_final)
-summary(mm$size_source_final)
-
-table(mm$size_source_final)
-
-mm = mm[,c("project_id","size_final","size_source_final")]
-names(mm) = c("project_id","size","size_source")
-
-summary(mm)
-
-mm$size_source = as.character(mm$size_source)
-mm[ mm$size=='unknown_sz', 'size_source'] = 'unknown'
-mm$size_source = as.factor(mm$size_source)
-
-FUN_save_museum_dataset(mm,'museum_sizes_merged-2018_10_11')
-
-# IMPORT data into museums_bg (and NOT full_df)
-update_size_with_predictions = function( df, sz_df ){
-  stopifnot(FUN_col_exists(df@data,c('project_id')))
-  stopifnot(!FUN_col_exists(df@data,c('size_orig')))
-  df$size_orig = df$size
-  df$size_orig_source = df$size_source
-  df$size = NULL
-  df$size_source = NULL
-  df$size_old = NULL
-  df$size = NULL
-  df$size_source = NULL
-  df$size = NULL
-  df1 = merge(df,sz_df, by="project_id", all.x=T)
-  print(paste(nrow(df), nrow(df1), nrow(sz_df)))
-  stopifnot(nrow(df)==nrow(df1), nrow(df1)==nrow(sz_df))
-  stopifnot(ncol(df1)==ncol(df)+2)
-  return(df1)
-}
-
-museums_bg = update_size_with_predictions(museums_bg, mm)
-head(museums_bg@data[,c("size","size_source")])
-stopifnot(!FUN_col_exists(museums_bg@data,c('size_simpl','size_simpl_source')))
-stopifnot(FUN_col_exists(museums_bg@data,c('size','size_source')))
-summary(museums_bg$size)
-round(summary(museums_bg$size)/nrow(museums_bg)*100,1)
-head(museums_bg$size)
-stopifnot(nrow(museums_bg)==ALL_MUSEUMS_N)
-
-rm(mm)
-rm(pred_sizes_df,manual_df)
-rm(full_df_m)
-rm(obs)
-
-# generate sample for manual validation by Fiona
-mm_sample = museums_bg@data[sample(nrow(museums_bg),150),]
-summary(mm_sample$size_source)
-write_xlsx(mm_sample[,c("project_id","name_of_museum","accreditation","subject_matter","governance","size","size_source")], 
-           "../plots/mm_size_pred/museum_sizes_sample_for_validation-2018_10_11.xlsx" )
-rm(mm_sample)
-```
-
 # Validate MM dataset
 
 ```{r}
@@ -1993,11 +536,11 @@ FUN_clean_folder(basicfold)
 
 alldf = museums_bg@data
 
-museums2017sdf = FUN_get_museums_open_in_a_year(alldf, 2017)
+museums2022sdf = FUN_get_museums_open_in_a_year(alldf, 2022)
 
 # general stats
 FUN_dfsummary_to_file(alldf, paste0(basicfold,"allmus_summary_stats.txt"))
-FUN_dfsummary_to_file(museums2017sdf, paste0(basicfold,"mus2017_summary_stats.txt"))
+FUN_dfsummary_to_file(museums2022sdf, paste0(basicfold,"mus2022_summary_stats.txt"))
 
 format_data_for_summary = function(x){
   x = as.character( x )
@@ -2009,8 +552,7 @@ format_data_for_summary = function(x){
 
 # stats for each categorical attribute
 for (var in c("subject_matter","subject_matter_simpl","subject_matter_simpl_aggr",
-              "domus_subject_matter",
-              "accreditation",'size',"size_prov",
+              "accreditation",'size',
               'governance','governance_simpl',
               "country_name","region_name")){
               
@@ -2021,15 +563,15 @@ for (var in c("subject_matter","subject_matter_simpl","subject_matter_simpl_aggr
   df = subset(df,df$VAL.Freq > 0)
   write_xlsx(df, paste0(basicfold, 'allmus_summary_var-',var,".xlsx") )
   
-  # 2017 MUSEUMS
-  x = format_data_for_summary( museums2017sdf[,var] )
-  df = p_summary_list( x, paste0('mus2017-',var) )
+  # 2022 MUSEUMS
+  x = format_data_for_summary( museums2022sdf[,var] )
+  df = p_summary_list( x, paste0('mus2022-',var) )
   df = subset(df,df$VAL.Freq > 0)
-  write_xlsx(df, paste0(basicfold, 'mus2017_summary_var-',var,".xlsx") )
+  write_xlsx(df, paste0(basicfold, 'mus2022_summary_var-',var,".xlsx") )
   rm(df,x)
 }
 
-names(museums2017sdf)
+names(museums2022sdf)
 
 # ------------------------------------------------------------------------
 # calculate stats for two variables
@@ -2037,34 +579,34 @@ names(museums2017sdf)
 FUN_clean_folder("../plots/basic_stats/two_var_stats/")
 
 for(var1 in c("size","subject_matter","governance_simpl","subject_matter_simpl","accreditation","country_name")){
-  for(var2 in c("governance","governance_simpl","domus_subject_matter","accreditation","subject_matter","subject_matter_simpl","region_name")){
+  for(var2 in c("governance","governance_simpl","accreditation","subject_matter","subject_matter_simpl","region_name")){
     if (var1!=var2) FUN_twoVarStats(alldf, var1, var2, '../plots/basic_stats/two_var_stats/allmus_')
-    if (var1!=var2) FUN_twoVarStats(museums2017sdf@data, var1, var2, '../plots/basic_stats/two_var_stats/mus2017_')
-    if (var1!=var2) FUN_twoVarStats(museums2017sdf@data, var2, var1, '../plots/basic_stats/two_var_stats/mus2017_')
+    if (var1!=var2) FUN_twoVarStats(museums2022sdf, var1, var2, '../plots/basic_stats/two_var_stats/mus2022_')
+    if (var1!=var2) FUN_twoVarStats(museums2022sdf, var2, var1, '../plots/basic_stats/two_var_stats/mus2022_')
   }
 }
 
 # custom stats for Fiona
 #
 # I've had a look at the plots. I was wondering if there is a way of generating comparisons across
-# the summaries? So, I'm looking at mus2017_summary_var-classification_2018-just_accredited.xlsx
-# and the equivalent for total 2017 museums. What's surprising is that there isn't a huge amount of difference 
+# the summaries? So, I'm looking at mus2022_summary_var-classification_2018-just_accredited.xlsx
+# and the equivalent for total 2022 museums. What's surprising is that there isn't a huge amount of difference 
 # in the overall distribution of subject matter, or at least as far as I can see (Large houses jumps up). 
 # BUT would it be possible to generate a table that calculated percentage increase (So if we go from accredited 
-# museums to all2017 museums, large houses jumps +2%, transport +1% and so on? that would make it much 
+# museums to all2022 museums, large houses jumps +2%, transport +1% and so on? that would make it much 
 # easier for me to see where change happens.
 # Also, would you generate a summary table for unaccredited museums please?
 
-# 2017 MUSEUMS class 18 stats
+# 2022 MUSEUMS class 18 stats
 for (var in c("subject_matter","subject_matter")){
-  df = as.data.frame.matrix(table(museums2017sdf[,c(var,"accreditation")]))
+  df = as.data.frame.matrix(table(museums2022sdf[,c(var,"accreditation")]))
   #print(nrow(mus))
   df$V1=NULL
-  df$all2017 = rowSums(df)
-  print(sum(df$all2017))
-  df$all2017_PC = round(df$all2017/nrow(museums2017sdf)*100,2)
-  df$Accredited_PC = round(df$Accredited/nrow(museums2017sdf)*100,2)
-  df$Unaccredited_PC = round(df$Unaccredited/nrow(museums2017sdf)*100,2)
+  df$all2022 = rowSums(df)
+  print(sum(df$all2022))
+  df$all2022_PC = round(df$all2022/nrow(museums2022sdf)*100,2)
+  df$Accredited_PC = round(df$Accredited/nrow(museums2022sdf)*100,2)
+  df$Unaccredited_PC = round(df$Unaccredited/nrow(museums2022sdf)*100,2)
   #df$variation_PC = df$Accredited_PC - df$Unaccredited_PC
   df$accr_gain_PC = df$Accredited_PC - df$Unaccredited_PC
   df$accr_variation_PC = ifelse( df$Unaccredited_PC > 0, 
@@ -2072,7 +614,7 @@ for (var in c("subject_matter","subject_matter")){
     NA)
   `*` = row.names(df)
   df = cbind( `*`, df )
-  fn = paste0('../plots/basic_stats/two_var_stats/mus2017_summary_2var_extended-',var,"-vs-accreditation.xlsx")
+  fn = paste0('../plots/basic_stats/two_var_stats/mus2022_summary_2var_extended-',var,"-vs-accreditation.xlsx")
   write_xlsx(df, fn)
   rm(df,var)
 }
@@ -2081,10 +623,10 @@ for (var in c("subject_matter","subject_matter")){
 for(var1 in c("size","aim_size_designation","accreditation")){
   for(var2 in c("ace_size_designation","aim_size_designation")){
     if (var1!=var2) FUN_twoVarStats(alldf, var1, var2, '../plots/basic_stats/two_var_stats/allmus_')
-    if (var1!=var2) FUN_twoVarStats(museums2017sdf, var1, var2, '../plots/basic_stats/two_var_stats/mus2017_')
+    if (var1!=var2) FUN_twoVarStats(museums2022sdf, var1, var2, '../plots/basic_stats/two_var_stats/mus2022_')
 }}
 
-rm(var1,var2,basicfold,museums2017sdf)
+rm(var1,var2,basicfold,museums2022sdf)
 rm(alldf)
 rm(format_data_for_summary)
 ```
@@ -2185,8 +727,8 @@ gen_overview_map = function(sdf, bbox, mus_col, border_col, shape_col, facet_var
   }
 
   #dot_map
-  save_tmap(dot_map,paste0(outfolder,fout,'.png'))
-  save_tmap(dot_map,paste0(outfolder,fout,'.pdf'))
+  tmap_save(dot_map,paste0(outfolder,fout,'.png'))
+  tmap_save(dot_map,paste0(outfolder,fout,'.pdf'))
 
   rm(dot_map)
 }
@@ -2274,7 +816,7 @@ plot_stacked_barcharts = function(df, varx, vary, groupvar, labx, laby,
 
 nrow(museums_bg)
 
-write_tsv(museums_bg@data[,c("project_id","country_gss","country_name",
+write_tsv(museums_bg@data[,c("museum_id","country_gss","country_name",
                              "region_gss","region_name")],
           "../datasets/museums/museums_country_regions.tsv")
 
@@ -2314,10 +856,10 @@ gen_stats_country_region = function(musdf, lab){
   rm(df,stats_df)
 }
 
-stopifnot(nrow(museums2017sdf)>0)
+stopifnot(nrow(museums2022sdf)>0)
 
 gen_stats_country_region(museums_bg@data,'all')
-gen_stats_country_region(museums2017sdf@data,'17')
+gen_stats_country_region(museums2022sdf@data,'22')
 
 # -------------------------------------------------
 # Generate stats for all museums in LADs 2011
@@ -2373,8 +915,6 @@ from 2018 Jan - Research questions re visualisation.docx
 6. Opening versus closing depicted via line graph (?)
 "	All museums opening vs all museums closing over time and by sub-category to incl. each type of museum by opening and by closing
 
-TODO: include governance change in the queries
-
 ### Open/closings stats by year
 
 ```{r closing_analysis, eval=T}
@@ -2387,7 +927,7 @@ FUN_clean_folder("../plots/openclose/openclose_years/")
 # function to produce charts ----------------
 plot_openings_closings = function(df, title, outfile, smooth_span = 0.2){
   #closing_plot_counter <<- closing_plot_counter+1
-  print(paste("plot_openings_closings",closing_plot_counter))
+  print(paste("plot_openings_closings"))#,closing_plot_counter))
 
   ylabel = 'Number of Museums'
   n_info = '' #paste0(" [obs N=",nrow(df),"]")
@@ -2465,7 +1005,7 @@ stopifnot( nrow(mdf)==ALL_MUSEUMS_N )
 
 # OPENINGS/CLOSINGS by years
 #all_years = seq(min(mdf$year_opened_BEG,na.rm = T), max(mdf$year_closed_END,na.rm = T))
-all_years = seq(1960,2017)
+all_years = seq(1960,2022)
 summary(all_years)
 
 # get advanced stats per year
@@ -2480,8 +1020,8 @@ get_stats_by_year = function(mdf, year){
   opened = subset(mdf, mdf$year_opened_BEG <= year & year <= mdf$year_opened_END )
   # calculate opening with Nick's formula
   opened$year_opened_PROB = FUN_get_openings_over_time(opened, year)
-  opened$year_opened_PROB_min = FUN_get_openings_over_time_min(opened, year)
-  opened$year_opened_PROB_max = FUN_get_openings_over_time_max(opened, year)
+  #opened$year_opened_PROB_min = FUN_get_openings_over_time_min(opened, year)
+  #opened$year_opened_PROB_max = FUN_get_openings_over_time_max(opened, year)
   
   flatten_results = function(vals){
     v = as.vector( unlist( vals ) )
@@ -2493,10 +1033,8 @@ get_stats_by_year = function(mdf, year){
   n = nrow(opened)
   row$opening_N = n
   row$opening_wei_N = round( sum(opened$year_opened_PROB), 2)
-  row$opening_wei_N_min = round( sum(opened$year_opened_PROB_min), 2)
-  row$opening_wei_N_max = round( sum(opened$year_opened_PROB_max), 2)
-  
-  TODO
+  #row$opening_wei_N_min = round( sum(opened$year_opened_PROB_min), 2)
+  #row$opening_wei_N_max = round( sum(opened$year_opened_PROB_max), 2)
   
   # get GOVERNANCE stats OPEN (simplified)
   gov_summary <- dplyr::summarise( group_by(opened, governance_simpl),
@@ -2693,10 +1231,13 @@ get_stats_by_year = function(mdf, year){
 # calc advanced stats for each year
 years_df = data.frame()
 for (y in all_years){
+  print(y)
   row = get_stats_by_year(mdf@data, y)
   stopifnot(nrow(row)==1)
+  #print(names(row))
+  #print(names(years_df))
   #print(setdiff(names(row),names(years_df)))
-  years_df = rbind(years_df, row)
+  years_df = smartbind(years_df, row)
   rm(row)
 }
 years_df$decade = as.factor(years_df$decade)
@@ -3329,16 +1870,16 @@ generate_1var_from_cumul_years_ = function(cumul_years, lab){
   names(cumul_years)
   stopifnot(nrow(cumul_years)>100)
   
-  # compare 1960 with 2017
-  df = subset( cumul_years, cumul_years$year==1960 | cumul_years$year==2017)
+  # compare 1960 with 2022
+  df = subset( cumul_years, cumul_years$year==1960 | cumul_years$year==2022)
   unique(df$var_name)
   print(names(df))
   # generate 1 var growth for all museums
   dfopen = dcast(df, formula = var_name + var_value ~ year, value.var = "cumul_open_wei_N" )
   #dfopen = dcast(df, formula = var_name + var_value ~ year, value.var = c("cumul_open_wei_N","cumul_closed_wei_N") )
   dfclosed = dcast(df, formula = var_name + var_value ~ year, value.var = "cumul_closed_wei_N" )
-  names(dfopen) = c("var_name","var_value","open1960","open2017" )
-  names(dfclosed) = c("var_name","var_value","close1960","close2017" )
+  names(dfopen) = c("var_name","var_value","open1960","open2022" )
+  names(dfclosed) = c("var_name","var_value","close1960","close2022" )
   #View(dfopen)
   #View(dfclosed)
   
@@ -3347,30 +1888,30 @@ generate_1var_from_cumul_years_ = function(cumul_years, lab){
   dfclosed$rowid = paste0(dfclosed$var_name,dfclosed$var_value)
   stopifnot(dfopen$rowid==dfclosed$rowid)
   dfopen$close1960 = dfclosed$close1960
-  dfopen$close2017 = dfclosed$close2017
+  dfopen$close2022 = dfclosed$close2022
   dfopen$rowid=NULL
   rm(dfclosed)
   
   #View(dfopen)
   dfopen$geo_label = replace_gss_codes_with_NAs(dfopen$var_value)
-  dfopen = dfopen[,c("var_name","var_value","geo_label","open1960","open2017",'close1960','close2017')]
-  dfopen$diffN = dfopen$open2017 - dfopen$open1960
+  dfopen = dfopen[,c("var_name","var_value","geo_label","open1960","open2022",'close1960','close2022')]
+  dfopen$diffN = dfopen$open2022 - dfopen$open1960
   dfopen$growth = ifelse( dfopen$open1960 >= 1, 
-        round((dfopen$open2017 - dfopen$open1960) / dfopen$open1960 * 100,1), 
+        round((dfopen$open2022 - dfopen$open1960) / dfopen$open1960 * 100,1), 
         NA )
-  dfopen$open2017 = round(dfopen$open2017,1)
-  dfopen$close2017 = round(dfopen$close2017,1)
+  dfopen$open2022 = round(dfopen$open2022,1)
+  dfopen$close2022 = round(dfopen$close2022,1)
   dfopen$open1960 = round(dfopen$open1960,1)
   dfopen$close1960 = round(dfopen$close1960,1)
   dfopen$diffN = round(dfopen$diffN,1)
-  dfopen$closedpc = ifelse(dfopen$open2017>=1,
-        round( dfopen$close2017 / (dfopen$open2017+dfopen$close2017) * 100, 1 ),
+  dfopen$closedpc = ifelse(dfopen$open2022>=1,
+        round( dfopen$close2022 / (dfopen$open2022+dfopen$close2022) * 100, 1 ),
         NA)
   return(dfopen)
 }
 
 calc_growth_by_two_vars_ = function( musdf, var1, var2 ){
-  years = c(1960,2017)
+  years = c(1960,2022)
   openm_df = data.frame()
   for (val1 in as.character(unique(musdf[,var1]))){
     #print(val1)
@@ -3382,20 +1923,20 @@ calc_growth_by_two_vars_ = function( musdf, var1, var2 ){
       row$VAL1 = val1
       row2 = get_open_museums_by_year(years[2], df, var2, val2, nonZero = F)
       row$year = paste0(years,collapse='-')
-      row$open2017 = row2$cumul_open_wei_N
-      row$close2017 = row2$cumul_closed_wei_N
+      row$open2022 = row2$cumul_open_wei_N
+      row$close2022 = row2$cumul_closed_wei_N
       names(row) = c("year","var2","val2","open1960","close1960",
-        "var1","val1","open2017","close2017" )
+        "var1","val1","open2022","close2022" )
       # calc growth
-      row$diffN = row$open2017 - row$open1960
+      row$diffN = row$open2022 - row$open1960
       row$growth = ifelse( row$open1960 >= 1, 
-                        round((row$open2017 - row$open1960) / row$open1960 * 100, 1), 
+                        round((row$open2022 - row$open1960) / row$open1960 * 100, 1), 
                         NA )
       row$open1960 = round(row$open1960,1)
-      row$open2017 = round(row$open2017,1)
+      row$open2022 = round(row$open2022,1)
       row$diffN = round(row$diffN,1)
-      row$closedpc = ifelse(row$open2017>=1,
-                        round( row$close2017 / (row$open2017+row$close2017) * 100, 1 ),
+      row$closedpc = ifelse(row$open2022>=1,
+                        round( row$close2022 / (row$open2022+row$close2022) * 100, 1 ),
                         NA)
       # save result row
       openm_df = rbind(openm_df,row)
@@ -3408,7 +1949,7 @@ calc_growth_by_two_vars_ = function( musdf, var1, var2 ){
   stopifnot(ncol(openm_df)==12)
   openm_df$var1_geo_label = replace_gss_codes_with_NAs(openm_df$val1)
   openm_df = openm_df[,c("year","var1","val1",'var1_geo_label',"var2","val2",
-                         "open1960","close1960",'open2017','close2017','closedpc',
+                         "open1960","close1960",'open2022','close2022','closedpc',
                          'diffN','growth')]
   return(openm_df)
 }
@@ -3493,14 +2034,14 @@ gen_growth_maps_ = function(dfopen, growthtwodf, lab, growth_outfold ){
   uk_lads_2016 <- load_uk_dataset("uk_local_auth_2016-simp01.rds")
   uk_lads_2016_growth = merge( uk_lads_2016, dfopen, by.x="GSS", by.y="var_value", all.y=F)
   names(uk_lads_2016_growth)
-  # "GSS" "NAME" "var_name" "geo_label" "open1960"  "open2017"  "diffN" "growth"
+  # "GSS" "NAME" "var_name" "geo_label" "open1960"  "open2022"  "diffN" "growth"
   
   #uk_lads_2016_simpl = rmapshaper::ms_simplify(uk_lads_2016, keep = .02)
   #names(uk_lads_2016) = make.names(names(uk_lads_2016))
   #names(uk_lads_2016_simpl) = make.names(names(uk_lads_2016_simpl))
   #stopifnot(nrow(uk_lads_2016_simpl)==nrow(uk_lads_2016))
   
-  VARS_GROWTH = c('growth','diffN','open1960','open2017','close2017','closedpc')
+  VARS_GROWTH = c('growth','diffN','open1960','open2022','close2022','closedpc')
   
   for(f in VARS_GROWTH){
     for(q in c('jenks')) # 'quantile','equal',
@@ -3569,7 +2110,7 @@ plot_choro_map_museum_growth_by_var_ = function( lab, growthtwodf, geo_sdf, geov
     stopifnot(nrow(df)>0)
     geo_growth = merge( geo_sdf, df, by.x="GSS", by.y="val1", all.y=F)
     
-    for(f in c('growth','diffN','open2017','close2017')){  # ,'open1960','')){
+    for(f in c('growth','diffN','open2022','close2022')){  # ,'open1960','')){
       for(q in c('jenks')){ # 'quantile','equal',{
         if (FUN_countNotNA(unique(geo_growth@data[,f]))<2){
           print(paste("Not enough values for ",label,' - skipping map'))
@@ -3593,10 +2134,10 @@ generate_all_growth_stats = function(cumul_years, lab, mdf){
   
   # gen 1 var stats
   dfopen = generate_1var_from_cumul_years_(cumul_years, lab)
-  write_xlsx(dfopen, paste0(growth_outfold,'openclose_1960_2017_pc_change-1vars-',lab,'.xlsx'))
+  write_xlsx(dfopen, paste0(growth_outfold,'openclose_1960_2022_pc_change-1vars-',lab,'.xlsx'))
   # gen 2 vars stats
   growthtwo_df = generate2varsCombinations_(mdf)
-  write_xlsx(growthtwo_df, paste0(growth_outfold,'openclose_1960_2017_pc_change-2vars-',lab,'.xlsx'))
+  write_xlsx(growthtwo_df, paste0(growth_outfold,'openclose_1960_2022_pc_change-2vars-',lab,'.xlsx'))
   
   # gen maps
   gen_growth_maps_(dfopen, growthtwo_df, lab, growth_outfold)

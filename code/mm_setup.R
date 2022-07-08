@@ -8,7 +8,7 @@ pacman::p_load(knitr,readr,readr,plyr,dplyr,sp,vegan,ineq,data.table,foreach,R.u
                rgdal,maptools,pastecs,ggplot2,gplots,Hmisc,readxl,parsedate,rgeos,
                moments,car,lmtest,QuantPsyc,psych,tmap,spdep,GWmodel,reshape2,scales,
                quantmod,classInt,tmap,grid,writexl,openxlsx,shinyjs,corrplot,measurements,
-               caret,rpart,rpart.plot,randomForest,party,arules,doParallel,magick,
+               caret,rpart,rpart.plot,randomForest,party,arules,doParallel,magick,gtools,
                aspace,spatstat,stringdist,spatstat,biscale)
 
 R.utils::gcDLLs()
