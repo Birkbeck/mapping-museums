@@ -274,7 +274,7 @@ This is done in 049-SpatialDatasets project.
 
 ## Load UK spatial datasets
 
-```{r load_spatial_uk, eval=T}
+```{r load_spatial_uk, eval=F}
 # geo-utils
 
 load_uk_dataset <- function( name ){
