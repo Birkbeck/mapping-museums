@@ -675,7 +675,7 @@ FUN_get_open_at_given_time = function(df, year, opt='prob'){
 FUN_get_close_at_given_time = function(df, year, opt='prob'){
   stopifnot(opt %in% c('prob','min','max'))
   d = df[,c("year_opened_BEG","year_opened_END",
-            "year_closed_BEG","year_closed_END","project_id")]
+            "year_closed_BEG","year_closed_END","museum_id")]
   year_close_prob = apply(d, 1,
         function(x){ FUN_get_probs_open_at_given_year( as.numeric(x[3]), as.numeric(x[4]), NA, NA, year, opt) })
   stopifnot(nrow(df)==length(year_close_prob))

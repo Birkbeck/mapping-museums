@@ -1364,6 +1364,7 @@ get_open_museums_by_year = function(year, all_df, var_name, var_value, nonZero =
   }
   if (nonZero) stopifnot(nrow(df)>0)
   
+  
   row = data.frame( year = year, var_name = var_name, var_value = var_value )
   
   if (nrow(df)==0){
@@ -1372,6 +1373,7 @@ get_open_museums_by_year = function(year, all_df, var_name, var_value, nonZero =
     row$cumul_closed_wei_N = 0
     return(row)
   }
+  
   probs = FUN_get_open_at_given_time(df, year)
   # get bounds
   probs_min = FUN_get_open_at_given_time(df, year, opt='min')
@@ -1396,41 +1398,6 @@ get_open_museums_by_year = function(year, all_df, var_name, var_value, nonZero =
   
   stopifnot(nrow(row)==1)
   return(row)
-  
-  # ---------------------------------------------
-  # OPENINGS
-
-  # # in opening_year range (each museum = PROB)
-  # open_year_range = subset(df, df$year_opened_BEG <= year & year <= df$year_opened_END )
-  # row$opening_wei_N = sum(open_year_range$year_opened_PROB, na.rm = T)
-  # row$opening_N_unused = nrow(open_year_range)
-  # rm(open_year_range)
-  # 
-  # # after opening and without closing (each museum = 1)
-  # after_open = subset(df,  year > df$year_opened_END & is.na(df$year_closed_BEG) )
-  # row$afteropen_noclose_N = nrow(after_open)
-  # rm(after_open)
-  # 
-  # # after opening and before closing (each museum = 1)
-  # after_openbef = subset(df,  year > df$year_opened_END &  year < df$year_closed_BEG)
-  # row$afteropen_befclose_N = nrow(after_openbef)
-  # rm(after_openbef)
-  # 
-  # # within closing range (each museum = -PROB)
-  # closing = subset(df, df$year_closed_BEG <= year & year <= df$year_closed_END )
-  # row$open_but_closing_wei_N = sum( closing$year_closed_PROB, na.rm = T)
-  # row$closing_N_unused = nrow(closing)
-  # rm(closing)
-  # 
-  # # cumulative open museums
-  # row$cumul_open_wei_N = round( row$opening_wei_N + row$afteropen_noclose_N + row$afteropen_befclose_N - row$open_but_closing_wei_N, 2)
-  # row$cumul_open_unwei_N = round( row$opening_N_unused + row$afteropen_noclose_N + row$afteropen_befclose_N, 2) # - row$closing_N_unused
-  # 
-  # # within closing range (each museum = -1)
-  # closed = subset(df, df$year_closed_END < year )
-  # row$cumul_closed_N = nrow(closed)
-  # rm(closed)
-  # return(row)
 }
 
 # SLOW
@@ -1443,8 +1410,10 @@ calc_cumulative_stats = function(mdf,lab){
   
   stopifnot(nrow(mdf@data)>0)
   
+  print(names(mdf))
+  
   for (y in all_years){
-    row = get_open_museums_by_year(y, mdf@data, 'all','all')
+    row = get_open_museums_by_year(y, mdf@data, 'all', 'all')
     stopifnot(nrow(row)==1)
     openm_df = rbind(openm_df,row)
     rm(row)
