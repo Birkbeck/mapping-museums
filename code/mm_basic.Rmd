@@ -370,48 +370,6 @@ gss_codes$GSS = trimws(gss_codes$GSS)
 
 rm(uk_lads_2016)
 
-replace_gss_codes_split <- function(codes){
-  #return(codes)
-  new_codes = lapply(as.character(codes), function(x){
-    code = trimws(strsplit(x,'-')[[1]][2])
-    #print(code)
-    stopifnot(length(code)>0)
-    name = as.character( gss_codes[gss_codes$GSS == code,'NAME'] )
-    #print(paste(code,name))
-    stopifnot(length(name)>0)
-    return(name)
-  })
-  return(as.factor(unlist(trimws(new_codes))))
-}
-
-replace_gss_codes_with_NAs <- function(codes){
-  #return(codes)
-  new_codes = lapply(as.character(codes), function(x){
-    code = x
-    stopifnot(length(code)>0)
-    name = as.character( gss_codes[gss_codes$GSS == code,'NAME'] )
-    #print(paste(code,name))
-    if(length(name)>0) return(name)
-    return(NA)
-  })
-  return(as.factor(unlist(trimws(new_codes))))
-}
-
-replace_gss_codes <- function(codes){
-  #return(codes)
-  new_codes = lapply(as.character(codes), function(x){
-    code = x
-    #print(code)
-    stopifnot(length(code)>0)
-    name = unique(as.character( gss_codes[gss_codes$GSS == code,'NAME'] ))
-    if(is.na(name))return(NA)
-    #print(paste(code,name))
-    stopifnot(length(name)>0)
-    return(name)
-  })
-  return(as.factor(unlist(trimws(new_codes))))
-}
-
 ```
 
 ## Build museum spatial dataset
@@ -520,16 +478,26 @@ check_mm_valid(museums_bg)
 
 # Museum Analysis
 
-## Basic stats & plots
 
 On museums with spatial data (N = ALL_MUSEUMS_N)
+
+## Load museum spatial data
 
 ```{r basic_plots, eval=T}
 
 museums_bg = readRDS('../datasets/museums/museums_bg_sdf.rds')
 
-check_mm_valid(museums_bg)
 
+class18_simpl_aggr_types = as.character(unique(museums_bg$subject_matter_simpl_aggr))
+class18_simpl_aggr_types = class18_simpl_aggr_types[!is.na(class18_simpl_aggr_types)]
+
+check_mm_valid(museums_bg)
+```
+
+
+## Basic stats & plots
+
+```{r}
 # SINGLE VARIABLES -----------------------------------------------------------------
 basicfold = "../plots/basic_stats/single_var_stats/"
 FUN_clean_folder(basicfold)

@@ -671,6 +671,49 @@ FUN_get_open_at_given_time = function(df, year, opt='prob'){
   return( round(year_open_prob, 4) )
 }
 
+
+replace_gss_codes_split <- function(codes){
+  #return(codes)
+  new_codes = lapply(as.character(codes), function(x){
+    code = trimws(strsplit(x,'-')[[1]][2])
+    #print(code)
+    stopifnot(length(code)>0)
+    name = as.character( gss_codes[gss_codes$GSS == code,'NAME'] )
+    #print(paste(code,name))
+    stopifnot(length(name)>0)
+    return(name)
+  })
+  return(as.factor(unlist(trimws(new_codes))))
+}
+
+replace_gss_codes_with_NAs <- function(codes){
+  #return(codes)
+  new_codes = lapply(as.character(codes), function(x){
+    code = x
+    stopifnot(length(code)>0)
+    name = as.character( gss_codes[gss_codes$GSS == code,'NAME'] )
+    #print(paste(code,name))
+    if(length(name)>0) return(name)
+    return(NA)
+  })
+  return(as.factor(unlist(trimws(new_codes))))
+}
+
+replace_gss_codes <- function(codes){
+  #return(codes)
+  new_codes = lapply(as.character(codes), function(x){
+    code = x
+    #print(code)
+    stopifnot(length(code)>0)
+    name = unique(as.character( gss_codes[gss_codes$GSS == code,'NAME'] ))
+    if(is.na(name))return(NA)
+    #print(paste(code,name))
+    stopifnot(length(name)>0)
+    return(name)
+  })
+  return(as.factor(unlist(trimws(new_codes))))
+}
+
 # 1.	close at a given time 
 FUN_get_close_at_given_time = function(df, year, opt='prob'){
   stopifnot(opt %in% c('prob','min','max'))
