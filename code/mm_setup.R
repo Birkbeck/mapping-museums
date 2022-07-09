@@ -13,7 +13,7 @@ pacman::p_load(knitr,readr,readr,plyr,dplyr,sp,vegan,ineq,data.table,foreach,R.u
 
 # save current packages 
 mypks <- pacman::p_lib()
-saveRDS(mypks, "../r_packages.rds")
+saveRDS(mypks, "r_packages.rds")
 
 R.utils::gcDLLs()
 #doParallel::registerDoParallel()
@@ -81,6 +81,8 @@ FUN_gen_last_update_file = function( outdir ){
 
 # clean output folder and keep readme file
 FUN_clean_folder = function(outf, exclude_files = c('README.txt') ){
+  if (!file.exists(outf)) dir.create(outf, showWarnings = T)
+  stopifnot(file.exists(outf))
   ll = list.files(outf, all.files = T, recursive = T)
   ll = ll[!ll %in% exclude_files]
   ll = ll[!ll %in% c('.','..')]
