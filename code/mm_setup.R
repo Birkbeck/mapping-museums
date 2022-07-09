@@ -11,6 +11,10 @@ pacman::p_load(knitr,readr,readr,plyr,dplyr,sp,vegan,ineq,data.table,foreach,R.u
                caret,rpart,rpart.plot,randomForest,party,arules,doParallel,magick,gtools,
                aspace,spatstat,stringdist,spatstat,biscale)
 
+# save current packages 
+mypks <- pacman::p_lib()
+saveRDS(mypks, "../r_packages.rds")
+
 R.utils::gcDLLs()
 #doParallel::registerDoParallel()
 
