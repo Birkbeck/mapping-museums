@@ -458,11 +458,10 @@ saveRDS(museums_bg,'../datasets/museums/museums_bg_sdf.rds')
 # write GeoJSON
 sdftmp = sdf
 sdftmp$size = as.character(sdf$size)
-writeOGR(sdftmp, "../datasets/museums/museums.geojson", layer="museums", driver="GeoJSON")
+writeOGR(sdftmp, "../datasets/museums/museums.geojson", layer="museums", driver="GeoJSON", 
+         overwrite_layer = T)
 rm(sdftmp)
-
 rm(sdf)
-
 
 # datasets: museums_ll and museums_bg
 stopifnot(nrow(museums_ll)==ALL_MUSEUMS_N)
