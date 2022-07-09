@@ -1,5 +1,5 @@
 [1] "== Summary statistics =="
-[1] "rows= 4229 cols= 48"
+[1] "rows= 4229 cols= 52"
   museum_id         name_of_museum     address_line_1     address_line_2    
  Length:4229        Length:4229        Length:4229        Length:4229       
  Class :character   Class :character   Class :character   Class :character  
@@ -104,22 +104,22 @@
  3rd Qu.:1993    3rd Qu.:1999    3rd Qu.:1994     3rd Qu.:2012    3rd Qu.:2017   
  Max.   :2022    Max.   :2022    Max.   :2022     Max.   :2022    Max.   :2022   
                                                   NA's   :3360    NA's   :3360   
- year_closed_MEAN    governance_simpl               subject_matter_simpl
- Min.   :1960     government :1017    houses                  : 517     
- 1st Qu.:1993     independent:2992    other                   : 361     
- Median :2003     university : 110    fine_and_decorative_arts: 196     
- Mean   :2002     unknown_gov: 110    trains_and_railways     : 143     
- 3rd Qu.:2012                         mixed                   : 136     
- Max.   :2022                         (Other)                 :1876     
- NA's   :3360                         NA's                    :1000     
-            subject_matter_simpl_aggr    country_gss             country_name 
- SMALL_SUBJECTS          :1626        E92000001:3190   England         :3190  
- houses                  : 517        N92000002: 107   Northern Ireland: 107  
- other                   : 361        S92000003: 623   Scotland        : 623  
- fine_and_decorative_arts: 196        W92000004: 260   Wales           : 260  
- trains_and_railways     : 143        NA's     :  49   NA's            :  49  
- (Other)                 : 386                                                
- NA's                    :1000                                                
+ year_closed_MEAN  project_id           governance_simpl       subject_matter_simpl
+ Min.   :1960     Length:4229        government :1017    local_histories : 891     
+ 1st Qu.:1993     Class :character   independent:2992    buildings       : 607     
+ Median :2003     Mode  :character   university : 110    war_and_conflict: 404     
+ Mean   :2002                        unknown_gov: 110    arts            : 331     
+ 3rd Qu.:2012                                            transport       : 326     
+ Max.   :2022                                            mixed           : 220     
+ NA's   :3360                                            (Other)         :1450     
+    subject_matter_simpl_aggr   special_type     country_gss             country_name 
+ local_histories : 891        sm_indep:2016   E92000001:3190   England         :3190  
+ buildings       : 607        NA's    :2213   N92000002: 107   Northern Ireland: 107  
+ war_and_conflict: 404                        S92000003: 623   Scotland        : 623  
+ SMALL_SUBJECTS  : 359                        W92000004: 260   Wales           : 260  
+ arts            : 331                        NA's     :  49   NA's            :  49  
+ transport       : 326                                                                
+ (Other)         :1311                                                                
      region_gss            region_name       lad16_gss                lad16_name  
  S92000003: 622   Scotland       : 622   E06000052: 111   Cornwall         : 111  
  E12000008: 589   South East     : 589   S12000017:  70   Highland         :  70  
@@ -128,3 +128,11 @@
  E12000002: 325   North West     : 325   E06000057:  49   City of Edinburgh:  49  
  (Other)  :1665   (Other)        :1665   (Other)  :3840   (Other)          :3840  
  NA's     :  52   NA's           :  52   NA's     :  49   NA's             :  49  
+ region_gss.1               region_name.1 
+ Length:4229        Scotland       : 622  
+ Class :character   South East     : 589  
+ Mode  :character   South West     : 562  
+                    East of England: 414  
+                    North West     : 325  
+                    (Other)        :1665  
+                    NA's           :  52  

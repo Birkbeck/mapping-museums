@@ -1,5 +1,16 @@
 [1] "== Summary statistics =="
-[1] "rows= 3363 cols= 48"
+[1] "rows= 3363 cols= 52"
+Object of class SpatialPointsDataFrame
+Coordinates:
+                 min       max
+longitude   5621.342  655204.5
+latitude  -80488.042 1212480.3
+Is projected: TRUE 
+proj4string :
+[+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000
++ellps=airy +units=m +no_defs]
+Number of points: 3363
+Data attributes:
   museum_id         name_of_museum     address_line_1     address_line_2    
  Length:3363        Length:3363        Length:3363        Length:3363       
  Class :character   Class :character   Class :character   Class :character  
@@ -104,22 +115,22 @@
  3rd Qu.:1995    3rd Qu.:2000    3rd Qu.:1995     3rd Qu.:2022    3rd Qu.:2022   
  Max.   :2022    Max.   :2022    Max.   :2022     Max.   :2022    Max.   :2022   
                                                   NA's   :3360    NA's   :3360   
- year_closed_MEAN    governance_simpl               subject_matter_simpl
- Min.   :2022     government : 788    houses                  : 474     
- 1st Qu.:2022     independent:2425    other                   : 265     
- Median :2022     university :  93    fine_and_decorative_arts: 161     
- Mean   :2022     unknown_gov:  57    trains_and_railways     : 114     
- 3rd Qu.:2022                         mixed                   : 102     
- Max.   :2022                         (Other)                 :1413     
- NA's   :3360                         NA's                    : 834     
-            subject_matter_simpl_aggr    country_gss             country_name 
- SMALL_SUBJECTS          :1216        E92000001:2525   England         :2525  
- houses                  : 474        N92000002:  93   Northern Ireland:  93  
- other                   : 265        S92000003: 507   Scotland        : 507  
- fine_and_decorative_arts: 161        W92000004: 200   Wales           : 200  
- trains_and_railways     : 114        NA's     :  38   NA's            :  38  
- (Other)                 : 299                                                
- NA's                    : 834                                                
+ year_closed_MEAN  project_id           governance_simpl       subject_matter_simpl
+ Min.   :2022     Length:3363        government : 788    local_histories : 771     
+ 1st Qu.:2022     Class :character   independent:2425    buildings       : 550     
+ Median :2022     Mode  :character   university :  93    war_and_conflict: 335     
+ Mean   :2022                        unknown_gov:  57    arts            : 247     
+ 3rd Qu.:2022                                            transport       : 229     
+ Max.   :2022                                            personality     : 175     
+ NA's   :3360                                            (Other)         :1056     
+    subject_matter_simpl_aggr   special_type     country_gss             country_name 
+ local_histories :771         sm_indep:1545   E92000001:2525   England         :2525  
+ buildings       :550         NA's    :1818   N92000002:  93   Northern Ireland:  93  
+ war_and_conflict:335                         S92000003: 507   Scotland        : 507  
+ arts            :247                         W92000004: 200   Wales           : 200  
+ SMALL_SUBJECTS  :247                         NA's     :  38   NA's            :  38  
+ transport       :229                                                                 
+ (Other)         :984                                                                 
      region_gss            region_name       lad16_gss             lad16_name  
  S92000003: 506   Scotland       : 506   E06000052:  75   Cornwall      :  75  
  E12000008: 476   South East     : 476   S12000017:  58   Highland      :  58  
@@ -128,3 +139,11 @@
  E12000002: 247   North West     : 247   E06000054:  42   Wiltshire     :  42  
  (Other)  :1333   (Other)        :1333   (Other)  :3063   (Other)       :3063  
  NA's     :  41   NA's           :  41   NA's     :  38   NA's          :  38  
+ region_gss.1               region_name.1 
+ Length:3363        Scotland       : 506  
+ Class :character   South East     : 476  
+ Mode  :character   South West     : 421  
+                    East of England: 339  
+                    North West     : 247  
+                    (Other)        :1333  
+                    NA's           :  41  

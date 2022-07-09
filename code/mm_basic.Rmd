@@ -232,7 +232,7 @@ update_simplified_fields = function(full_df){
   
   get_simplified_class18 = function(s){
     #print(s)
-    high_level = strsplit(s,'-')[[1]][2]
+    high_level = strsplit(s,'-')[[1]][1]
     #print(high_level)
     if (!is.na(high_level) && nchar(high_level)>0){
       return( tolower(gsub(" ", "_", high_level)) )
@@ -279,10 +279,6 @@ update_simplified_fields = function(full_df){
 }
 
 ```
-
-## Simplify and prep spatial datasets
-
-This is done in 049-SpatialDatasets project.
 
 ## Load UK spatial datasets
 
@@ -543,13 +539,13 @@ for (var in c("subject_matter","subject_matter_simpl","subject_matter_simpl_aggr
               
   # ALL MUSEUMS
   print(var)
-  x = format_data_for_summary( alldf[,var] )
+  x = format_data_for_summary( alldf[,c(var)] )
   df = p_summary_list( x, paste0('all_museums-',var) )
   df = subset(df,df$VAL.Freq > 0)
   write_xlsx(df, paste0(basicfold, 'allmus_summary_var-',var,".xlsx") )
   
   # 2022 MUSEUMS
-  x = format_data_for_summary( museums2022sdf[,var] )
+  x = format_data_for_summary( museums2022sdf@data[,var] )
   df = p_summary_list( x, paste0('mus2022-',var) )
   df = subset(df,df$VAL.Freq > 0)
   write_xlsx(df, paste0(basicfold, 'mus2022_summary_var-',var,".xlsx") )
@@ -1781,6 +1777,8 @@ rm(cumul_years_pc)
 
 ### Open/closings growth trends
 
+TODO: FIX THIS
+
 ```{r growth_trends, eval=T}
 FUN_clean_folder("../plots/openclose/openclose_growth",exclude_files = c('README.txt','uk_lad_2016_reference_map.pdf'))
 
@@ -1830,17 +1828,24 @@ generate_1var_from_cumul_years_ = function(cumul_years, lab){
 }
 
 calc_growth_by_two_vars_ = function( musdf, var1, var2 ){
+  View(musdf)
+  print('calc_growth_by_two_vars_')
   years = c(1960,2022)
   openm_df = data.frame()
+  stopifnot(var2 %in% names(musdf))
+  stopifnot(var1 %in% names(musdf))
+  stopifnot(nrow(musdf) > 0)
   for (val1 in as.character(unique(musdf[,var1]))){
-    #print(val1)
+    print(val1)
     df = musdf[ musdf[ , var1 ]==val1, ]
     for (val2 in as.character(unique(musdf[,var2]))){
-      #print(val2)
+      print(paste('val2',val2))
       row = get_open_museums_by_year(years[1], df, var2, val2, nonZero = F)
       row$VAR1 = var1
       row$VAL1 = val1
+      View(row)
       row2 = get_open_museums_by_year(years[2], df, var2, val2, nonZero = F)
+      View(row2)
       row$year = paste0(years,collapse='-')
       row$open2022 = row2$cumul_open_wei_N
       row$close2022 = row2$cumul_closed_wei_N
@@ -1857,8 +1862,15 @@ calc_growth_by_two_vars_ = function( musdf, var1, var2 ){
       row$closedpc = ifelse(row$open2022>=1,
                         round( row$close2022 / (row$open2022+row$close2022) * 100, 1 ),
                         NA)
+      #View(row)
       # save result row
+      #print('debug6')
+      print(names(openm_df))
+      print(names(row))
+      print('debug0')
+      #View(row)
       openm_df = rbind(openm_df,row)
+      #View(openm_df)
       rm(row,row2)
     }
   }
@@ -1874,14 +1886,16 @@ calc_growth_by_two_vars_ = function( musdf, var1, var2 ){
 }
 
 generate2varsCombinations_ = function( indf ){
+  print('generate2varsCombinations_')
   growthtwodf = data.frame()
   for(var1 in c('size','subject_matter_simpl','subject_matter','region_gss','country_gss','lad16_gss')){
   for(var2 in c('subject_matter_simpl','size','governance','governance_simpl','accreditation')){
     if (var1!=var2){
       print(paste('  ',var1,var2))
-      df = calc_growth_by_two_vars_( indf, var1, var2)
+      df = calc_growth_by_two_vars_( indf, var1, var2 )
       df$VARS = paste(var1, var2, sep='+')
-      growthtwodf = rbind( growthtwodf, df )
+      print('debug5')
+      growthtwodf = smartbind( growthtwodf, df )
       rm(df)
   }}}
   #View(growthtwodf)
@@ -2048,7 +2062,8 @@ plot_choro_map_museum_growth_by_var_ = function( lab, growthtwodf, geo_sdf, geov
 generate_all_growth_stats = function(cumul_years, lab, mdf){
   # outfolder
   growth_outfold = paste0('../plots/openclose/openclose_growth/growth_',lab,'/')
-  dir.create(growth_outfold, showWarnings = F)
+  dir.create(growth_outfold, showWarnings = T)
+  stopifnot(file.exists(growth_outfold))
   print(growth_outfold)
   
   # gen 1 var stats
@@ -2056,7 +2071,8 @@ generate_all_growth_stats = function(cumul_years, lab, mdf){
   write_xlsx(dfopen, paste0(growth_outfold,'openclose_1960_2022_pc_change-1vars-',lab,'.xlsx'))
   # gen 2 vars stats
   growthtwo_df = generate2varsCombinations_(mdf)
-  write_xlsx(growthtwo_df, paste0(growth_outfold,'openclose_1960_2022_pc_change-2vars-',lab,'.xlsx'))
+  write_xlsx(growthtwo_df,
+             paste0(growth_outfold,'openclose_1960_2022_pc_change-2vars-',lab,'.xlsx'))
   
   # gen maps
   gen_growth_maps_(dfopen, growthtwo_df, lab, growth_outfold)
@@ -2067,7 +2083,7 @@ mdf = museums_bg
 # generate all growth stats
 mdfindip = subset(mdf@data, mdf@data$governance_simpl == 'independent')
 nrow(mdfindip)
-mdflauth = subset(mdf@data, mdf@data$governance == '/Government/Local Authority')
+mdflauth = subset(mdf@data, mdf@data$governance == 'Government-Local_Authority')
 nrow(mdflauth)
 
 generate_all_growth_stats(cumul_years, 'mus_all', mdf@data)
