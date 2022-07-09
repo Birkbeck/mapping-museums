@@ -1677,10 +1677,9 @@ plot_cumul_openclose_charts(df, title, fout)
 rm(df)
 ```
 
+PLOT cumulative PC change
+
 ```{r}
-# -----------------------------------------------------------------------------
-# ------- PLOT cumulative PC change ---------
-# -----------------------------------------------------------------------------
 
 cumul_years_pc <- foreach(block=split(cumul_years, cumul_years[,c("var_name",'var_value')]), .combine='rbind', .errorhandling="stop") %do% {
   if(nrow(block)==0) return(NULL)
