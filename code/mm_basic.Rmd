@@ -598,49 +598,6 @@ rm(var1,var2,basicfold,museums2022sdf)
 rm(alldf)
 rm(format_data_for_summary)
 ```
-
-## Association rules of attr
-
- high support: should apply to a large amount of cases
- high confidence: should be correct often
- high lift: indicates it is not just a coincidence
- https://cran.r-project.org/web/packages/arules/arules.pdf
- 
-```{r}
-
-unlink("../plots/assoc_rules/*xlsx")
-FUN_gen_last_update_file("../plots/assoc_rules/")
-
-# get all other rules with full vars
-
-cols = c("size","governance","accreditation","subject_matter","domus_subject_matter",
-         "country_name","region_name","year_opened","year_closed")
-
-# all attributes
-FUN_find_association_rules( museums_bg@data, cols, 'all_rules', NA )
-
-# specific attributes (full)
-for (ff in c("governance","accreditation","subject_matter", "size")){
-    # "country_name","region_name"
-  FUN_find_association_rules( museums_bg@data, cols, paste0('rules_',ff), ff )
-}
-
-cols = c("size","governance_simpl","accreditation","subject_matter_simpl",
-         "country_name","region_name","year_opened","year_closed")
-# all attributes
-FUN_find_association_rules( museums_bg@data, cols, 'all_simpl_rules', NA )
-
-# specific attributes (simplified)
-for (ff in c("governance_simpl","accreditation","subject_matter_simpl","size")){ #   
-    # "country_name","region_name"
-  FUN_find_association_rules( museums_bg@data, cols, paste0('rules_simpl_',ff), ff )
-}
-
-
-rm(ff,cols)
-
-```
-
 ## Overview maps
 
 ```{r overview_map, eval=T}
@@ -736,8 +693,8 @@ gen_categorical_map <- function( catField, ptSz, fout ){
       #tm_legend(scale=0.45,position=c("right","top"), title=tit) + #, bg.color = "white", bg.alpha=.2,
       #tm_layout(frame=F)
     #dot_map
-    save_tmap(m,paste0(outfolder,fout,'.png'),width = 5)
-    save_tmap(m,paste0(outfolder,fout,'.pdf'),width = 5)
+    tmap_save(m,paste0(outfolder,fout,'.png'),width = 5)
+    tmap_save(m,paste0(outfolder,fout,'.pdf'),width = 5)
 }
 
 gen_categorical_map('size', .1, 'museums_overview_points_size1')
