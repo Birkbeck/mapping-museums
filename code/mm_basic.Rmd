@@ -486,7 +486,9 @@ On museums with spatial data (N = ALL_MUSEUMS_N)
 ```{r basic_plots, eval=T}
 
 museums_bg = readRDS('../datasets/museums/museums_bg_sdf.rds')
-
+full_df = readRDS('../datasets/museums/museums_full_df.rds')
+museums2022sdf = FUN_get_museums_open_in_a_year(museums_bg, 2022)
+stopifnot(nrow(museums2022sdf)==3363)
 
 class18_simpl_aggr_types = as.character(unique(museums_bg$subject_matter_simpl_aggr))
 class18_simpl_aggr_types = class18_simpl_aggr_types[!is.na(class18_simpl_aggr_types)]
@@ -503,8 +505,6 @@ basicfold = "../plots/basic_stats/single_var_stats/"
 FUN_clean_folder(basicfold)
 
 alldf = museums_bg@data
-
-museums2022sdf = FUN_get_museums_open_in_a_year(alldf, 2022)
 
 # general stats
 FUN_dfsummary_to_file(alldf, paste0(basicfold,"allmus_summary_stats.txt"))
@@ -548,9 +548,9 @@ FUN_clean_folder("../plots/basic_stats/two_var_stats/")
 
 for(var1 in c("size","subject_matter","governance_simpl","subject_matter_simpl","accreditation","country_name")){
   for(var2 in c("governance","governance_simpl","accreditation","subject_matter","subject_matter_simpl","region_name")){
-    if (var1!=var2) FUN_twoVarStats(alldf, var1, var2, '../plots/basic_stats/two_var_stats/allmus_')
-    if (var1!=var2) FUN_twoVarStats(museums2022sdf, var1, var2, '../plots/basic_stats/two_var_stats/mus2022_')
-    if (var1!=var2) FUN_twoVarStats(museums2022sdf, var2, var1, '../plots/basic_stats/two_var_stats/mus2022_')
+    if (var1!=var2) FUN_twoVarStats(museums_bg@data, var1, var2, '../plots/basic_stats/two_var_stats/allmus_')
+    if (var1!=var2) FUN_twoVarStats(museums2022sdf@data, var1, var2, '../plots/basic_stats/two_var_stats/mus2022_')
+    if (var1!=var2) FUN_twoVarStats(museums2022sdf@data, var2, var1, '../plots/basic_stats/two_var_stats/mus2022_')
   }
 }
 

@@ -433,7 +433,11 @@ FUN_df_to_heatmap <- function( num_mat, xlab, ylab, fout, colPalette = c("white"
   print(paste("FUN_df_to_heatmap",xlab,ylab,fout))
   row_labs = rownames(num_mat)
   col_labs = colnames(num_mat)
-  stopifnot(nrow(num_mat)>0,ncol(num_mat)>0, class(num_mat)=='matrix')
+  print(nrow(num_mat))
+  print(ncol(num_mat))
+  print(class(num_mat))
+  print('debug1')
+  stopifnot(nrow(num_mat)>0,ncol(num_mat)>0) #, class(num_mat)=='matrix')
   # get max lengths of labels
   maxchar1 <- max( nchar(as.character(col_labs)),na.rm = T )
   maxchar2 <- max( nchar(as.character(row_labs)),na.rm = T )
@@ -826,13 +830,13 @@ FUN_countNA <- function(x){
 FUN_twoVarStats <- function(musdf, var1, var2, prefixfn){
   stopifnot(nrow(musdf)>0)
   print(paste("FUN_twoVarStats",var1,var2))
-  df = as.data.frame.matrix(table(musdf[,c(var1,var2)]))
+  tt = table(musdf[,c(var1,var2)])
+  df = as.data.frame.matrix(tt)
   
   if (var2 == "classification_1998"){
     names(df) = paste0("98-",names(df))
     names(df)[1] = '98-NA'
   }
-  
   # get percentages
   pcdf = round(df / sum(df,na.rm=T)*100, 3)
   pcdf$ROW_TOT = rowSums(pcdf, na.rm = T)

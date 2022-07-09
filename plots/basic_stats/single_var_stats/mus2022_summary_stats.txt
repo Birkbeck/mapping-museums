@@ -1,0 +1,130 @@
+[1] "== Summary statistics =="
+[1] "rows= 3363 cols= 48"
+  museum_id         name_of_museum     address_line_1     address_line_2    
+ Length:3363        Length:3363        Length:3363        Length:3363       
+ Class :character   Class :character   Class :character   Class :character  
+ Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+     town_or_city      postcode     admin_area             accreditation 
+ London    : 195   SO23 8TS:   5   Length:3363        Accredited  :1660  
+ Edinburgh :  38   BD21 5AX:   3   Class :character   Unaccredited:1703  
+ York      :  31   CB22 4QR:   3   Mode  :character                      
+ Glasgow   :  30   DE4 4LS :   3                                         
+ Birmingham:  24   DN1 3BZ :   3                                         
+ Manchester:  24   EC3N 4AB:   3                                         
+ (Other)   :3021   (Other) :3343                                         
+                      governance           size      size_provenance   
+ Independent-Not_for_profit:1558   small     :1832   Length:3363       
+ Government-Local_Authority: 711   medium    : 866   Class :character  
+ Independent-Private       : 473   large     : 504   Mode  :character  
+ Independent-National_Trust: 183   huge      :  12                     
+ Independent-Unknown       : 112   unknown_sz: 149                     
+ University                :  93                                       
+ (Other)                   : 233                                       
+                       subject_matter    year_opened      year_closed  
+ Local_Histories              : 771   1960:2017: 193   9999:9999:3360  
+ Buildings-Houses-Large_houses: 382   1986:1986:  72   2022:2022:   3  
+ Arts-Fine_and_decorative_arts: 161   1976:1976:  64   1936:2017:   0  
+ Transport-Trains_and_railways: 114   1984:1984:  62   1945:2017:   0  
+ Mixed-Encyclopaedic          :  99   1974:1974:  57   1948:2017:   0  
+ War_and_conflict-Regiment    :  98   1990:1990:  57   1952:2017:   0  
+ (Other)                      :1738   (Other)  :2858   (Other)  :   0  
+ domus_subject_matter domus_identifier   primary_provenance_of_data
+ Length:3363          Length:3363        Length:3363               
+ Class :character     Class :character   Class :character          
+ Mode  :character     Mode  :character   Mode  :character          
+                                                                   
+                                                                   
+                                                                   
+                                                                   
+ identifier_used_in_primary_data_source area_deprivation_index
+ Length:3363                            Length:3363           
+ Class :character                       Class :character      
+ Mode  :character                       Mode  :character      
+                                                              
+                                                              
+                                                              
+                                                              
+ area_deprivation_index_crime area_deprivation_index_education
+ Length:3363                  Length:3363                     
+ Class :character             Class :character                
+ Mode  :character             Mode  :character                
+                                                              
+                                                              
+                                                              
+                                                              
+ area_deprivation_index_employment area_deprivation_index_health
+ Length:3363                       Length:3363                  
+ Class :character                  Class :character             
+ Mode  :character                  Mode  :character             
+                                                                
+                                                                
+                                                                
+                                                                
+ area_deprivation_index_housing area_deprivation_index_income
+ Length:3363                    Length:3363                  
+ Class :character               Class :character             
+ Mode  :character               Mode  :character             
+                                                             
+                                                             
+                                                             
+                                                             
+ area_deprivation_index_services area_geodemographic_group area_geodemographic_group_code
+ Length:3363                     Length:3363               Length:3363                   
+ Class :character                Class :character          Class :character              
+ Mode  :character                Mode  :character          Mode  :character              
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+ area_geodemographic_subgroup area_geodemographic_subgroup_code
+ Length:3363                  Length:3363                      
+ Class :character             Class :character                 
+ Mode  :character             Mode  :character                 
+                                                               
+                                                               
+                                                               
+                                                               
+ area_geodemographic_supergroup area_geodemographic_supergroup_code    notes          
+ Length:3363                    Length:3363                         Length:3363       
+ Class :character               Class :character                    Class :character  
+ Mode  :character               Mode  :character                    Mode  :character  
+                                                                                      
+                                                                                      
+                                                                                      
+                                                                                      
+ year_opened_BEG year_opened_END year_opened_MEAN year_closed_BEG year_closed_END
+ Min.   :1621    Min.   :1621    Min.   :1621     Min.   :2022    Min.   :2022   
+ 1st Qu.:1958    1st Qu.:1960    1st Qu.:1959     1st Qu.:2022    1st Qu.:2022   
+ Median :1979    Median :1984    Median :1983     Median :2022    Median :2022   
+ Mean   :1969    Mean   :1973    Mean   :1971     Mean   :2022    Mean   :2022   
+ 3rd Qu.:1995    3rd Qu.:2000    3rd Qu.:1995     3rd Qu.:2022    3rd Qu.:2022   
+ Max.   :2022    Max.   :2022    Max.   :2022     Max.   :2022    Max.   :2022   
+                                                  NA's   :3360    NA's   :3360   
+ year_closed_MEAN    governance_simpl               subject_matter_simpl
+ Min.   :2022     government : 788    houses                  : 474     
+ 1st Qu.:2022     independent:2425    other                   : 265     
+ Median :2022     university :  93    fine_and_decorative_arts: 161     
+ Mean   :2022     unknown_gov:  57    trains_and_railways     : 114     
+ 3rd Qu.:2022                         mixed                   : 102     
+ Max.   :2022                         (Other)                 :1413     
+ NA's   :3360                         NA's                    : 834     
+            subject_matter_simpl_aggr    country_gss             country_name 
+ SMALL_SUBJECTS          :1216        E92000001:2525   England         :2525  
+ houses                  : 474        N92000002:  93   Northern Ireland:  93  
+ other                   : 265        S92000003: 507   Scotland        : 507  
+ fine_and_decorative_arts: 161        W92000004: 200   Wales           : 200  
+ trains_and_railways     : 114        NA's     :  38   NA's            :  38  
+ (Other)                 : 299                                                
+ NA's                    : 834                                                
+     region_gss            region_name       lad16_gss             lad16_name  
+ S92000003: 506   Scotland       : 506   E06000052:  75   Cornwall      :  75  
+ E12000008: 476   South East     : 476   S12000017:  58   Highland      :  58  
+ E12000009: 421   South West     : 421   E06000057:  44   Northumberland:  44  
+ E12000006: 339   East of England: 339   E09000033:  43   Westminster   :  43  
+ E12000002: 247   North West     : 247   E06000054:  42   Wiltshire     :  42  
+ (Other)  :1333   (Other)        :1333   (Other)  :3063   (Other)       :3063  
+ NA's     :  41   NA's           :  41   NA's     :  38   NA's          :  38  
