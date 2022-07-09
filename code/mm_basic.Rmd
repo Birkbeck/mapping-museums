@@ -186,6 +186,7 @@ length(nat_museums_ids)
 summary(full_df$governance)
 rm(nat_museums_ids)
 # ------------------------------------------------
+full_df$project_id = full_df$museum_id
 
 FUN_save_museum_dataset(full_df,'museums_full_df')
 
@@ -244,11 +245,9 @@ update_simplified_fields = function(full_df){
   # classes with < 100 museums
   print(summary(full_df$subject_matter_simpl))
   class18_small_types = as.data.frame(table(full_df$subject_matter_simpl))
-  #View(class18_small_types)
-  print('GINELLO')
-  #print(class18_small_types)
+  
   class18_small_types = as.character(class18_small_types[class18_small_types$Freq < 100, ]$Var1)
-  #print('GINELLO2')
+  
   
   get_simplified_class18_aggr = function(s){
     if (s %in% class18_small_types) return("SMALL_SUBJECTS")
@@ -263,6 +262,19 @@ update_simplified_fields = function(full_df){
   #View(summary(full_df$subject_matter_simpl))
   names(summary(full_df$subject_matter_simpl))
   #View(summary(full_df$subject_matter_simpl_aggr))
+  
+  # special type
+  #  - Small, independent museums 
+  #  - National
+  #  - Medium and large local authority museums
+  full_df$special_type = as.factor(apply( full_df, 1, function(row){
+    if (row['size'] == "small" & row['governance_simpl'] == "independent") return("sm_indep")
+    if (row['governance'] == "/Government/National") return("national")
+    if (row['size'] %in% c("medium","large") & row['governance']=="/Government/Local Authority")
+      return("local_auth")
+    return(NA)
+  }))
+  
   return(full_df)
 }
 
@@ -377,6 +389,7 @@ rm(uk_lads_2016)
 From here on, museums_bg is the core dataset, and not full_df!
 
 ```{r spatialds, message=FALSE, eval=T}
+
 summary(full_df$latitude)
 print_count_NAs(full_df$latitude)
 full_df = update_simplified_fields(full_df)
@@ -437,16 +450,19 @@ sdf = spCbind(sdf, units_over)
 sdf$region_gss = as.factor(sdf$region_gss)
 rm(units_over)
 
+# transform data
+museums_ll = sdf
+museums_bg <- spTransform(museums_ll, british_grid_crs)
+saveRDS(museums_bg,'../datasets/museums/museums_bg_sdf.rds')
+
 # write GeoJSON
 sdftmp = sdf
 sdftmp$size = as.character(sdf$size)
 writeOGR(sdftmp, "../datasets/museums/museums.geojson", layer="museums", driver="GeoJSON")
 rm(sdftmp)
-museums_ll = sdf
+
 rm(sdf)
 
-# transform data
-museums_bg <- spTransform(museums_ll, british_grid_crs)
 
 # datasets: museums_ll and museums_bg
 stopifnot(nrow(museums_ll)==ALL_MUSEUMS_N)
@@ -486,6 +502,8 @@ On museums with spatial data (N = ALL_MUSEUMS_N)
 ```{r basic_plots, eval=T}
 
 museums_bg = readRDS('../datasets/museums/museums_bg_sdf.rds')
+museums_bg$project_id = museums_bg$museum_id
+
 full_df = readRDS('../datasets/museums/museums_full_df.rds')
 museums2022sdf = FUN_get_museums_open_in_a_year(museums_bg, 2022)
 stopifnot(nrow(museums2022sdf)==3363)
@@ -794,7 +812,7 @@ stopifnot( nrow(museums_bg) > 3000 )
 
 lads11 = load_uk_dataset('uk_local_auth_alt_2011-full.rds')
 
-units_over <- sp::over(museums_bg, lads11)
+units_over <- sp::over(spTransform(museums_bg, proj4string(lads11)), lads11)
 colnames(units_over) = c("UNIT_GSS","UNIT_NAME")
 summary(units_over)
 all_museums_bg <- spCbind(museums_bg, units_over)
@@ -2524,15 +2542,4 @@ dev.off()
 
 
 rm(df)
-```
-
-
-
-# Save MM dataset
-```{r save_ds, eval=T}
-
-saveRDS(museums_bg,'../datasets/museums/museums_bg_sdf.rds')
-
-rm(museums_bg)
-
 ```
