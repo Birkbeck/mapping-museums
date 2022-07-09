@@ -290,7 +290,7 @@ This is done in 049-SpatialDatasets project.
 # geo-utils
 
 load_uk_dataset <- function( name ){
-  ds = readRDS(paste0("/Users/andreaballatore/Work/Projects/049-SpatialDatasets/data/uk_data/",
+  ds = readRDS(paste0("../datasets/uk_datasets/",
                       name))
   stopifnot( nrow(ds)>0 )
   print(paste("load_uk_dataset:",name))
@@ -1363,7 +1363,7 @@ calc_cumulative_stats = function(mdf,lab){
   }
   summary(openm_df)
   #View(openm_df)
-  
+  print('  cumulative by size')
   # cumulative by size
   for (val in as.character(unique(mdf$size))){
     for (y in all_years){
@@ -1375,6 +1375,7 @@ calc_cumulative_stats = function(mdf,lab){
   }
   
   # cumulative by governance
+  print('  cumulative by gov')
   for (val in as.character(unique(mdf$governance))){
     for (y in all_years){
       row = get_open_museums_by_year(y, mdf@data,'governance',val)
@@ -1384,6 +1385,7 @@ calc_cumulative_stats = function(mdf,lab){
   }
   
   # cumulative by governance_simpl
+  print('  cumulative by governance_simpl')
   for (val in as.character(unique(mdf$governance_simpl))){
     for (y in all_years){
       row = get_open_museums_by_year(y, mdf@data,'governance_simpl',val)
@@ -1393,6 +1395,7 @@ calc_cumulative_stats = function(mdf,lab){
   }
   
   # cumulative by country
+  print('  cumulative by country')
   for (val in as.character(unique(mdf$country_gss))){
     for (y in all_years){
       row = get_open_museums_by_year(y, mdf@data,'country_gss',val)
@@ -1402,6 +1405,7 @@ calc_cumulative_stats = function(mdf,lab){
   }
   print('...')
   # cumulative by region
+  print('  cumulative by region')
   for (val in as.character(unique(mdf$region_gss))){
     for (y in all_years){
       row = get_open_museums_by_year(y, mdf@data,'region_gss',val)
@@ -1411,6 +1415,7 @@ calc_cumulative_stats = function(mdf,lab){
   }
   
   # cumulative by LAD 2016 (local auth)
+  print('  cumulative by LAD')
   for (val in as.character(unique(mdf$lad16_gss))){
     for (y in all_years){
       row = get_open_museums_by_year(y, mdf@data,'lad16_gss',val)
@@ -1420,6 +1425,7 @@ calc_cumulative_stats = function(mdf,lab){
   }
   
   # cumulative by subject_matter_simpl
+  print('  cumulative by subject_matter_simpl')
   for (val in as.character(unique(mdf$subject_matter_simpl))){
     for (y in all_years){
       row = get_open_museums_by_year(y, mdf@data,'subject_matter_simpl',val)
@@ -1429,6 +1435,7 @@ calc_cumulative_stats = function(mdf,lab){
   }
   
   # cumulative by subject_matter
+  print('  cumulative by subject_matter')
   for (val in as.character(unique(mdf$subject_matter))){
     for (y in all_years){
       row = get_open_museums_by_year(y, mdf@data,'subject_matter',val)
@@ -1439,7 +1446,7 @@ calc_cumulative_stats = function(mdf,lab){
   
   # get cumul weighted close museums (museums that are already closed + closing ones)
   #openm_df$cumul_closed_wei_N = openm_df$cumul_closed_N + openm_df$open_but_closing_wei_N
-  
+  print('save data')
   openm_df$var_name = as.factor(openm_df$var_name)
   openm_df$var_value = as.factor(openm_df$var_value)
   write_xlsx(openm_df,paste0('../plots/openclose/openclose_cumulative/years_openclose_stats_cumulative-',lab,'-full.xlsx'))
