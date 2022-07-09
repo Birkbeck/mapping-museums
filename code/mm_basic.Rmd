@@ -1466,7 +1466,7 @@ cumul_years_indep = calc_cumulative_stats(indmdf,'mus_indep')
 rm(indmdf)
 
 # generate cumulative stats for local auth museums
-lauthmdf = subset(mdf, mdf$governance=='/Government/Local Authority')
+lauthmdf = subset(mdf, mdf$governance=='Government-Local_Authority')
 nrow(lauthmdf)
 cumul_years_lauth = calc_cumulative_stats(lauthmdf,'mus_lauth')
 rm(lauthmdf)
@@ -1675,7 +1675,9 @@ title = "Cumulative open museums by English region (weighted)"
 fout = "../plots/openclose/openclose_cumulative/cumul_open_museums_engreg"
 plot_cumul_openclose_charts(df, title, fout)
 rm(df)
+```
 
+```{r}
 # -----------------------------------------------------------------------------
 # ------- PLOT cumulative PC change ---------
 # -----------------------------------------------------------------------------

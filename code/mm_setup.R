@@ -14,6 +14,10 @@ pacman::p_load(knitr,readr,readr,plyr,dplyr,sp,vegan,ineq,data.table,foreach,R.u
 R.utils::gcDLLs()
 #doParallel::registerDoParallel()
 
+tmp_fold = '../tmp/'
+if (!dir.exists(tmp_fold)) {dir.create(tmp_fold)}
+
+
 ALL_MUSEUMS_N = 4229
 
 # register parallel backend
