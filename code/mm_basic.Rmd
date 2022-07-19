@@ -17,6 +17,9 @@ pre:not([class]) {
 
 ```{r setup, echo=FALSE, message=FALSE}
 source("mm_setup.R")
+
+all_years = seq(1960,2022)
+summary(all_years)
 ```
 
 # Load data
@@ -475,14 +478,6 @@ rm(museums_ll)
 # Validate MM dataset
 
 ```{r}
-check_mm_valid = function(df){
-  stopifnot(nrow(df)==ALL_MUSEUMS_N)
-  stopifnot(!FUN_col_exists(df@data,c('size_simpl','size_simpl_source')))
-  #stopifnot(FUN_col_exists(df@data,c('size','size_prov')))
-  stopifnot(FUN_col_exists(df@data,c('subject_matter_simpl','governance_simpl')))
-  stopifnot(FUN_countNA(df@data$size)==0)
-}
-
 check_mm_valid(museums_bg)
 ```
 
@@ -943,8 +938,6 @@ stopifnot( nrow(mdf)==ALL_MUSEUMS_N )
 
 # OPENINGS/CLOSINGS by years
 #all_years = seq(min(mdf$year_opened_BEG,na.rm = T), max(mdf$year_closed_END,na.rm = T))
-all_years = seq(1960,2022)
-summary(all_years)
 
 # get advanced stats per year
 get_stats_by_year = function(mdf, year){
@@ -1445,11 +1438,11 @@ calc_cumulative_stats = function(mdf,lab){
   openm_df$var_name = as.factor(openm_df$var_name)
   openm_df$var_value = as.factor(openm_df$var_value)
   write_xlsx(openm_df,paste0('../plots/openclose/openclose_cumulative/years_openclose_stats_cumulative-',lab,'-full.xlsx'))
-  cumul_years = openm_df[,c("year","var_name","var_value","cumul_open_wei_N","cumul_closed_wei_N")]
+  cumul_years_df = openm_df[,c("year","var_name","var_value","cumul_open_wei_N","cumul_closed_wei_N")]
   #View(cumul_years)
   rm(openm_df)
-  write_xlsx(cumul_years,paste0('../plots/openclose/openclose_cumulative/years_openclose_stats_cumulative-',lab,'.xlsx'))
-  return(cumul_years)
+  write_xlsx(cumul_years_df, paste0('../plots/openclose/openclose_cumulative/years_openclose_stats_cumulative-',lab,'.xlsx'))
+  return(cumul_years_df)
 }
 
 # generate cumulative stats for all museums

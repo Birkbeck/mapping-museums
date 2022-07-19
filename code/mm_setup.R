@@ -49,6 +49,15 @@ sort_df <- function( df, col, asc=T ){
   return(sdf)
 }
 
+check_mm_valid = function(df){
+  stopifnot(nrow(df)==ALL_MUSEUMS_N)
+  stopifnot(!FUN_col_exists(df@data,c('size_simpl','size_simpl_source')))
+  #stopifnot(FUN_col_exists(df@data,c('size','size_prov')))
+  stopifnot(FUN_col_exists(df@data,c('subject_matter_simpl','governance_simpl')))
+  stopifnot(FUN_countNA(df@data$size)==0)
+}
+
+
 FUN_order_factor <- function( x, ordered_levels, ordered = T ){
   stopifnot(is.factor(x))
   x = factor(x, ordered = ordered, levels=ordered_levels )
