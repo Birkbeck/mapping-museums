@@ -2088,7 +2088,7 @@ generate_all_growth_stats = function(cumul_years, lab, mdf){
   write_xlsx(dfopen, paste0(growth_outfold,'openclose_1960_2022_pc_change-1vars-',lab,'.xlsx'))
   
   foutn = paste0(growth_outfold,'openclose_1960_2022_pc_change-2vars-',lab,'.xlsx')
-  if (F){
+  if (T){
     # gen 2 vars stats
     growthtwo_df = generate2varsCombinations_(mdf)
     write_xlsx(growthtwo_df, foutn)
