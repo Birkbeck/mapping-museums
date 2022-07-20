@@ -2134,6 +2134,7 @@ rm(mdf)
 ```{r closing_analysis_gov, eval=T}
 
 # prep gov data
+years_df = read_excel('../plots/openclose/openclose_years/years_openclose_stats.xlsx')
 names(years_df)
 measure_vars = names(years_df)[grepl("open_gov_wei",names(years_df))]
 years_exp_df = reshape2::melt(years_df, measure.vars=measure_vars)
@@ -2238,15 +2239,16 @@ plot_openings_closings(years_exp_df,"Museum Closings by Simpl Size: weighted val
 
 # prep classif data for openings
 # too many lines
-names(years_df)
-years_exp_df = reshape2::melt(years_df,
-                        measure.vars=paste0("open_subjmatt_wei-",class18_simpl_aggr_types))
-plot_openings_closings(years_exp_df,"Museum Openings by Simpl Subject Matter: weighted values per year",'../plots/openclose/openclose_years/open_subjmatt_year')
-
-years_exp_df = reshape2::melt(years_df,
-                        measure.vars=paste0("close_subjmatt_wei-",class18_simpl_aggr_types))
-plot_openings_closings(years_exp_df,"Museum Closings by Simpl Subject Matter: weighted values per year",'../plots/openclose/openclose_years/close_subjmatt_year')
-
+if (F){
+  names(years_df)
+  years_exp_df = reshape2::melt(years_df,
+                          measure.vars=paste0("open_subjmatt_wei-",class18_simpl_aggr_types))
+  plot_openings_closings(years_exp_df,"Museum Openings by Simpl Subject Matter: weighted values per year",'../plots/openclose/openclose_years/open_subjmatt_year')
+  
+  years_exp_df = reshape2::melt(years_df,
+                          measure.vars=paste0("close_subjmatt_wei-",class18_simpl_aggr_types))
+  plot_openings_closings(years_exp_df,"Museum Closings by Simpl Subject Matter: weighted values per year",'../plots/openclose/openclose_years/close_subjmatt_year')
+}
 rm(mdf)
 ```
 
