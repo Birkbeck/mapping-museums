@@ -9,7 +9,7 @@ pacman::p_load(knitr,readr,readr,plyr,dplyr,sp,vegan,ineq,data.table,foreach,R.u
                moments,car,lmtest,QuantPsyc,psych,tmap,spdep,GWmodel,reshape2,scales,
                quantmod,classInt,tmap,grid,writexl,openxlsx,shinyjs,corrplot,measurements,
                caret,rpart,rpart.plot,randomForest,party,arules,doParallel,magick,gtools,
-               aspace,spatstat,stringdist,spatstat,biscale)
+               aspace,spatstat,stringdist,spatstat,biscale,readxl)
 
 # save current packages 
 mypks <- pacman::p_lib()

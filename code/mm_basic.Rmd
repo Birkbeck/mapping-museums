@@ -1276,6 +1276,8 @@ rm(years_exp_df)
 
 ### Open/closings cumulative
 
+Calculate open closing cumul stats
+
 ```{r closing_analysis_cumul, eval=T}
 
 check_mm_valid(museums_bg)
@@ -1459,7 +1461,11 @@ lauthmdf = subset(mdf, mdf$governance=='Government-Local_Authority')
 nrow(lauthmdf)
 cumul_years_lauth = calc_cumulative_stats(lauthmdf,'mus_lauth')
 rm(lauthmdf)
+```
 
+Plot cumulative charts
+
+```{r}
 # ----------------------------------------
 plot_cumul_openclose_charts <- function(df,title,fout, useFacets = F){
   width_sz = 8
@@ -1773,7 +1779,8 @@ rm(cumul_years_pc)
 TODO: FIX THIS
 
 ```{r growth_trends, eval=T}
-FUN_clean_folder("../plots/openclose/openclose_growth",exclude_files = c('README.txt','uk_lad_2016_reference_map.pdf'))
+FUN_clean_folder("../plots/openclose/openclose_growth",
+                 exclude_files = c('README.txt','uk_lad_2016_reference_map.pdf'))
 
 generate_1var_from_cumul_years_ = function(cumul_years, lab){
   print(paste("generate_1var_from_cumul_years",lab))
@@ -1784,6 +1791,7 @@ generate_1var_from_cumul_years_ = function(cumul_years, lab){
   df = subset( cumul_years, cumul_years$year==1960 | cumul_years$year==2022)
   unique(df$var_name)
   print(names(df))
+  #BROKEN CODE HERE
   # generate 1 var growth for all museums
   dfopen = dcast(df, formula = var_name + var_value ~ year, value.var = "cumul_open_wei_N" )
   #dfopen = dcast(df, formula = var_name + var_value ~ year, value.var = c("cumul_open_wei_N","cumul_closed_wei_N") )
@@ -1861,7 +1869,8 @@ calc_growth_by_two_vars_ = function( musdf, var1, var2 ){
       print(names(openm_df))
       print(names(row))
       print('debug0')
-      #View(row)
+      row3 = row
+      View(row3)
       openm_df = rbind(openm_df,row)
       #View(openm_df)
       rm(row,row2)
@@ -2062,15 +2071,21 @@ generate_all_growth_stats = function(cumul_years, lab, mdf){
   # gen 1 var stats
   dfopen = generate_1var_from_cumul_years_(cumul_years, lab)
   write_xlsx(dfopen, paste0(growth_outfold,'openclose_1960_2022_pc_change-1vars-',lab,'.xlsx'))
-  # gen 2 vars stats
-  growthtwo_df = generate2varsCombinations_(mdf)
-  write_xlsx(growthtwo_df,
-             paste0(growth_outfold,'openclose_1960_2022_pc_change-2vars-',lab,'.xlsx'))
-  
-  # gen maps
-  gen_growth_maps_(dfopen, growthtwo_df, lab, growth_outfold)
+  if (T){
+    # gen 2 vars stats
+    growthtwo_df = generate2varsCombinations_(mdf)
+    write_xlsx(growthtwo_df,
+               paste0(growth_outfold,'openclose_1960_2022_pc_change-2vars-',lab,'.xlsx'))
+    
+    # gen maps
+    gen_growth_maps_(dfopen, growthtwo_df, lab, growth_outfold)
+  }
 }
+```
 
+Run growth stats
+
+```{r}
 mdf = museums_bg
 
 # generate all growth stats
@@ -2079,9 +2094,15 @@ nrow(mdfindip)
 mdflauth = subset(mdf@data, mdf@data$governance == 'Government-Local_Authority')
 nrow(mdflauth)
 
-generate_all_growth_stats(cumul_years, 'mus_all', mdf@data)
-generate_all_growth_stats(cumul_years_indep, 'mus_indep', mdfindip)
-generate_all_growth_stats(cumul_years_lauth, 'mus_lauth', mdflauth)
+# load cumulative stats
+cumul_years3 = read_excel('../plots/openclose/openclose_cumulative/years_openclose_stats_cumulative-mus_all-full.xlsx')
+cumul_years_indep3 = read_excel('../plots/openclose/openclose_cumulative/years_openclose_stats_cumulative-mus_indep-full.xlsx')
+cumul_years_lauth3 = read_excel('../plots/openclose/openclose_cumulative/years_openclose_stats_cumulative-mus_lauth-full.xlsx')
+
+# gen stats (SLOW)
+generate_all_growth_stats(cumul_years3, 'mus_all', mdf@data)
+generate_all_growth_stats(cumul_years_indep3, 'mus_indep', mdfindip)
+generate_all_growth_stats(cumul_years_lauth3, 'mus_lauth', mdflauth)
 rm(mdfindip,mdflauth)
 
 #rm(engl_regs)
