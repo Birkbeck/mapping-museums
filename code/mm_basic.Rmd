@@ -289,8 +289,7 @@ update_simplified_fields = function(full_df){
 # geo-utils
 
 load_uk_dataset <- function( name ){
-  ds = readRDS(paste0("../datasets/uk_datasets/",
-                      name))
+  ds = readRDS(paste0("../datasets/uk_datasets/", name))
   stopifnot( nrow(ds)>0 )
   print(paste("load_uk_dataset:",name))
   return(ds)
@@ -1829,8 +1828,8 @@ generate_1var_from_cumul_years_ = function(cumul_years, lab){
 }
 
 calc_growth_by_two_vars_ = function( musdf, var1, var2 ){
-  View(musdf)
-  print('calc_growth_by_two_vars_')
+  print(paste('calc_growth_by_two_vars_',nrow(musdf)))
+  #View(musdf) # debug
   years = c(1960,2022)
   openm_df = data.frame()
   stopifnot(var2 %in% names(musdf))
@@ -1840,18 +1839,30 @@ calc_growth_by_two_vars_ = function( musdf, var1, var2 ){
     print(val1)
     df = musdf[ musdf[ , var1 ]==val1, ]
     for (val2 in as.character(unique(musdf[,var2]))){
-      print(paste('val2',val2))
+      print(paste('   val2',val2))
+      # get year 1
       row = get_open_museums_by_year(years[1], df, var2, val2, nonZero = F)
+      row$cumul_open_wei_N_min = NULL
+      row$cumul_open_wei_N_max = NULL
+      row$cumul_closed_wei_N_min = NULL
+      row$cumul_closed_wei_N_max = NULL
       row$VAR1 = var1
       row$VAL1 = val1
-      View(row)
+      #View(row)
+      # get year 2
       row2 = get_open_museums_by_year(years[2], df, var2, val2, nonZero = F)
-      View(row2)
+      row2$cumul_open_wei_N_min = NULL
+      row2$cumul_open_wei_N_max = NULL
+      row2$cumul_closed_wei_N_min = NULL
+      row2$cumul_closed_wei_N_max = NULL
+      #View(row2)
       row$year = paste0(years,collapse='-')
       row$open2022 = row2$cumul_open_wei_N
       row$close2022 = row2$cumul_closed_wei_N
+      #print(names(row))
+      stopifnot(ncol(row)==9)
       names(row) = c("year","var2","val2","open1960","close1960",
-        "var1","val1","open2022","close2022" )
+        "var1","val1","open2022","close2022")
       # calc growth
       row$diffN = row$open2022 - row$open1960
       row$growth = ifelse( row$open1960 >= 1, 
@@ -1866,11 +1877,11 @@ calc_growth_by_two_vars_ = function( musdf, var1, var2 ){
       #View(row)
       # save result row
       #print('debug6')
-      print(names(openm_df))
-      print(names(row))
-      print('debug0')
-      row3 = row
-      View(row3)
+      #print(names(openm_df))
+      #print(names(row))
+      #print('debug0')
+      #row3 = row
+      #View(row3)
       openm_df = rbind(openm_df,row)
       #View(openm_df)
       rm(row,row2)
@@ -1889,15 +1900,18 @@ calc_growth_by_two_vars_ = function( musdf, var1, var2 ){
 
 generate2varsCombinations_ = function( indf ){
   print('generate2varsCombinations_')
+  #print(names(indf))
   growthtwodf = data.frame()
-  for(var1 in c('size','subject_matter_simpl','subject_matter','region_gss','country_gss','lad16_gss')){
-  for(var2 in c('subject_matter_simpl','size','governance','governance_simpl','accreditation')){
+  for(var1 in c('size','subject_matter_simpl','subject_matter','region_gss',
+                'country_gss','lad16_gss')){
+  for(var2 in c('subject_matter_simpl','size','governance','governance_simpl',
+                'accreditation')){
     if (var1!=var2){
       print(paste('  ',var1,var2))
       df = calc_growth_by_two_vars_( indf, var1, var2 )
       df$VARS = paste(var1, var2, sep='+')
-      print('debug5')
-      growthtwodf = smartbind( growthtwodf, df )
+      #print('debug5')
+      growthtwodf = rbind( growthtwodf, df )
       rm(df)
   }}}
   #View(growthtwodf)
@@ -1943,11 +1957,11 @@ plot_choro_map_museum_growth_ <- function(sdf, sdf_simpl, label, var_col, outfol
     m
     print(m_London, vp = vp_London)
     #save_tmap(m, paste0(outfolder, fout,'.png'), width = 4, height = 6)
-    save_tmap(m, paste0(outfolder, fout,'.pdf'), width = 4, height = 6, 
+    tmap_save(m, paste0(outfolder, fout,'.pdf'), width = 4, height = 6, 
             insets_tm = list(m_London), insets_vp = list(vp_London))
   } else {
     #save_tmap(m, paste0(outfolder, fout,'.png'), width = 4, height = 6)
-    save_tmap(m, paste0(outfolder, fout,'.pdf'), width = 4, height = 6)
+    tmap_save(m, paste0(outfolder, fout,'.pdf'), width = 4, height = 6)
   }
 }
 
@@ -1955,6 +1969,7 @@ plot_choro_map_museum_growth_ <- function(sdf, sdf_simpl, label, var_col, outfol
 # growthtwodf: two var table
 # lab: 
 gen_growth_maps_ = function(dfopen, growthtwodf, lab, growth_outfold ){
+  print('gen_growth_maps_')
   stopifnot( nrow(dfopen)>0 )
   stopifnot( nrow(growthtwodf)>0 )
   
@@ -2071,13 +2086,16 @@ generate_all_growth_stats = function(cumul_years, lab, mdf){
   # gen 1 var stats
   dfopen = generate_1var_from_cumul_years_(cumul_years, lab)
   write_xlsx(dfopen, paste0(growth_outfold,'openclose_1960_2022_pc_change-1vars-',lab,'.xlsx'))
-  if (T){
+  
+  foutn = paste0(growth_outfold,'openclose_1960_2022_pc_change-2vars-',lab,'.xlsx')
+  if (F){
     # gen 2 vars stats
     growthtwo_df = generate2varsCombinations_(mdf)
-    write_xlsx(growthtwo_df,
-               paste0(growth_outfold,'openclose_1960_2022_pc_change-2vars-',lab,'.xlsx'))
-    
+    write_xlsx(growthtwo_df, foutn)
+  }
+  if (T){
     # gen maps
+    growthtwo_df = read_excel(foutn)
     gen_growth_maps_(dfopen, growthtwo_df, lab, growth_outfold)
   }
 }
@@ -2095,9 +2113,9 @@ mdflauth = subset(mdf@data, mdf@data$governance == 'Government-Local_Authority')
 nrow(mdflauth)
 
 # load cumulative stats
-cumul_years3 = read_excel('../plots/openclose/openclose_cumulative/years_openclose_stats_cumulative-mus_all-full.xlsx')
-cumul_years_indep3 = read_excel('../plots/openclose/openclose_cumulative/years_openclose_stats_cumulative-mus_indep-full.xlsx')
-cumul_years_lauth3 = read_excel('../plots/openclose/openclose_cumulative/years_openclose_stats_cumulative-mus_lauth-full.xlsx')
+cumul_years3 = read_excel('../plots/openclose/openclose_cumulative/years_openclose_stats_cumulative-mus_all.xlsx')
+cumul_years_indep3 = read_excel('../plots/openclose/openclose_cumulative/years_openclose_stats_cumulative-mus_indep.xlsx')
+cumul_years_lauth3 = read_excel('../plots/openclose/openclose_cumulative/years_openclose_stats_cumulative-mus_lauth.xlsx')
 
 # gen stats (SLOW)
 generate_all_growth_stats(cumul_years3, 'mus_all', mdf@data)
@@ -2494,7 +2512,7 @@ gen_animated_map = function( outfold, all_museums, years, col_field, delay=100 )
                 legend.position = c(.7,.7),
                 legend.title.size = 0.0001,
                 legend.text.size = 0.6, legend.text.color = 'gray50')
-    tmap::save_tmap(dot_map, fn, width = 3, height = 6)
+    tmap::tmap_save(dot_map, fn, width = 3, height = 6)
     #print(paste(' ',fn))
     rm(dfopen)
     return(fn)
