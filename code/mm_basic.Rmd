@@ -2464,7 +2464,7 @@ write_xlsx(years_df[,reg_cols],'../plots/openclose/openclose_geo/year_openclose_
 
 Animation maps.
 
-```{r closings_maps}
+```{r closings_maps, eval=FALSE}
 
 outfold = '../plots/maps/openclose_maps/'
 FUN_clean_folder(outfold)
@@ -2552,7 +2552,7 @@ rm(outfold)
 - calculate bounds for number of open museums (min/max); 
 - calculate curve of time intervals (density, from 0 to 60 years) from FUN_get_openings_over_time
 
-```{r}
+```{r, eval=FALSE}
 outdir = '../plots/openclose/openclose_uncertainty/'
 FUN_clean_folder(outdir)
 
