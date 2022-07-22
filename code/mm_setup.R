@@ -601,19 +601,19 @@ FUN_get_random_linetypes = function( vars, force=F ){
   return(styles)
 }
 
-# get probability that a museum is open at the target year
-#  updated to formula from Nick (May 2018)
-#   based on MMvisNotes_AP_NL_01_05-3_with_code.docx
-#   1.	open at a given time [ Bar ]  
-#
-# Open at a given time Logic: Suppose the time selected is t; 
-#   for each museum with an opening date (fo,to) 
-#   and a closing date (fc,tc), we add to the count for time t as follows:
-#   If t < fo then 0
-#   If fo <= t <= to then t-fo+1 / to-fo+1
-#   If to < t < fc then 1
-#   If fc <= t <= tc then tc-t+1 / tc-fc+1 
-#   If t> tc then 0
+#' get probability that a museum is open at the target year
+#'  updated to formula from Nick (May 2018)
+#'   based on MMvisNotes_AP_NL_01_05-3_with_code.docx
+#'   1.	open at a given time [ Bar ]
+#'
+#' Open at a given time Logic: Suppose the time selected is t; 
+#'   for each museum with an opening date (fo,to) 
+#'   and a closing date (fc,tc), we add to the count for time t as follows:
+#'   If t < fo then 0
+#'   If fo <= t <= to then t-fo+1 / to-fo+1
+#'   If to < t < fc then 1
+#'   If fc <= t <= tc then tc-t+1 / tc-fc+1 
+#'   If t> tc then 0
 FUN_get_probs_open_at_given_year = function( fo, to, fc, tc, t, opt='prob', prjid=NA ){
   stopifnot(opt %in% c('prob','min','max')) # min and max are to get the bounds
 
@@ -652,23 +652,7 @@ FUN_get_probs_open_at_given_year = function( fo, to, fc, tc, t, opt='prob', prji
     if (t > tc) return(0.0)
   }
   stopifnot(F) # this should never be reached
-  return(NA) 
-  
-  #df = mdf@data
-  #df$tmp1930 = FUN_get_openclose_probs_for_year( df, 1930 )
-  #df$tmp1960 = FUN_get_openclose_probs_for_year( df, 1960 )
-  #df$tmp1975 = FUN_get_openclose_probs_for_year( df, 1975 )
-  #df$tmp1980 = FUN_get_openclose_probs_for_year( df, 1980 )
-  #df$tmp1995 = FUN_get_openclose_probs_for_year( df, 1995 )
-  #df$tmp2005 = FUN_get_openclose_probs_for_year( df, 2005 )
-  #df$tmp2017 = FUN_get_openclose_probs_for_year( df, 2017 )
-  #res = df[,c("year_opened_BEG","year_opened_END",
-  #            "year_closed_BEG","year_closed_END",'tmp1960','tmp1980','tmp2005','tmp2017')]
-  #colSums(res)
-  #summary(res)
-  #nrow(res)
-  #write_xlsx(res,'../tmp/year_open_logic_test.xlsx')
-  #rm(res,df)
+  return(NA)
 }
 
 FUN_get_probs_open_at_given_year_bounds = function( fo, to, fc, tc, t, opt ){
@@ -681,7 +665,8 @@ FUN_get_probs_open_at_given_year_bounds = function( fo, to, fc, tc, t, opt ){
   p
 }
 
-# 1.	open at a given time
+#' 1.	open at a given time 
+#' @param opt probabilistic or not
 FUN_get_open_at_given_time = function(df, year, opt='prob'){
   stopifnot(opt %in% c('prob','min','max'))
   

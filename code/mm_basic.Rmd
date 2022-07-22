@@ -25,9 +25,9 @@ summary(all_years)
 # Sandbox
 
 ```{r, eval=FALSE}
-tmpdf = get_open_museums_by_year(2016, museums_bg@data, 'all', 'all')
-
-TODO: check open logic
+print(get_open_museums_by_year(2016, museums_bg@data, 'all', 'all'))
+print(get_open_museums_by_year(2022, museums_bg@data, 'all', 'all'))
+unique(FUN_get_open_at_given_time(museums_bg@data, 2023))
 ```
 
 # Load data
@@ -1295,6 +1295,9 @@ mdf = museums_bg
 # clean up out folder
 FUN_clean_folder("../plots/openclose/openclose_cumulative/")
 
+#' Calculate open/close stats for museums 
+#' @param nonZero raise error if data is empty 
+#' @return a row with values
 get_open_museums_by_year = function(year, all_df, var_name, var_value, nonZero = T){
   #print(paste("get_open_museums_by_year",var_name))
   if (var_name!='all'){
