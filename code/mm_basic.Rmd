@@ -22,6 +22,14 @@ all_years = seq(1960,2022)
 summary(all_years)
 ```
 
+# Sandbox
+
+```{r, eval=FALSE}
+tmpdf = get_open_museums_by_year(2016, museums_bg@data, 'all', 'all')
+
+TODO: check open logic
+```
+
 # Load data
 
 ## Load museum dataset
@@ -2555,7 +2563,6 @@ rm(outfold)
 ```{r, eval=FALSE}
 outdir = '../plots/openclose/openclose_uncertainty/'
 FUN_clean_folder(outdir)
-
 
 # ------------------------------------------------------------------------------
 # Length of intervals
