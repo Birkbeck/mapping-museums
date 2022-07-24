@@ -1,7 +1,9 @@
 Mapping Museums - Data analytics
 ========
 
-### Abstract: This repository contains R code and datasets used to generate statistical information for the Mapping Museums project http://blogs.bbk.ac.uk/mapping-museums/.
+### Abstract: 
+
+This repository contains R code and datasets used to generate statistical information for the Mapping Museums project http://blogs.bbk.ac.uk/mapping-museums/.
 
 ### Publications:
 
