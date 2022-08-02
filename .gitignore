@@ -6,3 +6,7 @@ tmp/
 .Rhistory
 docs/data_for_report_2022/~$table 12 - mus2017_region_name_vs_pop22.xlsx
 .RData
+docs/data_for_report_2022/~$years_openclose_stats_pc_change - governance.xlsx
+docs/data_for_report_2022/~$years_openclose_stats_pc_change - location.xlsx
+plots/openclose/openclose_cumulative/~$years_openclose_stats_cumulative-mus_all.xlsx
+plots/openclose/openclose_cumulative/~$years_openclose_stats_pc_change.xlsx

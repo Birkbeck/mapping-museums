@@ -1473,6 +1473,20 @@ cumul_years_lauth = calc_cumulative_stats(lauthmdf,'mus_lauth')
 rm(lauthmdf)
 ```
 
+
+Stats for Report 2022
+
+```{r}
+df = read_excel('../plots/openclose/openclose_cumulative/years_openclose_stats_pc_change.xlsx')
+names(df) = c('year','var_name','var_value','cumul_open_wei_pc_change','cumul_close_wei_pc_change')
+df$var_geo = replace_gss_codes_with_NAs(df$var_value)
+df$var_geo[df$var_geo=='NA'] = ''
+df = df[,c('year','var_name','var_value','var_geo','cumul_open_wei_pc_change','cumul_close_wei_pc_change')]
+
+write_xlsx(df, '../plots/openclose/openclose_cumulative/years_openclose_stats_pc_change_report2022.xlsx')
+rm(df)
+```
+
 Plot cumulative charts
 
 ```{r}
