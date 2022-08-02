@@ -1786,8 +1786,6 @@ rm(cumul_years_pc)
 
 ### Open/closings growth trends
 
-TODO: FIX THIS
-
 ```{r growth_trends, eval=T}
 FUN_clean_folder("../plots/openclose/openclose_growth",
                  exclude_files = c('README.txt','uk_lad_2016_reference_map.pdf'))
