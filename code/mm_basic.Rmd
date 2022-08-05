@@ -18,7 +18,7 @@ pre:not([class]) {
 ```{r setup, echo=FALSE, message=FALSE}
 source("mm_setup.R")
 
-all_years = seq(1960,2022)
+all_years = seq(1960,2019)
 summary(all_years)
 ```
 
@@ -26,7 +26,7 @@ summary(all_years)
 
 ```{r, eval=FALSE}
 print(get_open_museums_by_year(2016, museums_bg@data, 'all', 'all'))
-print(get_open_museums_by_year(2022, museums_bg@data, 'all', 'all'))
+print(get_open_museums_by_year(2019, museums_bg@data, 'all', 'all'))
 unique(FUN_get_open_at_given_time(museums_bg@data, 2023))
 ```
 
@@ -502,8 +502,8 @@ museums_bg = readRDS('../datasets/museums/museums_bg_sdf.rds')
 museums_bg$project_id = museums_bg$museum_id
 
 full_df = readRDS('../datasets/museums/museums_full_df.rds')
-museums2022sdf = FUN_get_museums_open_in_a_year(museums_bg, 2022)
-stopifnot(nrow(museums2022sdf)==3363)
+museums2019sdf = FUN_get_museums_open_in_a_year(museums_bg, 2019)
+stopifnot(nrow(museums2019sdf)==3364)
 
 class18_simpl_aggr_types = as.character(unique(museums_bg$subject_matter_simpl_aggr))
 class18_simpl_aggr_types = class18_simpl_aggr_types[!is.na(class18_simpl_aggr_types)]
@@ -523,7 +523,7 @@ alldf = museums_bg@data
 
 # general stats
 FUN_dfsummary_to_file(alldf, paste0(basicfold,"allmus_summary_stats.txt"))
-FUN_dfsummary_to_file(museums2022sdf, paste0(basicfold,"mus2022_summary_stats.txt"))
+FUN_dfsummary_to_file(museums2019sdf, paste0(basicfold,"mus2019_summary_stats.txt"))
 
 format_data_for_summary = function(x){
   x = as.character( x )
@@ -546,15 +546,15 @@ for (var in c("subject_matter","subject_matter_simpl","subject_matter_simpl_aggr
   df = subset(df,df$VAL.Freq > 0)
   write_xlsx(df, paste0(basicfold, 'allmus_summary_var-',var,".xlsx") )
   
-  # 2022 MUSEUMS
-  x = format_data_for_summary( museums2022sdf@data[,var] )
-  df = p_summary_list( x, paste0('mus2022-',var) )
+  # 2019 MUSEUMS
+  x = format_data_for_summary( museums2019sdf@data[,var] )
+  df = p_summary_list( x, paste0('mus2019-',var) )
   df = subset(df,df$VAL.Freq > 0)
-  write_xlsx(df, paste0(basicfold, 'mus2022_summary_var-',var,".xlsx") )
+  write_xlsx(df, paste0(basicfold, 'mus2019_summary_var-',var,".xlsx") )
   rm(df,x)
 }
 
-names(museums2022sdf)
+names(museums2019sdf)
 
 # ------------------------------------------------------------------------
 # calculate stats for two variables
@@ -564,32 +564,32 @@ FUN_clean_folder("../plots/basic_stats/two_var_stats/")
 for(var1 in c("size","subject_matter","governance_simpl","subject_matter_simpl","accreditation","country_name")){
   for(var2 in c("governance","governance_simpl","accreditation","subject_matter","subject_matter_simpl","region_name")){
     if (var1!=var2) FUN_twoVarStats(museums_bg@data, var1, var2, '../plots/basic_stats/two_var_stats/allmus_')
-    if (var1!=var2) FUN_twoVarStats(museums2022sdf@data, var1, var2, '../plots/basic_stats/two_var_stats/mus2022_')
-    if (var1!=var2) FUN_twoVarStats(museums2022sdf@data, var2, var1, '../plots/basic_stats/two_var_stats/mus2022_')
+    if (var1!=var2) FUN_twoVarStats(museums2019sdf@data, var1, var2, '../plots/basic_stats/two_var_stats/mus2019_')
+    if (var1!=var2) FUN_twoVarStats(museums2019sdf@data, var2, var1, '../plots/basic_stats/two_var_stats/mus2019_')
   }
 }
 
 # custom stats for Fiona
 #
 # I've had a look at the plots. I was wondering if there is a way of generating comparisons across
-# the summaries? So, I'm looking at mus2022_summary_var-classification_2018-just_accredited.xlsx
-# and the equivalent for total 2022 museums. What's surprising is that there isn't a huge amount of difference 
+# the summaries? So, I'm looking at mus2019_summary_var-classification_2018-just_accredited.xlsx
+# and the equivalent for total 2019 museums. What's surprising is that there isn't a huge amount of difference 
 # in the overall distribution of subject matter, or at least as far as I can see (Large houses jumps up). 
 # BUT would it be possible to generate a table that calculated percentage increase (So if we go from accredited 
-# museums to all2022 museums, large houses jumps +2%, transport +1% and so on? that would make it much 
+# museums to all2019 museums, large houses jumps +2%, transport +1% and so on? that would make it much 
 # easier for me to see where change happens.
 # Also, would you generate a summary table for unaccredited museums please?
 
-# 2022 MUSEUMS class 18 stats
-for (var in c("subject_matter","subject_matter")){
-  df = as.data.frame.matrix(table(museums2022sdf[,c(var,"accreditation")]))
+# 2019 MUSEUMS class 18 stats
+for (var in c("subject_matter")){
+  df = as.data.frame.matrix(table(museums2019sdf@data[,c(var,"accreditation")]))
   #print(nrow(mus))
   df$V1=NULL
-  df$all2022 = rowSums(df)
-  print(sum(df$all2022))
-  df$all2022_PC = round(df$all2022/nrow(museums2022sdf)*100,2)
-  df$Accredited_PC = round(df$Accredited/nrow(museums2022sdf)*100,2)
-  df$Unaccredited_PC = round(df$Unaccredited/nrow(museums2022sdf)*100,2)
+  df$all2019 = rowSums(df)
+  print(sum(df$all2019))
+  df$all2019_PC = round(df$all2019/nrow(museums2019sdf)*100,2)
+  df$Accredited_PC = round(df$Accredited/nrow(museums2019sdf)*100,2)
+  df$Unaccredited_PC = round(df$Unaccredited/nrow(museums2019sdf)*100,2)
   #df$variation_PC = df$Accredited_PC - df$Unaccredited_PC
   df$accr_gain_PC = df$Accredited_PC - df$Unaccredited_PC
   df$accr_variation_PC = ifelse( df$Unaccredited_PC > 0, 
@@ -597,19 +597,21 @@ for (var in c("subject_matter","subject_matter")){
     NA)
   `*` = row.names(df)
   df = cbind( `*`, df )
-  fn = paste0('../plots/basic_stats/two_var_stats/mus2022_summary_2var_extended-',var,"-vs-accreditation.xlsx")
+  fn = paste0('../plots/basic_stats/two_var_stats/mus2019_summary_2var_extended-',var,"-vs-accreditation.xlsx")
   write_xlsx(df, fn)
   rm(df,var)
 }
 
 # compare size classifications
-for(var1 in c("size","aim_size_designation","accreditation")){
-  for(var2 in c("ace_size_designation","aim_size_designation")){
-    if (var1!=var2) FUN_twoVarStats(alldf, var1, var2, '../plots/basic_stats/two_var_stats/allmus_')
-    if (var1!=var2) FUN_twoVarStats(museums2022sdf, var1, var2, '../plots/basic_stats/two_var_stats/mus2022_')
-}}
+if (FALSE){
+  for(var1 in c("size","aim_size_designation","accreditation")){
+    for(var2 in c("ace_size_designation","aim_size_designation")){
+      if (var1!=var2) FUN_twoVarStats(alldf, var1, var2, '../plots/basic_stats/two_var_stats/allmus_')
+      if (var1!=var2) FUN_twoVarStats(museums2019sdf, var1, var2, '../plots/basic_stats/two_var_stats/mus2019_')
+    }}
+}
 
-rm(var1,var2,basicfold,museums2022sdf)
+rm(var1,var2,basicfold,museums2019sdf)
 rm(alldf)
 rm(format_data_for_summary)
 ```
@@ -796,10 +798,10 @@ gen_stats_country_region = function(musdf, lab){
   rm(df,stats_df)
 }
 
-stopifnot(nrow(museums2022sdf)>0)
+stopifnot(nrow(museums2019sdf)>0)
 
 gen_stats_country_region(museums_bg@data,'all')
-gen_stats_country_region(museums2022sdf@data,'22')
+gen_stats_country_region(museums2019sdf@data,'22')
 
 # -------------------------------------------------
 # Generate stats for all museums in LADs 2011
@@ -1474,7 +1476,7 @@ rm(lauthmdf)
 ```
 
 
-Stats for Report 2022
+Stats for Report 2019
 
 ```{r}
 df = read_excel('../plots/openclose/openclose_cumulative/years_openclose_stats_pc_change.xlsx')
@@ -1483,7 +1485,7 @@ df$var_geo = replace_gss_codes_with_NAs(df$var_value)
 df$var_geo[df$var_geo=='NA'] = ''
 df = df[,c('year','var_name','var_value','var_geo','cumul_open_wei_pc_change','cumul_close_wei_pc_change')]
 
-write_xlsx(df, '../plots/openclose/openclose_cumulative/years_openclose_stats_pc_change_report2022.xlsx')
+write_xlsx(df, '../plots/openclose/openclose_cumulative/years_openclose_stats_pc_change_report2019.xlsx')
 rm(df)
 ```
 
@@ -1567,6 +1569,9 @@ plot_cumul_openclose_charts <- function(df,title,fout, useFacets = F){
   rm(p)
 }
 # -------------------------------------
+
+# load cumul_years
+TODO
 
 # PLOT cumulative stats Open museums (WEIGHTED)
 df = subset( cumul_years, cumul_years$var_name == 'all' )[,c("year","cumul_open_wei_N")]
@@ -1809,8 +1814,8 @@ generate_1var_from_cumul_years_ = function(cumul_years, lab){
   names(cumul_years)
   stopifnot(nrow(cumul_years)>100)
   
-  # compare 1960 with 2022
-  df = subset( cumul_years, cumul_years$year==1960 | cumul_years$year==2022)
+  # compare 1960 with 2019
+  df = subset( cumul_years, cumul_years$year==1960 | cumul_years$year==2019)
   unique(df$var_name)
   print(names(df))
   #BROKEN CODE HERE
@@ -1818,8 +1823,8 @@ generate_1var_from_cumul_years_ = function(cumul_years, lab){
   dfopen = dcast(df, formula = var_name + var_value ~ year, value.var = "cumul_open_wei_N" )
   #dfopen = dcast(df, formula = var_name + var_value ~ year, value.var = c("cumul_open_wei_N","cumul_closed_wei_N") )
   dfclosed = dcast(df, formula = var_name + var_value ~ year, value.var = "cumul_closed_wei_N" )
-  names(dfopen) = c("var_name","var_value","open1960","open2022" )
-  names(dfclosed) = c("var_name","var_value","close1960","close2022" )
+  names(dfopen) = c("var_name","var_value","open1960","open2019" )
+  names(dfclosed) = c("var_name","var_value","close1960","close2019" )
   #View(dfopen)
   #View(dfclosed)
   
@@ -1828,24 +1833,24 @@ generate_1var_from_cumul_years_ = function(cumul_years, lab){
   dfclosed$rowid = paste0(dfclosed$var_name,dfclosed$var_value)
   stopifnot(dfopen$rowid==dfclosed$rowid)
   dfopen$close1960 = dfclosed$close1960
-  dfopen$close2022 = dfclosed$close2022
+  dfopen$close2019 = dfclosed$close2019
   dfopen$rowid=NULL
   rm(dfclosed)
   
   #View(dfopen)
   dfopen$geo_label = replace_gss_codes_with_NAs(dfopen$var_value)
-  dfopen = dfopen[,c("var_name","var_value","geo_label","open1960","open2022",'close1960','close2022')]
-  dfopen$diffN = dfopen$open2022 - dfopen$open1960
+  dfopen = dfopen[,c("var_name","var_value","geo_label","open1960","open2019",'close1960','close2019')]
+  dfopen$diffN = dfopen$open2019 - dfopen$open1960
   dfopen$growth = ifelse( dfopen$open1960 >= 1, 
-        round((dfopen$open2022 - dfopen$open1960) / dfopen$open1960 * 100,1), 
+        round((dfopen$open2019 - dfopen$open1960) / dfopen$open1960 * 100,1), 
         NA )
-  dfopen$open2022 = round(dfopen$open2022,1)
-  dfopen$close2022 = round(dfopen$close2022,1)
+  dfopen$open2019 = round(dfopen$open2019,1)
+  dfopen$close2019 = round(dfopen$close2019,1)
   dfopen$open1960 = round(dfopen$open1960,1)
   dfopen$close1960 = round(dfopen$close1960,1)
   dfopen$diffN = round(dfopen$diffN,1)
-  dfopen$closedpc = ifelse(dfopen$open2022>=1,
-        round( dfopen$close2022 / (dfopen$open2022+dfopen$close2022) * 100, 1 ),
+  dfopen$closedpc = ifelse(dfopen$open2019>=1,
+        round( dfopen$close2019 / (dfopen$open2019+dfopen$close2019) * 100, 1 ),
         NA)
   return(dfopen)
 }
@@ -1853,7 +1858,7 @@ generate_1var_from_cumul_years_ = function(cumul_years, lab){
 calc_growth_by_two_vars_ = function( musdf, var1, var2 ){
   print(paste('calc_growth_by_two_vars_',nrow(musdf)))
   #View(musdf) # debug
-  years = c(1960,2022)
+  years = c(1960,2019)
   openm_df = data.frame()
   stopifnot(var2 %in% names(musdf))
   stopifnot(var1 %in% names(musdf))
@@ -1880,22 +1885,22 @@ calc_growth_by_two_vars_ = function( musdf, var1, var2 ){
       row2$cumul_closed_wei_N_max = NULL
       #View(row2)
       row$year = paste0(years,collapse='-')
-      row$open2022 = row2$cumul_open_wei_N
-      row$close2022 = row2$cumul_closed_wei_N
+      row$open2019 = row2$cumul_open_wei_N
+      row$close2019 = row2$cumul_closed_wei_N
       #print(names(row))
       stopifnot(ncol(row)==9)
       names(row) = c("year","var2","val2","open1960","close1960",
-        "var1","val1","open2022","close2022")
+        "var1","val1","open2019","close2019")
       # calc growth
-      row$diffN = row$open2022 - row$open1960
+      row$diffN = row$open2019 - row$open1960
       row$growth = ifelse( row$open1960 >= 1, 
-                        round((row$open2022 - row$open1960) / row$open1960 * 100, 1), 
+                        round((row$open2019 - row$open1960) / row$open1960 * 100, 1), 
                         NA )
       row$open1960 = round(row$open1960,1)
-      row$open2022 = round(row$open2022,1)
+      row$open2019 = round(row$open2019,1)
       row$diffN = round(row$diffN,1)
-      row$closedpc = ifelse(row$open2022>=1,
-                        round( row$close2022 / (row$open2022+row$close2022) * 100, 1 ),
+      row$closedpc = ifelse(row$open2019>=1,
+                        round( row$close2019 / (row$open2019+row$close2019) * 100, 1 ),
                         NA)
       #View(row)
       # save result row
@@ -1916,7 +1921,7 @@ calc_growth_by_two_vars_ = function( musdf, var1, var2 ){
   stopifnot(ncol(openm_df)==12)
   openm_df$var1_geo_label = replace_gss_codes_with_NAs(openm_df$val1)
   openm_df = openm_df[,c("year","var1","val1",'var1_geo_label',"var2","val2",
-                         "open1960","close1960",'open2022','close2022','closedpc',
+                         "open1960","close1960",'open2019','close2019','closedpc',
                          'diffN','growth')]
   return(openm_df)
 }
@@ -2007,14 +2012,14 @@ gen_growth_maps_ = function(dfopen, growthtwodf, lab, growth_outfold ){
   uk_lads_2016 <- load_uk_dataset("uk_local_auth_2016-simp01.rds")
   uk_lads_2016_growth = merge( uk_lads_2016, dfopen, by.x="GSS", by.y="var_value", all.y=F)
   names(uk_lads_2016_growth)
-  # "GSS" "NAME" "var_name" "geo_label" "open1960"  "open2022"  "diffN" "growth"
+  # "GSS" "NAME" "var_name" "geo_label" "open1960"  "open2019"  "diffN" "growth"
   
   #uk_lads_2016_simpl = rmapshaper::ms_simplify(uk_lads_2016, keep = .02)
   #names(uk_lads_2016) = make.names(names(uk_lads_2016))
   #names(uk_lads_2016_simpl) = make.names(names(uk_lads_2016_simpl))
   #stopifnot(nrow(uk_lads_2016_simpl)==nrow(uk_lads_2016))
   
-  VARS_GROWTH = c('growth','diffN','open1960','open2022','close2022','closedpc')
+  VARS_GROWTH = c('growth','diffN','open1960','open2019','close2019','closedpc')
   
   for(f in VARS_GROWTH){
     for(q in c('jenks')) # 'quantile','equal',
@@ -2083,7 +2088,7 @@ plot_choro_map_museum_growth_by_var_ = function( lab, growthtwodf, geo_sdf, geov
     stopifnot(nrow(df)>0)
     geo_growth = merge( geo_sdf, df, by.x="GSS", by.y="val1", all.y=F)
     
-    for(f in c('growth','diffN','open2022','close2022')){  # ,'open1960','')){
+    for(f in c('growth','diffN','open2019','close2019')){  # ,'open1960','')){
       for(q in c('jenks')){ # 'quantile','equal',{
         if (FUN_countNotNA(unique(geo_growth@data[,f]))<2){
           print(paste("Not enough values for ",label,' - skipping map'))
@@ -2108,15 +2113,15 @@ generate_all_growth_stats = function(cumul_years, lab, mdf){
   
   # gen 1 var stats
   dfopen = generate_1var_from_cumul_years_(cumul_years, lab)
-  write_xlsx(dfopen, paste0(growth_outfold,'openclose_1960_2022_pc_change-1vars-',lab,'.xlsx'))
+  write_xlsx(dfopen, paste0(growth_outfold,'openclose_1960_2019_pc_change-1vars-',lab,'.xlsx'))
   
-  foutn = paste0(growth_outfold,'openclose_1960_2022_pc_change-2vars-',lab,'.xlsx')
+  foutn = paste0(growth_outfold,'openclose_1960_2019_pc_change-2vars-',lab,'.xlsx')
   if (T){
     # gen 2 vars stats
     growthtwo_df = generate2varsCombinations_(mdf)
     write_xlsx(growthtwo_df, foutn)
   }
-  if (T){
+  if (F){
     # gen maps
     growthtwo_df = read_excel(foutn)
     gen_growth_maps_(dfopen, growthtwo_df, lab, growth_outfold)
