@@ -2575,6 +2575,14 @@ for (v in c(NA,'governance_simpl','size')){
 rm(outfold)
 ```
 
+### Custom figures for publications
+
+Figures for overview paper 2022:
+
+```{r}
+
+```
+
 ### Temporal uncertainty
 
 - calculate bounds for number of open museums (min/max); 
