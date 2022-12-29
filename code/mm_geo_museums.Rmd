@@ -32,7 +32,7 @@ nrow(museums2017sdf)
 write_file( paste0('Museums open in 2017: ',nrow(museums2017sdf)), 
             paste0(OUTFOLD,'museums_2017_stats.txt'))
 
-gss_lib = load_uk_dataset("gss_lib.rds")
+gss_lib = readRDS("../datasets/uk_datasets/gss_lib.rds")
 
 # duplicated in spatial_datasets.Rmd
 find_gss_in_lib <- function(x){
@@ -1506,7 +1506,7 @@ Also some extra datasets for web platform
 ```{r museums_oac, eval=T}
 
 oac_outfold = paste0(OUTFOLD,'oac/')
-unlink(paste0(oac_outfold,"*"), recursive = T)
+#unlink(paste0(oac_outfold,"*"), recursive = T)
 FUN_gen_last_update_file(oac_outfold)
 
 FUN_copy_doc_uk( "ONS_output_area_classification/2011 OAC groups.png", oac_outfold)
