@@ -1509,15 +1509,16 @@ oac_outfold = paste0(OUTFOLD,'oac/')
 #unlink(paste0(oac_outfold,"*"), recursive = T)
 FUN_gen_last_update_file(oac_outfold)
 
-FUN_copy_doc_uk( "ONS_output_area_classification/2011 OAC groups.png", oac_outfold)
-FUN_copy_doc_uk( "ONS_output_area_classification/2011 OAC supergroups.png", oac_outfold)
-FUN_copy_doc_uk( "ONS_output_area_classification/2011 OAC subgroups.png", oac_outfold)
-FUN_copy_doc_uk( "ONS_output_area_classification/categories pen portraits-output areas.pdf", oac_outfold)
-FUN_copy_doc_uk( "ONS_output_area_classification/categories pen portraits-LAD-v2.pdf", oac_outfold)
-FUN_copy_doc_uk( "ONS_output_area_classification/2011 oac list all categories.xlsx", oac_outfold)
-FUN_copy_doc_uk( "ONS_output_area_classification/categories pen portraits-lad-descriptions.pdf", oac_outfold)
+#FUN_copy_doc_uk( "ONS_output_area_classification/2011 OAC groups.png", oac_outfold)
+#FUN_copy_doc_uk( "ONS_output_area_classification/2011 OAC supergroups.png", oac_outfold)
+#FUN_copy_doc_uk( "ONS_output_area_classification/2011 OAC subgroups.png", oac_outfold)
+#FUN_copy_doc_uk( "ONS_output_area_classification/categories pen portraits-output areas.pdf", oac_outfold)
+#FUN_copy_doc_uk( "ONS_output_area_classification/categories pen portraits-LAD-v2.pdf", oac_outfold)
+#FUN_copy_doc_uk( "ONS_output_area_classification/2011 oac list all categories.xlsx", oac_outfold)
+#FUN_copy_doc_uk( "ONS_output_area_classification/categories pen portraits-lad-descriptions.pdf", oac_outfold)
 
 # this is needed
+#oa_df = read_tsv('../datasets/extra_data/museumsall_gss_lsoa2011.tsv')
 stopifnot(nrow(museums_oa)>0)
 
 # -------------------------
@@ -1736,6 +1737,16 @@ if (F){
 rm(museum_oac_lad_units_df)
 rm(museums2017_bg, oac_oa, oaclad2011sdf)
 ```
+## Geodemo paper data
+
+```{r}
+
+# LAD vs governance
+div_df = read_excel(paste0(oac_outfold, 'mus_OAC_LAD-2var-group_name-governance--diverg.xlsx'))
+
+
+```
+
 
 # Museums urban/rural
 
