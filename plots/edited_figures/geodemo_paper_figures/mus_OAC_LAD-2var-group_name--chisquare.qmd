@@ -1,0 +1,357 @@
+---
+title: "Museums and OAC-LAD: chi square"
+author: "Stefano De Sabbata"
+format: 
+  html:
+    embed-resources: true
+    toc: true
+    toc-depth: 4
+---
+
+## Introduction
+
+This document explores the relationship between the Local Authority District (LAD) area classification groups and the governance and subject matter of the museums. I use the chi-square test to assess the relationship between the former and each one of the two latter categorical variables.
+
+### Load libraries
+
+```{r}
+#| warning: false
+#| message: false
+
+library(tidyverse)
+library(magrittr)
+library(readxl)
+library(knitr)
+library(kableExtra)
+library(gmodels)
+```
+
+
+
+## Governance
+
+### Load data
+
+![](mus_OAC_LAD-2var-group_name-governance--heat-v1.pdf){width=100%}
+
+```{r}
+# Data for
+# mus_OAC_LAD-2var-group_name-governance--heat-v1.pdf
+governance <-
+  read_excel("mus_OAC_LAD-2var-group_name-governance--data.xlsx") %>% 
+  rename(lad_class = `*`)
+
+governance %>% 
+  kable("html") %>% 
+  kable_styling(font_size = 7)
+```
+
+### Chi-square
+
+
+#### Test
+
+```{r}
+governance_chisq <-
+  governance %>% 
+  select(-`ROW SUM`) %>% 
+  column_to_rownames(var = "lad_class") %>% 
+  as.matrix() %>% 
+  chisq.test()
+
+governance_chisq
+
+governance_chisq_expected_tbl <-
+  governance_chisq %$%
+  expected %>% 
+  as_tibble() %>% 
+  pivot_longer(
+    cols = everything(),
+    names_to = "governance",
+    values_to = "value"
+  ) %>% 
+  mutate(
+    one_or_greater =
+      if_else(
+        value >= 1,
+        TRUE,
+        FALSE
+      )
+  ) %>% 
+  group_by(one_or_greater) %>% 
+  count(name = "num_of_cells") %>% 
+  ungroup() %>% 
+  mutate(
+    perc_of_cells = (num_of_cells / sum(num_of_cells)) * 100
+  )
+
+governance_chisq_expected_tbl %>% 
+  kable("html")
+```
+
+Only `r governance_chisq_expected_tbl %>% filter(one_or_greater) %>% pull(perc_of_cells) %>% round(digits = 2)`% of cells have expected values greater or equal to 1, which is lower than the accepted limit of 80%.
+
+
+```{r}
+governance_chisq_simpv <-
+  governance %>% 
+  select(-`ROW SUM`) %>% 
+  column_to_rownames(var = "lad_class") %>% 
+  as.matrix() %>% 
+  chisq.test(simulate.p.value = TRUE)
+
+governance_chisq_simpv
+
+governance_chisq_simpv_expected_tbl <-
+  governance_chisq_simpv %$%
+  expected %>% 
+  as_tibble() %>% 
+  pivot_longer(
+    cols = everything(),
+    names_to = "governance",
+    values_to = "value"
+  ) %>% 
+  mutate(
+    one_or_greater =
+      if_else(
+        value >= 1,
+        TRUE,
+        FALSE
+      )
+  ) %>% 
+  group_by(one_or_greater) %>% 
+  count(name = "num_of_cells") %>% 
+  ungroup() %>% 
+  mutate(
+    perc_of_cells = (num_of_cells / sum(num_of_cells)) * 100
+  )
+
+governance_chisq_simpv_expected_tbl %>% 
+  kable("html")
+```
+
+As above, only `r governance_chisq_simpv_expected_tbl %>% filter(one_or_greater) %>% pull(perc_of_cells) %>% round(digits = 2)`% of cells have expected values greater or equal to 1, which is lower than the accepted limit of 80%.
+
+#### Results
+
+The results of the first chi-square analysis are reported below. 
+
+$$
+\chi^2(`r governance_chisq %$% parameter %>% extract("df")`,`r governance_chisq %$% observed %>% sum()`) = `r governance_chisq %$% statistic %>% round(digits = 2)` \text{, } `r if (governance_chisq %$% p.value < 0.01) "p < .01" else paste("p =", governance_chisq %$% p.value %>% round(digits = 2))`
+$$
+
+However, `R` returned the warning `Chi-squared approximation may be incorrect`, due to the very sparse nature of the table. Thus, a second test was run with simulated p-value (`based on 2000 replicates`). The results are the same, as reported below.
+
+$$
+\chi^2(,`r governance_chisq_simpv %$% observed %>% sum()`) = `r governance_chisq_simpv %$% statistic %>% round(digits = 2)` \text{, } `r if (governance_chisq_simpv %$% p.value < 0.01) "p < .01" else paste("p =", governance_chisq_simpv %$% p.value %>% round(digits = 2))`
+$$
+
+#### Conclusion
+
+As $`r if (governance_chisq_simpv %$% p.value < 0.01) "p < .01" else paste("p =", governance_chisq_simpv %$% p.value %>% round(digits = 2))`$, the results seem to indicate that governance and LAD classification are related. However, due to the very sparse nature of the table, this result might not be robust.
+
+#### CrossTable
+
+<div style="font-size: 50%;">
+
+```{r}
+governance %>%
+  select(-`ROW SUM`) %>%
+  column_to_rownames(var = "lad_class") %>%
+  as.matrix() %>%
+  CrossTable(
+    chisq = TRUE,
+    expected = TRUE, prop.c = FALSE,
+    prop.t = FALSE, prop.chisq = TRUE,
+    sresid = TRUE, format = "SPSS",
+    simulate.p.value = TRUE
+  )
+```
+
+</div>
+
+#### Alternative
+
+I attempted to run the chi-square analysis while removing some of the smaller categories, but the table is too sparse.
+
+```{r}
+#| eval: false
+#| code-fold: true
+#| code-summary: "Show the code"
+
+# >>> Chunck not evaluated <<<
+
+governance %>%
+  select(lad_class, `ROW SUM`) %>%
+  arrange(`ROW SUM`) %>%
+  kable("html")
+
+governance %>%
+  select(-`ROW SUM`) %>%
+  pivot_longer(
+    cols = - lad_class,
+    names_to = "Governance",
+    values_to = "Count"
+  ) %>%
+  group_by(Governance) %>%
+  summarise(
+    `COLUMN SUM` = sum(Count)
+  ) %>%
+  arrange(`COLUMN SUM`) %>%
+  kable("html")
+
+governance_rm_chisq <-
+  governance %>%
+  select(-`ROW SUM`) %>%
+  select(-`Government Cadw`, -`Government Other`, -`Independent Historic Environment Scotland`, -`Independent National Trust for Scotland`, -`Independent English Heritage`, -`Unknown`, -`Government National`, -`University`, -`Independent Unknown`) %>%
+  column_to_rownames(var = "lad_class") %>%
+  as.matrix() %>%
+  chisq.test()
+```
+
+
+## Subject matter
+
+### Load data
+
+![](mus_OAC_LAD-2var-group_name-subject_matter_simpl_aggr--diverg_heat-v1.pdf){width=100%}
+
+```{r}
+# Data for
+# mus_OAC_LAD-2var-group_name-subject_matter_simpl_aggr--diverg_heat-v1.pdf
+subject_matter <-
+  read_excel("mus_OAC_LAD-2var-group_name-subject_matter_simpl_aggr--data.xlsx") %>% 
+  rename(lad_class = `*`)
+
+subject_matter %>% 
+  kable("html") %>% 
+  kable_styling(font_size = 7)
+```
+
+### Chi-square
+
+#### Test
+
+```{r}
+subject_matter_chisq <-
+  subject_matter %>% 
+  select(-`ROW SUM`) %>% 
+  column_to_rownames(var = "lad_class") %>% 
+  as.matrix() %>% 
+  chisq.test()
+
+subject_matter_chisq
+
+subject_matter_chisq_expected_tbl <-
+  subject_matter_chisq %$%
+  expected %>% 
+  as_tibble() %>% 
+  pivot_longer(
+    cols = everything(),
+    names_to = "subject_matter",
+    values_to = "value"
+  ) %>% 
+  mutate(
+    one_or_greater =
+      if_else(
+        value >= 1,
+        TRUE,
+        FALSE
+      )
+  ) %>% 
+  group_by(one_or_greater) %>% 
+  count(name = "num_of_cells") %>% 
+  ungroup() %>% 
+  mutate(
+    perc_of_cells = (num_of_cells / sum(num_of_cells)) * 100
+  )
+
+subject_matter_chisq_expected_tbl %>% 
+  kable("html")
+```
+
+All cell have expected values greater or equal to 1.
+
+```{r}
+subject_matter_chisq_simpv <-
+  subject_matter %>% 
+  select(-`ROW SUM`) %>% 
+  column_to_rownames(var = "lad_class") %>% 
+  as.matrix() %>% 
+  chisq.test(simulate.p.value = TRUE)
+
+subject_matter_chisq_simpv
+
+subject_matter_chisq_simpv_expected_tbl <-
+  subject_matter_chisq_simpv %$%
+  expected %>% 
+  as_tibble() %>% 
+  pivot_longer(
+    cols = everything(),
+    names_to = "subject_matter",
+    values_to = "value"
+  ) %>% 
+  mutate(
+    one_or_greater =
+      if_else(
+        value >= 1,
+        TRUE,
+        FALSE
+      )
+  ) %>% 
+  group_by(one_or_greater) %>% 
+  count(name = "num_of_cells") %>% 
+  ungroup() %>% 
+  mutate(
+    perc_of_cells = (num_of_cells / sum(num_of_cells)) * 100
+  )
+
+subject_matter_chisq_simpv_expected_tbl %>% 
+  kable("html")
+```
+
+All cell have expected values greater or equal to 1.
+
+
+#### Results
+
+The results of the first chi-square analysis are reported below. 
+
+$$
+\chi^2(`r subject_matter_chisq %$% parameter %>% extract("df")`,`r subject_matter_chisq %$% observed %>% sum()`) = `r subject_matter_chisq %$% statistic %>% round(digits = 2)` \text{, } `r if (subject_matter_chisq %$% p.value < 0.01) "p < .01" else paste("p =", subject_matter_chisq %$% p.value %>% round(digits = 2))`
+$$
+
+However, `R` returned the warning `Chi-squared approximation may be incorrect`, due to the very sparse nature of the table. Thus, a second test was run with simulated p-value (`based on 2000 replicates`). The results are the same, as reported below.
+
+$$
+\chi^2(,`r subject_matter_chisq_simpv %$% observed %>% sum()`) = `r subject_matter_chisq_simpv %$% statistic %>% round(digits = 2)` \text{, } `r if (subject_matter_chisq_simpv %$% p.value < 0.01) "p < .01" else paste("p =", subject_matter_chisq_simpv %$% p.value %>% round(digits = 2))`
+$$
+
+
+#### Conclusion
+
+As $`r if (subject_matter_chisq_simpv %$% p.value < 0.01) "p < .01" else paste("p =", subject_matter_chisq_simpv %$% p.value %>% round(digits = 2))`$, the results seem to indicate that subject matter and LAD classification are related.
+
+#### CrossTable
+
+<div style="font-size: 50%;">
+
+```{r}
+subject_matter %>%
+  select(-`ROW SUM`) %>%
+  column_to_rownames(var = "lad_class") %>%
+  as.matrix() %>%
+  CrossTable(
+    chisq = TRUE,
+    expected = TRUE, prop.c = FALSE,
+    prop.t = FALSE, prop.chisq = TRUE,
+    sresid = TRUE, format = "SPSS",
+    simulate.p.value = TRUE
+  )
+```
+
+</div>
+
+## Conclusions
+
+The results seem to provide some indication that the Local Authority District (LAD) area classification groups could be related to the governance and subject matter of the museums. However, due to the sparse nature of both cross-tables, these results might not be robust. In particular, the governance cross-table does not fully satisfy one of the chi-square assumptions, and thus those results should not be taken at face value. Further analysis is necessary.
