@@ -61,7 +61,7 @@ governance_chisq <-
 
 governance_chisq
 
-governance_chisq_expected_tbl <-
+governance_chisq_expected_1_tbl <-
   governance_chisq %$%
   expected %>% 
   as_tibble() %>% 
@@ -85,11 +85,38 @@ governance_chisq_expected_tbl <-
     perc_of_cells = (num_of_cells / sum(num_of_cells)) * 100
   )
 
-governance_chisq_expected_tbl %>% 
+governance_chisq_expected_1_tbl %>% 
+  kable("html")
+
+governance_chisq_expected_5_tbl <-
+  governance_chisq %$%
+  expected %>% 
+  as_tibble() %>% 
+  pivot_longer(
+    cols = everything(),
+    names_to = "governance",
+    values_to = "value"
+  ) %>% 
+  mutate(
+    five_or_greater =
+      if_else(
+        value >= 5,
+        TRUE,
+        FALSE
+      )
+  ) %>% 
+  group_by(five_or_greater) %>% 
+  count(name = "num_of_cells") %>% 
+  ungroup() %>% 
+  mutate(
+    perc_of_cells = (num_of_cells / sum(num_of_cells)) * 100
+  )
+
+governance_chisq_expected_5_tbl %>% 
   kable("html")
 ```
 
-Only `r governance_chisq_expected_tbl %>% filter(one_or_greater) %>% pull(perc_of_cells) %>% round(digits = 2)`% of cells have expected values greater or equal to 1, which is lower than the accepted limit of 80%.
+Only `r governance_chisq_expected_1_tbl %>% filter(one_or_greater) %>% pull(perc_of_cells) %>% round(digits = 2)`% of cells have expected values greater or equal to 1 and only `r governance_chisq_expected_5_tbl %>% filter(five_or_greater) %>% pull(perc_of_cells) %>% round(digits = 2)`% of cells have expected values greater or equal to 5.
 
 
 ```{r}
@@ -102,7 +129,7 @@ governance_chisq_simpv <-
 
 governance_chisq_simpv
 
-governance_chisq_simpv_expected_tbl <-
+governance_chisq_simpv_expected_1_tbl <-
   governance_chisq_simpv %$%
   expected %>% 
   as_tibble() %>% 
@@ -126,24 +153,51 @@ governance_chisq_simpv_expected_tbl <-
     perc_of_cells = (num_of_cells / sum(num_of_cells)) * 100
   )
 
-governance_chisq_simpv_expected_tbl %>% 
+governance_chisq_simpv_expected_1_tbl %>% 
+  kable("html")
+
+governance_chisq_simpv_expected_5_tbl <-
+  governance_chisq_simpv %$%
+  expected %>% 
+  as_tibble() %>% 
+  pivot_longer(
+    cols = everything(),
+    names_to = "governance",
+    values_to = "value"
+  ) %>% 
+  mutate(
+    five_or_greater =
+      if_else(
+        value >= 5,
+        TRUE,
+        FALSE
+      )
+  ) %>% 
+  group_by(five_or_greater) %>% 
+  count(name = "num_of_cells") %>% 
+  ungroup() %>% 
+  mutate(
+    perc_of_cells = (num_of_cells / sum(num_of_cells)) * 100
+  )
+
+governance_chisq_simpv_expected_5_tbl %>% 
   kable("html")
 ```
 
-As above, only `r governance_chisq_simpv_expected_tbl %>% filter(one_or_greater) %>% pull(perc_of_cells) %>% round(digits = 2)`% of cells have expected values greater or equal to 1, which is lower than the accepted limit of 80%.
+As above, only `r governance_chisq_simpv_expected_1_tbl %>% filter(one_or_greater) %>% pull(perc_of_cells) %>% round(digits = 2)`% of cells have expected values greater or equal to 1 and only `r governance_chisq_simpv_expected_5_tbl %>% filter(five_or_greater) %>% pull(perc_of_cells) %>% round(digits = 2)`% of cells have expected values greater or equal to 5.
 
 #### Results
 
 The results of the first chi-square analysis are reported below. 
 
 $$
-\chi^2(`r governance_chisq %$% parameter %>% extract("df")`,`r governance_chisq %$% observed %>% sum()`) = `r governance_chisq %$% statistic %>% round(digits = 2)` \text{, } `r if (governance_chisq %$% p.value < 0.01) "p < .01" else paste("p =", governance_chisq %$% p.value %>% round(digits = 2))`
+\chi^2(`r governance_chisq %$% parameter %>% extract("df")`,`r governance_chisq %$% observed %>% sum()`) = `r governance_chisq %$% statistic %>% round(digits = 2)` \text{, } `r if (governance_chisq %$% p.value < 0.001) "p < .001" else if (governance_chisq %$% p.value < 0.01) "p < .01" else paste("p =", governance_chisq %$% p.value %>% round(digits = 2))`
 $$
 
 However, `R` returned the warning `Chi-squared approximation may be incorrect`, due to the very sparse nature of the table. Thus, a second test was run with simulated p-value (`based on 2000 replicates`). The results are the same, as reported below.
 
 $$
-\chi^2(,`r governance_chisq_simpv %$% observed %>% sum()`) = `r governance_chisq_simpv %$% statistic %>% round(digits = 2)` \text{, } `r if (governance_chisq_simpv %$% p.value < 0.01) "p < .01" else paste("p =", governance_chisq_simpv %$% p.value %>% round(digits = 2))`
+\chi^2(,`r governance_chisq_simpv %$% observed %>% sum()`) = `r governance_chisq_simpv %$% statistic %>% round(digits = 2)` \text{, } `r if (governance_chisq_simpv %$% p.value < 0.001) "p < .001" else if (governance_chisq_simpv %$% p.value < 0.01) "p < .01" else paste("p =", governance_chisq_simpv %$% p.value %>% round(digits = 2))`
 $$
 
 #### Conclusion
@@ -242,7 +296,7 @@ subject_matter_chisq <-
 
 subject_matter_chisq
 
-subject_matter_chisq_expected_tbl <-
+subject_matter_chisq_expected_1_tbl <-
   subject_matter_chisq %$%
   expected %>% 
   as_tibble() %>% 
@@ -266,11 +320,38 @@ subject_matter_chisq_expected_tbl <-
     perc_of_cells = (num_of_cells / sum(num_of_cells)) * 100
   )
 
-subject_matter_chisq_expected_tbl %>% 
+subject_matter_chisq_expected_1_tbl %>% 
+  kable("html")
+
+subject_matter_chisq_expected_5_tbl <-
+  subject_matter_chisq %$%
+  expected %>% 
+  as_tibble() %>% 
+  pivot_longer(
+    cols = everything(),
+    names_to = "subject_matter",
+    values_to = "value"
+  ) %>% 
+  mutate(
+    five_or_greater =
+      if_else(
+        value >= 5,
+        TRUE,
+        FALSE
+      )
+  ) %>% 
+  group_by(five_or_greater) %>% 
+  count(name = "num_of_cells") %>% 
+  ungroup() %>% 
+  mutate(
+    perc_of_cells = (num_of_cells / sum(num_of_cells)) * 100
+  )
+
+subject_matter_chisq_expected_5_tbl %>% 
   kable("html")
 ```
 
-All cell have expected values greater or equal to 1.
+All cell have expected values greater or equal to 1. Only `r subject_matter_chisq_expected_5_tbl %>% filter(five_or_greater) %>% pull(perc_of_cells) %>% round(digits = 2)`% of cells have expected values greater or equal to 5.
 
 ```{r}
 subject_matter_chisq_simpv <-
@@ -282,7 +363,7 @@ subject_matter_chisq_simpv <-
 
 subject_matter_chisq_simpv
 
-subject_matter_chisq_simpv_expected_tbl <-
+subject_matter_chisq_simpv_expected_1_tbl <-
   subject_matter_chisq_simpv %$%
   expected %>% 
   as_tibble() %>% 
@@ -306,11 +387,38 @@ subject_matter_chisq_simpv_expected_tbl <-
     perc_of_cells = (num_of_cells / sum(num_of_cells)) * 100
   )
 
-subject_matter_chisq_simpv_expected_tbl %>% 
+subject_matter_chisq_simpv_expected_1_tbl %>% 
+  kable("html")
+
+subject_matter_chisq_simpv_expected_5_tbl <-
+  subject_matter_chisq_simpv %$%
+  expected %>% 
+  as_tibble() %>% 
+  pivot_longer(
+    cols = everything(),
+    names_to = "subject_matter",
+    values_to = "value"
+  ) %>% 
+  mutate(
+    five_or_greater =
+      if_else(
+        value >= 5,
+        TRUE,
+        FALSE
+      )
+  ) %>% 
+  group_by(five_or_greater) %>% 
+  count(name = "num_of_cells") %>% 
+  ungroup() %>% 
+  mutate(
+    perc_of_cells = (num_of_cells / sum(num_of_cells)) * 100
+  )
+
+subject_matter_chisq_simpv_expected_5_tbl %>% 
   kable("html")
 ```
 
-All cell have expected values greater or equal to 1.
+All cell have expected values greater or equal to 1. Only `r subject_matter_chisq_simpv_expected_5_tbl %>% filter(five_or_greater) %>% pull(perc_of_cells) %>% round(digits = 2)`% of cells have expected values greater or equal to 5.
 
 
 #### Results
@@ -318,13 +426,13 @@ All cell have expected values greater or equal to 1.
 The results of the first chi-square analysis are reported below. 
 
 $$
-\chi^2(`r subject_matter_chisq %$% parameter %>% extract("df")`,`r subject_matter_chisq %$% observed %>% sum()`) = `r subject_matter_chisq %$% statistic %>% round(digits = 2)` \text{, } `r if (subject_matter_chisq %$% p.value < 0.01) "p < .01" else paste("p =", subject_matter_chisq %$% p.value %>% round(digits = 2))`
+\chi^2(`r subject_matter_chisq %$% parameter %>% extract("df")`,`r subject_matter_chisq %$% observed %>% sum()`) = `r subject_matter_chisq %$% statistic %>% round(digits = 2)` \text{, } `r if (subject_matter_chisq %$% p.value < 0.001) "p < .001" else if (subject_matter_chisq %$% p.value < 0.01) "p < .01" else paste("p =", subject_matter_chisq %$% p.value %>% round(digits = 2))`
 $$
 
 However, `R` returned the warning `Chi-squared approximation may be incorrect`, due to the very sparse nature of the table. Thus, a second test was run with simulated p-value (`based on 2000 replicates`). The results are the same, as reported below.
 
 $$
-\chi^2(,`r subject_matter_chisq_simpv %$% observed %>% sum()`) = `r subject_matter_chisq_simpv %$% statistic %>% round(digits = 2)` \text{, } `r if (subject_matter_chisq_simpv %$% p.value < 0.01) "p < .01" else paste("p =", subject_matter_chisq_simpv %$% p.value %>% round(digits = 2))`
+\chi^2(,`r subject_matter_chisq_simpv %$% observed %>% sum()`) = `r subject_matter_chisq_simpv %$% statistic %>% round(digits = 2)` \text{, } `r if (subject_matter_chisq_simpv %$% p.value < 0.001) "p < .001" else if (subject_matter_chisq_simpv %$% p.value < 0.01) "p < .01" else paste("p =", subject_matter_chisq_simpv %$% p.value %>% round(digits = 2))`
 $$
 
 
