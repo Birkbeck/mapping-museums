@@ -1,11 +1,22 @@
-Mapping Museums - Data and code repository
+Mapping Museums - Data and Code for Analytics
 ========
 
 ### Abstract
 
-This repository contains R code and datasets used to generate statistics and visualisations for the Mapping Museums project.
+This repository contains R code and datasets used to generate statistics and visualisations for the following publications:
 
-### Project
+- Ballatore, A. and Candlin, F. (2023) A geography of UK museums. Transactions of the Institute of British Geographers
+- Candlin, F., Larkin, J., Ballatore, A., & Poulovassilis, A. (2020) The missing museums: accreditation, surveys, and an alternative account of the UK sector. Cultural Trends, 29(1), 50-67
+- F. Candlin, J. Larkin, A. Ballatore, and A. Poulovassilis (2020) Mapping Museums 1960–2020: A report on the data. London: Birkbeck, University of London.
+
+### Project repositories
+
+This is one of the repositories linked to the Mapping Museums project (http://mappingmuseums.org) at Birkbeck, University of London and King's College London:
+- Museum database: https://museweb.dcs.bbk.ac.uk/data
+- Web app source code: https://github.com/MappingMuseums/MappingMuseums-MMWebApp
+- Data and Code for Analytics (this repository): https://github.com/Birkbeck/mapping-museums
+
+### Project description
 
 Mapping Museums is a four year research project funded by the Arts and Humanities Research Council. It is based in the Department of History of Art and the Department of Computer Science and Information Systems at Birkbeck, University of London.
 
@@ -17,8 +28,6 @@ The research team:
 - investigated trends in the data through historical and interview-based research
 
 Other pages on the website provide detailed information about data collection, the software we developed, interview-based research, and findings. 
-
-URL: http://mappingmuseums.org
 
 ### Research team
 
@@ -32,16 +41,10 @@ URL: http://mappingmuseums.org
 - Dr Mark Liebenrood contributed to data validation, updating the dataset, and website development.
 - Dr Jake Watts conducted a wide range of historical, social, cultural, and economic research that informed the overall research analysis. 
 
-### Publications
-
-- Fiona Candlin, Jamie Larkin, Andrea Ballatore, and Alexandra Poulovassilis. ‘The Missing Museums: Accreditation, surveys, and an alternative account of the UK sector’, Cultural Trends 2019.
-- Fiona Candlin and Alexandra Poulovassilis. ‘Understanding and managing patchy data in the UK museum sector’, Museum Management and Curatorship 2019.
-- Alexandra Poulovassilis, Nick Larson, Fiona Candlin, Andrea Ballatore, and Jamie Larkin. ‘Creating a Knowledge Base to research the history of UK Museums through Rapid Application Development’, Journal of Computing and Cultural Heritage 2020.
-- Fiona Candlin and Jamie Larkin,‘What is a Museum? A new approach to definition’, Museums and Society 2020.
-- Andrea Ballatore and Fiona Candlin (2022) ‘A geography of UK museums’. Transactions of the Institute of British Geographers, 00, 1– 17.
+### Project publications
 
 See https://museweb.dcs.bbk.ac.uk/publications
 
 ### Maintainer
 
-[Andrea Ballatore](https://aballatore.space) © King's College London / Birkbeck, University of London
+[Andrea Ballatore](https://aballatore.space) © King's College London
