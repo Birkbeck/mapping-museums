@@ -16,6 +16,8 @@ This is one of the repositories linked to the Mapping Museums project (http://ma
 - Web app source code: https://github.com/MappingMuseums/MappingMuseums-MMWebApp
 - Data and Code for Analytics (this repository): https://github.com/Birkbeck/mapping-museums
 
+See also related project _Museum in the Pandemic_: https://github.com/Birkbeck/museums-in-the-pandemic
+
 ### Project description
 
 Mapping Museums is a four year research project funded by the Arts and Humanities Research Council. It is based in the Department of History of Art and the Department of Computer Science and Information Systems at Birkbeck, University of London.
