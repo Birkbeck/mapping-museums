@@ -9,7 +9,7 @@ This repository contains R code and datasets used to generate statistics and vis
 - Candlin, F., Larkin, J., Ballatore, A., & Poulovassilis, A. (2020) The missing museums: accreditation, surveys, and an alternative account of the UK sector. Cultural Trends, 29(1), 50-67
 - F. Candlin, J. Larkin, A. Ballatore, and A. Poulovassilis (2020) Mapping Museums 1960–2020: A report on the data. London: Birkbeck, University of London.
 
-## Project repositories
+## Project resources
 
 This is one of the repositories linked to the [Mapping Museums project](http://mappingmuseums.org) at Birkbeck, University of London and King's College London:
 - Museum database: https://museweb.dcs.bbk.ac.uk/data
