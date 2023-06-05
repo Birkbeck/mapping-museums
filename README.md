@@ -1,7 +1,7 @@
 Mapping Museums - Data and Code for Analytics
 ========
 
-### Abstract
+## Abstract
 
 This repository contains R code and datasets used to generate statistics and visualisations for the following publications:
 
@@ -9,7 +9,7 @@ This repository contains R code and datasets used to generate statistics and vis
 - Candlin, F., Larkin, J., Ballatore, A., & Poulovassilis, A. (2020) The missing museums: accreditation, surveys, and an alternative account of the UK sector. Cultural Trends, 29(1), 50-67
 - F. Candlin, J. Larkin, A. Ballatore, and A. Poulovassilis (2020) Mapping Museums 1960–2020: A report on the data. London: Birkbeck, University of London.
 
-### Project repositories
+## Project repositories
 
 This is one of the repositories linked to the Mapping Museums project (http://mappingmuseums.org) at Birkbeck, University of London and King's College London:
 - Museum database: https://museweb.dcs.bbk.ac.uk/data
@@ -18,7 +18,7 @@ This is one of the repositories linked to the Mapping Museums project (http://ma
 
 See also related project _Museum in the Pandemic_: https://github.com/Birkbeck/museums-in-the-pandemic
 
-### Project description
+## Project description
 
 Mapping Museums is a four year research project funded by the Arts and Humanities Research Council. It is based in the Department of History of Art and the Department of Computer Science and Information Systems at Birkbeck, University of London.
 
@@ -31,7 +31,7 @@ The research team:
 
 Other pages on the website provide detailed information about data collection, the software we developed, interview-based research, and findings. 
 
-### Research team
+## Research team
 
 - Prof Fiona Candlin had overall responsibility for co-ordinating and delivering the Mapping Museums project. She also led on developing new approaches to defining museums and a new subject classification system, and has worked closely with other team members on database and website development, and data collection.
 - Prof Alexandra Poulovassilis had overall responsibility for designing and developing the database, web application, and website. She also worked closely with Candlin on managing other aspects of the project.
@@ -43,10 +43,10 @@ Other pages on the website provide detailed information about data collection, t
 - Dr Mark Liebenrood contributed to data validation, updating the dataset, and website development.
 - Dr Jake Watts conducted a wide range of historical, social, cultural, and economic research that informed the overall research analysis. 
 
-### Project publications
+## Project publications
 
 See https://museweb.dcs.bbk.ac.uk/publications
 
-### Maintainer
+## Maintainer
 
 [Andrea Ballatore](https://aballatore.space) © King's College London
