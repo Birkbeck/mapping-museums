@@ -16,7 +16,7 @@ This is one of the repositories linked to the Mapping Museums project (http://ma
 - Web app source code: https://github.com/MappingMuseums/MappingMuseums-MMWebApp
 - Data and Code for Analytics (this repository): https://github.com/Birkbeck/mapping-museums
 
-See also related project _Museum in the Pandemic_: https://github.com/Birkbeck/museums-in-the-pandemic
+See also related AHRC project _Museums in the Pandemic_: https://github.com/Birkbeck/museums-in-the-pandemic
 
 ## Project description
 
