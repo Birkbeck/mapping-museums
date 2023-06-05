@@ -11,7 +11,7 @@ This repository contains R code and datasets used to generate statistics and vis
 
 ## Project repositories
 
-This is one of the repositories linked to the Mapping Museums project (http://mappingmuseums.org) at Birkbeck, University of London and King's College London:
+This is one of the repositories linked to the Mapping Museums project (http://mappingmuseums.org) at Birkbeck, University of London and King's College London (AHRC, 2016-2022):
 - Museum database: https://museweb.dcs.bbk.ac.uk/data
 - Web app source code: https://github.com/MappingMuseums/MappingMuseums-MMWebApp
 - Data and Code for Analytics (this repository): https://github.com/Birkbeck/mapping-museums
