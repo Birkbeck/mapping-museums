@@ -11,7 +11,7 @@ This repository contains R code and datasets used to generate statistics and vis
 
 ## Project repositories
 
-This is one of the repositories linked to the Mapping Museums project (http://mappingmuseums.org) at Birkbeck, University of London and King's College London (AHRC, 2016-2022):
+This is one of the repositories linked to the [Mapping Museums project](http://mappingmuseums.org) at Birkbeck, University of London and King's College London:
 - Museum database: https://museweb.dcs.bbk.ac.uk/data
 - Web app source code: https://github.com/MappingMuseums/MappingMuseums-MMWebApp
 - Data and Code for Analytics (this repository): https://github.com/Birkbeck/mapping-museums
@@ -20,7 +20,7 @@ See also related AHRC project _Museums in the Pandemic_: https://github.com/Birk
 
 ## Project description
 
-Mapping Museums is a four year research project funded by the Arts and Humanities Research Council. It is based in the Department of History of Art and the Department of Computer Science and Information Systems at Birkbeck, University of London.
+Mapping Museums is a four year research project funded by the Arts and Humanities Research Council (AHRC) ([funding link](https://gtr.ukri.org/projects?ref=AH%2FN007042%2F1)). It is based in the Department of History of Art and the Department of Computer Science and Information Systems at Birkbeck, University of London.
 
 The research team:
 - collected and validated data on over 4,000 museums
