@@ -5,8 +5,9 @@ Mapping Museums - Data and Code for Analytics
 
 This repository contains R code and datasets used to generate statistics and visualisations for the following publications:
 
-- Ballatore, A. and Candlin, F. (2023) A geography of UK museums. Transactions of the Institute of British Geographers
-- Candlin, F., Larkin, J., Ballatore, A., & Poulovassilis, A. (2020) The missing museums: accreditation, surveys, and an alternative account of the UK sector. Cultural Trends, 29(1), 50-67
+- Candlin, F. and Ballatore, A. and Larkin, J. and Poulovassilis, A. and Katerinchuk, V. and Liebenrood, M. (2023) The UK museum boom: continuity and change 1960-2019. __Cultural Trends__
+- Ballatore, A. and Candlin, F. (2023) A geography of UK museums. __Transactions of the Institute of British Geographers__
+- Candlin, F., Larkin, J., Ballatore, A., & Poulovassilis, A. (2020) The missing museums: accreditation, surveys, and an alternative account of the UK sector. __Cultural Trends__, 29(1), 50-67
 - F. Candlin, J. Larkin, A. Ballatore, and A. Poulovassilis (2020) Mapping Museums 1960–2020: A report on the data. London: Birkbeck, University of London.
 
 ## Project resources
